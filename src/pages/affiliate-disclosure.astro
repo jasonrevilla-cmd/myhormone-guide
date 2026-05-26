@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const breadcrumbs = [{ label: 'Affiliate Disclosure', href: '/affiliate-disclosure/' }];
+---
+
+<BaseLayout
+  title="Affiliate Disclosure — MyHormoneGuide"
+  description="MyHormoneGuide affiliate and sponsorship disclosure in compliance with FTC guidelines."
+  breadcrumbs={breadcrumbs}
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <h1 class="text-4xl font-bold text-navy-600 mb-4">Affiliate Disclosure</h1>
+    <p class="text-sm text-gray-400 mb-10">Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+
+    <div class="prose prose-lg max-w-none">
+      <div class="bg-navy-50 border border-navy-100 rounded-xl p-6 not-prose mb-8">
+        <p class="text-sm text-navy-700 leading-relaxed">
+          <strong>In plain English:</strong> Some links on this site may earn us a small commission if you click through and make a purchase or inquiry. This never affects our editorial opinions or the content we produce. We only recommend services we'd genuinely recommend to a family member.
+        </p>
+      </div>
+
+      <h2>FTC Disclosure</h2>
+      <p>
+        In accordance with the Federal Trade Commission's guidelines on endorsements and testimonials in advertising (16 C.F.R. Part 255), MyHormoneGuide discloses the following:
+      </p>
+      <p>
+        MyHormoneGuide participates in affiliate marketing programs. This means that when you click certain links on this site and complete a purchase, booking, or inquiry, we may receive a commission or referral fee from the company you transacted with. This compensation does not affect our editorial independence or the objectivity of our content.
+      </p>
+
+      <h2>What Types of Relationships We May Have</h2>
+      <ul>
+        <li><strong>Provider referral partnerships:</strong> Clicks or form submissions to certain BHRT clinics or telehealth providers may result in compensation to MyHormoneGuide.</li>
+        <li><strong>Sponsored content:</strong> Occasionally, companies may pay to produce educational content in partnership with MyHormoneGuide. Sponsored content is always clearly labeled as such at the top of the article.</li>
+        <li><strong>Affiliate product links:</strong> Links to supplements, books, or health tools may include affiliate tracking codes.</li>
+        <li><strong>Newsletter sponsorships:</strong> Our email newsletter may include paid placements from relevant health brands. These are labeled as sponsored.</li>
+      </ul>
+
+      <h2>Our Commitment</h2>
+      <p>
+        Commercial relationships never influence which topics we cover, what positions we take, or what information we include or omit. Our editorial team operates independently. If we have a material relationship with a company we mention in an article, we disclose it in that article.
+      </p>
+      <p>
+        We only enter affiliate or referral relationships with companies whose products and services we believe are genuinely useful to our audience. We have turned down partnerships that conflicted with our editorial standards.
+      </p>
+
+      <h2>Questions</h2>
+      <p>
+        If you have questions about specific partnerships or want to know whether a particular link is affiliated, email us at <strong>hello@myhormooneguide.com</strong>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

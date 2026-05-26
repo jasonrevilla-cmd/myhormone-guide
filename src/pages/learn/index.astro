@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import ClusterLayout from '../../layouts/ClusterLayout.astro';
+
+const allPosts = await getCollection('posts');
+const clusterPosts = allPosts.filter((p) =>
+  p.data.cluster === 'bhrt-fundamentals' ||
+  p.data.cluster === 'research-science' ||
+  p.data.cluster === 'lifestyle'
+);
+---
+
+<ClusterLayout
+  title="Learn About BHRT — Fundamentals, Research & Science"
+  description="Start here if you're new to BHRT. Evidence-based guides covering what bioidentical hormones are, how they work, the research behind them, and what the science actually says."
+  clusterSlug="learn"
+  clusterLabel="Learn"
+  intro="New to bioidentical hormone replacement therapy — or want to understand the science before talking to a provider? This section covers BHRT from the ground up: what it is, how it works, who it helps, and what the peer-reviewed research actually shows. Every article is written for patients, not clinicians."
+  posts={clusterPosts}
+  icon="fundamentals"
+/>

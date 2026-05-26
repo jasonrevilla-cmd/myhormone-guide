@@ -1,0 +1,234 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import TopicCard from '../components/TopicCard.astro';
+import EmailOptIn from '../components/EmailOptIn.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts');
+
+// Count posts per cluster
+const counts: Record<string, number> = {};
+for (const p of allPosts) {
+  counts[p.data.cluster] = (counts[p.data.cluster] ?? 0) + 1;
+}
+
+const recentPosts = [...allPosts]
+  .sort((a, b) => {
+    const da = a.data.publishDate instanceof Date ? a.data.publishDate : new Date(a.data.publishDate);
+    const db = b.data.publishDate instanceof Date ? b.data.publishDate : new Date(b.data.publishDate);
+    return db.getTime() - da.getTime();
+  })
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title="MyHormoneGuide — Patient Education for Bioidentical Hormone Therapy"
+  description="The most trusted patient education resource for Bioidentical Hormone Replacement Therapy. Evidence-based guides for women and men navigating hormone health."
+>
+  <!-- Hero -->
+  <HeroSection />
+
+  <!-- Featured cluster cards -->
+  <section class="py-16 bg-white" aria-labelledby="topics-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 id="topics-heading" class="text-3xl sm:text-4xl font-bold text-navy-600 mb-4">
+          Where Would You Like to Start?
+        </h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          Every guide is written to help you understand your options — not overwhelm you. Pick your entry point.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <TopicCard
+          title="BHRT Fundamentals"
+          description="New to BHRT? Start here. Plain-English explanations of what bioidentical hormones are, how they work, and who they help."
+          href="/bhrt-fundamentals/"
+          icon="fundamentals"
+          postCount={counts['bhrt-fundamentals']}
+        />
+        <TopicCard
+          title="Pellet Therapy"
+          description="Everything you need to know about hormone pellets — the procedure, timeline, costs, and how it compares to other methods."
+          href="/pellet-therapy/"
+          icon="pellet"
+          postCount={counts['pellet-therapy']}
+          accent="navy"
+        />
+        <TopicCard
+          title="For Women"
+          description="Perimenopause, menopause, low libido, weight gain, brain fog — BHRT solutions specifically for women 40–65."
+          href="/for-women/"
+          icon="women"
+          postCount={counts['for-women']}
+          accent="warm"
+        />
+        <TopicCard
+          title="For Men"
+          description="Low testosterone, andropause, muscle loss, mood changes — what men 45–65 need to know about hormone decline and BHRT."
+          href="/for-men/"
+          icon="men"
+          postCount={counts['for-men']}
+        />
+      </div>
+
+      <!-- Secondary cluster row -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        <TopicCard
+          title="Symptoms Guide"
+          description="Recognize the signs of hormone imbalance. Fatigue, brain fog, sleep problems, mood swings — could hormones be the root cause?"
+          href="/symptoms/"
+          icon="symptoms"
+          postCount={counts['symptoms']}
+          accent="warm"
+        />
+        <TopicCard
+          title="Find a Provider"
+          description="How to find a qualified BHRT provider near you. What credentials to look for, questions to ask, and red flags to avoid."
+          href="/find-bhrt-provider/"
+          icon="provider"
+          accent="navy"
+        />
+        <TopicCard
+          title="Research & Science"
+          description="The studies behind BHRT. Safety data, cancer risk research, and what mainstream medicine gets right — and wrong."
+          href="/bhrt-fundamentals/"
+          icon="research"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Free tools section -->
+  <section class="py-16 bg-navy-50" aria-labelledby="tools-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 id="tools-heading" class="text-3xl sm:text-4xl font-bold text-navy-600 mb-4">
+          Free Interactive Tools
+        </h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          Not sure where you stand? These tools help you understand your symptoms, estimate costs, and find the right provider.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Symptom Checker -->
+        <a href="/tools/hormone-symptom-checker/" class="group block bg-white rounded-2xl border border-navy-100 hover:border-teal-300 hover:shadow-lg p-7 transition-all duration-200 tool-card">
+          <div class="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-teal-100 transition-colors">
+            <svg class="w-7 h-7 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-navy-700 group-hover:text-teal-600 mb-2 transition-colors">
+            Hormone Symptom Checker
+          </h3>
+          <p class="text-sm text-gray-500 leading-relaxed mb-4">
+            Answer 8 quick questions about your symptoms and get a personalized assessment of whether hormone imbalance may be a factor.
+          </p>
+          <span class="inline-flex items-center text-sm font-semibold text-teal-500 group-hover:translate-x-1 transition-transform">
+            Take the Quiz →
+          </span>
+        </a>
+
+        <!-- Cost Estimator -->
+        <a href="/tools/cost-estimator/" class="group block bg-white rounded-2xl border border-navy-100 hover:border-teal-300 hover:shadow-lg p-7 transition-all duration-200 tool-card">
+          <div class="w-14 h-14 bg-navy-50 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-navy-100 transition-colors">
+            <svg class="w-7 h-7 text-navy-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-navy-700 group-hover:text-teal-600 mb-2 transition-colors">
+            BHRT Cost Estimator
+          </h3>
+          <p class="text-sm text-gray-500 leading-relaxed mb-4">
+            Get a realistic cost estimate for BHRT in your state. Covers pellet therapy, creams, and injections so you can plan your budget.
+          </p>
+          <span class="inline-flex items-center text-sm font-semibold text-teal-500 group-hover:translate-x-1 transition-transform">
+            Estimate My Cost →
+          </span>
+        </a>
+
+        <!-- Provider Finder -->
+        <a href="/tools/provider-finder/" class="group block bg-white rounded-2xl border border-navy-100 hover:border-teal-300 hover:shadow-lg p-7 transition-all duration-200 tool-card">
+          <div class="w-14 h-14 bg-warm-50 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-warm-100 transition-colors">
+            <svg class="w-7 h-7 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-navy-700 group-hover:text-teal-600 mb-2 transition-colors">
+            Provider Finder
+          </h3>
+          <p class="text-sm text-gray-500 leading-relaxed mb-4">
+            Find qualified BHRT providers in your area. Browse our curated directory of clinics that specialize in hormone optimization.
+          </p>
+          <span class="inline-flex items-center text-sm font-semibold text-teal-500 group-hover:translate-x-1 transition-transform">
+            Find Providers →
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent posts (only shown when posts exist) -->
+  {recentPosts.length > 0 && (
+    <section class="py-16 bg-white" aria-labelledby="recent-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-10">
+          <h2 id="recent-heading" class="text-3xl font-bold text-navy-600">Latest Articles</h2>
+          <a href="/bhrt-fundamentals/" class="text-teal-500 hover:text-teal-600 font-medium text-sm">View all →</a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {recentPosts.map((post) => {
+            const pubDate = post.data.publishDate instanceof Date
+              ? post.data.publishDate
+              : new Date(post.data.publishDate);
+            return (
+              <a href={`/${post.slug}/`} class="group block bg-white rounded-2xl border border-navy-100 hover:border-teal-300 hover:shadow-md p-6 transition-all">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="text-xs font-medium text-teal-600 bg-teal-50 px-2 py-0.5 rounded-full capitalize">
+                    {post.data.cluster.replace(/-/g, ' ')}
+                  </span>
+                  {post.data.readingTime && (
+                    <span class="text-xs text-gray-400">{post.data.readingTime} min</span>
+                  )}
+                </div>
+                <h3 class="font-semibold text-navy-700 group-hover:text-teal-600 mb-2 leading-snug transition-colors">
+                  {post.data.title}
+                </h3>
+                <p class="text-sm text-gray-500 leading-relaxed line-clamp-2">
+                  {post.data.description}
+                </p>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Email opt-in -->
+  <EmailOptIn variant="section" />
+
+  <!-- Trust bar -->
+  <section class="py-12 bg-navy-50 border-t border-navy-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+        <div>
+          <div class="text-3xl font-bold text-navy-600 mb-1">200+</div>
+          <div class="text-sm text-gray-500">Articles planned across 10 topic clusters</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-navy-600 mb-1">100%</div>
+          <div class="text-sm text-gray-500">Independent — not sponsored by any clinic or manufacturer</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-navy-600 mb-1">Free</div>
+          <div class="text-sm text-gray-500">All education, tools, and resources are free for patients</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

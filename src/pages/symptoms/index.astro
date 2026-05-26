@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import ClusterLayout from '../../layouts/ClusterLayout.astro';
+
+const allPosts = await getCollection('posts');
+const clusterPosts = allPosts.filter((p) => p.data.cluster === 'hormone-imbalance-symptoms');
+---
+
+<ClusterLayout
+  title="Hormone Imbalance Symptoms — Signs, Causes & BHRT Solutions"
+  description="Recognize the signs of hormone imbalance. From fatigue and brain fog to hot flashes and low libido — learn what your body is telling you and how BHRT can help."
+  clusterSlug="symptoms"
+  clusterLabel="Symptoms Guide"
+  intro="Your symptoms are real — even if your doctor hasn't connected them to hormones. This guide covers the most common signs of hormone imbalance in women and men, what's happening in your body, and how bioidentical hormone replacement therapy can help restore balance and quality of life."
+  posts={clusterPosts}
+  icon="symptoms"
+/>

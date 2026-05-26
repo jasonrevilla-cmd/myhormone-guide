@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import ClusterLayout from '../../layouts/ClusterLayout.astro';
+
+const allPosts = await getCollection('posts');
+const clusterPosts = allPosts.filter((p) => p.data.cluster === 'pellet-therapy');
+---
+
+<ClusterLayout
+  title="Hormone Pellet Therapy — Complete Patient Guide"
+  description="Everything you need to know about hormone pellet therapy: how it works, what to expect, costs, side effects, and how it compares to other BHRT delivery methods."
+  clusterSlug="pellet-therapy"
+  clusterLabel="Pellet Therapy"
+  intro="Hormone pellet therapy is one of the fastest-growing BHRT delivery methods — and one of the most misunderstood. This guide covers the science behind pellets, what the insertion procedure actually involves, realistic timelines, cost expectations, and honest comparisons to creams, patches, and injections."
+  posts={clusterPosts}
+  icon="pellet"
+/>

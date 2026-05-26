@@ -1,0 +1,115 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  comparison: CollectionEntry<'compare'>;
+}
+
+const { comparison } = Astro.props;
+const { title, description, publishDate, subjects } = comparison.data;
+
+const breadcrumbs = [
+  { label: 'Comparisons', href: '/compare/' },
+  { label: title, href: `/compare/${comparison.slug}/` },
+];
+
+const pubDateISO = publishDate instanceof Date
+  ? publishDate.toISOString()
+  : new Date(publishDate).toISOString();
+
+const pubDateDisplay = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric', month: 'long', day: 'numeric',
+}).format(publishDate instanceof Date ? publishDate : new Date(publishDate));
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `https://myhormooneguide.com/compare/${comparison.slug}/`,
+  headline: title,
+  description,
+  datePublished: pubDateISO,
+  author: {
+    '@type': 'Organization',
+    name: 'MyHormoneGuide Editorial Team',
+  },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  breadcrumbs={breadcrumbs}
+  ogType="article"
+  publishDate={pubDateISO}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  </Fragment>
+
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+    <!-- Header -->
+    <header class="mb-10">
+      <div class="flex items-center gap-2 mb-5">
+        <span class="inline-flex items-center gap-1.5 bg-navy-50 text-navy-600 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">
+          <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+          </svg>
+          Comparison
+        </span>
+        <time datetime={pubDateISO} class="text-sm text-gray-400">{pubDateDisplay}</time>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-600 leading-tight mb-5">{title}</h1>
+      <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mb-6">{description}</p>
+
+      <!-- Subjects being compared — visual pills -->
+      {subjects && subjects.length > 0 && (
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-sm text-gray-400 font-medium">Comparing:</span>
+          {subjects.map((subject, i) => (
+            <>
+              <span class="inline-flex items-center bg-teal-50 text-teal-700 text-sm font-medium px-3 py-1 rounded-full border border-teal-200">
+                {subject}
+              </span>
+              {i < subjects.length - 1 && (
+                <span class="text-gray-300 text-sm">vs.</span>
+              )}
+            </>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <!-- Comparison body -->
+    <div class="prose prose-lg max-w-none
+      prose-headings:font-bold
+      prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:pb-2 prose-h2:border-b prose-h2:border-navy-100
+      prose-h3:text-xl prose-h3:mt-8
+      prose-table:text-sm prose-table:border prose-table:border-collapse
+      prose-th:bg-navy-600 prose-th:text-white prose-th:px-4 prose-th:py-2
+      prose-td:border prose-td:border-navy-100 prose-td:px-4 prose-td:py-2
+    ">
+      <slot />
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="mt-14 bg-teal-50 border border-teal-200 rounded-2xl p-8 text-center">
+      <h2 class="text-xl font-bold text-navy-700 mb-3">Ready to take the next step?</h2>
+      <p class="text-gray-600 mb-6 max-w-lg mx-auto">Use our free tools to check your symptoms, estimate costs, and find a qualified BHRT provider near you.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/tools/hormone-symptom-checker/" class="inline-flex items-center justify-center gap-2 bg-teal-400 hover:bg-teal-500 text-white font-semibold px-6 py-3 rounded-full transition-colors">
+          Check My Symptoms
+        </a>
+        <a href="/find-bhrt-provider/" class="inline-flex items-center justify-center gap-2 border-2 border-navy-600 text-navy-600 hover:bg-navy-50 font-semibold px-6 py-3 rounded-full transition-colors">
+          Find a Provider
+        </a>
+      </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <p class="text-sm text-gray-400 italic mt-8 pt-6 border-t border-gray-100">
+      <strong class="not-italic text-gray-500">Medical Disclaimer:</strong> The content on this site is for educational purposes only and is not intended as medical advice. Always consult a qualified healthcare provider before starting, changing, or stopping any hormone therapy. Individual results vary.
+    </p>
+  </article>
+</BaseLayout>

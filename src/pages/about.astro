@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const breadcrumbs = [{ label: 'About', href: '/about/' }];
+---
+
+<BaseLayout
+  title="About MyHormoneGuide — Our Mission, Standards & Editorial Team"
+  description="MyHormoneGuide is an independent patient education site dedicated to clear, evidence-based information about bioidentical hormone replacement therapy."
+  breadcrumbs={breadcrumbs}
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <h1 class="text-4xl font-bold text-navy-600 mb-4">About MyHormoneGuide</h1>
+    <p class="text-xl text-gray-500 mb-10 leading-relaxed">
+      We built this site because we were tired of watching people suffer through symptoms that have solutions — and we wanted to give them the information they needed to ask better questions and find better care.
+    </p>
+
+    <div class="prose prose-lg max-w-none">
+      <h2>Our Mission</h2>
+      <p>
+        MyHormoneGuide exists to be the most comprehensive, trustworthy, and empathetic patient education resource for Bioidentical Hormone Replacement Therapy on the internet. We serve women 40–65 navigating perimenopause and menopause, and men 45–65 experiencing hormone decline — two audiences that have historically been underserved by conventional medicine.
+      </p>
+      <p>
+        Our goal is not to push you toward any specific treatment, clinic, or product. Our goal is to make sure that when you sit down with a healthcare provider, you know what questions to ask — and you can recognize a good answer from a bad one.
+      </p>
+
+      <h2>How We Approach Content</h2>
+      <p>
+        Every article on MyHormoneGuide is built on the following principles:
+      </p>
+      <ul>
+        <li><strong>Evidence-first.</strong> We cite published research, established medical consensus, and recognized clinical guidelines. We don't cite fabricated studies or cherry-pick data to support a predetermined conclusion.</li>
+        <li><strong>Patient-focused language.</strong> We explain medical concepts in plain English without dumbing them down. If we use a clinical term, we define it.</li>
+        <li><strong>Honest about uncertainty.</strong> BHRT exists in an area of genuine scientific debate. We present multiple perspectives where they exist, and we clearly label what is established vs. what is emerging or contested.</li>
+        <li><strong>No prescriptive recommendations.</strong> We frame everything as education, not medical advice. We will never tell you that a specific treatment is right for you — only a qualified provider who knows your full health picture can do that.</li>
+      </ul>
+
+      <h2>Editorial Independence</h2>
+      <p>
+        MyHormoneGuide is independently operated. We are not owned by, affiliated with, or funded by any hormone therapy manufacturer, compounding pharmacy, or clinic network. Our editorial decisions are made entirely by our editorial team without external influence.
+      </p>
+      <p>
+        Some articles may contain affiliate links or sponsored content. When they do, this is clearly disclosed in accordance with FTC guidelines. See our <a href="/affiliate-disclosure/">Affiliate Disclosure</a> for complete details.
+      </p>
+
+      <h2>Our Editorial Team</h2>
+      <p>
+        Content on MyHormoneGuide is reviewed for medical accuracy before publication. Our team includes healthcare practitioners with expertise in integrative medicine, hormone therapy, and women's health. Specific author credentials are listed on individual articles.
+      </p>
+      <p>
+        If you notice an error, outdated information, or a missing citation, please contact us. We take accuracy seriously and will update content promptly when warranted.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For editorial questions, corrections, provider directory inquiries, or sponsorship information, contact us at: <strong>hello@myhormooneguide.com</strong>
+        {/* TODO: Replace with your actual contact email */}
+      </p>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,51 @@
+name: Daily Blog Post
+
+on:
+  schedule:
+    # 8:00 AM CST = 14:00 UTC
+    - cron: "0 14 * * *"
+  workflow_dispatch: # manual trigger for testing
+
+jobs:
+  generate-post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # required for git push
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate today's post
+        run: node generate-post.js
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Check if new post was created
+        id: check-changes
+        run: |
+          git diff --staged --quiet && git diff --quiet && echo "no_changes=true" >> $GITHUB_OUTPUT || echo "no_changes=false" >> $GITHUB_OUTPUT
+
+      - name: Commit new post
+        if: steps.check-changes.outputs.no_changes != 'true'
+        run: |
+          git config user.name "BHRT Bot"
+          git config user.email "bot@bhrtresource.com"
+          git add src/content/posts/ topics.json
+          git diff --staged --quiet || git commit -m "auto-post: $(date +%Y-%m-%d)"
+          git push
+
+      - name: No changes to commit
+        if: steps.check-changes.outputs.no_changes == 'true'
+        run: echo "No new post generated (queue may be empty or QC failed)."

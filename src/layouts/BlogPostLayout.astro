@@ -1,0 +1,194 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import MedicalDisclaimer from '../components/MedicalDisclaimer.astro';
+import EmailOptIn from '../components/EmailOptIn.astro';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { title, description, publishDate, cluster, readingTime, faqs } = post.data;
+
+// Breadcrumb: Home > Cluster Hub > Post Title
+const clusterLabels: Record<string, string> = {
+  'bhrt-fundamentals': 'BHRT Fundamentals',
+  'pellet-therapy': 'Pellet Therapy',
+  'symptoms': 'Symptoms Guide',
+  'for-women': "Women's Health",
+  'for-men': "Men's Health",
+  'finding-providers': 'Find a Provider',
+  'costs-insurance': 'Costs & Insurance',
+  'research-science': 'Research & Science',
+  'lifestyle': 'Lifestyle & Optimization',
+  'delivery-methods': 'Delivery Methods',
+};
+
+const clusterLabel = clusterLabels[cluster] ?? cluster;
+const clusterHref = `/${cluster}/`;
+
+const breadcrumbs = [
+  { label: clusterLabel, href: clusterHref },
+  { label: title, href: `/${post.slug}/` },
+];
+
+const pubDateISO = publishDate instanceof Date
+  ? publishDate.toISOString()
+  : new Date(publishDate).toISOString();
+
+const pubDateDisplay = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric', month: 'long', day: 'numeric',
+}).format(publishDate instanceof Date ? publishDate : new Date(publishDate));
+
+const readTime = readingTime ?? 8;
+
+// Article JSON-LD
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: pubDateISO,
+  dateModified: pubDateISO,
+  author: {
+    '@type': 'Organization',
+    name: 'MyHormoneGuide Editorial Team',
+    url: 'https://myhormooneguide.com/about/',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'MyHormoneGuide',
+    url: 'https://myhormooneguide.com',
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `https://myhormooneguide.com/${post.slug}/`,
+  },
+};
+
+// FAQPage JSON-LD — only rendered when faqs frontmatter array is present
+const faqSchema = faqs && faqs.length > 0
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    }
+  : null;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  breadcrumbs={breadcrumbs}
+  ogType="article"
+  publishDate={pubDateISO}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    {faqSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    )}
+  </Fragment>
+
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+    <!-- Post header -->
+    <header class="mb-10">
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <!-- Cluster badge -->
+        <a
+          href={clusterHref}
+          class="inline-flex items-center gap-1.5 bg-teal-50 text-teal-700 hover:bg-teal-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide transition-colors"
+        >
+          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+          </svg>
+          {clusterLabel}
+        </a>
+
+        <!-- Reading time -->
+        <span class="reading-time-badge">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          {readTime} min read
+        </span>
+
+        <!-- Publish date -->
+        <time datetime={pubDateISO} class="text-sm text-gray-400">{pubDateDisplay}</time>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-600 leading-tight mb-4">
+        {title}
+      </h1>
+
+      <p class="text-lg text-gray-500 leading-relaxed max-w-2xl">{description}</p>
+    </header>
+
+    <!-- Medical disclaimer banner at top -->
+    <MedicalDisclaimer variant="banner" />
+
+    <!-- Article body — Tailwind Typography prose -->
+    <div class="prose prose-lg max-w-none mt-10
+      prose-headings:font-bold
+      prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:pb-2 prose-h2:border-b prose-h2:border-navy-100
+      prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+      prose-p:leading-relaxed
+      prose-li:leading-relaxed
+      prose-table:text-sm
+      prose-th:bg-navy-50 prose-th:text-navy-700
+      prose-strong:text-navy-700
+    ">
+      <slot />
+    </div>
+
+    <!-- Inline newsletter opt-in -->
+    <EmailOptIn variant="inline" />
+
+    <!-- Medical disclaimer footer -->
+    <MedicalDisclaimer variant="inline" />
+
+    <!-- Post footer nav -->
+    <nav class="mt-10 pt-8 border-t border-gray-100 flex items-center justify-between gap-4">
+      <a href={clusterHref} class="inline-flex items-center gap-2 text-sm text-teal-600 hover:text-teal-500 font-medium">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back to {clusterLabel}
+      </a>
+      <a href="/find-bhrt-provider/" class="inline-flex items-center gap-2 text-sm bg-navy-600 hover:bg-navy-700 text-white font-semibold px-5 py-2 rounded-full transition-colors">
+        Find a Provider
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </nav>
+  </article>
+</BaseLayout>
+
+<style>
+  /* FAQ section within MDX prose — distinct visual treatment */
+  :global(.prose h2:has(+ h3)) {
+    /* targets the FAQ heading when followed directly by H3s */
+  }
+
+  /* Override prose for FAQ section container — added by generate-post.js MDX */
+  :global(.faq-wrapper) {
+    background: linear-gradient(135deg, #EEF2F7 0%, #E8F7F6 100%);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-top: 3rem !important;
+  }
+  :global(.faq-wrapper h2) {
+    margin-top: 0 !important;
+    border-bottom: 2px solid #2A9D8F;
+    padding-bottom: 0.75rem;
+  }
+</style>

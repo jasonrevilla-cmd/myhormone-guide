@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import ClusterLayout from '../../layouts/ClusterLayout.astro';
+
+const allPosts = await getCollection('posts');
+const clusterPosts = allPosts.filter((p) => p.data.cluster === 'womens-health');
+---
+
+<ClusterLayout
+  title="BHRT for Women — Perimenopause, Menopause & Hormone Health"
+  description="A woman's complete guide to bioidentical hormone therapy. Covers estrogen, progesterone, and testosterone for women navigating perimenopause, menopause, and beyond."
+  clusterSlug="for-women"
+  clusterLabel="For Women"
+  intro="Millions of women suffer through perimenopause and menopause symptoms unnecessarily — often because conventional medicine under-treats them. This guide is for women who want to understand their hormones, know their options, and take control of how they feel. Everything from hormone testing to BHRT delivery methods, written with women 40–65 specifically in mind."
+  posts={clusterPosts}
+  icon="women"
+/>

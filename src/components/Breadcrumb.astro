@@ -1,0 +1,63 @@
+---
+interface BreadcrumbItem {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class="bg-navy-50 border-b border-navy-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+    <ol class="flex flex-wrap items-center gap-1 text-sm" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a
+          href="/"
+          itemprop="item"
+          class="text-navy-400 hover:text-teal-500 transition-colors flex items-center gap-1"
+        >
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+          </svg>
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </li>
+
+      {items.map((item, index) => (
+        <li
+          class="flex items-center gap-1"
+          itemprop="itemListElement"
+          itemscope
+          itemtype="https://schema.org/ListItem"
+        >
+          <svg class="w-3.5 h-3.5 text-navy-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+          {index === items.length - 1 ? (
+            <span
+              itemprop="name"
+              class="text-navy-600 font-medium truncate max-w-[200px] sm:max-w-xs"
+              aria-current="page"
+            >
+              {item.label}
+            </span>
+          ) : (
+            <a
+              href={item.href}
+              itemprop="item"
+              class="text-navy-400 hover:text-teal-500 transition-colors truncate max-w-[150px]"
+            >
+              <span itemprop="name">{item.label}</span>
+            </a>
+          )}
+          <meta itemprop="position" content={String(index + 2)} />
+        </li>
+      ))}
+    </ol>
+  </div>
+</nav>

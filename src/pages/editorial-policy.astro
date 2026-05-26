@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const breadcrumbs = [{ label: 'Editorial Policy', href: '/editorial-policy/' }];
+---
+
+<BaseLayout
+  title="Editorial Policy — MyHormoneGuide"
+  description="How MyHormoneGuide selects, writes, reviews, and updates content. Our commitment to accuracy, independence, and E-E-A-T standards."
+  breadcrumbs={breadcrumbs}
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <h1 class="text-4xl font-bold text-navy-600 mb-4">Editorial Policy</h1>
+    <p class="text-sm text-gray-400 mb-10">Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+
+    <div class="prose prose-lg max-w-none">
+      <h2>How We Select Topics</h2>
+      <p>
+        Topics are selected based on patient search behavior, gaps in available patient-facing information, and clinical relevance to our audience. We prioritize questions that real patients are asking that aren't being answered clearly by existing resources.
+      </p>
+      <p>
+        We do not accept payment to write about specific topics. Sponsored content is always clearly labeled.
+      </p>
+
+      <h2>How Content Is Written</h2>
+      <p>
+        All content is written with the following standards:
+      </p>
+      <ul>
+        <li>Primary sources are preferred: published studies, clinical guidelines, and statements from recognized medical organizations (Endocrine Society, NAMS, etc.).</li>
+        <li>Claims are attributed to their source. We distinguish between established consensus, emerging research, and contested areas.</li>
+        <li>Language is patient-appropriate: clear, warm, and free of unnecessary jargon.</li>
+        <li>Medical recommendations are avoided. We educate; we do not prescribe.</li>
+      </ul>
+
+      <h2>Medical Review Process</h2>
+      <p>
+        Articles that make specific clinical claims are reviewed by a healthcare practitioner with relevant expertise before publication. Reviewer credentials are disclosed on the article.
+      </p>
+
+      <h2>Updates and Corrections</h2>
+      <p>
+        Medical information changes. We review content regularly and update articles when new research or clinical guidelines warrant it. Update dates are reflected in article metadata.
+      </p>
+      <p>
+        If you identify an error or outdated information, please email us at <strong>hello@myhormooneguide.com</strong>. We take accuracy seriously and respond to correction requests promptly.
+      </p>
+
+      <h2>Independence</h2>
+      <p>
+        Our editorial team operates independently of our advertising and partnership functions. Advertisers, sponsors, and affiliate partners have no influence over editorial decisions, topic selection, or content.
+      </p>
+
+      <h2>AI-Assisted Content</h2>
+      <p>
+        Some content on MyHormoneGuide is produced with AI writing assistance. All AI-assisted content is reviewed, edited, and fact-checked by a human editor before publication. We use AI as a drafting tool, not as a replacement for editorial judgment or medical review.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

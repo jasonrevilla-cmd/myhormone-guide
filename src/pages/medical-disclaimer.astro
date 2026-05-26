@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const breadcrumbs = [{ label: 'Medical Disclaimer', href: '/medical-disclaimer/' }];
+---
+
+<BaseLayout
+  title="Medical Disclaimer — MyHormoneGuide"
+  description="Full medical disclaimer for MyHormoneGuide. Educational content only — not intended as medical advice. Always consult a qualified healthcare provider."
+  breadcrumbs={breadcrumbs}
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <h1 class="text-4xl font-bold text-navy-600 mb-4">Medical Disclaimer</h1>
+    <p class="text-sm text-gray-400 mb-10">Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+
+    <div class="prose prose-lg max-w-none">
+      <div class="bg-warm-50 border border-warm-200 rounded-xl p-6 not-prose mb-8">
+        <p class="font-semibold text-navy-700 mb-2">The short version:</p>
+        <p class="text-gray-600 leading-relaxed">
+          The content on MyHormoneGuide is for educational purposes only and is not intended as medical advice.
+          Always consult a qualified healthcare provider before starting, changing, or stopping any hormone therapy.
+          Individual results vary.
+        </p>
+      </div>
+
+      <h2>Educational Purpose Only</h2>
+      <p>
+        All content published on MyHormoneGuide (myhormooneguide.com), including articles, guides, tools, quizzes, and newsletter content, is provided for general informational and educational purposes only. Nothing on this site constitutes medical advice, diagnosis, treatment, or a recommendation to pursue any specific course of action.
+      </p>
+
+      <h2>Not a Substitute for Professional Medical Advice</h2>
+      <p>
+        The information provided on this site is not intended to replace consultation with a qualified healthcare provider. Always seek the advice of your physician, endocrinologist, OB/GYN, or other licensed healthcare professional with any questions you may have regarding hormone therapy or any medical condition.
+      </p>
+      <p>
+        Never disregard professional medical advice or delay in seeking it because of something you have read on this site.
+      </p>
+
+      <h2>Individual Results Vary</h2>
+      <p>
+        Patient testimonials, success stories, and symptom improvements described on this site represent individual experiences. They do not guarantee, promise, or predict results for any other individual. Hormone therapy outcomes depend on many factors including age, health status, genetics, lifestyle, and the quality of care provided.
+      </p>
+
+      <h2>No Provider-Patient Relationship</h2>
+      <p>
+        Using this site, filling out a quiz, submitting your email, or contacting us does not create a provider-patient relationship. MyHormoneGuide does not employ licensed healthcare providers, does not prescribe medications, and does not provide individualized medical recommendations.
+      </p>
+
+      <h2>Research Citations</h2>
+      <p>
+        Where we cite research studies or clinical guidelines, we endeavor to accurately represent published findings. However, medical research is ongoing and subject to revision. Citations are provided for reference and should not be interpreted as an endorsement of any particular treatment approach.
+      </p>
+
+      <h2>Questions?</h2>
+      <p>
+        If you have questions about this disclaimer, contact us at <strong>hello@myhormooneguide.com</strong>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

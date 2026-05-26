@@ -1,0 +1,360 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const breadcrumbs = [
+  { label: 'Tools', href: '/tools/' },
+  { label: 'Hormone Symptom Checker', href: '/tools/hormone-symptom-checker/' },
+];
+
+const questions = [
+  {
+    id: 'q1',
+    text: 'How often do you experience hot flashes or night sweats?',
+    options: ['Never or rarely', 'A few times a week', 'Most days', 'Daily and disruptive'],
+  },
+  {
+    id: 'q2',
+    text: 'How would you rate your energy levels on a typical day?',
+    options: ['Good — I feel energized', 'Slightly lower than I\'d like', 'Noticeably low', 'Exhausted regardless of sleep'],
+  },
+  {
+    id: 'q3',
+    text: 'How is your sleep quality?',
+    options: ['Good — I fall and stay asleep', 'Occasionally disrupted', 'Trouble most nights', 'Severe insomnia or frequent waking'],
+  },
+  {
+    id: 'q4',
+    text: 'Have you noticed brain fog, forgetfulness, or difficulty concentrating?',
+    options: ['No changes', 'Mild and occasional', 'Moderate and noticeable', 'Significant — affecting my work or daily life'],
+  },
+  {
+    id: 'q5',
+    text: 'How would you describe your mood lately?',
+    options: ['Stable and balanced', 'Occasional irritability or anxiety', 'Mood swings several times a week', 'Significant mood changes, depression, or anxiety'],
+  },
+  {
+    id: 'q6',
+    text: 'Have you gained weight, especially around your midsection, without major lifestyle changes?',
+    options: ['No noticeable change', 'Slight increase', 'Noticeable gain', 'Significant gain despite diet and exercise'],
+  },
+  {
+    id: 'q7',
+    text: 'Has your interest in sex decreased compared to earlier in your life?',
+    options: ['No change', 'Slightly lower', 'Noticeably reduced', 'Very low or absent'],
+  },
+  {
+    id: 'q8',
+    text: 'Do you experience joint pain, muscle aches, or general body stiffness?',
+    options: ['No', 'Occasionally', 'Often, especially in the morning', 'Daily and limiting'],
+  },
+];
+---
+
+<BaseLayout
+  title="Free Hormone Symptom Checker — Could It Be Hormonal?"
+  description="Answer 8 questions about your symptoms and get a personalized assessment of whether hormone imbalance may be a factor. Free, private, and takes under 3 minutes."
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Header -->
+  <div class="bg-gradient-to-br from-navy-600 to-navy-700 py-12">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex p-3 bg-teal-400/20 rounded-xl mb-4">
+        <svg class="w-7 h-7 text-teal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+        </svg>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-4">Hormone Symptom Checker</h1>
+      <p class="text-navy-100 text-lg leading-relaxed">
+        Answer 8 questions to see how your symptoms align with common hormone imbalance patterns.
+        Takes under 3 minutes. Free and private.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Quiz container -->
+    <div id="quiz-container">
+      <!-- Progress bar -->
+      <div class="flex items-center justify-between mb-3">
+        <span id="progress-label" class="text-sm text-navy-500 font-medium">Question 1 of 8</span>
+        <span id="progress-pct" class="text-sm text-gray-400">0% complete</span>
+      </div>
+      <div class="w-full bg-navy-100 rounded-full h-2 mb-8">
+        <div id="progress-bar" class="bg-teal-400 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+      </div>
+
+      <!-- Questions (one at a time) -->
+      {questions.map((q, qi) => (
+        <div
+          id={`question-${qi}`}
+          class:list={['quiz-question', qi === 0 ? 'block' : 'hidden']}
+          data-index={qi}
+        >
+          <h2 class="text-xl font-semibold text-navy-700 mb-6 leading-snug">
+            {q.text}
+          </h2>
+          <div class="space-y-3">
+            {q.options.map((option, oi) => (
+              <button
+                type="button"
+                class="quiz-option w-full text-left px-5 py-4 rounded-xl border-2 border-navy-100 bg-white hover:border-teal-300 hover:bg-teal-50 transition-all text-navy-700 font-medium text-sm focus:outline-none focus:border-teal-400"
+                data-question={qi}
+                data-score={oi}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Results (hidden until quiz complete) -->
+    <div id="quiz-results" class="hidden">
+      <div id="result-card" class="rounded-2xl border-2 p-8 mb-8">
+        <div class="flex items-start gap-4">
+          <div id="result-icon" class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 text-2xl font-bold"></div>
+          <div>
+            <h2 id="result-title" class="text-2xl font-bold text-navy-700 mb-2"></h2>
+            <p id="result-desc" class="text-gray-600 leading-relaxed mb-4"></p>
+            <p class="text-xs text-gray-400 italic">
+              This assessment is not a medical diagnosis. It's an educational tool to help you have a more informed conversation with your healthcare provider.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Score breakdown -->
+      <div class="mb-8">
+        <h3 class="font-semibold text-navy-600 mb-4">Your Symptom Profile</h3>
+        <div id="score-breakdown" class="grid grid-cols-2 gap-3"></div>
+      </div>
+
+      <!-- Next steps -->
+      <div id="result-cta" class="bg-navy-50 rounded-2xl p-6 mb-8">
+        <h3 class="font-semibold text-navy-700 mb-3">Recommended Next Steps</h3>
+        <div id="result-steps" class="space-y-3"></div>
+      </div>
+
+      <!-- Email capture -->
+      <div class="bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl p-7 text-center">
+        <h3 class="text-xl font-bold text-white mb-2">Save Your Results + Get the Free Hormone Checklist</h3>
+        <p class="text-teal-50 text-sm mb-4">Enter your email and we'll send your personalized results plus our free PDF Hormone Symptom Checklist.</p>
+        <!--
+          BEEHIIV EMBED: Replace below with your actual Beehiiv subscribe embed
+          or wire up to your email provider's API endpoint.
+        -->
+        <form id="results-email-form" class="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto">
+          <input
+            type="email"
+            id="results-email"
+            placeholder="your@email.com"
+            required
+            class="flex-1 px-4 py-2.5 rounded-full text-sm border-none focus:outline-none focus:ring-2 focus:ring-white text-gray-700"
+          />
+          <button
+            type="submit"
+            class="bg-white hover:bg-teal-50 text-teal-600 font-semibold text-sm px-5 py-2.5 rounded-full transition-colors whitespace-nowrap"
+          >
+            Send My Results
+          </button>
+        </form>
+        <p class="text-xs text-teal-100 mt-3">No spam. Unsubscribe anytime.</p>
+      </div>
+
+      <!-- Retake -->
+      <div class="text-center mt-6">
+        <button id="retake-btn" class="text-sm text-navy-400 hover:text-teal-500 transition-colors">
+          ← Retake the quiz
+        </button>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // ─── Quiz State ─────────────────────────────────────────────────────────────
+  let scores: number[] = [];
+  let currentQ = 0;
+  const totalQ = 8;
+
+  const questions = [
+    'Hot flashes / night sweats',
+    'Energy levels',
+    'Sleep quality',
+    'Brain fog / memory',
+    'Mood stability',
+    'Weight / midsection',
+    'Libido',
+    'Joint / muscle pain',
+  ];
+
+  // ─── DOM refs ────────────────────────────────────────────────────────────────
+  const progressBar = document.getElementById('progress-bar') as HTMLElement;
+  const progressLabel = document.getElementById('progress-label') as HTMLElement;
+  const progressPct = document.getElementById('progress-pct') as HTMLElement;
+  const quizContainer = document.getElementById('quiz-container') as HTMLElement;
+  const resultsContainer = document.getElementById('quiz-results') as HTMLElement;
+
+  function showQuestion(index: number) {
+    document.querySelectorAll('.quiz-question').forEach((el, i) => {
+      (el as HTMLElement).classList.toggle('hidden', i !== index);
+      (el as HTMLElement).classList.toggle('block', i === index);
+    });
+    const pct = Math.round((index / totalQ) * 100);
+    progressBar.style.width = `${pct}%`;
+    progressLabel.textContent = `Question ${index + 1} of ${totalQ}`;
+    progressPct.textContent = `${pct}% complete`;
+  }
+
+  function showResults() {
+    quizContainer.classList.add('hidden');
+    resultsContainer.classList.remove('hidden');
+    resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    const total = scores.reduce((a, b) => a + b, 0);
+    const max = totalQ * 3;
+    const pct = (total / max) * 100;
+
+    const resultCard = document.getElementById('result-card') as HTMLElement;
+    const resultIcon = document.getElementById('result-icon') as HTMLElement;
+    const resultTitle = document.getElementById('result-title') as HTMLElement;
+    const resultDesc = document.getElementById('result-desc') as HTMLElement;
+    const breakdownEl = document.getElementById('score-breakdown') as HTMLElement;
+    const stepsEl = document.getElementById('result-steps') as HTMLElement;
+
+    // Determine result tier
+    let tier: { color: string; borderColor: string; icon: string; title: string; desc: string; steps: string[] };
+
+    if (pct < 25) {
+      tier = {
+        color: 'bg-green-50',
+        borderColor: 'border-green-200',
+        icon: '🟢',
+        title: 'Low Symptom Burden',
+        desc: 'Your responses suggest minimal signs of hormone imbalance at this time. This may change as you move through perimenopause or as you age. Continue to monitor how you feel and revisit this assessment in 6–12 months.',
+        steps: [
+          'Learn the early signs of hormone change: <a href="/symptoms/" class="text-teal-600 font-medium underline">Symptoms Guide →</a>',
+          'Understand BHRT so you\'re informed if the time comes: <a href="/bhrt-fundamentals/" class="text-teal-600 font-medium underline">BHRT Fundamentals →</a>',
+        ],
+      };
+    } else if (pct < 50) {
+      tier = {
+        color: 'bg-yellow-50',
+        borderColor: 'border-yellow-200',
+        icon: '🟡',
+        title: 'Moderate Symptom Burden',
+        desc: 'You\'re experiencing several symptoms that may be related to hormone changes. This is common in perimenopause (women) or andropause (men). These symptoms are worth discussing with a knowledgeable provider — they\'re not something you have to simply push through.',
+        steps: [
+          'Learn what\'s likely happening: <a href="/symptoms/" class="text-teal-600 font-medium underline">Hormone Imbalance Symptoms Guide →</a>',
+          'Understand your options: <a href="/bhrt-fundamentals/" class="text-teal-600 font-medium underline">What Is BHRT? →</a>',
+          'When you\'re ready: <a href="/find-bhrt-provider/" class="text-teal-600 font-medium underline">Find a BHRT Provider →</a>',
+        ],
+      };
+    } else if (pct < 75) {
+      tier = {
+        color: 'bg-orange-50',
+        borderColor: 'border-orange-200',
+        icon: '🟠',
+        title: 'High Symptom Burden',
+        desc: 'Your symptom profile is consistent with significant hormone imbalance. Many people with scores like yours report substantial improvements after beginning BHRT. This is a strong signal to consult with a BHRT-specialized provider — these symptoms don\'t have to be your normal.',
+        steps: [
+          'Understand what\'s happening: <a href="/symptoms/" class="text-teal-600 font-medium underline">Symptoms Guide →</a>',
+          'See if pellet therapy might work for you: <a href="/pellet-therapy/" class="text-teal-600 font-medium underline">Pellet Therapy Guide →</a>',
+          'Find a provider near you: <a href="/find-bhrt-provider/" class="text-teal-600 font-medium underline">Find a BHRT Provider →</a>',
+          'Estimate what it might cost: <a href="/tools/cost-estimator/" class="text-teal-600 font-medium underline">Cost Estimator →</a>',
+        ],
+      };
+    } else {
+      tier = {
+        color: 'bg-red-50',
+        borderColor: 'border-red-100',
+        icon: '🔴',
+        title: 'Very High Symptom Burden',
+        desc: 'Your responses indicate a very high symptom load that is likely significantly impacting your quality of life. Your symptoms strongly suggest hormone imbalance and warrant prompt attention from a qualified BHRT provider. You deserve to feel better — and for most people with this symptom profile, the right treatment makes a meaningful difference.',
+        steps: [
+          'Don\'t wait — find a provider: <a href="/find-bhrt-provider/" class="text-teal-600 font-medium underline">Find a BHRT Provider →</a>',
+          'Learn what to expect: <a href="/bhrt-fundamentals/" class="text-teal-600 font-medium underline">BHRT Fundamentals →</a>',
+          'Prepare your questions: <a href="/find-bhrt-provider/" class="text-teal-600 font-medium underline">Questions to Ask Your Provider →</a>',
+        ],
+      };
+    }
+
+    // Apply tier styles
+    resultCard.className = `rounded-2xl border-2 p-8 mb-8 ${tier.color} ${tier.borderColor}`;
+    resultIcon.textContent = tier.icon;
+    resultTitle.textContent = tier.title;
+    resultDesc.textContent = tier.desc;
+
+    // Score breakdown grid
+    breakdownEl.innerHTML = questions.map((q, i) => {
+      const score = scores[i] ?? 0;
+      const w = ['w-0', 'w-1/3', 'w-2/3', 'w-full'][score];
+      const color = score === 0 ? 'bg-green-400' : score === 1 ? 'bg-yellow-400' : score === 2 ? 'bg-orange-400' : 'bg-red-400';
+      return `
+        <div class="bg-white rounded-lg p-3 border border-navy-100">
+          <p class="text-xs font-medium text-navy-600 mb-2">${q}</p>
+          <div class="w-full bg-gray-100 rounded-full h-1.5">
+            <div class="${w} ${color} h-1.5 rounded-full transition-all duration-700"></div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Steps
+    stepsEl.innerHTML = tier.steps.map((step) => `
+      <div class="flex items-start gap-2 text-sm text-navy-700">
+        <svg class="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+        <span>${step}</span>
+      </div>
+    `).join('');
+  }
+
+  // ─── Event listeners ─────────────────────────────────────────────────────────
+  document.querySelectorAll('.quiz-option').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const target = e.currentTarget as HTMLButtonElement;
+      const q = parseInt(target.dataset.question ?? '0');
+      const s = parseInt(target.dataset.score ?? '0');
+
+      scores[q] = s;
+
+      // Flash selected state
+      target.classList.add('border-teal-400', 'bg-teal-50');
+      setTimeout(() => {
+        if (q + 1 < totalQ) {
+          showQuestion(q + 1);
+          currentQ = q + 1;
+        } else {
+          showResults();
+        }
+      }, 250);
+    });
+  });
+
+  document.getElementById('retake-btn')?.addEventListener('click', () => {
+    scores = [];
+    currentQ = 0;
+    // Clear all selections
+    document.querySelectorAll('.quiz-option').forEach((btn) => {
+      btn.classList.remove('border-teal-400', 'bg-teal-50');
+    });
+    showQuestion(0);
+    resultsContainer.classList.add('hidden');
+    quizContainer.classList.remove('hidden');
+    quizContainer.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  document.getElementById('results-email-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = (document.getElementById('results-email') as HTMLInputElement).value;
+    // TODO: Wire to Beehiiv or your email provider
+    // Example: POST to Beehiiv API or redirect to subscribe page
+    console.log('Email captured:', email, '| Scores:', scores);
+    const form = document.getElementById('results-email-form') as HTMLFormElement;
+    form.innerHTML = '<p class="text-white font-semibold">✓ Check your inbox! Your results and checklist are on their way.</p>';
+  });
+</script>

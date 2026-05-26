@@ -1,0 +1,306 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const breadcrumbs = [
+  { label: 'Tools', href: '/tools/' },
+  { label: 'Cost Estimator', href: '/tools/cost-estimator/' },
+];
+---
+
+<BaseLayout
+  title="BHRT Cost Estimator — What Does Hormone Therapy Cost in Your State?"
+  description="Get a realistic cost estimate for BHRT in your state. Covers pellet therapy, creams, patches, and injections with state-by-state cost ranges."
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Header -->
+  <div class="bg-gradient-to-br from-navy-600 to-navy-700 py-12">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-4">BHRT Cost Estimator</h1>
+      <p class="text-navy-100 text-lg">
+        Real-world cost ranges for BHRT delivery methods, adjusted by state. No surprises before your first consultation.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Estimator form -->
+    <div class="bg-white rounded-2xl border border-navy-100 p-8 shadow-sm mb-8">
+      <h2 class="text-xl font-bold text-navy-700 mb-6">Customize Your Estimate</h2>
+
+      <!-- Gender -->
+      <div class="mb-6">
+        <label class="block text-sm font-semibold text-navy-700 mb-3">I am...</label>
+        <div class="flex gap-3">
+          <button type="button" data-gender="female" class="gender-btn flex-1 py-3 rounded-xl border-2 border-navy-100 text-sm font-medium transition-all hover:border-teal-300 text-navy-600">
+            A woman
+          </button>
+          <button type="button" data-gender="male" class="gender-btn flex-1 py-3 rounded-xl border-2 border-navy-100 text-sm font-medium transition-all hover:border-teal-300 text-navy-600">
+            A man
+          </button>
+        </div>
+      </div>
+
+      <!-- Delivery method -->
+      <div class="mb-6">
+        <label class="block text-sm font-semibold text-navy-700 mb-3">Delivery method</label>
+        <div class="grid grid-cols-2 gap-3">
+          {['Pellet Therapy', 'Creams / Gels', 'Injections', 'Patches'].map((m) => (
+            <button
+              type="button"
+              data-method={m}
+              class="method-btn py-3 px-4 rounded-xl border-2 border-navy-100 text-sm font-medium text-navy-600 transition-all hover:border-teal-300"
+            >
+              {m}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- State -->
+      <div class="mb-6">
+        <label for="state-select" class="block text-sm font-semibold text-navy-700 mb-2">Your state</label>
+        <select
+          id="state-select"
+          class="w-full border-2 border-navy-100 rounded-xl px-4 py-3 text-sm text-navy-700 focus:border-teal-400 focus:outline-none"
+        >
+          <option value="">— Select a state —</option>
+          <option value="high">California, New York, Massachusetts, Connecticut, Washington, Oregon, Colorado, Hawaii</option>
+          <option value="mid">Texas, Florida, Illinois, Virginia, Maryland, Georgia, North Carolina, Arizona, Nevada, New Jersey, Pennsylvania, Minnesota, Ohio, Michigan, Wisconsin</option>
+          <option value="low">Alabama, Arkansas, Mississippi, Oklahoma, West Virginia, Kentucky, Indiana, Iowa, Kansas, Nebraska, North Dakota, South Dakota, Wyoming, Montana, Idaho</option>
+        </select>
+        <p class="text-xs text-gray-400 mt-1">States are grouped by cost tier. Exact costs vary by clinic.</p>
+      </div>
+
+      <button id="calculate-btn" type="button" class="w-full bg-teal-400 hover:bg-teal-500 text-white font-semibold py-3.5 rounded-full text-sm transition-colors">
+        Calculate My Estimate
+      </button>
+    </div>
+
+    <!-- Results -->
+    <div id="cost-results" class="hidden">
+      <h2 class="text-xl font-bold text-navy-700 mb-5">Your Estimated BHRT Costs</h2>
+
+      <!-- Per-treatment cost -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div class="bg-teal-50 border border-teal-200 rounded-2xl p-6 text-center">
+          <p class="text-sm text-teal-700 font-medium mb-1">Per Treatment</p>
+          <p id="per-treatment" class="text-3xl font-bold text-navy-700"></p>
+          <p id="frequency-note" class="text-xs text-gray-400 mt-1"></p>
+        </div>
+        <div class="bg-navy-50 border border-navy-100 rounded-2xl p-6 text-center">
+          <p class="text-sm text-navy-600 font-medium mb-1">Annual Estimate</p>
+          <p id="annual-cost" class="text-3xl font-bold text-navy-700"></p>
+          <p class="text-xs text-gray-400 mt-1">Based on typical treatment frequency</p>
+        </div>
+      </div>
+
+      <!-- What's included -->
+      <div id="whats-included" class="bg-white border border-navy-100 rounded-2xl p-6 mb-6">
+        <h3 class="font-semibold text-navy-700 mb-3 text-sm">What's typically included</h3>
+        <ul id="included-list" class="space-y-2"></ul>
+      </div>
+
+      <!-- Additional costs -->
+      <div class="bg-warm-50 border border-warm-200 rounded-2xl p-5 mb-6">
+        <h3 class="font-semibold text-navy-700 mb-3 text-sm flex items-center gap-2">
+          <svg class="w-4 h-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          Budget for these additional costs
+        </h3>
+        <ul class="space-y-2 text-sm text-gray-600">
+          <li class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0"></span>
+            Initial consultation: $100–$350 (sometimes applied to first treatment)
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0"></span>
+            Comprehensive bloodwork: $100–$400 (some insurance covers partial)
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0"></span>
+            Follow-up testing every 3–6 months
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0"></span>
+            Insurance rarely covers BHRT — use HSA/FSA if available
+          </li>
+        </ul>
+      </div>
+
+      <a href="/find-bhrt-provider/" class="block text-center bg-navy-600 hover:bg-navy-700 text-white font-semibold py-3.5 rounded-full text-sm transition-colors">
+        Find a Provider in Your Area →
+      </a>
+
+      <button id="reset-estimate" type="button" class="block w-full text-center text-sm text-navy-400 hover:text-teal-500 mt-4 transition-colors">
+        ← Start over
+      </button>
+    </div>
+
+    <!-- Disclaimer -->
+    <p class="text-xs text-gray-400 italic mt-6">
+      Cost estimates are based on market research and patient-reported data. Actual costs vary by clinic, provider, and geographic area. These figures are for educational budgeting purposes only and should not be considered a quote.
+    </p>
+  </div>
+</BaseLayout>
+
+<script>
+  // ─── Cost data ───────────────────────────────────────────────────────────────
+  type Tier = 'high' | 'mid' | 'low' | '';
+  type Gender = 'male' | 'female' | '';
+  type Method = string;
+
+  interface CostConfig {
+    perTreatment: Record<Tier | string, [number, number]>;
+    frequencyPerYear: Record<Gender | string, number>;
+    frequencyLabel: Record<Gender | string, string>;
+    included: string[];
+  }
+
+  const costData: Record<string, CostConfig> = {
+    'Pellet Therapy': {
+      perTreatment: {
+        high: [550, 900],
+        mid:  [400, 650],
+        low:  [300, 500],
+        '': [400, 650],
+      },
+      frequencyPerYear: { female: 3, male: 2, '': 2.5 },
+      frequencyLabel: { female: 'every 3–4 months', male: 'every 5–6 months', '': 'every 3–6 months' },
+      included: [
+        'In-office pellet insertion procedure',
+        'Testosterone and/or estrogen pellets',
+        'Post-insertion follow-up call or visit',
+      ],
+    },
+    'Creams / Gels': {
+      perTreatment: {
+        high: [80, 160],
+        mid:  [60, 120],
+        low:  [40, 100],
+        '': [60, 130],
+      },
+      frequencyPerYear: { female: 12, male: 12, '': 12 },
+      frequencyLabel: { female: 'monthly refill', male: 'monthly refill', '': 'monthly refill' },
+      included: [
+        'Compounded hormone cream or gel (monthly supply)',
+        'Dosing syringe or applicator',
+        'Rx from prescribing provider',
+      ],
+    },
+    'Injections': {
+      perTreatment: {
+        high: [60, 150],
+        mid:  [40, 100],
+        low:  [30, 80],
+        '': [40, 110],
+      },
+      frequencyPerYear: { female: 12, male: 26, '': 18 },
+      frequencyLabel: { female: 'every 3–4 weeks', male: 'every 1–2 weeks', '': 'varies' },
+      included: [
+        'Compounded injectable testosterone',
+        'Syringes and needles (usually self-administered)',
+        'Training from provider on self-injection',
+      ],
+    },
+    'Patches': {
+      perTreatment: {
+        high: [60, 130],
+        mid:  [45, 100],
+        low:  [35, 80],
+        '': [45, 105],
+      },
+      frequencyPerYear: { female: 26, male: 26, '': 26 },
+      frequencyLabel: { female: 'bi-weekly replacement', male: 'bi-weekly replacement', '': 'bi-weekly replacement' },
+      included: [
+        'Transdermal hormone patches (2-week supply)',
+        'Rx from prescribing provider',
+      ],
+    },
+  };
+
+  // ─── State ───────────────────────────────────────────────────────────────────
+  let gender: Gender = '';
+  let method: Method = '';
+  let stateTier: Tier = '';
+
+  function fmt(n: number) {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
+  }
+
+  // ─── Button toggles ───────────────────────────────────────────────────────────
+  document.querySelectorAll('.gender-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.gender-btn').forEach((b) => {
+        b.classList.remove('border-teal-400', 'bg-teal-50', 'text-teal-700');
+        b.classList.add('border-navy-100', 'text-navy-600');
+      });
+      btn.classList.add('border-teal-400', 'bg-teal-50', 'text-teal-700');
+      btn.classList.remove('border-navy-100', 'text-navy-600');
+      gender = (btn as HTMLButtonElement).dataset.gender as Gender;
+    });
+  });
+
+  document.querySelectorAll('.method-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.method-btn').forEach((b) => {
+        b.classList.remove('border-teal-400', 'bg-teal-50', 'text-teal-700');
+        b.classList.add('border-navy-100', 'text-navy-600');
+      });
+      btn.classList.add('border-teal-400', 'bg-teal-50', 'text-teal-700');
+      btn.classList.remove('border-navy-100', 'text-navy-600');
+      method = (btn as HTMLButtonElement).dataset.method ?? '';
+    });
+  });
+
+  (document.getElementById('state-select') as HTMLSelectElement)?.addEventListener('change', (e) => {
+    stateTier = (e.target as HTMLSelectElement).value as Tier;
+  });
+
+  // ─── Calculate ───────────────────────────────────────────────────────────────
+  document.getElementById('calculate-btn')?.addEventListener('click', () => {
+    if (!method) {
+      alert('Please select a delivery method.');
+      return;
+    }
+
+    const config = costData[method];
+    const [low, high] = config.perTreatment[stateTier || ''];
+    const freq = config.frequencyPerYear[gender || ''];
+    const freqLabel = config.frequencyLabel[gender || ''];
+
+    const annualLow = Math.round(low * freq);
+    const annualHigh = Math.round(high * freq);
+
+    (document.getElementById('per-treatment') as HTMLElement).textContent = `${fmt(low)}–${fmt(high)}`;
+    (document.getElementById('frequency-note') as HTMLElement).textContent = `Billed ${freqLabel}`;
+    (document.getElementById('annual-cost') as HTMLElement).textContent = `${fmt(annualLow)}–${fmt(annualHigh)}/yr`;
+
+    const includedList = document.getElementById('included-list') as HTMLElement;
+    includedList.innerHTML = config.included.map((item) => `
+      <li class="flex items-start gap-2 text-sm text-gray-600">
+        <svg class="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+        ${item}
+      </li>
+    `).join('');
+
+    document.getElementById('cost-results')?.classList.remove('hidden');
+    document.getElementById('cost-results')?.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  document.getElementById('reset-estimate')?.addEventListener('click', () => {
+    gender = '';
+    method = '';
+    stateTier = '';
+    document.querySelectorAll('.gender-btn, .method-btn').forEach((b) => {
+      b.classList.remove('border-teal-400', 'bg-teal-50', 'text-teal-700');
+      b.classList.add('border-navy-100', 'text-navy-600');
+    });
+    (document.getElementById('state-select') as HTMLSelectElement).value = '';
+    document.getElementById('cost-results')?.classList.add('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>

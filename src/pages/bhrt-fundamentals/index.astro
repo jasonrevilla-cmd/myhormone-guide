@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import ClusterLayout from '../../layouts/ClusterLayout.astro';
+
+const allPosts = await getCollection('posts');
+const clusterPosts = allPosts.filter((p) => p.data.cluster === 'bhrt-fundamentals');
+---
+
+<ClusterLayout
+  title="BHRT Fundamentals — Complete Beginner's Guide"
+  description="New to BHRT? This is your starting point. Plain-English guides covering what bioidentical hormones are, how they work, safety research, and how to get started."
+  clusterSlug="bhrt-fundamentals"
+  clusterLabel="BHRT Fundamentals"
+  intro="New to bioidentical hormone replacement therapy? This cluster covers everything you need to understand BHRT from the ground up — what it is, how it works, who it helps, and what the research actually says. Start anywhere; every article is written for patients, not clinicians."
+  posts={clusterPosts}
+/>

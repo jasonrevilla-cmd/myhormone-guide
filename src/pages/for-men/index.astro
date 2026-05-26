@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import ClusterLayout from '../../layouts/ClusterLayout.astro';
+
+const allPosts = await getCollection('posts');
+const clusterPosts = allPosts.filter((p) => p.data.cluster === 'mens-health');
+---
+
+<ClusterLayout
+  title="BHRT for Men — Testosterone, Andropause & Hormone Optimization"
+  description="Men's complete guide to hormone decline and BHRT. Covers low testosterone symptoms, TRT vs BHRT, andropause, and what to expect from hormone optimization after 45."
+  clusterSlug="for-men"
+  clusterLabel="For Men"
+  intro="Testosterone decline is real, gradual, and often ignored. After 40, most men lose 1–2% of their testosterone annually — and the effects on energy, mood, muscle mass, and libido are significant. This guide cuts through the noise to explain what's happening, what your options are, and how BHRT compares to traditional TRT."
+  posts={clusterPosts}
+  icon="men"
+/>

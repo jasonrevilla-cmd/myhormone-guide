@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const breadcrumbs = [
+  { label: 'Tools', href: '/tools/' },
+  { label: 'Provider Finder', href: '/tools/provider-finder/' },
+];
+---
+
+<BaseLayout
+  title="BHRT Provider Finder — Find Qualified Hormone Therapy Clinics Near You"
+  description="Find qualified BHRT providers in your area. Our curated directory of hormone therapy clinics is coming soon. In the meantime, use our guide to evaluate any provider."
+  breadcrumbs={breadcrumbs}
+  noindex={false}
+>
+  <!-- Header -->
+  <div class="bg-gradient-to-br from-navy-600 to-navy-700 py-14">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <svg class="w-12 h-12 text-teal-300 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+      </svg>
+      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-4">BHRT Provider Finder</h1>
+      <p class="text-navy-100 text-lg leading-relaxed max-w-xl mx-auto">
+        Our curated directory of BHRT-specialized providers is launching soon.
+        Register your interest below to be notified when it goes live in your area.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Coming soon card -->
+    <div class="bg-white border-2 border-dashed border-teal-200 rounded-2xl p-10 text-center mb-10">
+      <div class="inline-flex items-center gap-2 bg-amber-50 text-amber-700 text-sm font-semibold px-4 py-2 rounded-full mb-6">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        Directory Launching Soon
+      </div>
+      <h2 class="text-2xl font-bold text-navy-700 mb-4">We're Building Something Useful</h2>
+      <p class="text-gray-500 max-w-lg mx-auto mb-6 leading-relaxed">
+        We're vetting BHRT providers across the country to build a directory you can actually trust.
+        Every listing will be verified for credentials, patient reviews, and BHRT specialization —
+        not just whoever pays to be listed.
+      </p>
+
+      <!-- Email waitlist -->
+      <form id="waitlist-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <input
+          type="email"
+          id="waitlist-email"
+          placeholder="your@email.com"
+          required
+          class="flex-1 border-2 border-navy-100 rounded-full px-4 py-3 text-sm focus:border-teal-400 focus:outline-none"
+        />
+        <button
+          type="submit"
+          class="bg-teal-400 hover:bg-teal-500 text-white font-semibold text-sm px-6 py-3 rounded-full transition-colors whitespace-nowrap"
+        >
+          Notify Me
+        </button>
+      </form>
+      <div id="waitlist-confirm" class="hidden">
+        <p class="text-teal-600 font-semibold mt-4">✓ You're on the list! We'll email you as soon as the directory launches in your area.</p>
+      </div>
+      <p class="text-xs text-gray-400 mt-3">No spam. We'll only email you when the directory is ready.</p>
+    </div>
+
+    <!-- In the meantime — guidance -->
+    <h2 class="text-2xl font-bold text-navy-700 mb-6">Find a Provider Right Now</h2>
+    <p class="text-gray-500 mb-8 leading-relaxed">
+      While our directory is in development, here are the best ways to find a qualified BHRT provider in your area today.
+    </p>
+
+    <div class="space-y-4 mb-10">
+      {[
+        {
+          step: '1',
+          title: 'Use Your Insurance Company\'s Provider Search',
+          desc: 'Search for "functional medicine," "integrative medicine," or "hormone specialist" in your network. Call and ask specifically if they offer BHRT.',
+        },
+        {
+          step: '2',
+          title: 'Search for A4M or IFM Practitioners',
+          desc: 'The American Academy of Anti-Aging Medicine (A4M) and Institute for Functional Medicine (IFM) have practitioner directories. These physicians have specialized training in hormone optimization.',
+        },
+        {
+          step: '3',
+          title: 'Ask in Patient Communities',
+          desc: 'Facebook groups like "BHRT Support" or forums like Reddit\'s r/Menopause often have location-specific provider recommendations from real patients.',
+        },
+        {
+          step: '4',
+          title: 'Contact Local Compounding Pharmacies',
+          desc: 'PCAB-accredited compounding pharmacies often maintain lists of prescribers in the area who work with their pharmacy. Call and ask.',
+        },
+        {
+          step: '5',
+          title: 'Telehealth BHRT Providers',
+          desc: 'If you\'re in a rural area or can\'t find a local specialist, several telehealth platforms now offer BHRT prescribing with at-home bloodwork. This can be a legitimate starting point.',
+        },
+      ].map((item) => (
+        <div class="flex gap-4 p-5 bg-white rounded-xl border border-navy-100">
+          <span class="w-8 h-8 bg-teal-400 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+            {item.step}
+          </span>
+          <div>
+            <h3 class="font-semibold text-navy-700 mb-1">{item.title}</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Evaluate guide CTA -->
+    <div class="bg-navy-50 rounded-2xl p-7 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+      <div class="flex-1">
+        <h3 class="font-bold text-navy-700 mb-1">Don't Know What to Look For?</h3>
+        <p class="text-sm text-gray-500">Our provider evaluation guide tells you exactly what credentials, questions, and red flags to look for before booking.</p>
+      </div>
+      <a href="/find-bhrt-provider/" class="flex-shrink-0 bg-navy-600 hover:bg-navy-700 text-white font-semibold text-sm px-5 py-3 rounded-full transition-colors">
+        Provider Guide →
+      </a>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  document.getElementById('waitlist-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // TODO: Wire to Beehiiv or email provider
+    const email = (document.getElementById('waitlist-email') as HTMLInputElement).value;
+    console.log('Waitlist signup:', email);
+    (document.getElementById('waitlist-form') as HTMLFormElement).classList.add('hidden');
+    document.getElementById('waitlist-confirm')?.classList.remove('hidden');
+  });
+</script>

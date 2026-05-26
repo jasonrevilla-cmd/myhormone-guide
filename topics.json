@@ -1,0 +1,1250 @@
+{
+  "posts": [
+    {
+      "id": "C1-001",
+      "status": "published",
+      "title": "What Is BHRT? A Complete Beginner's Guide",
+      "primaryKeyword": "what is BHRT",
+      "secondaryKeywords": [
+        "bioidentical hormone replacement therapy",
+        "BHRT explained",
+        "is BHRT safe",
+        "how does BHRT work"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "BHRT Fundamentals",
+      "clusterSlug": "bhrt-fundamentals",
+      "relatedPosts": [
+        {
+          "title": "BHRT vs. Conventional HRT: What's the Difference?",
+          "slug": "bhrt-vs-conventional-hrt"
+        },
+        {
+          "title": "What Are Bioidentical Hormones Made From?",
+          "slug": "what-are-bioidentical-hormones"
+        },
+        {
+          "title": "Who Is a Good Candidate for BHRT?",
+          "slug": "bhrt-good-candidate"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/c1-001-what-is-bhrt-a-complete-beginners-guide.mdx"
+    },
+    {
+      "id": "C1-002",
+      "status": "published",
+      "title": "BHRT vs. Conventional HRT: What's the Difference?",
+      "primaryKeyword": "BHRT vs conventional HRT",
+      "secondaryKeywords": [
+        "bioidentical vs synthetic hormones",
+        "HRT differences",
+        "natural vs synthetic hormone therapy"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "BHRT Fundamentals",
+      "clusterSlug": "bhrt-fundamentals",
+      "relatedPosts": [
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "what-is-bhrt"
+        },
+        {
+          "title": "BHRT Safety: What the Research Actually Shows",
+          "slug": "bhrt-safety-research"
+        },
+        {
+          "title": "BHRT Delivery Methods Compared",
+          "slug": "bhrt-delivery-methods-compared"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/bhrt-vs-conventional-hrt-whats-the-difference.mdx"
+    },
+    {
+      "id": "C1-003",
+      "status": "published",
+      "title": "What Are Bioidentical Hormones Made From?",
+      "primaryKeyword": "what are bioidentical hormones made from",
+      "secondaryKeywords": [
+        "bioidentical hormone ingredients",
+        "plant-derived hormones",
+        "compounded BHRT",
+        "yam-derived hormones"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "BHRT Fundamentals",
+      "clusterSlug": "bhrt-fundamentals",
+      "relatedPosts": [
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "what-is-bhrt"
+        },
+        {
+          "title": "Is BHRT FDA-Approved? What Patients Need to Know",
+          "slug": "is-bhrt-fda-approved"
+        },
+        {
+          "title": "BHRT vs. Conventional HRT: What's the Difference?",
+          "slug": "bhrt-vs-conventional-hrt"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/what-are-bioidentical-hormones-made-from.mdx"
+    },
+    {
+      "id": "C1-004",
+      "status": "published",
+      "title": "Is BHRT FDA-Approved? What Patients Need to Know",
+      "primaryKeyword": "is BHRT FDA approved",
+      "secondaryKeywords": [
+        "BHRT FDA approval",
+        "compounded BHRT regulation",
+        "FDA bioidentical hormones"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "BHRT Fundamentals",
+      "clusterSlug": "bhrt-fundamentals",
+      "relatedPosts": [
+        {
+          "title": "BHRT Safety: What the Research Actually Shows",
+          "slug": "bhrt-safety-research"
+        },
+        {
+          "title": "BHRT Myths Debunked: Separating Fact from Fiction",
+          "slug": "bhrt-myths-debunked"
+        },
+        {
+          "title": "What Are Bioidentical Hormones Made From?",
+          "slug": "what-are-bioidentical-hormones"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/is-bhrt-fda-approved-what-patients-need-to-know.mdx"
+    },
+    {
+      "id": "C1-005",
+      "status": "published",
+      "title": "BHRT Myths Debunked: Separating Fact from Fiction",
+      "primaryKeyword": "BHRT myths",
+      "secondaryKeywords": [
+        "bioidentical hormone therapy misconceptions",
+        "BHRT facts",
+        "is BHRT natural",
+        "BHRT vs HRT safety"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "BHRT Fundamentals",
+      "clusterSlug": "bhrt-fundamentals",
+      "relatedPosts": [
+        {
+          "title": "BHRT Safety: What the Research Actually Shows",
+          "slug": "bhrt-safety-research"
+        },
+        {
+          "title": "Is BHRT FDA-Approved? What Patients Need to Know",
+          "slug": "is-bhrt-fda-approved"
+        },
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "what-is-bhrt"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/bhrt-myths-debunked-separating-fact-from-fiction.mdx"
+    },
+    {
+      "id": "C1-006",
+      "status": "published",
+      "title": "The History of Bioidentical Hormones in Medicine",
+      "primaryKeyword": "history of bioidentical hormones",
+      "secondaryKeywords": [
+        "BHRT history",
+        "bioidentical hormone therapy history",
+        "hormone therapy timeline"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "BHRT Fundamentals",
+      "clusterSlug": "bhrt-fundamentals",
+      "relatedPosts": [
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "what-is-bhrt"
+        },
+        {
+          "title": "BHRT vs. Conventional HRT: What's the Difference?",
+          "slug": "bhrt-vs-conventional-hrt"
+        },
+        {
+          "title": "The Research Behind BHRT: Key Studies Explained",
+          "slug": "bhrt-research-key-studies"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/the-history-of-bioidentical-hormones-in-medicine.mdx"
+    },
+    {
+      "id": "C1-007",
+      "status": "published",
+      "title": "How BHRT Works: A Plain-English Explanation",
+      "primaryKeyword": "how BHRT works",
+      "secondaryKeywords": [
+        "bioidentical hormone mechanism",
+        "how does BHRT work in the body",
+        "BHRT absorption"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "BHRT Fundamentals",
+      "clusterSlug": "bhrt-fundamentals",
+      "relatedPosts": [
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "what-is-bhrt"
+        },
+        {
+          "title": "BHRT Delivery Methods Compared",
+          "slug": "bhrt-delivery-methods-compared"
+        },
+        {
+          "title": "What Are Bioidentical Hormones Made From?",
+          "slug": "what-are-bioidentical-hormones"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/how-bhrt-works-a-plain-english-explanation.mdx"
+    },
+    {
+      "id": "C1-008",
+      "status": "published",
+      "title": "Who Is a Good Candidate for BHRT?",
+      "primaryKeyword": "BHRT candidate",
+      "secondaryKeywords": [
+        "who should use BHRT",
+        "am I a candidate for BHRT",
+        "BHRT eligibility",
+        "is BHRT right for me"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "BHRT Fundamentals",
+      "clusterSlug": "bhrt-fundamentals",
+      "relatedPosts": [
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "what-is-bhrt"
+        },
+        {
+          "title": "Questions to Ask Before Starting BHRT",
+          "slug": "questions-to-ask-before-starting-bhrt"
+        },
+        {
+          "title": "How to Find a BHRT Doctor Near You",
+          "slug": "how-to-find-bhrt-doctor"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/who-is-a-good-candidate-for-bhrt.mdx"
+    },
+    {
+      "id": "C1-009",
+      "status": "published",
+      "title": "BHRT Safety: What the Research Actually Shows",
+      "primaryKeyword": "BHRT safety",
+      "secondaryKeywords": [
+        "is BHRT safe",
+        "bioidentical hormone therapy risks",
+        "BHRT side effects",
+        "BHRT long term safety"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "BHRT Fundamentals",
+      "clusterSlug": "bhrt-fundamentals",
+      "relatedPosts": [
+        {
+          "title": "BHRT and Cancer Risk: What the Science Actually Says",
+          "slug": "bhrt-cancer-risk"
+        },
+        {
+          "title": "Is BHRT FDA-Approved? What Patients Need to Know",
+          "slug": "is-bhrt-fda-approved"
+        },
+        {
+          "title": "BHRT Myths Debunked: Separating Fact from Fiction",
+          "slug": "bhrt-myths-debunked"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/bhrt-safety-what-the-research-actually-shows.mdx"
+    },
+    {
+      "id": "C1-010",
+      "status": "published",
+      "title": "Questions to Ask Before Starting BHRT",
+      "primaryKeyword": "questions to ask before starting BHRT",
+      "secondaryKeywords": [
+        "BHRT consultation questions",
+        "what to ask BHRT doctor",
+        "preparing for BHRT appointment"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "decision",
+      "cluster": "BHRT Fundamentals",
+      "clusterSlug": "bhrt-fundamentals",
+      "relatedPosts": [
+        {
+          "title": "Who Is a Good Candidate for BHRT?",
+          "slug": "bhrt-good-candidate"
+        },
+        {
+          "title": "How to Find a BHRT Doctor Near You",
+          "slug": "how-to-find-bhrt-doctor"
+        },
+        {
+          "title": "What to Look for in a BHRT Provider",
+          "slug": "what-to-look-for-bhrt-provider"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/questions-to-ask-before-starting-bhrt.mdx"
+    },
+    {
+      "id": "C3-001",
+      "status": "published",
+      "title": "What Is Hormone Pellet Therapy? Everything You Need to Know",
+      "primaryKeyword": "hormone pellet therapy",
+      "secondaryKeywords": [
+        "pellet therapy",
+        "testosterone pellets",
+        "BHRT pellets",
+        "pellet hormone therapy"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "How Pellet Therapy Works: The Science Behind It",
+          "slug": "how-pellet-therapy-works"
+        },
+        {
+          "title": "Pellet Therapy vs. Creams, Patches, and Pills: A Full Comparison",
+          "slug": "pellet-therapy-vs-other-methods"
+        },
+        {
+          "title": "How to Find a Pellet Therapy Provider Near You",
+          "slug": "find-pellet-therapy-provider"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/what-is-hormone-pellet-therapy-everything-you-need-to-know.mdx"
+    },
+    {
+      "id": "C3-002",
+      "status": "published",
+      "title": "How Pellet Therapy Works: The Science Behind It",
+      "primaryKeyword": "how pellet therapy works",
+      "secondaryKeywords": [
+        "pellet therapy mechanism",
+        "hormone pellet absorption",
+        "subcutaneous pellet implant"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "What Is Hormone Pellet Therapy? Everything You Need to Know",
+          "slug": "what-is-hormone-pellet-therapy"
+        },
+        {
+          "title": "The Pellet Insertion Procedure: What to Expect Step by Step",
+          "slug": "pellet-insertion-procedure"
+        },
+        {
+          "title": "How Long Does It Take for Pellet Therapy to Work?",
+          "slug": "how-long-pellet-therapy-takes-to-work"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/how-pellet-therapy-works-the-science-behind-it.mdx"
+    },
+    {
+      "id": "C3-003",
+      "status": "published",
+      "title": "Pellet Therapy vs. Creams, Patches, and Pills: A Full Comparison",
+      "primaryKeyword": "pellet therapy vs creams patches pills",
+      "secondaryKeywords": [
+        "BHRT delivery method comparison",
+        "pellets vs hormone cream",
+        "best BHRT delivery method"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "What Is Hormone Pellet Therapy? Everything You Need to Know",
+          "slug": "what-is-hormone-pellet-therapy"
+        },
+        {
+          "title": "Why Pellets Deliver More Consistent Hormone Levels",
+          "slug": "pellets-consistent-hormone-levels"
+        },
+        {
+          "title": "Pellet Therapy Cost: What to Expect and How to Budget",
+          "slug": "pellet-therapy-cost"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/pellet-therapy-vs-creams-patches-and-pills-a-full-comparison.mdx"
+    },
+    {
+      "id": "C3-004",
+      "status": "published",
+      "title": "How Long Does It Take for Pellet Therapy to Work?",
+      "primaryKeyword": "how long does pellet therapy take to work",
+      "secondaryKeywords": [
+        "pellet therapy timeline",
+        "when will I feel pellet therapy",
+        "pellet therapy results timeline"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "How Pellet Therapy Works: The Science Behind It",
+          "slug": "how-pellet-therapy-works"
+        },
+        {
+          "title": "Pellet Therapy Side Effects: What's Normal and What's Not",
+          "slug": "pellet-therapy-side-effects"
+        },
+        {
+          "title": "How Often Do You Need Pellet Therapy?",
+          "slug": "how-often-pellet-therapy"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/how-long-does-it-take-for-pellet-therapy-to-work.mdx"
+    },
+    {
+      "id": "C3-005",
+      "status": "published",
+      "title": "Testosterone Pellet Therapy for Women: Benefits and What to Expect",
+      "primaryKeyword": "testosterone pellet therapy for women",
+      "secondaryKeywords": [
+        "female testosterone pellets",
+        "testosterone pellets women benefits",
+        "low testosterone women treatment"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "What Is Hormone Pellet Therapy? Everything You Need to Know",
+          "slug": "what-is-hormone-pellet-therapy"
+        },
+        {
+          "title": "Low Testosterone in Women: The Overlooked Hormone",
+          "slug": "low-testosterone-women"
+        },
+        {
+          "title": "How Long Does It Take for Pellet Therapy to Work?",
+          "slug": "how-long-pellet-therapy-takes-to-work"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/testosterone-pellet-therapy-for-women-benefits-and-what-to-expect.mdx"
+    },
+    {
+      "id": "C3-006",
+      "status": "published",
+      "title": "Testosterone Pellets for Men: A Complete Guide",
+      "primaryKeyword": "testosterone pellets for men",
+      "secondaryKeywords": [
+        "male testosterone pellets",
+        "testosterone pellet therapy men",
+        "pellet TRT"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "What Is Hormone Pellet Therapy? Everything You Need to Know",
+          "slug": "what-is-hormone-pellet-therapy"
+        },
+        {
+          "title": "TRT vs. BHRT for Men: What's the Difference?",
+          "slug": "trt-vs-bhrt-men"
+        },
+        {
+          "title": "How Often Do You Need Pellet Therapy?",
+          "slug": "how-often-pellet-therapy"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/testosterone-pellets-for-men-a-complete-guide.mdx"
+    },
+    {
+      "id": "C3-007",
+      "status": "published",
+      "title": "Estrogen Pellet Therapy: What It Is and Who It Helps",
+      "primaryKeyword": "estrogen pellet therapy",
+      "secondaryKeywords": [
+        "estrogen pellets",
+        "estrogen pellet implant",
+        "BHRT estrogen pellets menopause"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "What Is Hormone Pellet Therapy? Everything You Need to Know",
+          "slug": "what-is-hormone-pellet-therapy"
+        },
+        {
+          "title": "Testosterone Pellet Therapy for Women: Benefits and What to Expect",
+          "slug": "testosterone-pellet-therapy-for-women"
+        },
+        {
+          "title": "BHRT and Breast Cancer Risk: The Real Research",
+          "slug": "bhrt-breast-cancer-risk"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/estrogen-pellet-therapy-what-it-is-and-who-it-helps.mdx"
+    },
+    {
+      "id": "C3-008",
+      "status": "published",
+      "title": "Pellet Therapy Side Effects: What's Normal and What's Not",
+      "primaryKeyword": "pellet therapy side effects",
+      "secondaryKeywords": [
+        "hormone pellet side effects",
+        "BHRT pellet side effects",
+        "pellet therapy risks"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "How Long Does It Take for Pellet Therapy to Work?",
+          "slug": "how-long-pellet-therapy-takes-to-work"
+        },
+        {
+          "title": "BHRT Safety: What the Research Actually Shows",
+          "slug": "bhrt-safety-research"
+        },
+        {
+          "title": "The Pellet Insertion Procedure: What to Expect Step by Step",
+          "slug": "pellet-insertion-procedure"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/pellet-therapy-side-effects-whats-normal-and-whats-not.mdx"
+    },
+    {
+      "id": "C3-009",
+      "status": "published",
+      "title": "The Pellet Insertion Procedure: What to Expect Step by Step",
+      "primaryKeyword": "pellet insertion procedure",
+      "secondaryKeywords": [
+        "hormone pellet insertion",
+        "what to expect pellet therapy",
+        "pellet implant procedure"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "How Pellet Therapy Works: The Science Behind It",
+          "slug": "how-pellet-therapy-works"
+        },
+        {
+          "title": "Pellet Therapy Side Effects: What's Normal and What's Not",
+          "slug": "pellet-therapy-side-effects"
+        },
+        {
+          "title": "How Long Does It Take for Pellet Therapy to Work?",
+          "slug": "how-long-pellet-therapy-takes-to-work"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/the-pellet-insertion-procedure-what-to-expect-step-by-step.mdx"
+    },
+    {
+      "id": "C3-010",
+      "status": "published",
+      "title": "How Often Do You Need Pellet Therapy?",
+      "primaryKeyword": "how often do you need pellet therapy",
+      "secondaryKeywords": [
+        "pellet therapy frequency",
+        "how long do hormone pellets last",
+        "when to re-insert pellets"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "How Pellet Therapy Works: The Science Behind It",
+          "slug": "how-pellet-therapy-works"
+        },
+        {
+          "title": "Pellet Therapy Cost: What to Expect and How to Budget",
+          "slug": "pellet-therapy-cost"
+        },
+        {
+          "title": "What Is Hormone Pellet Therapy? Everything You Need to Know",
+          "slug": "what-is-hormone-pellet-therapy"
+        }
+      ],
+      "publishedDate": "2026-05-18",
+      "outputFile": "src/content/posts/how-often-do-you-need-pellet-therapy.mdx"
+    },
+    {
+      "id": "C3-011",
+      "status": "published",
+      "title": "Is Pellet Therapy Covered by Insurance?",
+      "primaryKeyword": "is pellet therapy covered by insurance",
+      "secondaryKeywords": [
+        "pellet therapy insurance coverage",
+        "does insurance pay for BHRT",
+        "BHRT cost insurance"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "Pellet Therapy Cost: What to Expect and How to Budget",
+          "slug": "pellet-therapy-cost"
+        },
+        {
+          "title": "How Much Does BHRT Cost? A State-by-State Guide",
+          "slug": "how-much-does-bhrt-cost"
+        },
+        {
+          "title": "What Is Hormone Pellet Therapy? Everything You Need to Know",
+          "slug": "what-is-hormone-pellet-therapy-everything-you-need-to-know"
+        }
+      ],
+      "publishedDate": "2026-05-21",
+      "outputFile": "src/content/posts/is-pellet-therapy-covered-by-insurance.mdx"
+    },
+    {
+      "id": "C3-012",
+      "status": "published",
+      "title": "How to Find a Pellet Therapy Provider Near You",
+      "primaryKeyword": "find pellet therapy provider",
+      "secondaryKeywords": [
+        "pellet therapy clinic near me",
+        "BHRT pellet doctor",
+        "hormone pellet specialist"
+      ],
+      "searchIntent": "transactional",
+      "funnelStage": "decision",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "What Is Hormone Pellet Therapy? Everything You Need to Know",
+          "slug": "what-is-hormone-pellet-therapy-everything-you-need-to-know"
+        },
+        {
+          "title": "Questions to Ask Before Starting BHRT",
+          "slug": "questions-to-ask-before-starting-bhrt"
+        },
+        {
+          "title": "Pellet Therapy Cost: What to Expect and How to Budget",
+          "slug": "pellet-therapy-cost"
+        }
+      ],
+      "publishedDate": "2026-05-21",
+      "outputFile": "src/content/posts/how-to-find-a-pellet-therapy-provider-near-you.mdx"
+    },
+    {
+      "id": "C2-001",
+      "status": "published",
+      "title": "Hot Flashes Explained: Why They Happen and How to Stop Them",
+      "primaryKeyword": "hot flashes",
+      "secondaryKeywords": [
+        "what causes hot flashes",
+        "how to stop hot flashes",
+        "hot flashes menopause BHRT"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "hormone-imbalance-symptoms",
+      "clusterSlug": "hormone-imbalance-symptoms",
+      "relatedPosts": [
+        {
+          "title": "Night Sweats and Hormones: What Your Body Is Telling You",
+          "slug": "night-sweats-and-hormones"
+        },
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
+        },
+        {
+          "title": "The Menopause Timeline: What Happens to Your Body Year by Year",
+          "slug": "menopause-timeline"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/hot-flashes-explained-why-they-happen-and-how-to-stop-them.mdx"
+    },
+    {
+      "id": "C2-002",
+      "status": "published",
+      "title": "Brain Fog and Hormones: The Hidden Connection",
+      "primaryKeyword": "brain fog and hormones",
+      "secondaryKeywords": [
+        "hormonal brain fog",
+        "menopause brain fog",
+        "hormone imbalance cognitive symptoms"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "hormone-imbalance-symptoms",
+      "clusterSlug": "hormone-imbalance-symptoms",
+      "relatedPosts": [
+        {
+          "title": "Hormones and Sleep: Why You Can't Sleep Anymore",
+          "slug": "hormones-and-sleep"
+        },
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
+        },
+        {
+          "title": "Low Testosterone in Women: The Overlooked Hormone",
+          "slug": "low-testosterone-women"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/brain-fog-and-hormones-the-hidden-connection.mdx"
+    },
+    {
+      "id": "C5-001",
+      "status": "published",
+      "title": "A Woman's Guide to Hormones: Estrogen, Progesterone, and Testosterone",
+      "primaryKeyword": "women's guide to hormones",
+      "secondaryKeywords": [
+        "estrogen progesterone testosterone women",
+        "female hormones explained",
+        "women hormone balance"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "womens-health",
+      "clusterSlug": "womens-health",
+      "relatedPosts": [
+        {
+          "title": "The Menopause Timeline: What Happens to Your Body Year by Year",
+          "slug": "menopause-timeline"
+        },
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
+        },
+        {
+          "title": "Hormone Testing for Women: What Tests to Ask For",
+          "slug": "hormone-testing-for-women"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/a-womans-guide-to-hormones-estrogen-progesterone-and-testosterone.mdx"
+    },
+    {
+      "id": "C5-002",
+      "status": "published",
+      "title": "The Menopause Timeline: What Happens to Your Body Year by Year",
+      "primaryKeyword": "menopause timeline",
+      "secondaryKeywords": [
+        "stages of menopause",
+        "perimenopause to menopause timeline",
+        "menopause symptoms by year"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "womens-health",
+      "clusterSlug": "womens-health",
+      "relatedPosts": [
+        {
+          "title": "Perimenopause vs. Menopause: What's the Difference?",
+          "slug": "perimenopause-vs-menopause"
+        },
+        {
+          "title": "Hot Flashes Explained: Why They Happen and How to Stop Them",
+          "slug": "hot-flashes-explained"
+        },
+        {
+          "title": "A Woman's Guide to Hormones",
+          "slug": "womens-guide-to-hormones"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/the-menopause-timeline-what-happens-to-your-body-year-by-year.mdx"
+    },
+    {
+      "id": "C6-001",
+      "status": "published",
+      "title": "Men's Guide to Hormone Decline: What Happens After 40",
+      "primaryKeyword": "men's hormone decline after 40",
+      "secondaryKeywords": [
+        "male hormone decline",
+        "testosterone decline by age",
+        "andropause symptoms men"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "mens-health",
+      "clusterSlug": "mens-health",
+      "relatedPosts": [
+        {
+          "title": "Low Testosterone Symptoms: The Full Checklist for Men",
+          "slug": "low-testosterone-symptoms-men"
+        },
+        {
+          "title": "Testosterone Pellets for Men: A Complete Guide",
+          "slug": "testosterone-pellets-for-men-a-complete-guide"
+        },
+        {
+          "title": "TRT vs. BHRT for Men: What's the Difference?",
+          "slug": "trt-vs-bhrt-men"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/mens-guide-to-hormone-decline-what-happens-after-40.mdx"
+    },
+    {
+      "id": "C6-002",
+      "status": "published",
+      "title": "Low Testosterone Symptoms: The Full Checklist for Men",
+      "primaryKeyword": "low testosterone symptoms men",
+      "secondaryKeywords": [
+        "signs of low testosterone",
+        "low T symptoms checklist",
+        "testosterone deficiency symptoms"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "mens-health",
+      "clusterSlug": "mens-health",
+      "relatedPosts": [
+        {
+          "title": "Men's Guide to Hormone Decline: What Happens After 40",
+          "slug": "mens-guide-hormone-decline"
+        },
+        {
+          "title": "Testosterone Pellets for Men: A Complete Guide",
+          "slug": "testosterone-pellets-for-men-a-complete-guide"
+        },
+        {
+          "title": "Men's Hormone Testing: What to Ask Your Doctor",
+          "slug": "mens-hormone-testing"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/low-testosterone-symptoms-the-full-checklist-for-men.mdx"
+    },
+    {
+      "id": "C7-001",
+      "status": "published",
+      "title": "How to Find a BHRT Doctor Near You",
+      "primaryKeyword": "find BHRT doctor",
+      "secondaryKeywords": [
+        "BHRT doctor near me",
+        "how to find hormone specialist",
+        "BHRT provider search"
+      ],
+      "searchIntent": "transactional",
+      "funnelStage": "decision",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "What to Look for in a BHRT Provider",
+          "slug": "what-to-look-for-bhrt-provider"
+        },
+        {
+          "title": "Questions to Ask a BHRT Clinic Before You Start",
+          "slug": "questions-to-ask-bhrt-clinic"
+        },
+        {
+          "title": "Red Flags to Watch for in BHRT Providers",
+          "slug": "red-flags-bhrt-providers"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/how-to-find-a-bhrt-doctor-near-you.mdx"
+    },
+    {
+      "id": "C7-002",
+      "status": "published",
+      "title": "What to Look for in a BHRT Provider",
+      "primaryKeyword": "what to look for in a BHRT provider",
+      "secondaryKeywords": [
+        "BHRT provider credentials",
+        "choosing BHRT doctor",
+        "BHRT specialist qualifications"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "decision",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "How to Find a BHRT Doctor Near You",
+          "slug": "how-to-find-bhrt-doctor"
+        },
+        {
+          "title": "Questions to Ask Before Starting BHRT",
+          "slug": "questions-to-ask-before-starting-bhrt"
+        },
+        {
+          "title": "Red Flags to Watch for in BHRT Providers",
+          "slug": "red-flags-bhrt-providers"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/what-to-look-for-in-a-bhrt-provider.mdx"
+    },
+    {
+      "id": "C8-001",
+      "status": "published",
+      "title": "How Much Does BHRT Cost? A State-by-State Guide",
+      "primaryKeyword": "how much does BHRT cost",
+      "secondaryKeywords": [
+        "BHRT cost by state",
+        "bioidentical hormone therapy price",
+        "BHRT monthly cost"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "Is Pellet Therapy Covered by Insurance?",
+          "slug": "is-pellet-therapy-covered-by-insurance"
+        },
+        {
+          "title": "HSA and FSA for BHRT: Can You Use Pre-Tax Money?",
+          "slug": "hsa-fsa-bhrt"
+        },
+        {
+          "title": "Pellet Therapy Cost: What to Expect and How to Budget",
+          "slug": "pellet-therapy-cost"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/how-much-does-bhrt-cost-a-state-by-state-guide.mdx"
+    },
+    {
+      "id": "C8-002",
+      "status": "published",
+      "title": "Does Insurance Cover BHRT? What You Need to Know",
+      "primaryKeyword": "does insurance cover BHRT",
+      "secondaryKeywords": [
+        "BHRT insurance coverage",
+        "is BHRT covered by health insurance",
+        "bioidentical hormone insurance"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "How Much Does BHRT Cost? A State-by-State Guide",
+          "slug": "how-much-does-bhrt-cost"
+        },
+        {
+          "title": "Is Pellet Therapy Covered by Insurance?",
+          "slug": "is-pellet-therapy-covered-by-insurance"
+        },
+        {
+          "title": "How to Afford BHRT: Payment Plans and Cost-Saving Tips",
+          "slug": "how-to-afford-bhrt"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/does-insurance-cover-bhrt-what-you-need-to-know.mdx"
+    },
+    {
+      "id": "C4-001",
+      "status": "published",
+      "title": "BHRT Delivery Methods Compared: Pellets, Creams, Injections, Patches",
+      "primaryKeyword": "BHRT delivery methods",
+      "secondaryKeywords": [
+        "types of BHRT",
+        "bioidentical hormone delivery options",
+        "best way to take BHRT"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "Pellet Therapy vs. Creams, Patches, and Pills: A Full Comparison",
+          "slug": "pellet-therapy-vs-creams-patches-and-pills-a-full-comparison"
+        },
+        {
+          "title": "Why Pellets Deliver More Consistent Hormone Levels",
+          "slug": "pellets-consistent-hormone-levels"
+        },
+        {
+          "title": "How to Choose the Right BHRT Delivery Method for You",
+          "slug": "choose-bhrt-delivery-method"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/bhrt-delivery-methods-compared-pellets-creams-injections-patches.mdx"
+    },
+    {
+      "id": "C4-002",
+      "status": "published",
+      "title": "Hormone Creams: How They Work, Pros and Cons",
+      "primaryKeyword": "hormone creams",
+      "secondaryKeywords": [
+        "bioidentical hormone cream",
+        "progesterone cream benefits",
+        "estrogen cream how it works"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "BHRT Delivery Methods Compared",
+          "slug": "bhrt-delivery-methods-compared"
+        },
+        {
+          "title": "Pellet Therapy vs. Creams, Patches, and Pills",
+          "slug": "pellet-therapy-vs-creams-patches-and-pills-a-full-comparison"
+        },
+        {
+          "title": "How to Choose the Right BHRT Delivery Method for You",
+          "slug": "choose-bhrt-delivery-method"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/hormone-creams-how-they-work-pros-and-cons.mdx"
+    },
+    {
+      "id": "C9-001",
+      "status": "published",
+      "title": "The Research Behind BHRT: Key Studies Explained",
+      "primaryKeyword": "BHRT research studies",
+      "secondaryKeywords": [
+        "bioidentical hormone therapy research",
+        "BHRT clinical studies",
+        "evidence for BHRT"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "research-science",
+      "clusterSlug": "research-science",
+      "relatedPosts": [
+        {
+          "title": "BHRT Safety: What the Research Actually Shows",
+          "slug": "bhrt-safety-what-the-research-actually-shows"
+        },
+        {
+          "title": "BHRT and Breast Cancer Risk: The Real Research",
+          "slug": "bhrt-breast-cancer-risk"
+        },
+        {
+          "title": "Why Mainstream Medicine Is Skeptical of BHRT",
+          "slug": "mainstream-medicine-bhrt-skepticism"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/the-research-behind-bhrt-key-studies-explained.mdx"
+    },
+    {
+      "id": "C9-002",
+      "status": "published",
+      "title": "BHRT and Breast Cancer Risk: The Real Research",
+      "primaryKeyword": "BHRT breast cancer risk",
+      "secondaryKeywords": [
+        "does BHRT cause breast cancer",
+        "bioidentical hormones cancer risk",
+        "HRT breast cancer comparison"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "research-science",
+      "clusterSlug": "research-science",
+      "relatedPosts": [
+        {
+          "title": "BHRT Safety: What the Research Actually Shows",
+          "slug": "bhrt-safety-what-the-research-actually-shows"
+        },
+        {
+          "title": "The Research Behind BHRT: Key Studies Explained",
+          "slug": "bhrt-research-studies"
+        },
+        {
+          "title": "BHRT vs. Conventional HRT: What's the Difference?",
+          "slug": "bhrt-vs-conventional-hrt-whats-the-difference"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/bhrt-and-breast-cancer-risk-the-real-research.mdx"
+    },
+    {
+      "id": "C10-001",
+      "status": "published",
+      "title": "Diet for Hormone Balance: What to Eat and Avoid",
+      "primaryKeyword": "diet for hormone balance",
+      "secondaryKeywords": [
+        "foods that balance hormones",
+        "hormone balancing diet",
+        "what to eat for hormones"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "lifestyle",
+      "clusterSlug": "lifestyle",
+      "relatedPosts": [
+        {
+          "title": "Exercise and Hormones: The Best Workouts for Hormonal Health",
+          "slug": "exercise-and-hormones"
+        },
+        {
+          "title": "Stress and Cortisol: How Chronic Stress Destroys Hormone Balance",
+          "slug": "stress-cortisol-hormone-balance"
+        },
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/diet-for-hormone-balance-what-to-eat-and-avoid.mdx"
+    },
+    {
+      "id": "C10-002",
+      "status": "published",
+      "title": "Exercise and Hormones: The Best Workouts for Hormonal Health",
+      "primaryKeyword": "exercise and hormones",
+      "secondaryKeywords": [
+        "workouts for hormone balance",
+        "exercise hormone optimization",
+        "best exercise for menopause"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "lifestyle",
+      "clusterSlug": "lifestyle",
+      "relatedPosts": [
+        {
+          "title": "Diet for Hormone Balance: What to Eat and Avoid",
+          "slug": "diet-for-hormone-balance"
+        },
+        {
+          "title": "Sleep and Hormones: The Two-Way Relationship",
+          "slug": "sleep-and-hormones"
+        },
+        {
+          "title": "BHRT and Weight Loss: What to Expect Realistically",
+          "slug": "bhrt-and-weight-loss"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/exercise-and-hormones-the-best-workouts-for-hormonal-health.mdx"
+    },
+    {
+      "id": "C3-013",
+      "status": "published",
+      "title": "BioTE vs. EvexiPEL vs. Other Pellet Systems: A Comparison",
+      "primaryKeyword": "BioTE vs EvexiPEL",
+      "secondaryKeywords": [
+        "pellet therapy brands comparison",
+        "BioTE pellets review",
+        "EvexiPEL vs BioTE"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "decision",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "What Is Hormone Pellet Therapy? Everything You Need to Know",
+          "slug": "what-is-hormone-pellet-therapy-everything-you-need-to-know"
+        },
+        {
+          "title": "How to Find a Pellet Therapy Provider Near You",
+          "slug": "find-pellet-therapy-provider"
+        },
+        {
+          "title": "Pellet Therapy Cost: What to Expect and How to Budget",
+          "slug": "pellet-therapy-cost"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/biote-vs-evexipel-vs-other-pellet-systems-a-comparison.mdx"
+    },
+    {
+      "id": "C3-014",
+      "status": "published",
+      "title": "Pellet Therapy Cost: What to Expect and How to Budget",
+      "primaryKeyword": "pellet therapy cost",
+      "secondaryKeywords": [
+        "how much does pellet therapy cost",
+        "hormone pellet price",
+        "pellet therapy pricing"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "Is Pellet Therapy Covered by Insurance?",
+          "slug": "is-pellet-therapy-covered-by-insurance"
+        },
+        {
+          "title": "How Much Does BHRT Cost? A State-by-State Guide",
+          "slug": "how-much-does-bhrt-cost"
+        },
+        {
+          "title": "How Often Do You Need Pellet Therapy?",
+          "slug": "how-often-do-you-need-pellet-therapy"
+        }
+      ],
+      "publishedDate": "2026-05-22",
+      "outputFile": "src/content/posts/pellet-therapy-cost-what-to-expect-and-how-to-budget.mdx"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+---
+const year = new Date().getFullYear();
+
+const clusters = [
+  { label: 'BHRT Fundamentals', href: '/bhrt-fundamentals/' },
+  { label: 'Pellet Therapy',    href: '/pellet-therapy/' },
+  { label: 'Symptoms Guide',    href: '/symptoms/' },
+  { label: 'For Women',         href: '/for-women/' },
+  { label: 'For Men',           href: '/for-men/' },
+];
+
+const tools = [
+  { label: 'Symptom Checker',   href: '/tools/hormone-symptom-checker/' },
+  { label: 'Cost Estimator',    href: '/tools/cost-estimator/' },
+  { label: 'Provider Finder',   href: '/tools/provider-finder/' },
+];
+
+const trust = [
+  { label: 'About',                href: '/about/' },
+  { label: 'Medical Disclaimer',  href: '/medical-disclaimer/' },
+  { label: 'Editorial Policy',    href: '/editorial-policy/' },
+  { label: 'Affiliate Disclosure',href: '/affiliate-disclosure/' },
+];
+---
+
+<footer class="bg-navy-900 text-navy-200">
+  <!-- Main footer grid -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <!-- Brand column -->
+      <div class="lg:col-span-1">
+        <a href="/" class="flex items-center gap-2 group mb-4" aria-label="MyHormoneGuide home">
+          <svg class="w-7 h-7 text-teal-400" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+            <path d="M10 16 C10 12 13 10 16 10 C19 10 22 12 22 16 C22 20 19 22 16 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="16" cy="22" r="2" fill="currentColor"/>
+          </svg>
+          <span class="text-white font-bold text-base tracking-tight">
+            MyHormone<span class="text-teal-400">Guide</span>
+          </span>
+        </a>
+        <p class="text-sm text-navy-300 leading-relaxed mb-4">
+          The most trusted patient education resource for Bioidentical Hormone Replacement Therapy — helping you understand your options with confidence.
+        </p>
+        <p class="text-xs text-navy-400">
+          Evidence-based. Patient-focused. Independent.
+        </p>
+      </div>
+
+      <!-- Topics column -->
+      <div>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Topics</h3>
+        <ul class="space-y-2">
+          {clusters.map((item) => (
+            <li>
+              <a href={item.href} class="text-sm text-navy-300 hover:text-teal-300 transition-colors">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Tools column -->
+      <div>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Free Tools</h3>
+        <ul class="space-y-2">
+          {tools.map((item) => (
+            <li>
+              <a href={item.href} class="text-sm text-navy-300 hover:text-teal-300 transition-colors">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-6">
+          <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Trust & Policy</h3>
+          <ul class="space-y-2">
+            {trust.map((item) => (
+              <li>
+                <a href={item.href} class="text-sm text-navy-300 hover:text-teal-300 transition-colors">
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Newsletter teaser -->
+      <div>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Free Newsletter</h3>
+        <p class="text-sm text-navy-300 leading-relaxed mb-4">
+          Get evidence-based BHRT insights delivered weekly. No spam, no hype — just clear information that helps you decide.
+        </p>
+        <a
+          href="/#newsletter"
+          class="inline-block w-full text-center bg-teal-400 hover:bg-teal-300 text-white text-sm font-semibold px-4 py-2.5 rounded-full transition-colors"
+        >
+          Subscribe Free →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Medical disclaimer bar -->
+  <div class="border-t border-navy-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+      <p class="text-xs text-navy-400 leading-relaxed text-center max-w-4xl mx-auto">
+        <strong class="text-navy-300">Medical Disclaimer:</strong> The content on MyHormoneGuide is for educational purposes only and is not intended as medical advice. Always consult a qualified healthcare provider before starting, changing, or stopping any hormone therapy. Individual results vary. MyHormoneGuide does not provide medical diagnosis or treatment. See our full{' '}
+        <a href="/medical-disclaimer/" class="text-teal-500 hover:text-teal-300 underline">Medical Disclaimer</a>.
+      </p>
+    </div>
+  </div>
+
+  <!-- Copyright bar -->
+  <div class="border-t border-navy-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p class="text-xs text-navy-500">© {year} MyHormoneGuide. All rights reserved.</p>
+      <p class="text-xs text-navy-500">Not affiliated with any hormone therapy manufacturer or clinic.</p>
+    </div>
+  </div>
+</footer>

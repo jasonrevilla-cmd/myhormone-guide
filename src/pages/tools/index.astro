@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const breadcrumbs = [{ label: 'Free Tools', href: '/tools/' }];
+
+const tools = [
+  {
+    title: 'Hormone Symptom Checker',
+    description: 'Answer 8 questions about your symptoms and get a personalized assessment of whether hormone imbalance may be contributing to how you feel.',
+    href: '/tools/hormone-symptom-checker/',
+    time: '3 minutes',
+    icon: 'checker',
+    badge: 'Most Popular',
+    badgeColor: 'teal',
+  },
+  {
+    title: 'BHRT Cost Estimator',
+    description: 'Get realistic cost estimates for BHRT in your state — covering pellet therapy, creams, patches, and injections — so you can plan your budget before your first consultation.',
+    href: '/tools/cost-estimator/',
+    time: '2 minutes',
+    icon: 'calculator',
+    badge: null,
+    badgeColor: 'navy',
+  },
+  {
+    title: 'Provider Finder',
+    description: 'Browse our curated directory of BHRT-specialized providers. Filter by state, delivery method, and patient focus (women\'s health vs. men\'s health).',
+    href: '/tools/provider-finder/',
+    time: null,
+    icon: 'map',
+    badge: 'Coming Soon',
+    badgeColor: 'warm',
+  },
+];
+---
+
+<BaseLayout
+  title="Free BHRT Tools — Symptom Checker, Cost Estimator & Provider Finder"
+  description="Three free tools to help you navigate BHRT: a hormone symptom checker quiz, a state-by-state cost estimator, and a provider finder directory."
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Header -->
+  <div class="bg-gradient-to-br from-navy-600 to-navy-700 py-14">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+        Free BHRT Tools
+      </h1>
+      <p class="text-navy-100 text-lg leading-relaxed max-w-2xl">
+        Interactive tools to help you check your symptoms, estimate costs, and find the right provider — all free, no account required.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
+      {tools.map((tool) => (
+        <a href={tool.href} class="group flex gap-6 p-7 bg-white rounded-2xl border border-navy-100 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
+          <!-- Icon area -->
+          <div class="flex-shrink-0 w-16 h-16 bg-navy-50 group-hover:bg-teal-50 rounded-2xl flex items-center justify-center transition-colors">
+            {tool.icon === 'checker' && (
+              <svg class="w-8 h-8 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+              </svg>
+            )}
+            {tool.icon === 'calculator' && (
+              <svg class="w-8 h-8 text-navy-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+              </svg>
+            )}
+            {tool.icon === 'map' && (
+              <svg class="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+              </svg>
+            )}
+          </div>
+
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <h2 class="font-bold text-navy-700 group-hover:text-teal-600 text-xl transition-colors">
+                {tool.title}
+              </h2>
+              {tool.badge && (
+                <span class:list={[
+                  'text-xs font-semibold px-2.5 py-0.5 rounded-full',
+                  tool.badgeColor === 'teal' && 'bg-teal-100 text-teal-700',
+                  tool.badgeColor === 'warm' && 'bg-amber-100 text-amber-700',
+                  tool.badgeColor === 'navy' && 'bg-navy-100 text-navy-700',
+                ]}>
+                  {tool.badge}
+                </span>
+              )}
+            </div>
+            <p class="text-gray-500 text-sm leading-relaxed mb-3">{tool.description}</p>
+            <div class="flex items-center gap-4">
+              {tool.time && (
+                <span class="text-xs text-gray-400 flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  {tool.time}
+                </span>
+              )}
+              <span class="text-sm font-semibold text-teal-500 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                {tool.badge === 'Coming Soon' ? 'Learn more' : 'Get started'} →
+              </span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

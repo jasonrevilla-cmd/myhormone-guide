@@ -1,0 +1,24 @@
+{
+  "name": "bhrt-authority-site",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "BHRT patient education authority site",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "generate-post": "node --env-file=.env generate-post.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.0",
+    "@astrojs/mdx": "^3.1.7",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.3",
+    "astro": "^4.15.9",
+    "tailwindcss": "^3.4.14",
+    "@tailwindcss/typography": "^0.5.15"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}

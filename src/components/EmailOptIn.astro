@@ -1,0 +1,83 @@
+---
+interface Props {
+  variant?: 'section' | 'inline';
+  headline?: string;
+  subheadline?: string;
+}
+
+const {
+  variant = 'section',
+  headline = 'Get the BHRT Insider — Free Weekly Newsletter',
+  subheadline = 'Evidence-based hormone insights, patient stories, and provider tips delivered every week. Join 4,000+ readers making informed decisions about their health.',
+} = Astro.props;
+---
+
+{variant === 'section' ? (
+  <section id="newsletter" class="bg-gradient-to-r from-navy-600 to-navy-700 py-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <!-- Icon -->
+      <div class="inline-flex p-3 bg-teal-400/20 rounded-xl mb-5">
+        <svg class="w-7 h-7 text-teal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">{headline}</h2>
+      <p class="text-navy-200 text-lg mb-2">{subheadline}</p>
+
+      <!-- Lead magnet callout -->
+      <div class="inline-flex items-center gap-2 bg-teal-400/15 border border-teal-400/30 text-teal-200 text-sm px-4 py-2 rounded-full mb-8">
+        <svg class="w-4 h-4 text-teal-300" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
+        </svg>
+        Free gift: Hormone Symptom Checklist PDF when you subscribe
+      </div>
+
+      <!--
+        BEEHIIV EMBED PLACEHOLDER
+        Replace this div with your Beehiiv embed code.
+        Example: <div id="beehiiv-embed-XXXXX"></div>
+        You can get your embed code at: app.beehiiv.com → your publication → Grow → Embed
+      -->
+      <div
+        class="beehiiv-embed-placeholder bg-navy-800/50 border-2 border-dashed border-navy-400 rounded-2xl p-8 max-w-md mx-auto"
+        aria-label="Newsletter signup form — Beehiiv embed goes here"
+      >
+        <p class="text-navy-300 text-sm mb-4 font-medium">[ Beehiiv Embed Code Here ]</p>
+        <!-- Placeholder form for visual preview only -->
+        <div class="flex gap-2">
+          <input
+            type="email"
+            placeholder="your@email.com"
+            disabled
+            class="flex-1 bg-white/10 border border-navy-400 text-white placeholder-navy-300 rounded-full px-4 py-2.5 text-sm focus:outline-none"
+          />
+          <button
+            disabled
+            class="bg-teal-400 text-white font-semibold text-sm px-5 py-2.5 rounded-full opacity-70 cursor-not-allowed"
+          >
+            Subscribe
+          </button>
+        </div>
+        <p class="text-navy-400 text-xs mt-3">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+) : (
+  <aside class="bg-teal-50 border border-teal-200 rounded-xl p-6 my-8">
+    <div class="flex gap-4">
+      <div class="flex-shrink-0">
+        <svg class="w-6 h-6 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+      </div>
+      <div>
+        <p class="font-semibold text-navy-700 mb-1">Get weekly BHRT insights</p>
+        <p class="text-sm text-gray-600 mb-3">Join thousands of patients navigating hormone health. Free, evidence-based, no spam.</p>
+        <a href="/#newsletter" class="inline-flex items-center text-sm font-semibold text-teal-600 hover:text-teal-500">
+          Subscribe free →
+        </a>
+      </div>
+    </div>
+  </aside>
+)}
