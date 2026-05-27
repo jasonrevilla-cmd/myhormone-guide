@@ -6,7 +6,7 @@ import mdx from '@astrojs/mdx';
 // v3.7.2 uses astro:routes:resolved which only fires in dev on Astro 4,
 // causing a build crash. Remove the import and integration until then.
 
-const SITE_URL = 'https://myhormooneguide.com';
+const SITE_URL = 'https://myhormoneguide.com';
 
 export default defineConfig({
   site: SITE_URL,

@@ -113,8 +113,8 @@ See the full topical map in `BHRT-Authority-Site-Blueprint.docx` for all 120+ pl
 
 Before launch:
 
-- [ ] Replace `https://myhormooneguide.com` in `astro.config.mjs` and `src/layouts/BaseLayout.astro` with your real domain
-- [ ] Replace `hello@myhormooneguide.com` in About, Disclaimer, and Policy pages
+- [ ] Replace `https://myhormoneguide.com` in `astro.config.mjs` and `src/layouts/BaseLayout.astro` with your real domain
+- [ ] Replace `hello@myhormoneguide.com` in About, Disclaimer, and Policy pages
 - [ ] Add Beehiiv embed code to `src/components/EmailOptIn.astro`
 - [ ] Wire the symptom checker email capture to your Beehiiv subscribe endpoint
 - [ ] Update `public/robots.txt` sitemap URL with your real domain
