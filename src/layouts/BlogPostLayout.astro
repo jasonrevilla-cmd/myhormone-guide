@@ -15,18 +15,31 @@ const { title, description, publishDate, cluster, readingTime, faqs } = post.dat
 const clusterLabels: Record<string, string> = {
   'bhrt-fundamentals': 'BHRT Fundamentals',
   'pellet-therapy': 'Pellet Therapy',
-  'symptoms': 'Symptoms Guide',
-  'for-women': "Women's Health",
-  'for-men': "Men's Health",
+  'hormone-imbalance-symptoms': 'Symptoms Guide',
+  'womens-health': "Women's Health",
+  'mens-health': "Men's Health",
   'finding-providers': 'Find a Provider',
-  'costs-insurance': 'Costs & Insurance',
+  'costs-insurance': 'Find a Provider',
   'research-science': 'Research & Science',
   'lifestyle': 'Lifestyle & Optimization',
-  'delivery-methods': 'Delivery Methods',
+  'delivery-methods': 'Pellet Therapy',
+};
+
+const clusterHrefs: Record<string, string> = {
+  'bhrt-fundamentals': '/bhrt-fundamentals/',
+  'pellet-therapy': '/pellet-therapy/',
+  'hormone-imbalance-symptoms': '/symptoms/',
+  'womens-health': '/for-women/',
+  'mens-health': '/for-men/',
+  'finding-providers': '/find-bhrt-provider/',
+  'costs-insurance': '/find-bhrt-provider/',
+  'research-science': '/learn/',
+  'lifestyle': '/learn/',
+  'delivery-methods': '/pellet-therapy/',
 };
 
 const clusterLabel = clusterLabels[cluster] ?? cluster;
-const clusterHref = `/${cluster}/`;
+const clusterHref = clusterHrefs[cluster] ?? `/${cluster}/`;
 
 const breadcrumbs = [
   { label: clusterLabel, href: clusterHref },
