@@ -7,8 +7,8 @@ interface Props {
 
 const {
   variant = 'section',
-  headline = 'Get the BHRT Insider — Free Weekly Newsletter',
-  subheadline = 'Evidence-based hormone insights, patient stories, and provider tips delivered every week. Join 4,000+ readers making informed decisions about their health.',
+  headline = 'The Hormone Insider',
+  subheadline = 'Real answers for real hormones — delivered weekly.',
 } = Astro.props;
 ---
 
@@ -22,44 +22,15 @@ const {
         </svg>
       </div>
 
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">{headline}</h2>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-3">{headline}</h2>
       <p class="text-navy-200 text-lg mb-2">{subheadline}</p>
+      <p class="text-navy-300 text-sm mb-8">
+        Join 4,000+ readers making informed decisions about their health. Free. No spam. Unsubscribe anytime.
+      </p>
 
-      <!-- Lead magnet callout -->
-      <div class="inline-flex items-center gap-2 bg-teal-400/15 border border-teal-400/30 text-teal-200 text-sm px-4 py-2 rounded-full mb-8">
-        <svg class="w-4 h-4 text-teal-300" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-          <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
-        </svg>
-        Free gift: Hormone Symptom Checklist PDF when you subscribe
-      </div>
-
-      <!--
-        BEEHIIV EMBED PLACEHOLDER
-        Replace this div with your Beehiiv embed code.
-        Example: <div id="beehiiv-embed-XXXXX"></div>
-        You can get your embed code at: app.beehiiv.com → your publication → Grow → Embed
-      -->
-      <div
-        class="beehiiv-embed-placeholder bg-navy-800/50 border-2 border-dashed border-navy-400 rounded-2xl p-8 max-w-md mx-auto"
-        aria-label="Newsletter signup form — Beehiiv embed goes here"
-      >
-        <p class="text-navy-300 text-sm mb-4 font-medium">[ Beehiiv Embed Code Here ]</p>
-        <!-- Placeholder form for visual preview only -->
-        <div class="flex gap-2">
-          <input
-            type="email"
-            placeholder="your@email.com"
-            disabled
-            class="flex-1 bg-white/10 border border-navy-400 text-white placeholder-navy-300 rounded-full px-4 py-2.5 text-sm focus:outline-none"
-          />
-          <button
-            disabled
-            class="bg-teal-400 text-white font-semibold text-sm px-5 py-2.5 rounded-full opacity-70 cursor-not-allowed"
-          >
-            Subscribe
-          </button>
-        </div>
-        <p class="text-navy-400 text-xs mt-3">No spam. Unsubscribe anytime.</p>
+      <!-- Beehiiv inline embed -->
+      <div class="max-w-md mx-auto">
+        <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="dd84c3b5-9ecd-4401-9010-f56d1c093769"></script>
       </div>
     </div>
   </section>
@@ -72,8 +43,8 @@ const {
         </svg>
       </div>
       <div>
-        <p class="font-semibold text-navy-700 mb-1">Get weekly BHRT insights</p>
-        <p class="text-sm text-gray-600 mb-3">Join thousands of patients navigating hormone health. Free, evidence-based, no spam.</p>
+        <p class="font-semibold text-navy-700 mb-1">The Hormone Insider — Free Weekly Newsletter</p>
+        <p class="text-sm text-gray-600 mb-3">Real answers for real hormones, delivered weekly. Join 4,000+ readers. No spam, unsubscribe anytime.</p>
         <a href="/#newsletter" class="inline-flex items-center text-sm font-semibold text-teal-600 hover:text-teal-500">
           Subscribe free →
         </a>
