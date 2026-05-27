@@ -1,18 +1,20 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 
-// TODO: Re-enable @astrojs/sitemap after upgrading to Astro 5.
-// v3.7.2 uses astro:routes:resolved which only fires in dev on Astro 4,
-// causing a build crash. Remove the import and integration until then.
-
-const SITE_URL = 'https://myhormoneguide.com';
+const SITE_URL = 'https://www.myhormoneguide.com';
 
 export default defineConfig({
   site: SITE_URL,
   integrations: [
     tailwind(),
     mdx(),
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+      filter: (page) => !page.includes('/tools/provider-finder'),
+    }),
   ],
   output: 'static',
 });
