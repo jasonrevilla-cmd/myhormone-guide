@@ -187,6 +187,46 @@ const faqSchema = faqs && faqs.length > 0
 </BaseLayout>
 
 <style>
+  /* References section — muted, academic styling */
+  :global(.prose h2:has(+ p > a[href*="pubmed"]),
+          .prose h2:has(+ p > a[href*="endocrine"]),
+          .prose h2:has(+ p > a[href*="menopause"]),
+          .prose h2:has(+ p > a[href*="mayoclinic"]),
+          .prose h2:has(+ p > a[href*="fda.gov"])) {
+    /* broad selector fallback handled below */
+  }
+  :global(.prose h2 + ol li, .prose h2 + p) {
+    /* default prose handles these */
+  }
+  /* References heading — visually distinct from body H2s */
+  :global(.references-section) {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #E2E8F0;
+  }
+  :global(.references-section h2) {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #64748B !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: none !important;
+    margin-bottom: 1rem !important;
+  }
+  :global(.references-section ol, .references-section p) {
+    font-size: 0.8125rem !important;
+    color: #94A3B8 !important;
+    line-height: 1.6 !important;
+  }
+  :global(.references-section a) {
+    color: #94A3B8 !important;
+    text-decoration: underline;
+    word-break: break-all;
+  }
+  :global(.references-section a:hover) {
+    color: #2A9D8F !important;
+  }
+
   /* FAQ section within MDX prose — distinct visual treatment */
   :global(.prose h2:has(+ h3)) {
     /* targets the FAQ heading when followed directly by H3s */

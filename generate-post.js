@@ -60,6 +60,7 @@ Both audiences are solution-aware but need education to act.
 - Include a medical disclaimer paragraph at the end of every post
 - Never make prescriptive medical recommendations — frame as education
 - Use language like "many patients report", "some providers recommend", "research suggests" rather than absolute claims
+- Every post MUST end with a ## References section containing 3–5 real, verifiable citations from these approved sources ONLY: PubMed-indexed studies, the Endocrine Society, NAMS (North American Menopause Society), Mayo Clinic, or the FDA. Format each citation exactly as: [Author Last, First / or Organization Name]. "[Title of Article or Study]." [Journal or Publication Name], [Year]. [URL — use the real canonical URL for the source, e.g. pubmed.ncbi.nlm.nih.gov/PMID, endocrine.org, menopause.org, mayoclinic.org, or fda.gov]. Do NOT fabricate citations. Only cite sources that genuinely exist at these organizations.
 
 ## SEO RULES
 
@@ -196,7 +197,19 @@ faqs:
 
 [CTA section — 80–120 words. ${ctaInstruction}]
 
-The content on this site is for educational purposes only and is not intended as medical advice. Always consult a qualified healthcare provider before starting, changing, or stopping any hormone therapy. Individual results vary.`;
+The content on this site is for educational purposes only and is not intended as medical advice. Always consult a qualified healthcare provider before starting, changing, or stopping any hormone therapy. Individual results vary.
+
+<div class="references-section">
+
+## References
+
+1. [Author Last, First or Organization Name]. "[Title of Article or Study]." [Journal or Publication], [Year]. [https://real-url — must be from pubmed.ncbi.nlm.nih.gov, endocrine.org, menopause.org, mayoclinic.org, or fda.gov]
+2. [Second citation — same format]
+3. [Third citation — same format]
+[4. Optional fourth citation]
+[5. Optional fifth citation]
+
+</div>`;
 }
 
 // ─── Quality Control Check ────────────────────────────────────────────────────
@@ -222,8 +235,9 @@ CHECKLIST:
 7. No absolute medical claims (no phrases like "BHRT will cure" or "BHRT eliminates")
 8. A CTA section present near the end
 9. Output starts with --- (YAML frontmatter delimiter)
+10. A References section is present near the end inside a div with class "references-section", containing at least 3 numbered citations with author/org, title, publication, year, and a URL from pubmed.ncbi.nlm.nih.gov, endocrine.org, menopause.org, mayoclinic.org, or fda.gov
 
-Set pass to true only if ALL 9 checks pass. List each failing check as a plain string in issues.
+Set pass to true only if ALL 10 checks pass. List each failing check as a plain string in issues.
 
 POST CONTENT:
 ${mdx}`;
@@ -341,7 +355,10 @@ async function main() {
 
   // ── Step 3: Save MDX file ──────────────────────────────────────────────────
   ensureDir(POSTS_DIR);
-  const filename = `${toSlug(post.title)}.mdx`;
+  // Reuse the existing filename if this post was previously generated (regeneration)
+  const filename = post.outputFile
+    ? path.basename(post.outputFile)
+    : `${toSlug(post.title)}.mdx`;
   const filepath = path.join(POSTS_DIR, filename);
   fs.writeFileSync(filepath, mdx, 'utf8');
   console.log(`💾 Saved: src/content/posts/${filename}`);
