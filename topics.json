@@ -1245,6 +1245,2094 @@
       ],
       "publishedDate": "2026-05-22",
       "outputFile": "src/content/posts/pellet-therapy-cost-what-to-expect-and-how-to-budget.mdx"
+    },
+    {
+      "id": "C2-003",
+      "status": "pending",
+      "title": "17 Signs Your Hormones May Be Out of Balance",
+      "primaryKeyword": "17 signs of hormone imbalance",
+      "secondaryKeywords": [
+        "signs of hormonal imbalance",
+        "hormone imbalance symptoms list",
+        "how to know if hormones are off"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "hormone-imbalance-symptoms",
+      "clusterSlug": "hormone-imbalance-symptoms",
+      "relatedPosts": [
+        {
+          "title": "Hot Flashes Explained: Why They Happen and How to Stop Them",
+          "slug": "hot-flashes-explained-why-they-happen-and-how-to-stop-them"
+        },
+        {
+          "title": "Brain Fog and Hormones: The Hidden Connection",
+          "slug": "brain-fog-and-hormones-the-hidden-connection"
+        },
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
+        }
+      ]
+    },
+    {
+      "id": "C2-004",
+      "status": "pending",
+      "title": "Estrogen Dominance: Symptoms, Causes, and Solutions",
+      "primaryKeyword": "estrogen dominance symptoms",
+      "secondaryKeywords": [
+        "estrogen dominance causes",
+        "high estrogen symptoms women",
+        "how to fix estrogen dominance"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "hormone-imbalance-symptoms",
+      "clusterSlug": "hormone-imbalance-symptoms",
+      "relatedPosts": [
+        {
+          "title": "Low Progesterone Symptoms in Women Over 40",
+          "slug": "low-progesterone-symptoms-in-women-over-40"
+        },
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
+        },
+        {
+          "title": "BHRT vs. Conventional HRT: What's the Difference?",
+          "slug": "bhrt-vs-conventional-hrt-whats-the-difference"
+        }
+      ]
+    },
+    {
+      "id": "C2-005",
+      "status": "pending",
+      "title": "Low Progesterone Symptoms in Women Over 40",
+      "primaryKeyword": "low progesterone symptoms",
+      "secondaryKeywords": [
+        "signs of low progesterone",
+        "progesterone deficiency women",
+        "low progesterone perimenopause"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "hormone-imbalance-symptoms",
+      "clusterSlug": "hormone-imbalance-symptoms",
+      "relatedPosts": [
+        {
+          "title": "Estrogen Dominance: Symptoms, Causes, and Solutions",
+          "slug": "estrogen-dominance-symptoms-causes-and-solutions"
+        },
+        {
+          "title": "Perimenopause vs. Menopause: What's the Difference?",
+          "slug": "perimenopause-vs-menopause-whats-the-difference"
+        },
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
+        }
+      ]
+    },
+    {
+      "id": "C2-006",
+      "status": "pending",
+      "title": "Low Testosterone in Women: The Overlooked Hormone",
+      "primaryKeyword": "low testosterone in women",
+      "secondaryKeywords": [
+        "female low testosterone symptoms",
+        "testosterone deficiency women",
+        "low T women treatment"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "hormone-imbalance-symptoms",
+      "clusterSlug": "hormone-imbalance-symptoms",
+      "relatedPosts": [
+        {
+          "title": "Testosterone Pellet Therapy for Women: Benefits and What to Expect",
+          "slug": "testosterone-pellet-therapy-for-women-benefits-and-what-to-expect"
+        },
+        {
+          "title": "A Woman's Guide to Hormones: Estrogen, Progesterone, and Testosterone",
+          "slug": "a-womans-guide-to-hormones-estrogen-progesterone-and-testosterone"
+        },
+        {
+          "title": "Low Libido After 40: Is It Normal or Hormonal?",
+          "slug": "low-libido-after-40-is-it-normal-or-hormonal"
+        }
+      ]
+    },
+    {
+      "id": "C2-007",
+      "status": "pending",
+      "title": "Men and Hormone Decline: What to Expect After 45",
+      "primaryKeyword": "men hormone decline after 45",
+      "secondaryKeywords": [
+        "male hormone decline signs",
+        "testosterone drop at 45",
+        "andropause symptoms"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "hormone-imbalance-symptoms",
+      "clusterSlug": "hormone-imbalance-symptoms",
+      "relatedPosts": [
+        {
+          "title": "Low Testosterone Symptoms: The Full Checklist for Men",
+          "slug": "low-testosterone-symptoms-the-full-checklist-for-men"
+        },
+        {
+          "title": "Andropause: The Male Menopause Explained",
+          "slug": "andropause-the-male-menopause-explained"
+        },
+        {
+          "title": "Men's Guide to Hormone Decline: What Happens After 40",
+          "slug": "mens-guide-to-hormone-decline-what-happens-after-40"
+        }
+      ]
+    },
+    {
+      "id": "C2-008",
+      "status": "pending",
+      "title": "Perimenopause vs. Menopause: What's the Difference?",
+      "primaryKeyword": "perimenopause vs menopause",
+      "secondaryKeywords": [
+        "difference between perimenopause and menopause",
+        "perimenopause symptoms",
+        "stages of menopause explained"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "hormone-imbalance-symptoms",
+      "clusterSlug": "hormone-imbalance-symptoms",
+      "relatedPosts": [
+        {
+          "title": "The Menopause Timeline: What Happens to Your Body Year by Year",
+          "slug": "the-menopause-timeline-what-happens-to-your-body-year-by-year"
+        },
+        {
+          "title": "17 Signs Your Hormones May Be Out of Balance",
+          "slug": "17-signs-your-hormones-may-be-out-of-balance"
+        },
+        {
+          "title": "Hot Flashes Explained: Why They Happen and How to Stop Them",
+          "slug": "hot-flashes-explained-why-they-happen-and-how-to-stop-them"
+        }
+      ]
+    },
+    {
+      "id": "C2-009",
+      "status": "pending",
+      "title": "Why Am I So Tired All the Time? Could It Be Your Hormones?",
+      "primaryKeyword": "fatigue and hormone imbalance",
+      "secondaryKeywords": [
+        "hormonal fatigue women",
+        "tired all the time hormones",
+        "hormone imbalance exhaustion"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "hormone-imbalance-symptoms",
+      "clusterSlug": "hormone-imbalance-symptoms",
+      "relatedPosts": [
+        {
+          "title": "Brain Fog and Hormones: The Hidden Connection",
+          "slug": "brain-fog-and-hormones-the-hidden-connection"
+        },
+        {
+          "title": "17 Signs Your Hormones May Be Out of Balance",
+          "slug": "17-signs-your-hormones-may-be-out-of-balance"
+        },
+        {
+          "title": "Hormones and Sleep: Why You Can't Sleep Anymore",
+          "slug": "hormones-and-sleep-why-you-cant-sleep-anymore"
+        }
+      ]
+    },
+    {
+      "id": "C2-010",
+      "status": "pending",
+      "title": "Hormones and Weight Gain After 40: What's Really Happening",
+      "primaryKeyword": "hormones and weight gain after 40",
+      "secondaryKeywords": [
+        "hormonal weight gain women",
+        "menopause belly fat",
+        "why am I gaining weight hormones"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "hormone-imbalance-symptoms",
+      "clusterSlug": "hormone-imbalance-symptoms",
+      "relatedPosts": [
+        {
+          "title": "BHRT and Weight Loss: What to Expect Realistically",
+          "slug": "bhrt-and-weight-loss-what-to-expect-realistically"
+        },
+        {
+          "title": "Diet for Hormone Balance: What to Eat and Avoid",
+          "slug": "diet-for-hormone-balance-what-to-eat-and-avoid"
+        },
+        {
+          "title": "17 Signs Your Hormones May Be Out of Balance",
+          "slug": "17-signs-your-hormones-may-be-out-of-balance"
+        }
+      ]
+    },
+    {
+      "id": "C2-011",
+      "status": "pending",
+      "title": "Hormones and Sleep: Why You Can't Sleep Anymore",
+      "primaryKeyword": "hormones and sleep problems",
+      "secondaryKeywords": [
+        "hormone imbalance insomnia",
+        "menopause sleep issues",
+        "why can't I sleep hormones"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "hormone-imbalance-symptoms",
+      "clusterSlug": "hormone-imbalance-symptoms",
+      "relatedPosts": [
+        {
+          "title": "Night Sweats and Hormones: What Your Body Is Telling You",
+          "slug": "night-sweats-and-hormones-what-your-body-is-telling-you"
+        },
+        {
+          "title": "Progesterone for Sleep: Can It Really Help?",
+          "slug": "progesterone-for-sleep-can-it-really-help"
+        },
+        {
+          "title": "Sleep and Hormones: The Two-Way Relationship",
+          "slug": "sleep-and-hormones-the-two-way-relationship"
+        }
+      ]
+    },
+    {
+      "id": "C2-012",
+      "status": "pending",
+      "title": "Low Libido After 40: Is It Normal or Hormonal?",
+      "primaryKeyword": "low libido after 40",
+      "secondaryKeywords": [
+        "decreased sex drive hormones",
+        "low libido menopause",
+        "hormonal causes of low libido"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "hormone-imbalance-symptoms",
+      "clusterSlug": "hormone-imbalance-symptoms",
+      "relatedPosts": [
+        {
+          "title": "Low Testosterone in Women: The Overlooked Hormone",
+          "slug": "low-testosterone-in-women-the-overlooked-hormone"
+        },
+        {
+          "title": "Sex Drive After Menopause: What's Normal and What Helps",
+          "slug": "sex-drive-after-menopause-whats-normal-and-what-helps"
+        },
+        {
+          "title": "Testosterone Pellet Therapy for Women: Benefits and What to Expect",
+          "slug": "testosterone-pellet-therapy-for-women-benefits-and-what-to-expect"
+        }
+      ]
+    },
+    {
+      "id": "C2-013",
+      "status": "pending",
+      "title": "Mood Swings, Anxiety, and Depression: The Hormonal Root Cause",
+      "primaryKeyword": "hormones and mood swings",
+      "secondaryKeywords": [
+        "hormonal anxiety depression",
+        "menopause mood changes",
+        "hormone imbalance mental health"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "hormone-imbalance-symptoms",
+      "clusterSlug": "hormone-imbalance-symptoms",
+      "relatedPosts": [
+        {
+          "title": "17 Signs Your Hormones May Be Out of Balance",
+          "slug": "17-signs-your-hormones-may-be-out-of-balance"
+        },
+        {
+          "title": "Women's Hormones and Mental Health: The Research",
+          "slug": "womens-hormones-and-mental-health-the-research"
+        },
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
+        }
+      ]
+    },
+    {
+      "id": "C2-014",
+      "status": "pending",
+      "title": "Night Sweats and Hormones: What Your Body Is Telling You",
+      "primaryKeyword": "night sweats hormones",
+      "secondaryKeywords": [
+        "hormonal night sweats",
+        "menopause night sweats causes",
+        "why am I sweating at night hormones"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "hormone-imbalance-symptoms",
+      "clusterSlug": "hormone-imbalance-symptoms",
+      "relatedPosts": [
+        {
+          "title": "Hot Flashes Explained: Why They Happen and How to Stop Them",
+          "slug": "hot-flashes-explained-why-they-happen-and-how-to-stop-them"
+        },
+        {
+          "title": "Hormones and Sleep: Why You Can't Sleep Anymore",
+          "slug": "hormones-and-sleep-why-you-cant-sleep-anymore"
+        },
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
+        }
+      ]
+    },
+    {
+      "id": "C2-015",
+      "status": "pending",
+      "title": "Vaginal Dryness and Hormones: BHRT Solutions That Work",
+      "primaryKeyword": "vaginal dryness hormones",
+      "secondaryKeywords": [
+        "hormonal vaginal dryness treatment",
+        "menopause vaginal atrophy BHRT",
+        "estrogen vaginal dryness"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "hormone-imbalance-symptoms",
+      "clusterSlug": "hormone-imbalance-symptoms",
+      "relatedPosts": [
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
+        },
+        {
+          "title": "Estrogen Pellet Therapy: What It Is and Who It Helps",
+          "slug": "estrogen-pellet-therapy-what-it-is-and-who-it-helps"
+        },
+        {
+          "title": "Sex Drive After Menopause: What's Normal and What Helps",
+          "slug": "sex-drive-after-menopause-whats-normal-and-what-helps"
+        }
+      ]
+    },
+    {
+      "id": "C3-015",
+      "status": "pending",
+      "title": "Pellet Therapy Reviews: What Real Patients Say",
+      "primaryKeyword": "pellet therapy reviews",
+      "secondaryKeywords": [
+        "hormone pellet therapy patient reviews",
+        "pellet therapy testimonials",
+        "real pellet therapy results"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "decision",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "What Is Hormone Pellet Therapy? Everything You Need to Know",
+          "slug": "what-is-hormone-pellet-therapy-everything-you-need-to-know"
+        },
+        {
+          "title": "Pellet Therapy Side Effects: What's Normal and What's Not",
+          "slug": "pellet-therapy-side-effects-whats-normal-and-whats-not"
+        },
+        {
+          "title": "How Long Does It Take for Pellet Therapy to Work?",
+          "slug": "how-long-does-it-take-for-pellet-therapy-to-work"
+        }
+      ]
+    },
+    {
+      "id": "C4-003",
+      "status": "pending",
+      "title": "BHRT Injections: Everything You Need to Know",
+      "primaryKeyword": "BHRT injections",
+      "secondaryKeywords": [
+        "hormone injection therapy",
+        "bioidentical hormone shots",
+        "testosterone injections BHRT"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "BHRT Delivery Methods Compared: Pellets, Creams, Injections, Patches",
+          "slug": "bhrt-delivery-methods-compared-pellets-creams-injections-patches"
+        },
+        {
+          "title": "How to Choose the Right BHRT Delivery Method for You",
+          "slug": "how-to-choose-the-right-bhrt-delivery-method-for-you"
+        },
+        {
+          "title": "What Is Hormone Pellet Therapy? Everything You Need to Know",
+          "slug": "what-is-hormone-pellet-therapy-everything-you-need-to-know"
+        }
+      ]
+    },
+    {
+      "id": "C4-004",
+      "status": "pending",
+      "title": "Transdermal Patches for Hormone Therapy: A Full Guide",
+      "primaryKeyword": "hormone therapy patches",
+      "secondaryKeywords": [
+        "transdermal estrogen patch",
+        "BHRT patch vs cream",
+        "hormone patch benefits and side effects"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "BHRT Delivery Methods Compared: Pellets, Creams, Injections, Patches",
+          "slug": "bhrt-delivery-methods-compared-pellets-creams-injections-patches"
+        },
+        {
+          "title": "Hormone Creams: How They Work, Pros and Cons",
+          "slug": "hormone-creams-how-they-work-pros-and-cons"
+        },
+        {
+          "title": "How to Choose the Right BHRT Delivery Method for You",
+          "slug": "how-to-choose-the-right-bhrt-delivery-method-for-you"
+        }
+      ]
+    },
+    {
+      "id": "C4-005",
+      "status": "pending",
+      "title": "Sublingual BHRT: What It Is and Who It's For",
+      "primaryKeyword": "sublingual BHRT",
+      "secondaryKeywords": [
+        "sublingual hormone therapy",
+        "under the tongue BHRT",
+        "sublingual progesterone testosterone"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "BHRT Delivery Methods Compared: Pellets, Creams, Injections, Patches",
+          "slug": "bhrt-delivery-methods-compared-pellets-creams-injections-patches"
+        },
+        {
+          "title": "Oral vs. Topical Hormones: Absorption Differences Explained",
+          "slug": "oral-vs-topical-hormones-absorption-differences-explained"
+        },
+        {
+          "title": "How to Choose the Right BHRT Delivery Method for You",
+          "slug": "how-to-choose-the-right-bhrt-delivery-method-for-you"
+        }
+      ]
+    },
+    {
+      "id": "C4-006",
+      "status": "pending",
+      "title": "Why Pellets Deliver More Consistent Hormone Levels",
+      "primaryKeyword": "pellet therapy consistent hormone levels",
+      "secondaryKeywords": [
+        "hormone pellet stability",
+        "pellets vs creams hormone consistency",
+        "steady hormone delivery pellets"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "How Pellet Therapy Works: The Science Behind It",
+          "slug": "how-pellet-therapy-works-the-science-behind-it"
+        },
+        {
+          "title": "Pellet Therapy vs. Creams, Patches, and Pills: A Full Comparison",
+          "slug": "pellet-therapy-vs-creams-patches-and-pills-a-full-comparison"
+        },
+        {
+          "title": "BHRT Delivery Methods Compared: Pellets, Creams, Injections, Patches",
+          "slug": "bhrt-delivery-methods-compared-pellets-creams-injections-patches"
+        }
+      ]
+    },
+    {
+      "id": "C4-007",
+      "status": "pending",
+      "title": "Oral vs. Topical Hormones: Absorption Differences Explained",
+      "primaryKeyword": "oral vs topical hormones",
+      "secondaryKeywords": [
+        "hormone absorption methods",
+        "oral hormone therapy vs topical",
+        "bioidentical hormone bioavailability"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "BHRT Delivery Methods Compared: Pellets, Creams, Injections, Patches",
+          "slug": "bhrt-delivery-methods-compared-pellets-creams-injections-patches"
+        },
+        {
+          "title": "Hormone Creams: How They Work, Pros and Cons",
+          "slug": "hormone-creams-how-they-work-pros-and-cons"
+        },
+        {
+          "title": "How to Choose the Right BHRT Delivery Method for You",
+          "slug": "how-to-choose-the-right-bhrt-delivery-method-for-you"
+        }
+      ]
+    },
+    {
+      "id": "C4-008",
+      "status": "pending",
+      "title": "How to Choose the Right BHRT Delivery Method for You",
+      "primaryKeyword": "how to choose BHRT delivery method",
+      "secondaryKeywords": [
+        "best BHRT method for me",
+        "BHRT delivery method comparison guide",
+        "which hormone therapy method is best"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "decision",
+      "cluster": "pellet-therapy",
+      "clusterSlug": "pellet-therapy",
+      "relatedPosts": [
+        {
+          "title": "BHRT Delivery Methods Compared: Pellets, Creams, Injections, Patches",
+          "slug": "bhrt-delivery-methods-compared-pellets-creams-injections-patches"
+        },
+        {
+          "title": "What Is Hormone Pellet Therapy? Everything You Need to Know",
+          "slug": "what-is-hormone-pellet-therapy-everything-you-need-to-know"
+        },
+        {
+          "title": "Questions to Ask Before Starting BHRT",
+          "slug": "questions-to-ask-before-starting-bhrt"
+        }
+      ]
+    },
+    {
+      "id": "C5-003",
+      "status": "pending",
+      "title": "Perimenopause Symptoms: The Complete Checklist",
+      "primaryKeyword": "perimenopause symptoms",
+      "secondaryKeywords": [
+        "perimenopause signs checklist",
+        "early perimenopause symptoms",
+        "perimenopause vs PMS"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "womens-health",
+      "clusterSlug": "womens-health",
+      "relatedPosts": [
+        {
+          "title": "Perimenopause vs. Menopause: What's the Difference?",
+          "slug": "perimenopause-vs-menopause-whats-the-difference"
+        },
+        {
+          "title": "The Menopause Timeline: What Happens to Your Body Year by Year",
+          "slug": "the-menopause-timeline-what-happens-to-your-body-year-by-year"
+        },
+        {
+          "title": "A Woman's Guide to Hormones: Estrogen, Progesterone, and Testosterone",
+          "slug": "a-womans-guide-to-hormones-estrogen-progesterone-and-testosterone"
+        }
+      ]
+    },
+    {
+      "id": "C5-004",
+      "status": "pending",
+      "title": "Postmenopause: What to Expect and How BHRT Can Help",
+      "primaryKeyword": "postmenopause symptoms BHRT",
+      "secondaryKeywords": [
+        "post menopause hormone therapy",
+        "life after menopause BHRT",
+        "postmenopause treatment options"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "womens-health",
+      "clusterSlug": "womens-health",
+      "relatedPosts": [
+        {
+          "title": "The Menopause Timeline: What Happens to Your Body Year by Year",
+          "slug": "the-menopause-timeline-what-happens-to-your-body-year-by-year"
+        },
+        {
+          "title": "Estrogen and Bone Health: Why Hormones Matter for Osteoporosis",
+          "slug": "estrogen-and-bone-health-why-hormones-matter-for-osteoporosis"
+        },
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
+        }
+      ]
+    },
+    {
+      "id": "C5-005",
+      "status": "pending",
+      "title": "Hormone Testing for Women: What Tests to Ask For",
+      "primaryKeyword": "hormone testing for women",
+      "secondaryKeywords": [
+        "women hormone blood tests",
+        "estrogen progesterone testing",
+        "hormone panel women"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "womens-health",
+      "clusterSlug": "womens-health",
+      "relatedPosts": [
+        {
+          "title": "A Woman's Guide to Hormones: Estrogen, Progesterone, and Testosterone",
+          "slug": "a-womans-guide-to-hormones-estrogen-progesterone-and-testosterone"
+        },
+        {
+          "title": "Who Is a Good Candidate for BHRT?",
+          "slug": "who-is-a-good-candidate-for-bhrt"
+        },
+        {
+          "title": "What Happens at Your First BHRT Consultation?",
+          "slug": "what-happens-at-your-first-bhrt-consultation"
+        }
+      ]
+    },
+    {
+      "id": "C5-006",
+      "status": "pending",
+      "title": "BHRT After Hysterectomy: What You Need to Know",
+      "primaryKeyword": "BHRT after hysterectomy",
+      "secondaryKeywords": [
+        "hormone therapy after hysterectomy",
+        "hysterectomy and menopause BHRT",
+        "estrogen therapy after hysterectomy"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "womens-health",
+      "clusterSlug": "womens-health",
+      "relatedPosts": [
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
+        },
+        {
+          "title": "A Woman's Guide to Hormones: Estrogen, Progesterone, and Testosterone",
+          "slug": "a-womans-guide-to-hormones-estrogen-progesterone-and-testosterone"
+        },
+        {
+          "title": "Who Is a Good Candidate for BHRT?",
+          "slug": "who-is-a-good-candidate-for-bhrt"
+        }
+      ]
+    },
+    {
+      "id": "C5-007",
+      "status": "pending",
+      "title": "Thyroid and Hormones: Why They're Connected",
+      "primaryKeyword": "thyroid and hormones connection",
+      "secondaryKeywords": [
+        "thyroid hormone imbalance women",
+        "thyroid and estrogen",
+        "BHRT and thyroid"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "womens-health",
+      "clusterSlug": "womens-health",
+      "relatedPosts": [
+        {
+          "title": "A Woman's Guide to Hormones: Estrogen, Progesterone, and Testosterone",
+          "slug": "a-womans-guide-to-hormones-estrogen-progesterone-and-testosterone"
+        },
+        {
+          "title": "17 Signs Your Hormones May Be Out of Balance",
+          "slug": "17-signs-your-hormones-may-be-out-of-balance"
+        },
+        {
+          "title": "Hormone Testing for Women: What Tests to Ask For",
+          "slug": "hormone-testing-for-women-what-tests-to-ask-for"
+        }
+      ]
+    },
+    {
+      "id": "C5-008",
+      "status": "pending",
+      "title": "DHEA and Hormones: What This Overlooked Hormone Does",
+      "primaryKeyword": "DHEA hormone women",
+      "secondaryKeywords": [
+        "what is DHEA",
+        "DHEA benefits menopause",
+        "DHEA and hormone balance"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "womens-health",
+      "clusterSlug": "womens-health",
+      "relatedPosts": [
+        {
+          "title": "A Woman's Guide to Hormones: Estrogen, Progesterone, and Testosterone",
+          "slug": "a-womans-guide-to-hormones-estrogen-progesterone-and-testosterone"
+        },
+        {
+          "title": "Cortisol and Hormone Balance: The Stress Connection",
+          "slug": "cortisol-and-hormone-balance-the-stress-connection"
+        },
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
+        }
+      ]
+    },
+    {
+      "id": "C5-009",
+      "status": "pending",
+      "title": "Cortisol and Hormone Balance: The Stress Connection",
+      "primaryKeyword": "cortisol and hormone balance",
+      "secondaryKeywords": [
+        "stress hormones and BHRT",
+        "cortisol estrogen connection",
+        "chronic stress hormone imbalance"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "womens-health",
+      "clusterSlug": "womens-health",
+      "relatedPosts": [
+        {
+          "title": "Stress and Cortisol: How Chronic Stress Destroys Hormone Balance",
+          "slug": "stress-and-cortisol-how-chronic-stress-destroys-hormone-balance"
+        },
+        {
+          "title": "DHEA and Hormones: What This Overlooked Hormone Does",
+          "slug": "dhea-and-hormones-what-this-overlooked-hormone-does"
+        },
+        {
+          "title": "A Woman's Guide to Hormones: Estrogen, Progesterone, and Testosterone",
+          "slug": "a-womans-guide-to-hormones-estrogen-progesterone-and-testosterone"
+        }
+      ]
+    },
+    {
+      "id": "C5-010",
+      "status": "pending",
+      "title": "Progesterone for Sleep: Can It Really Help?",
+      "primaryKeyword": "progesterone for sleep",
+      "secondaryKeywords": [
+        "progesterone sleep benefits",
+        "bioidentical progesterone insomnia",
+        "progesterone menopause sleep"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "womens-health",
+      "clusterSlug": "womens-health",
+      "relatedPosts": [
+        {
+          "title": "Hormones and Sleep: Why You Can't Sleep Anymore",
+          "slug": "hormones-and-sleep-why-you-cant-sleep-anymore"
+        },
+        {
+          "title": "Sleep and Hormones: The Two-Way Relationship",
+          "slug": "sleep-and-hormones-the-two-way-relationship"
+        },
+        {
+          "title": "Low Progesterone Symptoms in Women Over 40",
+          "slug": "low-progesterone-symptoms-in-women-over-40"
+        }
+      ]
+    },
+    {
+      "id": "C5-011",
+      "status": "pending",
+      "title": "Estrogen and Bone Health: Why Hormones Matter for Osteoporosis",
+      "primaryKeyword": "estrogen and bone health",
+      "secondaryKeywords": [
+        "BHRT osteoporosis prevention",
+        "estrogen osteoporosis risk",
+        "hormone therapy bone density"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "womens-health",
+      "clusterSlug": "womens-health",
+      "relatedPosts": [
+        {
+          "title": "Postmenopause: What to Expect and How BHRT Can Help",
+          "slug": "postmenopause-what-to-expect-and-how-bhrt-can-help"
+        },
+        {
+          "title": "A Woman's Guide to Hormones: Estrogen, Progesterone, and Testosterone",
+          "slug": "a-womans-guide-to-hormones-estrogen-progesterone-and-testosterone"
+        },
+        {
+          "title": "BHRT Safety: What the Research Actually Shows",
+          "slug": "bhrt-safety-what-the-research-actually-shows"
+        }
+      ]
+    },
+    {
+      "id": "C5-012",
+      "status": "pending",
+      "title": "Hormones and Heart Health in Women Over 50",
+      "primaryKeyword": "hormones and heart health women",
+      "secondaryKeywords": [
+        "BHRT cardiovascular risk women",
+        "estrogen heart health",
+        "menopause heart disease risk"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "womens-health",
+      "clusterSlug": "womens-health",
+      "relatedPosts": [
+        {
+          "title": "BHRT and Cardiovascular Health: Current Research",
+          "slug": "bhrt-and-cardiovascular-health-current-research"
+        },
+        {
+          "title": "Estrogen and Bone Health: Why Hormones Matter for Osteoporosis",
+          "slug": "estrogen-and-bone-health-why-hormones-matter-for-osteoporosis"
+        },
+        {
+          "title": "BHRT Safety: What the Research Actually Shows",
+          "slug": "bhrt-safety-what-the-research-actually-shows"
+        }
+      ]
+    },
+    {
+      "id": "C5-013",
+      "status": "pending",
+      "title": "Women's Hormones and Mental Health: The Research",
+      "primaryKeyword": "hormones and women's mental health",
+      "secondaryKeywords": [
+        "estrogen depression anxiety research",
+        "hormone therapy mood women",
+        "BHRT mental health benefits"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "womens-health",
+      "clusterSlug": "womens-health",
+      "relatedPosts": [
+        {
+          "title": "Mood Swings, Anxiety, and Depression: The Hormonal Root Cause",
+          "slug": "mood-swings-anxiety-and-depression-the-hormonal-root-cause"
+        },
+        {
+          "title": "The Research Behind BHRT: Key Studies Explained",
+          "slug": "the-research-behind-bhrt-key-studies-explained"
+        },
+        {
+          "title": "A Woman's Guide to Hormones: Estrogen, Progesterone, and Testosterone",
+          "slug": "a-womans-guide-to-hormones-estrogen-progesterone-and-testosterone"
+        }
+      ]
+    },
+    {
+      "id": "C5-014",
+      "status": "pending",
+      "title": "Sex Drive After Menopause: What's Normal and What Helps",
+      "primaryKeyword": "sex drive after menopause",
+      "secondaryKeywords": [
+        "low libido menopause solutions",
+        "menopause sexual health",
+        "BHRT libido after menopause"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "womens-health",
+      "clusterSlug": "womens-health",
+      "relatedPosts": [
+        {
+          "title": "Low Libido After 40: Is It Normal or Hormonal?",
+          "slug": "low-libido-after-40-is-it-normal-or-hormonal"
+        },
+        {
+          "title": "Vaginal Dryness and Hormones: BHRT Solutions That Work",
+          "slug": "vaginal-dryness-and-hormones-bhrt-solutions-that-work"
+        },
+        {
+          "title": "Testosterone Pellet Therapy for Women: Benefits and What to Expect",
+          "slug": "testosterone-pellet-therapy-for-women-benefits-and-what-to-expect"
+        }
+      ]
+    },
+    {
+      "id": "C6-003",
+      "status": "pending",
+      "title": "TRT vs. BHRT for Men: What's the Difference?",
+      "primaryKeyword": "TRT vs BHRT for men",
+      "secondaryKeywords": [
+        "testosterone replacement therapy vs BHRT",
+        "TRT bioidentical difference",
+        "which is better TRT or BHRT men"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "mens-health",
+      "clusterSlug": "mens-health",
+      "relatedPosts": [
+        {
+          "title": "Men's Guide to Hormone Decline: What Happens After 40",
+          "slug": "mens-guide-to-hormone-decline-what-happens-after-40"
+        },
+        {
+          "title": "Testosterone Pellets for Men: A Complete Guide",
+          "slug": "testosterone-pellets-for-men-a-complete-guide"
+        },
+        {
+          "title": "BHRT for Men: What to Expect in the First 6 Months",
+          "slug": "bhrt-for-men-what-to-expect-in-the-first-6-months"
+        }
+      ]
+    },
+    {
+      "id": "C6-004",
+      "status": "pending",
+      "title": "Natural Testosterone Boosters vs. BHRT: What Works?",
+      "primaryKeyword": "natural testosterone boosters vs BHRT",
+      "secondaryKeywords": [
+        "do testosterone supplements work",
+        "natural vs bioidentical testosterone",
+        "testosterone boosters effectiveness"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "mens-health",
+      "clusterSlug": "mens-health",
+      "relatedPosts": [
+        {
+          "title": "TRT vs. BHRT for Men: What's the Difference?",
+          "slug": "trt-vs-bhrt-for-men-whats-the-difference"
+        },
+        {
+          "title": "Low Testosterone Symptoms: The Full Checklist for Men",
+          "slug": "low-testosterone-symptoms-the-full-checklist-for-men"
+        },
+        {
+          "title": "Men's Guide to Hormone Decline: What Happens After 40",
+          "slug": "mens-guide-to-hormone-decline-what-happens-after-40"
+        }
+      ]
+    },
+    {
+      "id": "C6-005",
+      "status": "pending",
+      "title": "Testosterone and Men's Mental Health",
+      "primaryKeyword": "testosterone men's mental health",
+      "secondaryKeywords": [
+        "low testosterone depression men",
+        "testosterone anxiety mood",
+        "TRT mental health benefits men"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "mens-health",
+      "clusterSlug": "mens-health",
+      "relatedPosts": [
+        {
+          "title": "Low Testosterone Symptoms: The Full Checklist for Men",
+          "slug": "low-testosterone-symptoms-the-full-checklist-for-men"
+        },
+        {
+          "title": "Men's Guide to Hormone Decline: What Happens After 40",
+          "slug": "mens-guide-to-hormone-decline-what-happens-after-40"
+        },
+        {
+          "title": "BHRT for Men: What to Expect in the First 6 Months",
+          "slug": "bhrt-for-men-what-to-expect-in-the-first-6-months"
+        }
+      ]
+    },
+    {
+      "id": "C6-006",
+      "status": "pending",
+      "title": "Testosterone and Muscle Loss After 50",
+      "primaryKeyword": "testosterone muscle loss after 50",
+      "secondaryKeywords": [
+        "low testosterone sarcopenia",
+        "testosterone muscle mass men over 50",
+        "TRT muscle preservation"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "mens-health",
+      "clusterSlug": "mens-health",
+      "relatedPosts": [
+        {
+          "title": "Low Testosterone Symptoms: The Full Checklist for Men",
+          "slug": "low-testosterone-symptoms-the-full-checklist-for-men"
+        },
+        {
+          "title": "Exercise and Hormones: The Best Workouts for Hormonal Health",
+          "slug": "exercise-and-hormones-the-best-workouts-for-hormonal-health"
+        },
+        {
+          "title": "BHRT for Men: What to Expect in the First 6 Months",
+          "slug": "bhrt-for-men-what-to-expect-in-the-first-6-months"
+        }
+      ]
+    },
+    {
+      "id": "C6-007",
+      "status": "pending",
+      "title": "Erectile Dysfunction and Hormones: The BHRT Connection",
+      "primaryKeyword": "erectile dysfunction hormones BHRT",
+      "secondaryKeywords": [
+        "low testosterone erectile dysfunction",
+        "BHRT for ED",
+        "hormone therapy erectile dysfunction men"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "mens-health",
+      "clusterSlug": "mens-health",
+      "relatedPosts": [
+        {
+          "title": "Low Testosterone Symptoms: The Full Checklist for Men",
+          "slug": "low-testosterone-symptoms-the-full-checklist-for-men"
+        },
+        {
+          "title": "TRT vs. BHRT for Men: What's the Difference?",
+          "slug": "trt-vs-bhrt-for-men-whats-the-difference"
+        },
+        {
+          "title": "Testosterone Pellets for Men: A Complete Guide",
+          "slug": "testosterone-pellets-for-men-a-complete-guide"
+        }
+      ]
+    },
+    {
+      "id": "C6-008",
+      "status": "pending",
+      "title": "Men's Hormone Testing: What to Ask Your Doctor",
+      "primaryKeyword": "men's hormone testing",
+      "secondaryKeywords": [
+        "male hormone panel blood test",
+        "testosterone testing men",
+        "what hormones to test men"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "mens-health",
+      "clusterSlug": "mens-health",
+      "relatedPosts": [
+        {
+          "title": "Low Testosterone Symptoms: The Full Checklist for Men",
+          "slug": "low-testosterone-symptoms-the-full-checklist-for-men"
+        },
+        {
+          "title": "What Happens at Your First BHRT Consultation?",
+          "slug": "what-happens-at-your-first-bhrt-consultation"
+        },
+        {
+          "title": "TRT vs. BHRT for Men: What's the Difference?",
+          "slug": "trt-vs-bhrt-for-men-whats-the-difference"
+        }
+      ]
+    },
+    {
+      "id": "C6-009",
+      "status": "pending",
+      "title": "Andropause: The Male Menopause Explained",
+      "primaryKeyword": "andropause male menopause",
+      "secondaryKeywords": [
+        "what is andropause",
+        "male menopause symptoms",
+        "andropause treatment BHRT"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "mens-health",
+      "clusterSlug": "mens-health",
+      "relatedPosts": [
+        {
+          "title": "Men's Guide to Hormone Decline: What Happens After 40",
+          "slug": "mens-guide-to-hormone-decline-what-happens-after-40"
+        },
+        {
+          "title": "Low Testosterone Symptoms: The Full Checklist for Men",
+          "slug": "low-testosterone-symptoms-the-full-checklist-for-men"
+        },
+        {
+          "title": "TRT vs. BHRT for Men: What's the Difference?",
+          "slug": "trt-vs-bhrt-for-men-whats-the-difference"
+        }
+      ]
+    },
+    {
+      "id": "C6-010",
+      "status": "pending",
+      "title": "BHRT for Men: What to Expect in the First 6 Months",
+      "primaryKeyword": "BHRT for men results",
+      "secondaryKeywords": [
+        "what to expect BHRT men",
+        "bioidentical hormone therapy men timeline",
+        "TRT first 6 months results"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "mens-health",
+      "clusterSlug": "mens-health",
+      "relatedPosts": [
+        {
+          "title": "Testosterone Pellets for Men: A Complete Guide",
+          "slug": "testosterone-pellets-for-men-a-complete-guide"
+        },
+        {
+          "title": "TRT vs. BHRT for Men: What's the Difference?",
+          "slug": "trt-vs-bhrt-for-men-whats-the-difference"
+        },
+        {
+          "title": "Men's Hormone Testing: What to Ask Your Doctor",
+          "slug": "mens-hormone-testing-what-to-ask-your-doctor"
+        }
+      ]
+    },
+    {
+      "id": "C7-003",
+      "status": "pending",
+      "title": "Questions to Ask a BHRT Clinic Before You Start",
+      "primaryKeyword": "questions to ask BHRT clinic",
+      "secondaryKeywords": [
+        "BHRT consultation questions list",
+        "what to ask hormone clinic",
+        "before starting BHRT checklist"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "decision",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "What to Look for in a BHRT Provider",
+          "slug": "what-to-look-for-in-a-bhrt-provider"
+        },
+        {
+          "title": "Red Flags to Watch for in BHRT Providers",
+          "slug": "red-flags-to-watch-for-in-bhrt-providers"
+        },
+        {
+          "title": "What Happens at Your First BHRT Consultation?",
+          "slug": "what-happens-at-your-first-bhrt-consultation"
+        }
+      ]
+    },
+    {
+      "id": "C7-004",
+      "status": "pending",
+      "title": "BHRT Clinics vs. Primary Care: Who Should Prescribe Your Hormones?",
+      "primaryKeyword": "BHRT clinic vs primary care",
+      "secondaryKeywords": [
+        "who prescribes BHRT",
+        "hormone specialist vs family doctor",
+        "best doctor for BHRT"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "decision",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "How to Find a BHRT Doctor Near You",
+          "slug": "how-to-find-a-bhrt-doctor-near-you"
+        },
+        {
+          "title": "What Is a Hormone Specialist? Credentials to Look For",
+          "slug": "what-is-a-hormone-specialist-credentials-to-look-for"
+        },
+        {
+          "title": "Functional Medicine and BHRT: What's the Connection?",
+          "slug": "functional-medicine-and-bhrt-whats-the-connection"
+        }
+      ]
+    },
+    {
+      "id": "C7-005",
+      "status": "pending",
+      "title": "Red Flags to Watch for in BHRT Providers",
+      "primaryKeyword": "red flags BHRT providers",
+      "secondaryKeywords": [
+        "bad BHRT clinic signs",
+        "how to avoid BHRT scams",
+        "unqualified hormone therapy provider"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "decision",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "What to Look for in a BHRT Provider",
+          "slug": "what-to-look-for-in-a-bhrt-provider"
+        },
+        {
+          "title": "Questions to Ask a BHRT Clinic Before You Start",
+          "slug": "questions-to-ask-a-bhrt-clinic-before-you-start"
+        },
+        {
+          "title": "How to Find a BHRT Doctor Near You",
+          "slug": "how-to-find-a-bhrt-doctor-near-you"
+        }
+      ]
+    },
+    {
+      "id": "C7-006",
+      "status": "pending",
+      "title": "What Is a Hormone Specialist? Credentials to Look For",
+      "primaryKeyword": "hormone specialist credentials",
+      "secondaryKeywords": [
+        "what is a hormone doctor",
+        "BHRT specialist qualifications",
+        "endocrinologist vs functional medicine BHRT"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "How to Find a BHRT Doctor Near You",
+          "slug": "how-to-find-a-bhrt-doctor-near-you"
+        },
+        {
+          "title": "BHRT Clinics vs. Primary Care: Who Should Prescribe Your Hormones?",
+          "slug": "bhrt-clinics-vs-primary-care-who-should-prescribe-your-hormones"
+        },
+        {
+          "title": "What to Look for in a BHRT Provider",
+          "slug": "what-to-look-for-in-a-bhrt-provider"
+        }
+      ]
+    },
+    {
+      "id": "C7-007",
+      "status": "pending",
+      "title": "Functional Medicine and BHRT: What's the Connection?",
+      "primaryKeyword": "functional medicine BHRT",
+      "secondaryKeywords": [
+        "functional medicine hormone therapy",
+        "integrative medicine BHRT",
+        "root cause hormone treatment"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "BHRT Clinics vs. Primary Care: Who Should Prescribe Your Hormones?",
+          "slug": "bhrt-clinics-vs-primary-care-who-should-prescribe-your-hormones"
+        },
+        {
+          "title": "What Is a Hormone Specialist? Credentials to Look For",
+          "slug": "what-is-a-hormone-specialist-credentials-to-look-for"
+        },
+        {
+          "title": "How to Find a BHRT Doctor Near You",
+          "slug": "how-to-find-a-bhrt-doctor-near-you"
+        }
+      ]
+    },
+    {
+      "id": "C7-008",
+      "status": "pending",
+      "title": "Telehealth BHRT: Can You Get Hormones Prescribed Online?",
+      "primaryKeyword": "telehealth BHRT online prescription",
+      "secondaryKeywords": [
+        "online BHRT prescription",
+        "virtual hormone therapy",
+        "BHRT telehealth providers"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "decision",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "How to Find a BHRT Doctor Near You",
+          "slug": "how-to-find-a-bhrt-doctor-near-you"
+        },
+        {
+          "title": "BHRT Clinics vs. Primary Care: Who Should Prescribe Your Hormones?",
+          "slug": "bhrt-clinics-vs-primary-care-who-should-prescribe-your-hormones"
+        },
+        {
+          "title": "What Happens at Your First BHRT Consultation?",
+          "slug": "what-happens-at-your-first-bhrt-consultation"
+        }
+      ]
+    },
+    {
+      "id": "C7-009",
+      "status": "pending",
+      "title": "What Happens at Your First BHRT Consultation?",
+      "primaryKeyword": "first BHRT consultation",
+      "secondaryKeywords": [
+        "BHRT first appointment what to expect",
+        "hormone consultation process",
+        "BHRT intake appointment"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "decision",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "Questions to Ask a BHRT Clinic Before You Start",
+          "slug": "questions-to-ask-a-bhrt-clinic-before-you-start"
+        },
+        {
+          "title": "What to Look for in a BHRT Provider",
+          "slug": "what-to-look-for-in-a-bhrt-provider"
+        },
+        {
+          "title": "Hormone Testing for Women: What Tests to Ask For",
+          "slug": "hormone-testing-for-women-what-tests-to-ask-for"
+        }
+      ]
+    },
+    {
+      "id": "C7-010",
+      "status": "pending",
+      "title": "BHRT and Compounding Pharmacies: What You Should Know",
+      "primaryKeyword": "BHRT compounding pharmacy",
+      "secondaryKeywords": [
+        "compounded bioidentical hormones pharmacy",
+        "custom BHRT pharmacy",
+        "compounding pharmacy hormone safety"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "Compounded BHRT: Safety Concerns and What the FDA Says",
+          "slug": "compounded-bhrt-safety-concerns-and-what-the-fda-says"
+        },
+        {
+          "title": "Is BHRT FDA-Approved? What Patients Need to Know",
+          "slug": "is-bhrt-fda-approved-what-patients-need-to-know"
+        },
+        {
+          "title": "How to Find a BHRT Doctor Near You",
+          "slug": "how-to-find-a-bhrt-doctor-near-you"
+        }
+      ]
+    },
+    {
+      "id": "C8-003",
+      "status": "pending",
+      "title": "HSA and FSA for BHRT: Can You Use Pre-Tax Money?",
+      "primaryKeyword": "HSA FSA for BHRT",
+      "secondaryKeywords": [
+        "can I use HSA for hormone therapy",
+        "FSA BHRT eligible",
+        "pre-tax money hormone replacement"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "How Much Does BHRT Cost? A State-by-State Guide",
+          "slug": "how-much-does-bhrt-cost-a-state-by-state-guide"
+        },
+        {
+          "title": "Does Insurance Cover BHRT? What You Need to Know",
+          "slug": "does-insurance-cover-bhrt-what-you-need-to-know"
+        },
+        {
+          "title": "How to Afford BHRT: Payment Plans and Cost-Saving Tips",
+          "slug": "how-to-afford-bhrt-payment-plans-and-cost-saving-tips"
+        }
+      ]
+    },
+    {
+      "id": "C8-004",
+      "status": "pending",
+      "title": "The Real Cost of Pellet Therapy (With No Hidden Surprises)",
+      "primaryKeyword": "real cost of pellet therapy",
+      "secondaryKeywords": [
+        "pellet therapy total cost",
+        "hidden fees pellet therapy",
+        "what I actually paid for pellet therapy"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "Pellet Therapy Cost: What to Expect and How to Budget",
+          "slug": "pellet-therapy-cost-what-to-expect-and-how-to-budget"
+        },
+        {
+          "title": "Is Pellet Therapy Covered by Insurance?",
+          "slug": "is-pellet-therapy-covered-by-insurance"
+        },
+        {
+          "title": "How Much Does BHRT Cost? A State-by-State Guide",
+          "slug": "how-much-does-bhrt-cost-a-state-by-state-guide"
+        }
+      ]
+    },
+    {
+      "id": "C8-005",
+      "status": "pending",
+      "title": "How to Afford BHRT: Payment Plans and Cost-Saving Tips",
+      "primaryKeyword": "how to afford BHRT",
+      "secondaryKeywords": [
+        "BHRT payment plans",
+        "reduce BHRT costs",
+        "affordable bioidentical hormone therapy"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "decision",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "How Much Does BHRT Cost? A State-by-State Guide",
+          "slug": "how-much-does-bhrt-cost-a-state-by-state-guide"
+        },
+        {
+          "title": "HSA and FSA for BHRT: Can You Use Pre-Tax Money?",
+          "slug": "hsa-and-fsa-for-bhrt-can-you-use-pre-tax-money"
+        },
+        {
+          "title": "Is BHRT Worth the Cost? A Patient's Perspective",
+          "slug": "is-bhrt-worth-the-cost-a-patients-perspective"
+        }
+      ]
+    },
+    {
+      "id": "C8-006",
+      "status": "pending",
+      "title": "Compounded vs. FDA-Approved BHRT: Cost and Access Differences",
+      "primaryKeyword": "compounded vs FDA approved BHRT cost",
+      "secondaryKeywords": [
+        "compounded BHRT price",
+        "FDA approved hormone therapy cost",
+        "custom vs commercial BHRT"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "Is BHRT FDA-Approved? What Patients Need to Know",
+          "slug": "is-bhrt-fda-approved-what-patients-need-to-know"
+        },
+        {
+          "title": "How Much Does BHRT Cost? A State-by-State Guide",
+          "slug": "how-much-does-bhrt-cost-a-state-by-state-guide"
+        },
+        {
+          "title": "BHRT and Compounding Pharmacies: What You Should Know",
+          "slug": "bhrt-and-compounding-pharmacies-what-you-should-know"
+        }
+      ]
+    },
+    {
+      "id": "C8-007",
+      "status": "pending",
+      "title": "Is BHRT Worth the Cost? A Patient's Perspective",
+      "primaryKeyword": "is BHRT worth the cost",
+      "secondaryKeywords": [
+        "BHRT value for money",
+        "patient perspective BHRT investment",
+        "is hormone therapy worth it"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "decision",
+      "cluster": "finding-providers",
+      "clusterSlug": "finding-providers",
+      "relatedPosts": [
+        {
+          "title": "How Much Does BHRT Cost? A State-by-State Guide",
+          "slug": "how-much-does-bhrt-cost-a-state-by-state-guide"
+        },
+        {
+          "title": "BHRT Success Stories: Real Patient Transformations",
+          "slug": "bhrt-success-stories-real-patient-transformations"
+        },
+        {
+          "title": "Who Is a Good Candidate for BHRT?",
+          "slug": "who-is-a-good-candidate-for-bhrt"
+        }
+      ]
+    },
+    {
+      "id": "C9-003",
+      "status": "pending",
+      "title": "BHRT and Cancer Risk: What the Science Actually Says",
+      "primaryKeyword": "BHRT cancer risk",
+      "secondaryKeywords": [
+        "does BHRT cause cancer",
+        "bioidentical hormones cancer research",
+        "hormone therapy cancer risk evidence"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "research-science",
+      "clusterSlug": "research-science",
+      "relatedPosts": [
+        {
+          "title": "BHRT and Breast Cancer Risk: The Real Research",
+          "slug": "bhrt-and-breast-cancer-risk-the-real-research"
+        },
+        {
+          "title": "BHRT Safety: What the Research Actually Shows",
+          "slug": "bhrt-safety-what-the-research-actually-shows"
+        },
+        {
+          "title": "The Research Behind BHRT: Key Studies Explained",
+          "slug": "the-research-behind-bhrt-key-studies-explained"
+        }
+      ]
+    },
+    {
+      "id": "C9-004",
+      "status": "pending",
+      "title": "Compounded BHRT: Safety Concerns and What the FDA Says",
+      "primaryKeyword": "compounded BHRT safety FDA",
+      "secondaryKeywords": [
+        "FDA compounded hormone therapy",
+        "is compounded BHRT safe",
+        "compounded hormone safety concerns"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "research-science",
+      "clusterSlug": "research-science",
+      "relatedPosts": [
+        {
+          "title": "Is BHRT FDA-Approved? What Patients Need to Know",
+          "slug": "is-bhrt-fda-approved-what-patients-need-to-know"
+        },
+        {
+          "title": "BHRT and Compounding Pharmacies: What You Should Know",
+          "slug": "bhrt-and-compounding-pharmacies-what-you-should-know"
+        },
+        {
+          "title": "BHRT Safety: What the Research Actually Shows",
+          "slug": "bhrt-safety-what-the-research-actually-shows"
+        }
+      ]
+    },
+    {
+      "id": "C9-005",
+      "status": "pending",
+      "title": "BHRT and Cardiovascular Health: Current Research",
+      "primaryKeyword": "BHRT cardiovascular health research",
+      "secondaryKeywords": [
+        "hormone therapy heart health research",
+        "BHRT heart disease risk",
+        "estrogen cardiovascular study"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "research-science",
+      "clusterSlug": "research-science",
+      "relatedPosts": [
+        {
+          "title": "The Research Behind BHRT: Key Studies Explained",
+          "slug": "the-research-behind-bhrt-key-studies-explained"
+        },
+        {
+          "title": "BHRT Safety: What the Research Actually Shows",
+          "slug": "bhrt-safety-what-the-research-actually-shows"
+        },
+        {
+          "title": "Hormones and Heart Health in Women Over 50",
+          "slug": "hormones-and-heart-health-in-women-over-50"
+        }
+      ]
+    },
+    {
+      "id": "C9-006",
+      "status": "pending",
+      "title": "Hormone Testing Methods: Saliva vs. Blood vs. Urine",
+      "primaryKeyword": "hormone testing methods comparison",
+      "secondaryKeywords": [
+        "saliva vs blood hormone test",
+        "urine hormone testing",
+        "best way to test hormones"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "research-science",
+      "clusterSlug": "research-science",
+      "relatedPosts": [
+        {
+          "title": "Hormone Testing for Women: What Tests to Ask For",
+          "slug": "hormone-testing-for-women-what-tests-to-ask-for"
+        },
+        {
+          "title": "Men's Hormone Testing: What to Ask Your Doctor",
+          "slug": "mens-hormone-testing-what-to-ask-your-doctor"
+        },
+        {
+          "title": "What Happens at Your First BHRT Consultation?",
+          "slug": "what-happens-at-your-first-bhrt-consultation"
+        }
+      ]
+    },
+    {
+      "id": "C9-007",
+      "status": "pending",
+      "title": "The Wiley Protocol: What It Is and the Controversy Around It",
+      "primaryKeyword": "Wiley Protocol BHRT",
+      "secondaryKeywords": [
+        "what is the Wiley Protocol",
+        "Wiley Protocol controversy",
+        "rhythmic hormone therapy Wiley"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "research-science",
+      "clusterSlug": "research-science",
+      "relatedPosts": [
+        {
+          "title": "The Research Behind BHRT: Key Studies Explained",
+          "slug": "the-research-behind-bhrt-key-studies-explained"
+        },
+        {
+          "title": "Why Mainstream Medicine Is Skeptical of BHRT (And What the Evidence Shows)",
+          "slug": "why-mainstream-medicine-is-skeptical-of-bhrt-and-what-the-evidence-shows"
+        },
+        {
+          "title": "BHRT Safety: What the Research Actually Shows",
+          "slug": "bhrt-safety-what-the-research-actually-shows"
+        }
+      ]
+    },
+    {
+      "id": "C9-008",
+      "status": "pending",
+      "title": "Why Mainstream Medicine Is Skeptical of BHRT (And What the Evidence Shows)",
+      "primaryKeyword": "why doctors skeptical of BHRT",
+      "secondaryKeywords": [
+        "mainstream medicine BHRT criticism",
+        "is BHRT evidence based",
+        "medical skepticism bioidentical hormones"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "research-science",
+      "clusterSlug": "research-science",
+      "relatedPosts": [
+        {
+          "title": "BHRT Myths Debunked: Separating Fact from Fiction",
+          "slug": "bhrt-myths-debunked-separating-fact-from-fiction"
+        },
+        {
+          "title": "The Research Behind BHRT: Key Studies Explained",
+          "slug": "the-research-behind-bhrt-key-studies-explained"
+        },
+        {
+          "title": "BHRT vs. Conventional HRT: What's the Difference?",
+          "slug": "bhrt-vs-conventional-hrt-whats-the-difference"
+        }
+      ]
+    },
+    {
+      "id": "C9-009",
+      "status": "pending",
+      "title": "BHRT Study Roundup: Recent Research Worth Knowing",
+      "primaryKeyword": "BHRT recent research 2024",
+      "secondaryKeywords": [
+        "latest BHRT studies",
+        "bioidentical hormone research roundup",
+        "new hormone therapy research"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "research-science",
+      "clusterSlug": "research-science",
+      "relatedPosts": [
+        {
+          "title": "The Research Behind BHRT: Key Studies Explained",
+          "slug": "the-research-behind-bhrt-key-studies-explained"
+        },
+        {
+          "title": "BHRT and Cardiovascular Health: Current Research",
+          "slug": "bhrt-and-cardiovascular-health-current-research"
+        },
+        {
+          "title": "BHRT and Cognitive Function: What the Research Says",
+          "slug": "bhrt-and-cognitive-function-what-the-research-says"
+        }
+      ]
+    },
+    {
+      "id": "C9-010",
+      "status": "pending",
+      "title": "The Role of Compounding Pharmacies in BHRT",
+      "primaryKeyword": "compounding pharmacies BHRT role",
+      "secondaryKeywords": [
+        "how compounding pharmacies make BHRT",
+        "custom hormone formulas pharmacy",
+        "compounding pharmacy hormone therapy process"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "research-science",
+      "clusterSlug": "research-science",
+      "relatedPosts": [
+        {
+          "title": "Compounded BHRT: Safety Concerns and What the FDA Says",
+          "slug": "compounded-bhrt-safety-concerns-and-what-the-fda-says"
+        },
+        {
+          "title": "BHRT and Compounding Pharmacies: What You Should Know",
+          "slug": "bhrt-and-compounding-pharmacies-what-you-should-know"
+        },
+        {
+          "title": "Is BHRT FDA-Approved? What Patients Need to Know",
+          "slug": "is-bhrt-fda-approved-what-patients-need-to-know"
+        }
+      ]
+    },
+    {
+      "id": "C9-011",
+      "status": "pending",
+      "title": "BHRT and Cognitive Function: What the Research Says",
+      "primaryKeyword": "BHRT cognitive function research",
+      "secondaryKeywords": [
+        "hormone therapy brain function",
+        "BHRT memory and cognition",
+        "estrogen dementia prevention research"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "research-science",
+      "clusterSlug": "research-science",
+      "relatedPosts": [
+        {
+          "title": "Brain Fog and Hormones: The Hidden Connection",
+          "slug": "brain-fog-and-hormones-the-hidden-connection"
+        },
+        {
+          "title": "The Research Behind BHRT: Key Studies Explained",
+          "slug": "the-research-behind-bhrt-key-studies-explained"
+        },
+        {
+          "title": "BHRT Study Roundup: Recent Research Worth Knowing",
+          "slug": "bhrt-study-roundup-recent-research-worth-knowing"
+        }
+      ]
+    },
+    {
+      "id": "C10-003",
+      "status": "pending",
+      "title": "Sleep and Hormones: The Two-Way Relationship",
+      "primaryKeyword": "sleep and hormones",
+      "secondaryKeywords": [
+        "how sleep affects hormones",
+        "hormones and sleep quality",
+        "sleep deprivation hormone imbalance"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "lifestyle",
+      "clusterSlug": "lifestyle",
+      "relatedPosts": [
+        {
+          "title": "Hormones and Sleep: Why You Can't Sleep Anymore",
+          "slug": "hormones-and-sleep-why-you-cant-sleep-anymore"
+        },
+        {
+          "title": "Progesterone for Sleep: Can It Really Help?",
+          "slug": "progesterone-for-sleep-can-it-really-help"
+        },
+        {
+          "title": "Stress and Cortisol: How Chronic Stress Destroys Hormone Balance",
+          "slug": "stress-and-cortisol-how-chronic-stress-destroys-hormone-balance"
+        }
+      ]
+    },
+    {
+      "id": "C10-004",
+      "status": "pending",
+      "title": "Stress and Cortisol: How Chronic Stress Destroys Hormone Balance",
+      "primaryKeyword": "stress cortisol hormone balance",
+      "secondaryKeywords": [
+        "chronic stress hormones",
+        "cortisol and estrogen",
+        "how to lower cortisol naturally"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "lifestyle",
+      "clusterSlug": "lifestyle",
+      "relatedPosts": [
+        {
+          "title": "Cortisol and Hormone Balance: The Stress Connection",
+          "slug": "cortisol-and-hormone-balance-the-stress-connection"
+        },
+        {
+          "title": "Diet for Hormone Balance: What to Eat and Avoid",
+          "slug": "diet-for-hormone-balance-what-to-eat-and-avoid"
+        },
+        {
+          "title": "Exercise and Hormones: The Best Workouts for Hormonal Health",
+          "slug": "exercise-and-hormones-the-best-workouts-for-hormonal-health"
+        }
+      ]
+    },
+    {
+      "id": "C10-005",
+      "status": "pending",
+      "title": "Supplements for Hormone Support: What Works and What Doesn't",
+      "primaryKeyword": "supplements for hormone balance",
+      "secondaryKeywords": [
+        "hormone balancing supplements",
+        "supplements for menopause",
+        "natural hormone support supplements"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "lifestyle",
+      "clusterSlug": "lifestyle",
+      "relatedPosts": [
+        {
+          "title": "Diet for Hormone Balance: What to Eat and Avoid",
+          "slug": "diet-for-hormone-balance-what-to-eat-and-avoid"
+        },
+        {
+          "title": "Natural Testosterone Boosters vs. BHRT: What Works?",
+          "slug": "natural-testosterone-boosters-vs-bhrt-what-works"
+        },
+        {
+          "title": "What Is BHRT? A Complete Beginner's Guide",
+          "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
+        }
+      ]
+    },
+    {
+      "id": "C10-006",
+      "status": "pending",
+      "title": "Environmental Toxins and Hormones: What to Eliminate",
+      "primaryKeyword": "environmental toxins and hormones",
+      "secondaryKeywords": [
+        "endocrine disruptors list",
+        "toxins that affect hormones",
+        "chemicals that disrupt hormones"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "lifestyle",
+      "clusterSlug": "lifestyle",
+      "relatedPosts": [
+        {
+          "title": "Diet for Hormone Balance: What to Eat and Avoid",
+          "slug": "diet-for-hormone-balance-what-to-eat-and-avoid"
+        },
+        {
+          "title": "17 Signs Your Hormones May Be Out of Balance",
+          "slug": "17-signs-your-hormones-may-be-out-of-balance"
+        },
+        {
+          "title": "Gut Health and Hormones: The Microbiome Connection",
+          "slug": "gut-health-and-hormones-the-microbiome-connection"
+        }
+      ]
+    },
+    {
+      "id": "C10-007",
+      "status": "pending",
+      "title": "Gut Health and Hormones: The Microbiome Connection",
+      "primaryKeyword": "gut health and hormones",
+      "secondaryKeywords": [
+        "microbiome and hormone balance",
+        "gut bacteria estrogen",
+        "estrobolome hormone metabolism"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "lifestyle",
+      "clusterSlug": "lifestyle",
+      "relatedPosts": [
+        {
+          "title": "Diet for Hormone Balance: What to Eat and Avoid",
+          "slug": "diet-for-hormone-balance-what-to-eat-and-avoid"
+        },
+        {
+          "title": "Estrogen Dominance: Symptoms, Causes, and Solutions",
+          "slug": "estrogen-dominance-symptoms-causes-and-solutions"
+        },
+        {
+          "title": "Environmental Toxins and Hormones: What to Eliminate",
+          "slug": "environmental-toxins-and-hormones-what-to-eliminate"
+        }
+      ]
+    },
+    {
+      "id": "C10-008",
+      "status": "pending",
+      "title": "Alcohol and Hormones: What Every Woman Over 40 Should Know",
+      "primaryKeyword": "alcohol and hormones women",
+      "secondaryKeywords": [
+        "does alcohol affect hormones",
+        "alcohol estrogen levels",
+        "drinking and menopause hormones"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "awareness",
+      "cluster": "lifestyle",
+      "clusterSlug": "lifestyle",
+      "relatedPosts": [
+        {
+          "title": "Diet for Hormone Balance: What to Eat and Avoid",
+          "slug": "diet-for-hormone-balance-what-to-eat-and-avoid"
+        },
+        {
+          "title": "Estrogen Dominance: Symptoms, Causes, and Solutions",
+          "slug": "estrogen-dominance-symptoms-causes-and-solutions"
+        },
+        {
+          "title": "17 Signs Your Hormones May Be Out of Balance",
+          "slug": "17-signs-your-hormones-may-be-out-of-balance"
+        }
+      ]
+    },
+    {
+      "id": "C10-009",
+      "status": "pending",
+      "title": "BHRT and Weight Loss: What to Expect Realistically",
+      "primaryKeyword": "BHRT and weight loss",
+      "secondaryKeywords": [
+        "does BHRT help with weight loss",
+        "hormone therapy weight management",
+        "bioidentical hormones weight loss results"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "lifestyle",
+      "clusterSlug": "lifestyle",
+      "relatedPosts": [
+        {
+          "title": "Hormones and Weight Gain After 40: What's Really Happening",
+          "slug": "hormones-and-weight-gain-after-40-whats-really-happening"
+        },
+        {
+          "title": "Exercise and Hormones: The Best Workouts for Hormonal Health",
+          "slug": "exercise-and-hormones-the-best-workouts-for-hormonal-health"
+        },
+        {
+          "title": "Diet for Hormone Balance: What to Eat and Avoid",
+          "slug": "diet-for-hormone-balance-what-to-eat-and-avoid"
+        }
+      ]
+    },
+    {
+      "id": "C10-010",
+      "status": "pending",
+      "title": "Tracking Your Hormones: Apps and Tools Worth Using",
+      "primaryKeyword": "hormone tracking apps and tools",
+      "secondaryKeywords": [
+        "best apps for hormone tracking",
+        "hormone balance monitoring tools",
+        "menopause symptom tracking"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "solution-aware",
+      "cluster": "lifestyle",
+      "clusterSlug": "lifestyle",
+      "relatedPosts": [
+        {
+          "title": "Hormone Testing for Women: What Tests to Ask For",
+          "slug": "hormone-testing-for-women-what-tests-to-ask-for"
+        },
+        {
+          "title": "17 Signs Your Hormones May Be Out of Balance",
+          "slug": "17-signs-your-hormones-may-be-out-of-balance"
+        },
+        {
+          "title": "Hormone Testing Methods: Saliva vs. Blood vs. Urine",
+          "slug": "hormone-testing-methods-saliva-vs-blood-vs-urine"
+        }
+      ]
+    },
+    {
+      "id": "C10-011",
+      "status": "pending",
+      "title": "BHRT Success Stories: Real Patient Transformations",
+      "primaryKeyword": "BHRT success stories",
+      "secondaryKeywords": [
+        "bioidentical hormone therapy testimonials",
+        "BHRT patient results",
+        "real BHRT transformations"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "decision",
+      "cluster": "lifestyle",
+      "clusterSlug": "lifestyle",
+      "relatedPosts": [
+        {
+          "title": "Who Is a Good Candidate for BHRT?",
+          "slug": "who-is-a-good-candidate-for-bhrt"
+        },
+        {
+          "title": "Is BHRT Worth the Cost? A Patient's Perspective",
+          "slug": "is-bhrt-worth-the-cost-a-patients-perspective"
+        },
+        {
+          "title": "BHRT for Men: What to Expect in the First 6 Months",
+          "slug": "bhrt-for-men-what-to-expect-in-the-first-6-months"
+        }
+      ]
+    },
+    {
+      "id": "C10-012",
+      "status": "pending",
+      "title": "Life After BHRT: Long-Term Considerations",
+      "primaryKeyword": "life after BHRT long term",
+      "secondaryKeywords": [
+        "long term BHRT use",
+        "stopping BHRT what happens",
+        "how long to stay on BHRT"
+      ],
+      "searchIntent": "informational",
+      "funnelStage": "product-aware",
+      "cluster": "lifestyle",
+      "clusterSlug": "lifestyle",
+      "relatedPosts": [
+        {
+          "title": "BHRT Safety: What the Research Actually Shows",
+          "slug": "bhrt-safety-what-the-research-actually-shows"
+        },
+        {
+          "title": "Who Is a Good Candidate for BHRT?",
+          "slug": "who-is-a-good-candidate-for-bhrt"
+        },
+        {
+          "title": "BHRT Success Stories: Real Patient Transformations",
+          "slug": "bhrt-success-stories-real-patient-transformations"
+        }
+      ]
     }
   ]
 }
