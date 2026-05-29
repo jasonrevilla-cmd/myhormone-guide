@@ -65,8 +65,8 @@ const articleSchema = {
   datePublished: pubDateISO,
   dateModified: pubDateISO,
   author: {
-    '@type': 'Organization',
-    name: 'MyHormoneGuide Editorial Team',
+    '@type': 'Person',
+    name: 'Jason Revilla',
     url: 'https://www.myhormoneguide.com/about/',
   },
   publisher: {
@@ -160,6 +160,18 @@ const faqSchema = faqs && faqs.length > 0
       prose-strong:text-navy-700
     ">
       <slot />
+    </div>
+
+    <!-- Author bio -->
+    <div class="mt-10 pt-8 border-t border-gray-100 flex items-center gap-4">
+      <div class="flex-shrink-0 w-14 h-14 rounded-full bg-navy-600 flex items-center justify-center">
+        <span class="text-white font-bold text-lg tracking-wide">JR</span>
+      </div>
+      <div>
+        <p class="text-sm text-gray-400 uppercase tracking-wider font-medium mb-0.5">Written by</p>
+        <p class="font-semibold text-navy-700">Jason Revilla</p>
+        <p class="text-sm text-gray-500">Founder &amp; Lead Researcher, MyHormoneGuide</p>
+      </div>
     </div>
 
     <!-- Inline newsletter opt-in -->
