@@ -143,6 +143,17 @@ const faqSchema = faqs && faqs.length > 0
       </h1>
 
       <p class="text-lg text-gray-500 leading-relaxed max-w-2xl">{description}</p>
+
+      <!-- Author byline -->
+      <div class="flex items-center gap-3 mt-6 pt-6 border-t border-gray-100">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-navy-600 flex items-center justify-center">
+          <span class="text-white font-bold text-sm tracking-wide">JR</span>
+        </div>
+        <div>
+          <p class="font-semibold text-navy-700 text-sm leading-tight">Jason Revilla</p>
+          <p class="text-xs text-gray-400">Founder &amp; Lead Researcher, MyHormoneGuide</p>
+        </div>
+      </div>
     </header>
 
     <!-- Medical disclaimer banner at top -->
@@ -160,18 +171,6 @@ const faqSchema = faqs && faqs.length > 0
       prose-strong:text-navy-700
     ">
       <slot />
-    </div>
-
-    <!-- Author bio -->
-    <div class="mt-10 pt-8 border-t border-gray-100 flex items-center gap-4">
-      <div class="flex-shrink-0 w-14 h-14 rounded-full bg-navy-600 flex items-center justify-center">
-        <span class="text-white font-bold text-lg tracking-wide">JR</span>
-      </div>
-      <div>
-        <p class="text-sm text-gray-400 uppercase tracking-wider font-medium mb-0.5">Written by</p>
-        <p class="font-semibold text-navy-700">Jason Revilla</p>
-        <p class="text-sm text-gray-500">Founder &amp; Lead Researcher, MyHormoneGuide</p>
-      </div>
     </div>
 
     <!-- Inline newsletter opt-in -->
