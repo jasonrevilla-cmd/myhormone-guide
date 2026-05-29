@@ -1,0 +1,399 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const breadcrumbs = [{ label: 'Start Here', href: '/start-here/' }];
+
+const threeThings = [
+  {
+    number: '01',
+    title: 'What BHRT Is',
+    body: 'Bioidentical Hormone Replacement Therapy (BHRT) uses hormones that are chemically identical to the ones your body naturally produces — primarily estrogen, progesterone, and testosterone. Unlike synthetic hormones, bioidentical versions are designed to match your body\'s own molecular structure exactly. They\'re typically derived from plant sources (like yams and soy) and compounded or manufactured to precise specifications.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>`,
+  },
+  {
+    number: '02',
+    title: 'How It Differs from Conventional HRT',
+    body: 'Conventional HRT (hormone replacement therapy) often uses synthetic hormones or hormones derived from animal sources — such as Premarin (derived from pregnant mare urine) or progestins like medroxyprogesterone, which are not identical to human progesterone. BHRT advocates argue that the molecular match matters for how your body metabolizes and uses the hormones. The evidence is evolving, but many patients and providers prefer the bioidentical approach.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>`,
+  },
+  {
+    number: '03',
+    title: 'Who It Helps',
+    body: 'BHRT is most commonly used by women in perimenopause or menopause experiencing symptoms like hot flashes, night sweats, brain fog, low libido, weight gain, and mood changes — symptoms caused by declining estrogen and progesterone. It\'s also used by men 45–65 experiencing andropause (low testosterone), with symptoms including fatigue, muscle loss, reduced drive, and cognitive decline. The best candidates are those whose symptoms are confirmed by lab testing and who work with a qualified provider.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>`,
+  },
+];
+
+const clusters = [
+  {
+    label: 'BHRT Fundamentals',
+    href: '/bhrt-fundamentals/',
+    desc: 'What it is, how it works, safety research — the essential foundation.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>`,
+  },
+  {
+    label: 'Pellet Therapy',
+    href: '/pellet-therapy/',
+    desc: 'The most popular BHRT delivery method — how it works, costs, and what to expect.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>`,
+  },
+  {
+    label: 'For Women',
+    href: '/for-women/',
+    desc: 'Perimenopause, menopause, low libido, weight gain — BHRT answers for women.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>`,
+  },
+  {
+    label: 'For Men',
+    href: '/for-men/',
+    desc: 'Low testosterone, andropause, muscle loss — what men need to know.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M13 10V3L4 14h7v7l9-11h-7z"/>`,
+  },
+  {
+    label: 'Symptoms Guide',
+    href: '/symptoms/',
+    desc: 'Could your symptoms be hormonal? Learn to recognize the signs.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>`,
+  },
+  {
+    label: 'Find a Provider',
+    href: '/find-bhrt-provider/',
+    desc: 'How to find a qualified BHRT specialist near you — and what to ask.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>`,
+  },
+];
+
+const tools = [
+  {
+    label: 'Hormone Symptom Checker',
+    href: '/tools/hormone-symptom-checker/',
+    desc: 'Answer 8 questions and get a personalized symptom assessment.',
+  },
+  {
+    label: 'BHRT Cost Estimator',
+    href: '/tools/cost-estimator/',
+    desc: 'Realistic cost ranges by state, method, and provider type.',
+  },
+  {
+    label: 'Provider Finder',
+    href: '/tools/provider-finder/',
+    desc: 'Find qualified BHRT clinics in your area.',
+  },
+];
+
+const faqs = [
+  {
+    q: "What does 'bioidentical' actually mean?",
+    a: "Bioidentical means the hormone molecule is chemically identical — atom for atom — to the hormone your body produces naturally. This is different from synthetic hormones like progestins (e.g., medroxyprogesterone acetate), which have a different molecular structure. The idea is that a molecule identical to your body's own should be recognized and metabolized the same way.",
+  },
+  {
+    q: "Is BHRT FDA-approved?",
+    a: "Some bioidentical hormones are FDA-approved — for example, FDA-approved bioidentical estradiol patches and micronized progesterone (Prometrium) are widely prescribed. However, compounded BHRT (custom-mixed formulations from a compounding pharmacy) is not individually FDA-approved, because each batch is custom-made for a specific patient. This distinction matters when evaluating safety and quality standards.",
+  },
+  {
+    q: "Is BHRT safe? What are the risks?",
+    a: "BHRT has a reasonable safety profile when prescribed appropriately and monitored regularly. Risks depend on the specific hormones used, your dosage, your health history, and how long you use it. The biggest areas of ongoing research involve breast cancer risk with estrogen, cardiovascular effects, and clotting. Working with a provider who monitors your hormone levels through regular lab testing significantly reduces these risks. Our research section covers the current evidence in depth.",
+  },
+  {
+    q: "How do I know if I need BHRT?",
+    a: "Start with your symptoms — fatigue, brain fog, hot flashes, sleep disruption, weight gain, low libido, mood changes, and vaginal dryness are all common signs of hormone imbalance. Next, get your labs tested. A good BHRT provider will run a comprehensive hormone panel (not just a standard TSH or estrogen check) and interpret results in context with your symptoms. Our Hormone Symptom Checker can help you organize your symptoms before your first appointment.",
+  },
+  {
+    q: "What's the difference between BHRT delivery methods?",
+    a: "BHRT can be delivered as pellets (tiny rice-sized pellets implanted under the skin every 3–6 months), creams or gels (applied daily to skin), patches (worn on skin and changed twice weekly), injections (administered weekly or bi-weekly), or oral capsules. Each has pros and cons around convenience, cost, hormone stability, and how your body absorbs it. Our Delivery Methods guide covers the tradeoffs in detail.",
+  },
+  {
+    q: "Does insurance cover BHRT?",
+    a: "It depends on the type of BHRT. FDA-approved bioidentical hormone prescriptions (like estradiol patches or micronized progesterone) are often covered by insurance the same way other prescriptions are. Compounded BHRT is generally not covered and must be paid out of pocket — costs typically range from $150 to $400+ per month depending on the method and location. Our Cost Guide breaks this down by state and delivery method.",
+  },
+];
+
+const standards = [
+  {
+    title: 'Evidence-Based Content',
+    body: 'Every claim on this site is supported by published research, established clinical guidelines, or recognized medical consensus. We cite sources, distinguish between what\'s proven and what\'s emerging, and update articles when new research warrants it.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>`,
+  },
+  {
+    title: 'Editorial Independence',
+    body: 'MyHormoneGuide is not owned by or affiliated with any hormone therapy manufacturer, compounding pharmacy, or clinic network. We have no financial relationships that influence what we cover or how we cover it. When we include affiliate links or sponsored content, it\'s clearly disclosed.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+  },
+  {
+    title: 'Medical Disclaimer',
+    body: 'This site provides education, not medical advice. Nothing here should be used to diagnose a condition or make a treatment decision without consulting a qualified healthcare provider who knows your complete health history. Individual results vary, and BHRT is not appropriate for everyone.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+  },
+];
+
+// FAQPage schema for rich results
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="New to BHRT? Start Here | MyHormoneGuide"
+  description="New to bioidentical hormone replacement therapy? This is your starting point — what BHRT is, how it works, who it helps, and where to go next on MyHormoneGuide."
+  breadcrumbs={breadcrumbs}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+  <div class="bg-gradient-to-br from-navy-600 via-navy-700 to-navy-800 py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-flex items-center gap-2 bg-teal-400/20 text-teal-200 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+        </svg>
+        Your starting point
+      </span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+        New to BHRT?<br class="hidden sm:block" /> Start Here.
+      </h1>
+      <p class="text-lg sm:text-xl text-navy-100 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Bioidentical hormone replacement therapy can change lives — but it can also be confusing, overhyped, and hard to navigate. This page cuts through the noise and gives you exactly what you need to start: what BHRT is, how it works, who it helps, and where to go next.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="#three-things"
+          class="inline-flex items-center gap-2 bg-teal-400 hover:bg-teal-300 text-white font-semibold px-6 py-3 rounded-full transition-colors btn-pulse"
+        >
+          Read the Basics
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </a>
+        <a
+          href="/tools/hormone-symptom-checker/"
+          class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-medium px-6 py-3 rounded-full border border-white/20 transition-colors"
+        >
+          Check My Symptoms →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Plain-English Intro ────────────────────────────────────────────────── -->
+  <section class="py-16 bg-white" aria-labelledby="intro-heading">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="intro-heading" class="text-2xl sm:text-3xl font-bold text-navy-600 mb-6">
+        What Is BHRT, in Plain English?
+      </h2>
+      <p class="text-lg text-gray-600 leading-relaxed mb-4">
+        As you get older, your body produces fewer hormones — estrogen, progesterone, and testosterone all decline, usually starting in your 40s for women and mid-40s for men. That decline is normal, but the symptoms it causes — hot flashes, crushing fatigue, brain fog, weight gain, low libido, sleep disruption, and mood swings — are not something you just have to accept.
+      </p>
+      <p class="text-lg text-gray-600 leading-relaxed mb-4">
+        Bioidentical Hormone Replacement Therapy (BHRT) is a medical treatment that restores those hormones to healthier levels using molecules that are chemically identical to the ones your body made on its own. The goal isn't to make you feel 25 again — it's to relieve symptoms, restore quality of life, and potentially reduce long-term health risks associated with hormone deficiency.
+      </p>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        It's not magic, and it's not right for everyone. But for the right patients, guided by the right provider, the results can be significant. This site exists to help you figure out whether you're one of those people — and if so, what to do next.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Three Things to Understand ───────────────────────────────────────── -->
+  <section id="three-things" class="py-16 bg-navy-50" aria-labelledby="three-things-heading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 id="three-things-heading" class="text-3xl sm:text-4xl font-bold text-navy-600 mb-4">
+          Three Things Every Beginner Should Understand
+        </h2>
+        <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+          Before you talk to a provider or read another article, get these three concepts straight.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {threeThings.map((item) => (
+          <div class="bg-white rounded-2xl p-8 border border-navy-100 hover:border-teal-200 hover:shadow-md transition-all duration-200">
+            <div class="flex items-start gap-4 mb-5">
+              <span class="text-4xl font-black text-teal-400/30 leading-none">{item.number}</span>
+              <div class="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <Fragment set:html={item.icon} />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-lg font-bold text-navy-700 mb-3">{item.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Explore the Site ───────────────────────────────────────────────────── -->
+  <section class="py-16 bg-white" aria-labelledby="explore-heading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 id="explore-heading" class="text-3xl sm:text-4xl font-bold text-navy-600 mb-4">
+          Explore the Site
+        </h2>
+        <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+          Every section is designed to take you deeper on one topic. Pick what's most relevant to you right now.
+        </p>
+      </div>
+
+      <!-- Topic cluster grid -->
+      <h3 class="text-sm font-semibold text-navy-400 uppercase tracking-wider mb-5">Topic Guides</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+        {clusters.map((cluster) => (
+          <a
+            href={cluster.href}
+            class="group flex items-start gap-4 p-5 rounded-2xl border border-navy-100 hover:border-teal-300 hover:shadow-md bg-white transition-all duration-200"
+          >
+            <div class="w-10 h-10 bg-navy-50 group-hover:bg-teal-50 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors">
+              <svg class="w-5 h-5 text-navy-400 group-hover:text-teal-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <Fragment set:html={cluster.icon} />
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-navy-700 group-hover:text-teal-600 text-sm mb-1 transition-colors">
+                {cluster.label}
+              </div>
+              <div class="text-xs text-gray-400 leading-relaxed">{cluster.desc}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Free tools row -->
+      <h3 class="text-sm font-semibold text-navy-400 uppercase tracking-wider mb-5">Free Tools</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {tools.map((tool) => (
+          <a
+            href={tool.href}
+            class="group block p-5 rounded-2xl border border-teal-100 bg-teal-50 hover:bg-teal-100 hover:border-teal-300 transition-all duration-200"
+          >
+            <div class="font-semibold text-teal-700 group-hover:text-teal-800 text-sm mb-1 transition-colors">
+              {tool.label} →
+            </div>
+            <div class="text-xs text-teal-600/80 leading-relaxed">{tool.desc}</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ────────────────────────────────────────────────────────────────── -->
+  <section class="py-16 bg-navy-50" aria-labelledby="faq-heading">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 id="faq-heading" class="text-3xl sm:text-4xl font-bold text-navy-600 mb-4">
+          Common Beginner Questions
+        </h2>
+        <p class="text-gray-500 text-lg">
+          The questions almost everyone asks before their first appointment.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        {faqs.map((faq, i) => (
+          <details class="group bg-white rounded-2xl border border-navy-100 overflow-hidden" name="faq">
+            <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none font-semibold text-navy-700 hover:text-teal-600 transition-colors select-none">
+              <span class="flex items-center gap-3">
+                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-teal-50 text-teal-500 text-xs font-bold flex items-center justify-center">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                {faq.q}
+              </span>
+              <svg
+                class="w-5 h-5 text-navy-300 group-open:text-teal-400 group-open:rotate-180 flex-shrink-0 transition-all duration-200"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 pt-1">
+              <div class="h-px bg-navy-100 mb-4"></div>
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-base">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Our Standards ──────────────────────────────────────────────────────── -->
+  <section class="py-16 bg-white" aria-labelledby="standards-heading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 id="standards-heading" class="text-3xl sm:text-4xl font-bold text-navy-600 mb-4">
+          Our Standards
+        </h2>
+        <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+          BHRT is a topic full of misinformation from both directions — overclaiming advocates and dismissive skeptics. Here's how we approach it differently.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {standards.map((item) => (
+          <div class="flex flex-col gap-4">
+            <div class="w-12 h-12 bg-navy-50 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-navy-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <Fragment set:html={item.icon} />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-navy-700">{item.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Medical disclaimer box -->
+      <div class="mt-14 bg-navy-50 border border-navy-200 rounded-2xl p-6 sm:p-8">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-navy-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-5 h-5 text-navy-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-navy-700 mb-2">Medical Disclaimer</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              The content on this site is for educational purposes only and is not intended as medical advice. Always consult a qualified healthcare provider before starting, changing, or stopping any hormone therapy. Individual results vary. MyHormoneGuide does not provide medical diagnosis or treatment. See our full <a href="/medical-disclaimer/" class="text-teal-500 hover:text-teal-600 underline">Medical Disclaimer</a> and <a href="/editorial-policy/" class="text-teal-500 hover:text-teal-600 underline">Editorial Policy</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Final CTA ──────────────────────────────────────────────────────────── -->
+  <section class="py-16 bg-gradient-to-br from-navy-600 to-navy-700">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+        Ready to Go Deeper?
+      </h2>
+      <p class="text-navy-200 text-lg mb-8 leading-relaxed">
+        Start with the symptom checker to understand what your body might be telling you, or dive into the BHRT Fundamentals guide to build your foundation.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/tools/hormone-symptom-checker/"
+          class="inline-flex items-center gap-2 bg-teal-400 hover:bg-teal-300 text-white font-semibold px-7 py-3.5 rounded-full transition-colors"
+        >
+          Check My Symptoms →
+        </a>
+        <a
+          href="/bhrt-fundamentals/"
+          class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-medium px-7 py-3.5 rounded-full border border-white/20 transition-colors"
+        >
+          Read BHRT Basics →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
