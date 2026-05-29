@@ -1248,7 +1248,7 @@
     },
     {
       "id": "C2-003",
-      "status": "pending",
+      "status": "published",
       "title": "17 Signs Your Hormones May Be Out of Balance",
       "primaryKeyword": "17 signs of hormone imbalance",
       "secondaryKeywords": [
@@ -1273,7 +1273,9 @@
           "title": "What Is BHRT? A Complete Beginner's Guide",
           "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
         }
-      ]
+      ],
+      "publishedDate": "2026-05-29",
+      "outputFile": "src/content/posts/17-signs-your-hormones-may-be-out-of-balance.mdx"
     },
     {
       "id": "C2-004",
