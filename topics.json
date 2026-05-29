@@ -1279,7 +1279,7 @@
     },
     {
       "id": "C2-004",
-      "status": "pending",
+      "status": "published",
       "title": "Estrogen Dominance: Symptoms, Causes, and Solutions",
       "primaryKeyword": "estrogen dominance symptoms",
       "secondaryKeywords": [
@@ -1304,7 +1304,9 @@
           "title": "BHRT vs. Conventional HRT: What's the Difference?",
           "slug": "bhrt-vs-conventional-hrt-whats-the-difference"
         }
-      ]
+      ],
+      "publishedDate": "2026-05-29",
+      "outputFile": "src/content/posts/estrogen-dominance-symptoms-causes-and-solutions.mdx"
     },
     {
       "id": "C2-005",
