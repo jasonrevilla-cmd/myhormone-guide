@@ -1310,7 +1310,7 @@
     },
     {
       "id": "C2-005",
-      "status": "pending",
+      "status": "published",
       "title": "Low Progesterone Symptoms in Women Over 40",
       "primaryKeyword": "low progesterone symptoms",
       "secondaryKeywords": [
@@ -1335,7 +1335,9 @@
           "title": "What Is BHRT? A Complete Beginner's Guide",
           "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
         }
-      ]
+      ],
+      "publishedDate": "2026-05-30",
+      "outputFile": "src/content/posts/low-progesterone-symptoms-in-women-over-40.mdx"
     },
     {
       "id": "C2-006",
