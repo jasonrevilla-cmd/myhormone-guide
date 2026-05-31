@@ -1341,7 +1341,7 @@
     },
     {
       "id": "C2-006",
-      "status": "pending",
+      "status": "published",
       "title": "Low Testosterone in Women: The Overlooked Hormone",
       "primaryKeyword": "low testosterone in women",
       "secondaryKeywords": [
@@ -1366,7 +1366,9 @@
           "title": "Low Libido After 40: Is It Normal or Hormonal?",
           "slug": "low-libido-after-40-is-it-normal-or-hormonal"
         }
-      ]
+      ],
+      "publishedDate": "2026-05-31",
+      "outputFile": "src/content/posts/low-testosterone-in-women-the-overlooked-hormone.mdx"
     },
     {
       "id": "C2-007",
