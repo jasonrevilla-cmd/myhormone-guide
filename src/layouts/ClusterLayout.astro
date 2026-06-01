@@ -16,7 +16,6 @@ const { title, description, clusterSlug, clusterLabel, intro, posts, icon = 'fun
 
 const breadcrumbs = [{ label: clusterLabel, href: `/${clusterSlug}/` }];
 
-// Sort posts by publish date, newest first
 const sortedPosts = [...posts].sort((a, b) => {
   const da = a.data.publishDate instanceof Date ? a.data.publishDate : new Date(a.data.publishDate);
   const db = b.data.publishDate instanceof Date ? b.data.publishDate : new Date(b.data.publishDate);
@@ -36,6 +35,28 @@ const collectionSchema = {
     name: 'MyHormoneGuide',
   },
 };
+
+// Related clusters
+const CLUSTER_META: Record<string, { label: string; href: string; desc: string }> = {
+  'bhrt-fundamentals': { label: 'BHRT Fundamentals', href: '/bhrt-fundamentals/', desc: 'Plain-English intro to bioidentical hormones — start here.' },
+  'symptoms':          { label: 'Hormone Symptoms',  href: '/symptoms/',          desc: 'Identify the signs your hormones may be out of balance.' },
+  'pellet-therapy':    { label: 'Pellet Therapy',    href: '/pellet-therapy/',    desc: 'How pellet implants work, what to expect, and costs.' },
+  'for-women':         { label: 'BHRT for Women',    href: '/for-women/',         desc: 'Guides for women navigating perimenopause and menopause.' },
+  'for-men':           { label: 'BHRT for Men',      href: '/for-men/',           desc: 'Testosterone and hormone therapy guides for men over 40.' },
+  'costs':             { label: 'Costs & Insurance', href: '/find-bhrt-provider/', desc: 'What BHRT costs and how insurance works.' },
+};
+
+const RELATED_MAP: Record<string, string[]> = {
+  'symptoms':          ['for-women', 'for-men', 'bhrt-fundamentals'],
+  'pellet-therapy':    ['bhrt-fundamentals', 'for-women', 'costs'],
+  'for-women':         ['symptoms', 'pellet-therapy', 'bhrt-fundamentals'],
+  'for-men':           ['symptoms', 'pellet-therapy', 'bhrt-fundamentals'],
+  'find-bhrt-provider':['pellet-therapy', 'costs', 'bhrt-fundamentals'],
+};
+
+const relatedClusters = (RELATED_MAP[clusterSlug] ?? [])
+  .map(s => CLUSTER_META[s])
+  .filter(Boolean);
 ---
 
 <BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
@@ -45,7 +66,7 @@ const collectionSchema = {
 
   <!-- Hub header -->
   <div class="bg-gradient-to-br from-navy-600 to-navy-700 py-14">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <a href="/" class="inline-flex items-center gap-1 text-navy-200 hover:text-white text-sm mb-4 transition-colors">
         <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
@@ -63,55 +84,45 @@ const collectionSchema = {
     </div>
   </div>
 
-  <!-- Post list -->
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Article grid -->
     {sortedPosts.length > 0 ? (
-      <ol class="space-y-4">
-        {sortedPosts.map((post, index) => {
-          const pubDate = post.data.publishDate instanceof Date
-            ? post.data.publishDate
-            : new Date(post.data.publishDate);
-          return (
-            <li>
+      <section aria-labelledby="articles-heading">
+        <h2 id="articles-heading" class="sr-only">Articles in {clusterLabel}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {sortedPosts.map((post) => {
+            const readTime = post.data.readingTime ?? 8;
+            return (
               <a
                 href={`/${post.slug}/`}
-                class="group flex items-start gap-4 p-5 rounded-2xl border border-navy-100 bg-white hover:border-teal-300 hover:shadow-md transition-all duration-200"
+                class="group flex flex-col bg-white border border-navy-100 rounded-2xl p-6 hover:border-teal-300 hover:shadow-md transition-all duration-200"
               >
-                <!-- Number badge -->
-                <span class="flex-shrink-0 w-9 h-9 rounded-full bg-navy-50 group-hover:bg-teal-50 text-navy-400 group-hover:text-teal-600 font-bold text-sm flex items-center justify-center transition-colors">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-
-                <div class="flex-1 min-w-0">
-                  <h2 class="font-semibold text-navy-700 group-hover:text-teal-600 text-base sm:text-lg mb-1 transition-colors leading-snug">
-                    {post.data.title}
-                  </h2>
-                  <p class="text-sm text-gray-500 leading-relaxed line-clamp-2 mb-2">
-                    {post.data.description}
-                  </p>
-                  <div class="flex items-center gap-3 text-xs text-gray-400">
-                    {post.data.readingTime && (
-                      <span class="flex items-center gap-1">
-                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        {post.data.readingTime} min
-                      </span>
-                    )}
-                    <time datetime={pubDate.toISOString()}>
-                      {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(pubDate)}
-                    </time>
-                  </div>
+                <h2 class="font-semibold text-navy-700 group-hover:text-teal-600 text-base sm:text-lg leading-snug mb-2 transition-colors">
+                  {post.data.title}
+                </h2>
+                <p class="text-sm text-gray-500 leading-relaxed line-clamp-2 flex-1 mb-4">
+                  {post.data.description}
+                </p>
+                <div class="flex items-center justify-between mt-auto">
+                  <span class="flex items-center gap-1 text-xs text-gray-400">
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    {readTime} min read
+                  </span>
+                  <span class="text-sm font-medium text-teal-600 group-hover:text-teal-500 flex items-center gap-1">
+                    Read article
+                    <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                  </span>
                 </div>
-
-                <svg class="w-5 h-5 text-navy-300 group-hover:text-teal-400 flex-shrink-0 mt-1 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
               </a>
-            </li>
-          );
-        })}
-      </ol>
+            );
+          })}
+        </div>
+      </section>
     ) : (
       <div class="text-center py-20">
         <svg class="w-12 h-12 text-navy-200 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -122,7 +133,7 @@ const collectionSchema = {
       </div>
     )}
 
-    <!-- Newsletter CTA at bottom of cluster -->
+    <!-- Newsletter CTA -->
     <div class="mt-16 bg-gradient-to-r from-navy-600 to-navy-700 rounded-2xl p-8 text-center">
       <h2 class="text-2xl font-bold text-white mb-3">Want more on {clusterLabel}?</h2>
       <p class="text-navy-200 mb-6">Real answers for real hormones — delivered weekly. Join our growing community of patients. Free, no spam.</p>
@@ -130,5 +141,32 @@ const collectionSchema = {
         Subscribe to The Hormone Insider →
       </a>
     </div>
+
+    <!-- Related clusters -->
+    {relatedClusters.length > 0 && (
+      <section aria-labelledby="related-heading" class="mt-14">
+        <h2 id="related-heading" class="text-xl font-bold text-navy-700 mb-5">Related Topics</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {relatedClusters.map((hub) => (
+            <a
+              href={hub.href}
+              class="group block p-5 bg-white border border-navy-100 rounded-2xl hover:border-teal-300 hover:shadow-sm transition-all duration-200"
+            >
+              <p class="font-semibold text-navy-700 group-hover:text-teal-600 text-sm mb-1 transition-colors">
+                {hub.label}
+              </p>
+              <p class="text-xs text-gray-400 leading-relaxed mb-3">{hub.desc}</p>
+              <span class="text-xs font-medium text-teal-600 flex items-center gap-1">
+                Explore
+                <svg class="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
   </div>
 </BaseLayout>

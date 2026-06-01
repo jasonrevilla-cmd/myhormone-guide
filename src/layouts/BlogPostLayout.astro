@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import MedicalDisclaimer from '../components/MedicalDisclaimer.astro';
 import EmailOptIn from '../components/EmailOptIn.astro';
@@ -95,6 +96,17 @@ const faqSchema = faqs && faqs.length > 0
       })),
     }
   : null;
+
+// "More in [Cluster]" — 3 other posts from the same cluster
+const allPosts = await getCollection('posts');
+const morePosts = allPosts
+  .filter(p => p.data.cluster === cluster && p.slug !== post.slug)
+  .sort((a, b) => {
+    const da = a.data.publishDate instanceof Date ? a.data.publishDate : new Date(a.data.publishDate);
+    const db = b.data.publishDate instanceof Date ? b.data.publishDate : new Date(b.data.publishDate);
+    return db.getTime() - da.getTime();
+  })
+  .slice(0, 3);
 ---
 
 <BaseLayout
@@ -178,6 +190,47 @@ const faqSchema = faqs && faqs.length > 0
 
     <!-- Medical disclaimer footer -->
     <MedicalDisclaimer variant="inline" />
+
+    <!-- More in [Cluster] -->
+    {morePosts.length > 0 && (
+      <aside aria-labelledby="more-in-cluster" class="mt-12 pt-10 border-t border-gray-100">
+        <h2 id="more-in-cluster" class="text-lg font-bold text-navy-700 mb-5">
+          More in {clusterLabel}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {morePosts.map((p) => {
+            const rt = p.data.readingTime ?? 8;
+            return (
+              <a
+                href={`/${p.slug}/`}
+                class="group flex flex-col bg-white border border-navy-100 rounded-xl p-5 hover:border-teal-300 hover:shadow-sm transition-all duration-200"
+              >
+                <h3 class="font-semibold text-navy-700 group-hover:text-teal-600 text-sm leading-snug mb-2 transition-colors flex-1">
+                  {p.data.title}
+                </h3>
+                <div class="flex items-center justify-between mt-3">
+                  <span class="flex items-center gap-1 text-xs text-gray-400">
+                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    {rt} min
+                  </span>
+                  <span class="text-xs font-medium text-teal-600 flex items-center gap-1">
+                    Read
+                    <svg class="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+        <a href={clusterHref} class="inline-flex items-center gap-1 text-sm text-teal-600 hover:text-teal-500 font-medium mt-5">
+          View all {clusterLabel} articles →
+        </a>
+      </aside>
+    )}
 
     <!-- Post footer nav -->
     <nav class="mt-10 pt-8 border-t border-gray-100 flex items-center justify-between gap-4">
