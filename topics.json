@@ -1372,7 +1372,7 @@
     },
     {
       "id": "C2-007",
-      "status": "pending",
+      "status": "published",
       "title": "Men and Hormone Decline: What to Expect After 45",
       "primaryKeyword": "men hormone decline after 45",
       "secondaryKeywords": [
@@ -1397,7 +1397,9 @@
           "title": "Men's Guide to Hormone Decline: What Happens After 40",
           "slug": "mens-guide-to-hormone-decline-what-happens-after-40"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-01",
+      "outputFile": "src/content/posts/men-and-hormone-decline-what-to-expect-after-45.mdx"
     },
     {
       "id": "C2-008",
