@@ -59,14 +59,41 @@ const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0
     }
   : null;
 
-// WebSite schema — only on homepage
-const websiteSchema = Astro.url.pathname === '/'
+// WebSite + Organization schemas — only on homepage
+const isHomepage = Astro.url.pathname === '/';
+
+const websiteSchema = isHomepage
   ? {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: 'MyHormoneGuide',
       url: SITE_URL,
       description: 'The most trusted patient education resource for Bioidentical Hormone Replacement Therapy.',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    }
+  : null;
+
+const organizationSchema = isHomepage
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'MyHormoneGuide',
+      url: SITE_URL,
+      logo: `${SITE_URL}/logo.png`,
+      description: 'The most trusted patient education resource for Bioidentical Hormone Replacement Therapy',
+      sameAs: [],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: 'hello@myhormoneguide.com',
+        contactType: 'customer support',
+      },
     }
   : null;
 ---
@@ -103,6 +130,9 @@ const websiteSchema = Astro.url.pathname === '/'
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Structured data -->
+  {organizationSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  )}
   {websiteSchema && (
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
   )}
