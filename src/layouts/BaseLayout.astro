@@ -16,6 +16,7 @@ interface Props {
   canonicalUrl?: string;
   ogType?: 'website' | 'article';
   publishDate?: string;
+  ogImage?: string;
   noindex?: boolean;
 }
 
@@ -26,6 +27,7 @@ const {
   canonicalUrl,
   ogType = 'website',
   publishDate,
+  ogImage,
   noindex = false,
 } = Astro.props;
 
@@ -114,12 +116,16 @@ const organizationSchema = isHomepage
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
   <meta property="og:site_name" content="MyHormoneGuide" />
+  {ogImage && <meta property="og:image" content={ogImage} />}
+  {ogImage && <meta property="og:image:width" content="1200" />}
+  {ogImage && <meta property="og:image:height" content="630" />}
   {publishDate && <meta property="article:published_time" content={publishDate} />}
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={fullTitle} />
   <meta name="twitter:description" content={description} />
+  {ogImage && <meta name="twitter:image" content={ogImage} />}
 
   <!-- Favicon (SVG inline data URI for zero-dependency fallback) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='15' fill='%231A3C5E'/><path d='M10 16C10 12 13 10 16 10C19 10 22 12 22 16C22 20 19 22 16 22' stroke='%232A9D8F' stroke-width='2' fill='none' stroke-linecap='round'/><circle cx='16' cy='22' r='2' fill='%232A9D8F'/></svg>" type="image/svg+xml" />

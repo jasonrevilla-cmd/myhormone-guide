@@ -11,6 +11,8 @@ const posts = defineCollection({
     primaryKeyword: z.string(),
     tags: z.array(z.string()).default([]),
     readingTime: z.number().optional(),
+    /** Text description of the ideal illustration — used as prompt for image generation */
+    featuredImage: z.string().optional(),
     /** Populated by generate-post.js for FAQPage schema markup */
     faqs: z
       .array(

@@ -97,6 +97,9 @@ const faqSchema = faqs && faqs.length > 0
     }
   : null;
 
+// og:image — resolves to /images/posts/{slug}.jpg once images are generated
+const ogImage = `https://www.myhormoneguide.com/images/posts/${post.slug}.jpg`;
+
 // "More in [Cluster]" — 3 other posts from the same cluster
 const allPosts = await getCollection('posts');
 const morePosts = allPosts
@@ -115,6 +118,7 @@ const morePosts = allPosts
   breadcrumbs={breadcrumbs}
   ogType="article"
   publishDate={pubDateISO}
+  ogImage={ogImage}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
