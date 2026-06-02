@@ -332,28 +332,54 @@ function ensureDir(dir) {
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
+  const startTime = Date.now();
+
+  // ── Startup diagnostics ────────────────────────────────────────────────────
+  console.log('═'.repeat(60));
+  console.log('MyHormoneGuide — Content Pipeline');
+  console.log(`Node.js  : ${process.version}`);
+  console.log(`Model    : ${MODEL_ID}`);
+  console.log(`Posts dir: ${POSTS_DIR}`);
+  console.log(`Queue    : ${TOPICS_FILE}`);
+  console.log('═'.repeat(60));
+
   // Validate API key
   if (!process.env.ANTHROPIC_API_KEY) {
-    console.error('❌ ANTHROPIC_API_KEY is not set. Add it to your .env or GitHub secrets.');
+    console.error('❌ ANTHROPIC_API_KEY is not set. Add it to your .env or GitHub Secrets.');
+    process.exit(1);
+  }
+  const keyPreview = process.env.ANTHROPIC_API_KEY.slice(0, 12) + '…';
+  console.log(`✅ API key present: ${keyPreview} (${process.env.ANTHROPIC_API_KEY.length} chars)\n`);
+
+  // Load queue
+  let queue;
+  try {
+    queue = JSON.parse(fs.readFileSync(TOPICS_FILE, 'utf8'));
+  } catch (err) {
+    console.error('❌ Failed to read/parse topics.json:', err.message);
     process.exit(1);
   }
 
-  // Load queue
-  const queue = JSON.parse(fs.readFileSync(TOPICS_FILE, 'utf8'));
+  const total   = queue.posts.length;
+  const pending = queue.posts.filter((p) => p.status === 'pending').length;
+  const done    = total - pending;
+  console.log(`📋 Queue: ${total} total | ${done} published | ${pending} pending`);
+
   const post = queue.posts.find((p) => p.status === 'pending');
 
   if (!post) {
-    console.log('✅ All posts in the queue are complete. Add more to topics.json to continue.');
+    console.log('✅ Queue is empty — all posts are published. Add more topics to topics.json.');
     process.exit(0);
   }
 
-  console.log(`\n📝 Generating post: "${post.title}" (${post.id})`);
-  console.log(`   Cluster: ${post.cluster} | Stage: ${post.funnelStage}\n`);
+  console.log(`\n📝 Next post: "${post.title}" (${post.id})`);
+  console.log(`   Cluster: ${post.cluster} | Funnel stage: ${post.funnelStage}\n`);
 
   const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
   // ── Step 1: Generate the post ──────────────────────────────────────────────
   console.log('🤖 Calling Claude API (generation)...');
+  const genStart = Date.now();
   let mdx;
   try {
     const response = await client.messages.create({
@@ -363,8 +389,25 @@ async function main() {
       messages: [{ role: 'user', content: buildPostPrompt(post) }],
     });
     mdx = response.content[0].text.trim();
+    console.log(`   ✅ Generation complete (${((Date.now() - genStart) / 1000).toFixed(1)}s)`);
+    console.log(`   Output length: ${mdx.length} chars`);
   } catch (err) {
-    console.error('❌ Generation API call failed:', err.message);
+    const elapsed = ((Date.now() - genStart) / 1000).toFixed(1);
+    console.error(`❌ Generation API call failed after ${elapsed}s`);
+    // Classify the error for faster debugging
+    if (err.status === 401) {
+      console.error('   → Authentication error (401): API key is invalid or revoked.');
+      console.error('   → Check the ANTHROPIC_API_KEY secret in GitHub Settings → Secrets → Actions.');
+    } else if (err.status === 429) {
+      console.error('   → Rate limit (429): Too many requests or usage limit reached.');
+    } else if (err.status === 529 || err.status === 503) {
+      console.error(`   → API overloaded (${err.status}): Anthropic is experiencing high traffic.`);
+    } else if (err.code === 'ECONNREFUSED' || err.code === 'ENOTFOUND') {
+      console.error('   → Network error: Could not connect to api.anthropic.com');
+    } else {
+      console.error(`   → Error type: ${err.constructor.name} | Status: ${err.status ?? 'n/a'}`);
+    }
+    console.error('   Full error:', err.message);
     process.exit(1);
   }
 
@@ -411,11 +454,14 @@ async function main() {
   fs.writeFileSync(TOPICS_FILE, JSON.stringify(queue, null, 2), 'utf8');
   console.log(`📋 Marked complete in topics.json\n`);
 
+  const totalSecs = ((Date.now() - startTime) / 1000).toFixed(1);
   console.log(`🎉 Published: "${post.title}"`);
   console.log(`   File: ${filepath}`);
+  console.log(`   Total time: ${totalSecs}s`);
 }
 
 main().catch((err) => {
-  console.error('Unhandled error:', err);
+  console.error('Unhandled error:', err.message);
+  console.error(err);
   process.exit(1);
 });
