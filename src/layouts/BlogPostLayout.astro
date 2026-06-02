@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, publishDate, cluster, readingTime, faqs } = post.data;
+const { title, description, publishDate, cluster, readingTime, faqs, primaryKeyword, tags, howToSteps } = post.data;
 
 // Breadcrumb: Home > Cluster Hub > Post Title
 const clusterLabels: Record<string, string> = {
@@ -57,31 +57,65 @@ const pubDateDisplay = new Intl.DateTimeFormat('en-US', {
 
 const readTime = readingTime ?? 8;
 
-// Article JSON-LD
-const articleSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: title,
-  description,
-  datePublished: pubDateISO,
-  dateModified: pubDateISO,
-  author: {
-    '@type': 'Person',
-    name: 'Jason Revilla',
-    url: 'https://www.myhormoneguide.com/about/',
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'MyHormoneGuide',
-    url: 'https://www.myhormoneguide.com',
-  },
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': `https://www.myhormoneguide.com/${post.slug}/`,
-  },
+const SITE_URL = 'https://www.myhormoneguide.com';
+const postUrl  = `${SITE_URL}/${post.slug}/`;
+
+const authorRef = {
+  '@type': 'Person',
+  name: 'Jason Revilla',
+  url: `${SITE_URL}/about/`,
+};
+const publisherRef = {
+  '@type': 'Organization',
+  name: 'MyHormoneGuide',
+  url: SITE_URL,
 };
 
-// FAQPage JSON-LD — only rendered when faqs frontmatter array is present
+// ── 1. MedicalWebPage (replaces plain Article) ────────────────────────────
+const clusterToCondition: Record<string, string> = {
+  'bhrt-fundamentals':        'Bioidentical Hormone Replacement Therapy',
+  'pellet-therapy':           'Hormone Pellet Therapy',
+  'hormone-imbalance-symptoms': 'Hormone Imbalance',
+  'womens-health':            'Female Hormone Imbalance',
+  'mens-health':              'Low Testosterone',
+  'finding-providers':        'Hormone Therapy',
+  'costs-insurance':          'Hormone Therapy',
+  'research-science':         'Bioidentical Hormone Replacement Therapy',
+  'lifestyle':                'Hormonal Health',
+  'delivery-methods':         'Hormone Therapy',
+};
+const conditionName = clusterToCondition[cluster] ?? 'Hormone Imbalance';
+
+const medicalWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['MedicalWebPage', 'Article'],
+  headline: title,
+  description,
+  url: postUrl,
+  datePublished: pubDateISO,
+  dateModified: pubDateISO,
+  author: authorRef,
+  publisher: publisherRef,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+  medicalAudience: {
+    '@type': 'MedicalAudience',
+    audienceType: 'Patient',
+    healthCondition: {
+      '@type': 'MedicalCondition',
+      name: conditionName,
+    },
+  },
+  about: {
+    '@type': 'MedicalCondition',
+    name: conditionName,
+  },
+  mentions: (tags ?? []).map((tag) => ({
+    '@type': 'DefinedTerm',
+    name: tag,
+  })),
+};
+
+// ── 2. FAQPage ────────────────────────────────────────────────────────────
 const faqSchema = faqs && faqs.length > 0
   ? {
       '@context': 'https://schema.org',
@@ -89,11 +123,63 @@ const faqSchema = faqs && faqs.length > 0
       mainEntity: faqs.map((faq) => ({
         '@type': 'Question',
         name: faq.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: faq.answer,
-        },
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
       })),
+    }
+  : null;
+
+// ── 3. HowTo — fires only when howToSteps are present in frontmatter ──────
+const howToSchema = howToSteps && howToSteps.length > 0
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'HowTo',
+      name: title,
+      description,
+      author: authorRef,
+      publisher: publisherRef,
+      step: howToSteps.map((s, i) => ({
+        '@type': 'HowToStep',
+        position: i + 1,
+        name: s.name,
+        text: s.text,
+      })),
+    }
+  : null;
+
+// ── 4. Speakable — targets intro paragraph and FAQ section ────────────────
+const speakableSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': postUrl,
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: faqs && faqs.length > 0
+      ? ['#post-intro', '.faq-wrapper']
+      : ['#post-intro'],
+  },
+};
+
+// ── 5. DefinedTerm — fires on "What Is / What Are" titles ─────────────────
+const definedTermRaw = title.match(/^What (?:Is|Are) (.+?)(?:[?:—,]|$)/i)?.[1] ?? '';
+const definedTermName = definedTermRaw
+  .replace(/\s+Made From\s*$/i, '')
+  .replace(/\s+A Complete .+$/i, '')
+  .replace(/\s+Everything .+$/i, '')
+  .replace(/\s+Explained\s*$/i, '')
+  .trim();
+
+const definedTermSchema = definedTermName
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'DefinedTerm',
+      '@id': `${postUrl}#term`,
+      name: definedTermName,
+      description,
+      inDefinedTermSet: {
+        '@type': 'DefinedTermSet',
+        name: 'BHRT & Hormone Health Glossary',
+        url: SITE_URL,
+      },
     }
   : null;
 
@@ -121,9 +207,16 @@ const morePosts = allPosts
   ogImage={ogImage}
 >
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(medicalWebPageSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
     {faqSchema && (
       <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    )}
+    {howToSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+    )}
+    {definedTermSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(definedTermSchema)} />
     )}
   </Fragment>
 
@@ -158,7 +251,7 @@ const morePosts = allPosts
         {title}
       </h1>
 
-      <p class="text-lg text-gray-500 leading-relaxed max-w-2xl">{description}</p>
+      <p id="post-intro" class="text-lg text-gray-500 leading-relaxed max-w-2xl">{description}</p>
 
       <!-- Author byline -->
       <div class="flex items-center gap-3 mt-6 pt-6 border-t border-gray-100">

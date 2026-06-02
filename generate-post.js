@@ -80,6 +80,10 @@ End every post with this exact paragraph:
 
 "The content on this site is for educational purposes only and is not intended as medical advice. Always consult a qualified healthcare provider before starting, changing, or stopping any hormone therapy. Individual results vary."
 
+## HOW-TO STEPS
+
+If this post is a procedural guide (title starts with "How to", "How Do", or contains "Step by Step"), include a howToSteps array in frontmatter with 3–7 steps. Each step needs a short `name` (the step label) and a `text` (60–100 word description of what to do). Omit this field entirely for non-procedural posts.
+
 ## FEATURED IMAGE
 
 Every post must include a featuredImage field in frontmatter. Write a single sentence (under 200 characters) describing a realistic, editorial-style illustration suitable for this post — the kind that would appear on a health publication. Be specific about subject, mood, and color palette. Example: "A warm-toned illustration of a woman in her 50s reviewing lab results with a female doctor in a modern clinic, teal and navy accents."
@@ -141,6 +145,10 @@ primaryKeyword: "${post.primaryKeyword}"
 tags: [${post.secondaryKeywords.slice(0, 3).map((k) => `"${k}"`).join(', ')}]
 readingTime: [integer: word_count divided by 250, rounded up — typically 8 for a 2000-word post]
 featuredImage: "[One sentence describing an editorial-style illustration for this post — subject, mood, color palette. Max 200 chars.]"
+# howToSteps — include ONLY for procedural how-to posts; omit entirely otherwise
+# howToSteps:
+#   - name: "[Step 1 label]"
+#     text: "[60-100 word description of what to do in this step]"
 faqs:
   - question: "[FAQ Question 1 — People Also Ask phrasing]"
     answer: "[Answer 1 — 60-100 words, direct and specific]"

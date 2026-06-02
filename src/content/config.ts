@@ -13,6 +13,10 @@ const posts = defineCollection({
     readingTime: z.number().optional(),
     /** Text description of the ideal illustration — used as prompt for image generation */
     featuredImage: z.string().optional(),
+    /** Steps for HowTo schema — include on procedural "how-to" posts only */
+    howToSteps: z
+      .array(z.object({ name: z.string(), text: z.string() }))
+      .optional(),
     /** Populated by generate-post.js for FAQPage schema markup */
     faqs: z
       .array(
