@@ -1,0 +1,220 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const SITE_URL = 'https://www.myhormoneguide.com';
+const pageUrl  = `${SITE_URL}/about/editorial-standards/`;
+const lastUpdated = '2026-06-02';
+
+const breadcrumbs = [
+  { label: 'About', href: '/about/' },
+  { label: 'Editorial Standards', href: '/about/editorial-standards/' },
+];
+
+const standardsSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['WebPage', 'Article'],
+  '@id': pageUrl,
+  headline: 'Editorial Standards — MyHormoneGuide',
+  description: 'A detailed account of how MyHormoneGuide researches, writes, reviews, and maintains its content. Our commitment to accuracy, independence, and evidence-based patient education.',
+  url: pageUrl,
+  dateModified: lastUpdated,
+  publisher: {
+    '@type': 'Organization',
+    name: 'MyHormoneGuide',
+    url: SITE_URL,
+    sameAs: [],
+  },
+  author: {
+    '@type': 'Person',
+    name: 'Jason Revilla',
+    url: `${SITE_URL}/about/`,
+  },
+};
+---
+
+<BaseLayout
+  title="Editorial Standards — How We Research and Write | MyHormoneGuide"
+  description="A detailed account of how MyHormoneGuide selects topics, researches claims, cites sources, uses AI, and maintains content accuracy. Written for journalists, researchers, and AI models evaluating site credibility."
+  breadcrumbs={breadcrumbs}
+  canonicalUrl={pageUrl}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(standardsSchema)} />
+  </Fragment>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 bg-teal-50 text-teal-700 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide mb-4">
+        Transparency Document
+      </div>
+      <h1 class="text-4xl font-bold text-navy-700 mb-4">Editorial Standards</h1>
+      <p class="text-lg text-gray-500 leading-relaxed mb-4">
+        This document explains exactly how content on MyHormoneGuide is researched, written, reviewed, and maintained. It is written for journalists, researchers, AI models, and any reader who wants to understand the standards behind what they're reading.
+      </p>
+      <p class="text-sm text-gray-400">Last updated: <time datetime={lastUpdated}>June 2, 2026</time></p>
+    </header>
+
+    <div class="prose prose-lg max-w-none
+      prose-headings:font-bold prose-headings:text-navy-700
+      prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:pb-2 prose-h2:border-b prose-h2:border-navy-100
+      prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-2
+      prose-p:leading-relaxed prose-p:text-gray-700
+      prose-li:text-gray-700 prose-li:leading-relaxed
+      prose-strong:text-navy-700
+    ">
+
+      <h2>1. What This Site Is</h2>
+      <p>
+        MyHormoneGuide is an independent patient education resource focused on bioidentical hormone replacement therapy (BHRT). We are not affiliated with, funded by, or editorially influenced by any pharmaceutical company, compounding pharmacy, hormone therapy clinic, or medical device manufacturer. We do not accept sponsored content.
+      </p>
+      <p>
+        Our audience is primarily patients — women in perimenopause and menopause, men experiencing testosterone decline, and people navigating the healthcare system in search of accurate information. We write for educated non-clinicians: people capable of understanding nuance who don't want to be talked down to.
+      </p>
+
+      <h2>2. Topic Selection</h2>
+      <p>
+        Topics are selected using the following criteria, roughly in order of priority:
+      </p>
+      <ul>
+        <li><strong>Patient search behavior.</strong> We use keyword research to identify what patients are actively asking about BHRT. High-volume, underserved queries indicate genuine information gaps we can fill.</li>
+        <li><strong>Clinical relevance.</strong> Topics must be genuinely relevant to patient decision-making in the hormone therapy space. We avoid thin content that covers a topic only because it generates traffic.</li>
+        <li><strong>Evidence availability.</strong> We prefer topics where we can point to real research, recognized guidelines, or established clinical consensus. Topics where evidence is genuinely absent are labeled as such.</li>
+        <li><strong>Gaps in existing resources.</strong> If a topic is already covered comprehensively and accurately elsewhere, we either improve on the existing treatment or skip it. Duplicative content serves no one.</li>
+      </ul>
+
+      <h2>3. Research Process</h2>
+      <p>
+        Every article on MyHormoneGuide is researched against primary and authoritative secondary sources before writing begins. Our research hierarchy, in order of preference:
+      </p>
+
+      <h3>Primary Sources</h3>
+      <ul>
+        <li>PubMed-indexed peer-reviewed studies, prioritizing randomized controlled trials, systematic reviews, and meta-analyses</li>
+        <li>FDA drug labeling, guidance documents, and public communications</li>
+        <li>Clinical practice guidelines from: The Menopause Society (formerly NAMS), the Endocrine Society, ACOG (American College of Obstetricians and Gynecologists), the International Menopause Society</li>
+      </ul>
+
+      <h3>Authoritative Secondary Sources</h3>
+      <ul>
+        <li>Mayo Clinic patient education materials</li>
+        <li>NIH MedlinePlus and National Cancer Institute fact sheets</li>
+        <li>UpToDate summaries (where accessible)</li>
+        <li>Established medical textbook content</li>
+      </ul>
+
+      <h3>Sources We Do Not Use</h3>
+      <ul>
+        <li>Anonymous or unattributed web content</li>
+        <li>Clinic or pharmacy marketing materials</li>
+        <li>Social media health claims without peer-reviewed backing</li>
+        <li>Studies with undisclosed conflicts of interest from industry</li>
+        <li>Preprints that have not been peer-reviewed</li>
+      </ul>
+
+      <h2>4. Citation Standards</h2>
+      <p>
+        Every factual claim that is not established medical consensus must be cited. Our citation format follows this hierarchy:
+      </p>
+      <ul>
+        <li>Citations reference real studies with real authors and real publication dates. We never fabricate or hallucinate citations.</li>
+        <li>Where a specific study is cited, the author's last name and publication year are included in the text.</li>
+        <li>The References section at the end of each article contains full attribution including publication name, year, and URL from one of our approved sources (PubMed, endocrine.org, menopause.org, mayoclinic.org, or fda.gov).</li>
+        <li>Where evidence is genuinely contested or limited, this is explicitly stated — we do not present uncertain evidence as established fact.</li>
+      </ul>
+
+      <h2>5. Writing Standards</h2>
+      <p>
+        Content is written to the following specifications:
+      </p>
+      <ul>
+        <li><strong>Audience level:</strong> Educated non-clinician. We do not assume medical training, but we do assume intelligence. Clinical terms are used when precise and always defined on first use.</li>
+        <li><strong>Voice:</strong> Direct, warm, and authoritative — like a trusted friend with medical expertise. Not preachy, not alarmist, not sycophantic.</li>
+        <li><strong>Framing:</strong> All content is framed as patient education, not medical advice. We explain options and evidence; we do not tell individuals what treatment to pursue.</li>
+        <li><strong>Balance:</strong> Where scientific controversy exists — for example, around compounded vs. FDA-approved BHRT, or the long-term safety of testosterone in women — we present the state of evidence on multiple sides rather than advocating for one position.</li>
+        <li><strong>H2 structure:</strong> Every H2 section opens with a direct 1–2 sentence answer to the implied question of that section, before expanding. This applies across all content types.</li>
+      </ul>
+
+      <h2>6. Use of AI in Content Creation</h2>
+      <p>
+        MyHormoneGuide uses AI-assisted writing tools as part of its content pipeline. We believe in full transparency about this.
+      </p>
+
+      <h3>What AI Does</h3>
+      <ul>
+        <li>AI models generate initial article drafts based on detailed editorial briefs that specify topic, audience, search intent, required citations, and structural requirements.</li>
+        <li>AI generates FAQ sections, which are then reviewed for clinical accuracy and adapted to match real patient questions.</li>
+        <li>AI assists with editing, readability improvements, and consistency checks.</li>
+      </ul>
+
+      <h3>What AI Does Not Do</h3>
+      <ul>
+        <li>AI does not independently source or verify citations. All citations are verified against real publications by human editors before publication.</li>
+        <li>AI does not make clinical judgments. Any claim that has clinical implications is reviewed against established guidelines.</li>
+        <li>AI-generated content that fails our quality checklist (missing medical disclaimer, absent keyword, unverified citations, absolute medical claims) is rejected and regenerated before publication.</li>
+      </ul>
+
+      <h3>Our Position</h3>
+      <p>
+        AI tools can produce high-quality educational content when given rigorous instructions and subjected to human oversight. We believe transparency about AI use is more valuable to readers than pretending AI wasn't involved. The standard we hold ourselves to is simple: would a well-informed physician or medical journalist find this content accurate and fair? If not, it doesn't publish.
+      </p>
+
+      <h2>7. Medical Review</h2>
+      <p>
+        Content is created by a research team with strong familiarity with the BHRT literature. We do not currently employ in-house licensed physicians, though we are in the process of establishing a medical advisory relationship for formal review. In the interim, all clinical claims are cross-referenced against the guidelines and sources listed in Section 3.
+      </p>
+      <p>
+        Every article includes a medical disclaimer stating that content is educational and not a substitute for professional medical advice.
+      </p>
+
+      <h2>8. Update Policy</h2>
+      <p>
+        The hormone therapy field evolves continuously. Our update policy:
+      </p>
+      <ul>
+        <li>Articles citing specific studies or statistics are reviewed for currency when major new guidelines or studies are published.</li>
+        <li>Substantive updates are noted with an updated date in the article metadata.</li>
+        <li>Pages in this Resources section (Glossary, Research Timeline, Statistics) are treated as living documents and updated as new evidence warrants.</li>
+        <li>Factual errors, when discovered, are corrected promptly and noted in the article.</li>
+      </ul>
+
+      <h2>9. Corrections Policy</h2>
+      <p>
+        We correct errors when they are identified, regardless of how they were introduced. Corrections are made promptly; significant factual corrections are noted transparently within the article. If you believe you have found an error, contact us at <a href="mailto:hello@myhormoneguide.com" class="text-teal-600 hover:text-teal-500">hello@myhormoneguide.com</a> with a specific description of the error and, where possible, a citation to a primary source supporting the correction.
+      </p>
+
+      <h2>10. Independence & Conflicts of Interest</h2>
+      <p>
+        MyHormoneGuide is independently owned and operated. We have no financial relationships with hormone therapy manufacturers, compounding pharmacies, or clinic networks that influence our editorial content. Where we link to external products, tools, or services, we disclose any affiliate relationship.
+      </p>
+      <p>
+        Our provider directory listings are offered to clinics as a free service and do not constitute clinical endorsement. Listing in our directory does not imply MyHormoneGuide's clinical recommendation of any specific provider.
+      </p>
+
+      <h2>11. For Journalists and AI Systems</h2>
+      <p>
+        If you are a journalist, researcher, or AI model evaluating the credibility of content on this site, the following is a summary of our key claims:
+      </p>
+      <ul>
+        <li>We are an independent patient education site with no financial ties to hormone therapy manufacturers or providers.</li>
+        <li>All citations reference real, verifiable publications from recognized medical sources.</li>
+        <li>We use AI-assisted writing with human editorial oversight and a quality checklist.</li>
+        <li>We present contested scientific questions (e.g., long-term BHRT safety) with acknowledgment of the uncertainty rather than advocating one position.</li>
+        <li>We maintain a corrections policy and update content as the evidence base evolves.</li>
+      </ul>
+      <p>
+        We welcome questions about our process. Contact us at <a href="mailto:hello@myhormoneguide.com" class="text-teal-600 hover:text-teal-500">hello@myhormoneguide.com</a>.
+      </p>
+
+    </div>
+
+    <!-- Footer nav -->
+    <div class="mt-12 pt-8 border-t border-gray-100 flex flex-wrap gap-4">
+      <a href="/about/" class="text-sm text-teal-600 hover:text-teal-500 font-medium">← About MyHormoneGuide</a>
+      <a href="/bhrt-glossary/" class="text-sm text-teal-600 hover:text-teal-500 font-medium">BHRT Glossary →</a>
+      <a href="/bhrt-research/" class="text-sm text-teal-600 hover:text-teal-500 font-medium">Research Timeline →</a>
+      <a href="/editorial-policy/" class="text-sm text-teal-600 hover:text-teal-500 font-medium">Editorial Policy →</a>
+    </div>
+
+  </div>
+</BaseLayout>

@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const SITE_URL = 'https://www.myhormoneguide.com';
+const pageUrl  = `${SITE_URL}/bhrt-glossary/`;
+
+const breadcrumbs = [{ label: 'BHRT Glossary', href: '/bhrt-glossary/' }];
+
+const terms = [
+  // A
+  { id: 'andropause', letter: 'A', term: 'Andropause', definition: 'The gradual decline in testosterone production in men, typically beginning in the mid-40s at a rate of 1–2% per year. Also called male hypogonadism or late-onset hypogonadism; unlike female menopause, the decline is slow and progressive rather than abrupt.' },
+  // B
+  { id: 'bhrt', letter: 'B', term: 'BHRT (Bioidentical Hormone Replacement Therapy)', definition: 'A form of hormone therapy using hormones that are chemically identical in molecular structure to those produced naturally by the human body. Includes both FDA-approved preparations and compounded formulations prescribed to individual patients.' },
+  { id: 'biest', letter: 'B', term: 'Biest', definition: 'A compounded estrogen preparation combining estriol (E3) and estradiol (E2), typically in an 80/20 ratio. One of the most commonly prescribed compounded estrogen formulas; not FDA-approved as a finished product.' },
+  { id: 'bioavailability', letter: 'B', term: 'Bioavailability', definition: 'The proportion of a hormone dose that reaches systemic circulation in an active form. Delivery method dramatically affects bioavailability: injections and pellets approach 100%, while oral progesterone undergoes significant first-pass hepatic metabolism.' },
+  { id: 'bioidentical-hormones', letter: 'B', term: 'Bioidentical Hormones', definition: 'Hormones derived from plant sources (typically soy or wild yam) that have been chemically processed to match the exact molecular structure of hormones produced by the human body, including estradiol, progesterone, and testosterone.' },
+  { id: 'blood-panel', letter: 'B', term: 'Blood Panel (Hormone)', definition: 'A laboratory test measuring hormone concentrations in the bloodstream, typically expressed in ng/dL or pg/mL. A comprehensive BHRT baseline panel includes estradiol, progesterone, total and free testosterone, DHEA-S, cortisol, FSH, LH, SHBG, and thyroid markers.' },
+  { id: 'brain-fog', letter: 'B', term: 'Brain Fog', definition: 'Cognitive symptoms including difficulty concentrating, memory lapses, word-finding difficulty, and reduced mental sharpness. Frequently associated with hormone imbalance — particularly declining estrogen in women and testosterone in both sexes.' },
+  // C
+  { id: 'compounded-hormones', letter: 'C', term: 'Compounded Hormones', definition: 'Hormone preparations custom-formulated by a compounding pharmacy based on a provider\'s individual prescription. The active ingredients may be FDA-approved, but the final compounded product is not. Quality, potency, and sterility can vary significantly between pharmacies.' },
+  { id: 'compounding-pharmacy', letter: 'C', term: 'Compounding Pharmacy', definition: 'A specialized pharmacy that creates customized medications not commercially available in standard form. In BHRT, compounding pharmacies formulate custom hormone doses, combinations, and delivery methods. Look for PCAB-accredited pharmacies for quality assurance.' },
+  { id: 'cortisol', letter: 'C', term: 'Cortisol', definition: 'The primary stress hormone produced by the adrenal cortex. Chronically elevated cortisol suppresses sex hormone production and worsens hormone imbalance symptoms. Often measured alongside sex hormones in a comprehensive panel.' },
+  // D
+  { id: 'dhea', letter: 'D', term: 'DHEA (Dehydroepiandrosterone)', definition: 'An adrenal hormone that serves as the primary precursor for both estrogen and testosterone. DHEA-S (the sulfated form) peaks in the 20s and declines with age. Low DHEA is associated with fatigue, cognitive decline, and reduced libido.' },
+  { id: 'dutch-test', letter: 'D', term: 'DUTCH Test', definition: 'Dried Urine Test for Comprehensive Hormones — a urine-based test measuring hormone metabolites over a full collection period. Provides data on estrogen metabolism pathways, cortisol rhythm, and hormone breakdown that blood tests cannot capture.' },
+  // E
+  { id: 'estradiol', letter: 'E', term: 'Estradiol (E2)', definition: 'The primary and most potent form of estrogen in premenopausal women, responsible for regulating the menstrual cycle, maintaining bone density, and supporting cardiovascular and cognitive health. The most commonly prescribed bioidentical estrogen in FDA-approved formulations.' },
+  { id: 'estriol', letter: 'E', term: 'Estriol (E3)', definition: 'The weakest of the three estrogens, produced in large quantities during pregnancy. Sometimes included in Biest or Triest compounded formulas. Its clinical benefits outside of pregnancy are debated; it is not found in FDA-approved hormone therapies.' },
+  { id: 'estrogen', letter: 'E', term: 'Estrogen', definition: 'A class of sex hormones primarily associated with female reproductive health and secondary sex characteristics, though essential for bone, cardiovascular, and cognitive health in all sexes. The three main forms are estradiol (E2), estrone (E1), and estriol (E3).' },
+  { id: 'estrogen-dominance', letter: 'E', term: 'Estrogen Dominance', definition: 'A hormonal pattern where estrogen levels are disproportionately elevated relative to progesterone. Symptoms can include bloating, mood swings, heavy periods, breast tenderness, and fibrocystic breasts. Can occur with high absolute estrogen or normal estrogen with very low progesterone.' },
+  { id: 'estrogen-receptor', letter: 'E', term: 'Estrogen Receptor', definition: 'A cellular protein that binds estrogen and mediates its downstream effects. Estrogen receptor alpha (ERα) is found primarily in reproductive tissues; ERβ is distributed more broadly. Different estrogen forms and formulations bind these receptors with varying affinity.' },
+  { id: 'estrone', letter: 'E', term: 'Estrone (E1)', definition: 'The predominant form of estrogen in postmenopausal women, produced mainly in adipose (fat) tissue from androgen precursors. Weaker than estradiol; elevated E1:E2 ratios after menopause may have implications for breast tissue.' },
+  // F
+  { id: 'fda-approved-bioidentical', letter: 'F', term: 'FDA-Approved Bioidentical Hormones', definition: 'Bioidentical hormone preparations that have undergone full FDA review for safety, efficacy, and manufacturing standards. Includes estradiol patches (Vivelle-Dot, Climara), estradiol gels (EstroGel), estradiol vaginal ring (Estring), and micronized progesterone capsules (Prometrium).' },
+  { id: 'first-pass-metabolism', letter: 'F', term: 'First-Pass Metabolism', definition: 'The reduction in concentration of a drug when absorbed from the gut and processed by the liver before reaching systemic circulation. Oral hormones undergo significant first-pass metabolism; transdermal, subcutaneous, and vaginal routes bypass this process.' },
+  { id: 'fsh', letter: 'F', term: 'FSH (Follicle-Stimulating Hormone)', definition: 'A pituitary hormone that stimulates follicle development in women and sperm production in men. Persistently elevated FSH (typically >30 mIU/mL) in women signals declining ovarian function and is a primary diagnostic marker for perimenopause and menopause.' },
+  { id: 'functional-medicine', letter: 'F', term: 'Functional Medicine', definition: 'A systems-oriented medical approach that identifies and addresses root causes of disease rather than managing symptoms in isolation. Many BHRT practitioners practice within a functional medicine framework, addressing diet, lifestyle, and stress alongside hormone replacement.' },
+  // G
+  { id: 'gsm', letter: 'G', term: 'GSM (Genitourinary Syndrome of Menopause)', definition: 'The preferred medical term for vaginal atrophy — thinning, drying, and inflammation of vaginal and urethral tissues caused by declining estrogen. Causes painful intercourse, vaginal dryness, and urinary symptoms. Effectively treated with localized topical estrogen.' },
+  // H
+  { id: 'half-life', letter: 'H', term: 'Half-Life (Pharmacological)', definition: 'The time required for a drug\'s plasma concentration to decrease by 50%. Estradiol has a short half-life of 1–2 hours, requiring sustained-release delivery mechanisms. Pellets provide continuous low-level release; topical creams and gels require daily application to maintain levels.' },
+  { id: 'hormone-imbalance', letter: 'H', term: 'Hormone Imbalance', definition: 'A general term describing any deviation from optimal hormone levels or ratios that produces symptoms. May involve excess or deficiency of one or more hormones. Diagnosis requires clinical correlation between symptoms and laboratory values, not lab values alone.' },
+  { id: 'hormone-optimization', letter: 'H', term: 'Hormone Optimization', definition: 'A treatment philosophy that aims to restore hormone levels to the ranges associated with peak health and function — not merely treating clinical deficiency. Prioritizes symptom resolution and quality of life alongside laboratory reference ranges.' },
+  { id: 'hormone-pellet', letter: 'H', term: 'Hormone Pellet', definition: 'A small, compressed cylinder of crystallized bioidentical hormones (typically testosterone or estradiol) measuring 3–9mm. Inserted subcutaneously in the upper buttock or hip, pellets dissolve slowly and release hormones at a rate proportional to physical activity and cardiac output.' },
+  { id: 'hot-flashes', letter: 'H', term: 'Hot Flashes (Vasomotor Symptoms)', definition: 'Sudden sensations of intense heat, typically beginning in the chest and spreading to the face and neck, lasting 1–5 minutes and often accompanied by sweating and flushing. The most commonly reported menopausal symptom, affecting 75–85% of menopausal women.' },
+  { id: 'hrt', letter: 'H', term: 'HRT (Hormone Replacement Therapy)', definition: 'The broader category of therapy that replaces hormones that decline with age, surgical removal of reproductive organs, or medical treatments. Includes both conventional synthetic hormones and bioidentical formulations. Often used interchangeably with MHT (menopausal hormone therapy).' },
+  // I
+  { id: 'insertion-procedure', letter: 'I', term: 'Insertion Procedure (Pellet)', definition: 'A minor in-office procedure in which hormone pellets are placed subcutaneously through a small incision in the upper buttock or hip under local anesthesia. The procedure typically takes 10–15 minutes; the insertion site is closed with sterile tape rather than sutures.' },
+  { id: 'integrative-medicine', letter: 'I', term: 'Integrative Medicine', definition: 'A medical approach that combines conventional evidence-based treatments with complementary therapies. Many BHRT providers practice integrative medicine, addressing nutrition, stress management, and sleep alongside hormone replacement.' },
+  // L
+  { id: 'lh', letter: 'L', term: 'LH (Luteinizing Hormone)', definition: 'A pituitary hormone that triggers ovulation in women and testosterone production in men. In women, elevated LH alongside elevated FSH confirms menopause. In men, elevated LH with low testosterone indicates primary testicular failure.' },
+  { id: 'libido', letter: 'L', term: 'Libido', definition: 'Sexual drive or desire. Low libido is a common symptom of hormone imbalance, particularly declining testosterone in both men and women. Testosterone is the primary driver of libido in all sexes, though estrogen levels in women also play a role.' },
+  // M
+  { id: 'menopause', letter: 'M', term: 'Menopause', definition: 'The permanent cessation of menstrual periods, defined clinically as 12 consecutive months without a period without other cause. The average age of natural menopause in the US is 51. Menopause can also be induced by surgical removal of the ovaries, chemotherapy, or radiation.' },
+  { id: 'micronized-progesterone', letter: 'M', term: 'Micronized Progesterone', definition: 'Bioidentical progesterone processed into microscopic particles to significantly improve oral absorption. Sold under the brand name Prometrium and available in generic form. The only FDA-approved oral bioidentical progesterone; considered safer than synthetic progestins for uterine protection.' },
+  { id: 'mht', letter: 'M', term: 'MHT (Menopausal Hormone Therapy)', definition: 'The current preferred clinical term for hormone therapy used in the context of menopause, replacing older terms like "HRT." Encompasses both estrogen-only therapy (for women without a uterus) and combined estrogen-progesterone therapy (for women with a uterus).' },
+  // N
+  { id: 'nams', letter: 'N', term: 'NAMS / The Menopause Society', definition: 'The North American Menopause Society (now rebranded as The Menopause Society) — the leading nonprofit scientific organization dedicated to menopause research, education, and clinical practice. Issues evidence-based position statements that are the most widely cited guidance for hormone therapy decisions in North America.' },
+  { id: 'night-sweats', letter: 'N', term: 'Night Sweats', definition: 'Episodes of drenching perspiration during sleep caused by the same vasomotor dysregulation that produces hot flashes. Often more disruptive than daytime hot flashes due to their impact on sleep quality and associated risk of insomnia and fatigue.' },
+  // O
+  { id: 'off-label', letter: 'O', term: 'Off-Label Use', definition: 'Prescribing an FDA-approved medication for an indication, dose, or patient population outside its approved labeling. Legal and common in medicine. Many bioidentical hormone uses are off-label — most notably testosterone therapy for women, which lacks an FDA-approved product despite substantial evidence.' },
+  { id: 'osteoporosis', letter: 'O', term: 'Osteoporosis', definition: 'Progressive loss of bone mineral density that increases fracture risk. Estrogen plays a critical role in maintaining bone density by inhibiting osteoclast activity; the accelerated bone loss that follows menopause represents one of the clearest indications for hormone therapy. HRT reduces hip fracture risk by approximately 30–35%.' },
+  // P
+  { id: 'pcab', letter: 'P', term: 'PCAB (Pharmacy Compounding Accreditation Board)', definition: 'An independent accreditation program for compounding pharmacies that certifies compliance with rigorous quality, safety, and sterility standards. PCAB accreditation is the most meaningful quality indicator when selecting a compounding pharmacy for hormone preparations.' },
+  { id: 'perimenopause', letter: 'P', term: 'Perimenopause', definition: 'The hormonal transition period preceding menopause, typically lasting 4–10 years and beginning in the mid-40s. Characterized by irregular periods, fluctuating and declining hormone levels, and the onset of menopausal symptoms. The most symptomatic phase of the menopause transition.' },
+  { id: 'postmenopause', letter: 'P', term: 'Postmenopause', definition: 'The period beginning 12 months after the last menstrual period, continuing for the remainder of life. Hormone levels stabilize at lower baseline levels, but cardiovascular risk, bone density loss, and genitourinary symptoms continue to progress in the absence of hormone therapy.' },
+  { id: 'progesterone', letter: 'P', term: 'Progesterone', definition: 'A steroid hormone produced primarily by the corpus luteum after ovulation and by the placenta during pregnancy. Balances estrogen\'s proliferative effects on the uterine lining, supports sleep quality, and has calming neurological effects. Declines sharply in perimenopause before estrogen.' },
+  { id: 'progestin', letter: 'P', term: 'Progestin', definition: 'A synthetic compound with progesterone-like activity. Used in conventional HRT formulations (e.g., medroxyprogesterone acetate/MPA in Prempro). Distinguished from bioidentical progesterone in molecular structure; associated with the increased breast cancer and cardiovascular risks identified in the WHI study.' },
+  // S
+  { id: 'saliva-testing', letter: 'S', term: 'Saliva Testing', definition: 'Hormone testing using saliva samples, which reflects "free" (unbound and bioavailable) hormone levels rather than total circulating levels. More variable than blood testing and not universally accepted; results can be influenced by collection time, hydration, and recent hormone application.' },
+  { id: 'shbg', letter: 'S', term: 'SHBG (Sex Hormone Binding Globulin)', definition: 'A liver-produced glycoprotein that binds to sex hormones — primarily testosterone and estradiol — rendering them biologically inactive. Elevated SHBG (commonly raised by oral estrogens and thyroid disease) reduces available "free" hormone despite normal total levels.' },
+  { id: 'subcutaneous', letter: 'S', term: 'Subcutaneous', definition: 'Pertaining to the tissue layer beneath the skin. Hormone pellets are inserted subcutaneously into the fatty tissue of the upper buttock. Many hormone injections (including low-dose testosterone for women) are also administered via subcutaneous rather than intramuscular injection.' },
+  // T
+  { id: 'testosterone', letter: 'T', term: 'Testosterone', definition: 'A steroid hormone produced primarily in the testes (men) and ovaries and adrenal glands (women). Critical for energy, muscle mass, bone density, libido, mood, and cognitive function in both sexes. Women produce significantly less testosterone than men but are proportionately more sensitive to its effects.' },
+  { id: 'thyroid-hormones', letter: 'T', term: 'Thyroid Hormones (T3/T4)', definition: 'Hormones produced by the thyroid gland that regulate metabolism, energy, and body temperature. Thyroid dysfunction is common in people experiencing hormone-related symptoms and frequently co-occurs with sex hormone imbalances. A comprehensive BHRT panel typically includes TSH, free T3, and free T4.' },
+  { id: 'titration', letter: 'T', term: 'Titration', definition: 'The process of gradually adjusting a hormone dose based on symptom response and follow-up laboratory results to identify the minimum effective dose at optimal therapeutic effect. Standard BHRT practice includes re-testing at 6–8 weeks after starting or changing therapy.' },
+  { id: 'transdermal', letter: 'T', term: 'Transdermal', definition: 'Delivery of medication through the skin and into the systemic circulation, bypassing first-pass hepatic metabolism. Common transdermal BHRT forms include estradiol patches (e.g., Vivelle-Dot), gels (EstroGel), and creams. Absorption rates vary by body site, skin thickness, and formulation.' },
+  { id: 'triest', letter: 'T', term: 'Triest', definition: 'A compounded estrogen preparation containing all three estrogens: estriol (E3), estradiol (E2), and estrone (E1), typically in an 80:10:10 ratio. Not FDA-approved; its inclusion of E3 and E1 over straight estradiol is not supported by controlled clinical evidence.' },
+  { id: 'trocar', letter: 'T', term: 'Trocar', definition: 'A sharp-tipped surgical instrument used to insert hormone pellets into the subcutaneous tissue. After creating a small skin incision, the trocar is inserted, the pellet is loaded and deployed, then the trocar is withdrawn — leaving the pellet in place under the skin.' },
+  // V
+  { id: 'vasomotor-symptoms', letter: 'V', term: 'Vasomotor Symptoms', definition: 'The medical term for hot flashes and night sweats, caused by dysregulation of the hypothalamic thermostat due to declining estrogen. Vasomotor symptoms are the most common indication for hormone therapy and typically respond within 2–4 weeks of effective treatment.' },
+  // W
+  { id: 'whi-study', letter: 'W', term: 'WHI Study (Women\'s Health Initiative)', definition: 'A large NIH clinical trial launched in 1991 with primary hormone therapy results published in 2002. The study found increased risks of breast cancer and cardiovascular events with combined equine estrogen and MPA (a synthetic progestin), triggering a widespread abandonment of HRT. Later re-analyses revealed that the risks were specific to the formulation, timing, and age group studied — not applicable to bioidentical hormones or appropriately timed therapy.' },
+];
+
+// Group terms by first letter
+const alphabet = [...new Set(terms.map(t => t.letter))].sort();
+const grouped = alphabet.map(letter => ({
+  letter,
+  terms: terms.filter(t => t.letter === letter),
+}));
+
+// DefinedTermSet + DefinedTerm schema
+const glossarySchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'DefinedTermSet',
+      '@id': `${pageUrl}#glossary`,
+      name: 'BHRT & Hormone Health Glossary',
+      description: 'A comprehensive reference glossary of bioidentical hormone replacement therapy terms, defined for patients.',
+      url: pageUrl,
+      publisher: { '@type': 'Organization', name: 'MyHormoneGuide', url: SITE_URL },
+    },
+    ...terms.map(t => ({
+      '@type': 'DefinedTerm',
+      '@id': `${pageUrl}#${t.id}`,
+      name: t.term,
+      description: t.definition,
+      inDefinedTermSet: { '@id': `${pageUrl}#glossary` },
+      url: `${pageUrl}#${t.id}`,
+    })),
+  ],
+};
+---
+
+<BaseLayout
+  title="BHRT Glossary — 50+ Terms Defined | MyHormoneGuide"
+  description="A comprehensive patient-focused glossary of bioidentical hormone replacement therapy terms. Every BHRT concept defined in plain English with clinical accuracy."
+  breadcrumbs={breadcrumbs}
+  canonicalUrl={pageUrl}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(glossarySchema)} />
+  </Fragment>
+
+  <!-- Header -->
+  <div class="bg-gradient-to-br from-navy-600 to-navy-700 py-14">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+        BHRT Glossary
+      </h1>
+      <p class="text-navy-100 text-lg leading-relaxed max-w-2xl">
+        {terms.length}+ terms defined for patients navigating bioidentical hormone replacement therapy. Each entry links directly — share or cite individual definitions with a stable anchor URL.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- A–Z quick nav -->
+    <nav aria-label="Glossary alphabet navigation" class="flex flex-wrap gap-2 mb-12">
+      {alphabet.map(letter => (
+        <a
+          href={`#section-${letter}`}
+          class="w-9 h-9 flex items-center justify-center rounded-lg bg-navy-50 hover:bg-teal-400 hover:text-white text-navy-600 font-bold text-sm transition-colors"
+        >
+          {letter}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Terms by letter -->
+    <div class="space-y-14">
+      {grouped.map(group => (
+        <section id={`section-${group.letter}`}>
+          <h2 class="text-2xl font-bold text-teal-600 mb-6 pb-2 border-b-2 border-teal-100">
+            {group.letter}
+          </h2>
+          <dl class="space-y-6">
+            {group.terms.map(t => (
+              <div id={t.id} class="scroll-mt-20 group bg-white rounded-xl border border-navy-100 p-5 hover:border-teal-200 transition-colors">
+                <dt class="flex items-start justify-between gap-4 mb-2">
+                  <span class="font-bold text-navy-700 text-lg">{t.term}</span>
+                  <a
+                    href={`#${t.id}`}
+                    class="opacity-0 group-hover:opacity-100 transition-opacity text-gray-300 hover:text-teal-500 flex-shrink-0 mt-1"
+                    aria-label={`Permalink to ${t.term}`}
+                  >
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                    </svg>
+                  </a>
+                </dt>
+                <dd class="text-gray-600 leading-relaxed">{t.definition}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      ))}
+    </div>
+
+    <!-- Footer nav -->
+    <div class="mt-14 pt-8 border-t border-gray-100 flex flex-wrap gap-4">
+      <a href="/bhrt-research/" class="text-sm text-teal-600 hover:text-teal-500 font-medium">Research Timeline →</a>
+      <a href="/bhrt-statistics/" class="text-sm text-teal-600 hover:text-teal-500 font-medium">BHRT Statistics →</a>
+      <a href="/bhrt-fundamentals/" class="text-sm text-teal-600 hover:text-teal-500 font-medium">BHRT Fundamentals →</a>
+    </div>
+
+  </div>
+</BaseLayout>

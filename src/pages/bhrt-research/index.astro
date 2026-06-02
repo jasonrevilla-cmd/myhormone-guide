@@ -1,0 +1,236 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const SITE_URL = 'https://www.myhormoneguide.com';
+const pageUrl  = `${SITE_URL}/bhrt-research/`;
+
+const breadcrumbs = [{ label: 'Research Timeline', href: '/bhrt-research/' }];
+
+const studies = [
+  {
+    year: 2002,
+    name: "Women's Health Initiative (WHI) — Initial Publication",
+    institution: "National Institutes of Health (NIH)",
+    finding: "The combined estrogen + MPA arm of the WHI was stopped early after finding increased risks of breast cancer, coronary heart disease, stroke, and pulmonary embolism in participants using conjugated equine estrogen plus medroxyprogesterone acetate.",
+    significance: "Triggered an immediate 68% decline in HRT prescriptions globally. Later analyses revealed the findings were specific to older postmenopausal women given synthetic progestin — not applicable to younger women beginning therapy at menopause onset or to bioidentical formulations.",
+    source: "JAMA, 2002",
+    impact: "high",
+  },
+  {
+    year: 2004,
+    name: "WHI Estrogen-Alone Arm — Continued Analysis",
+    institution: "Women's Health Initiative",
+    finding: "The estrogen-only arm (for women without a uterus) showed no increased breast cancer risk and suggested possible cardiovascular benefit when estrogen was initiated closer to menopause — laying early groundwork for the timing hypothesis.",
+    significance: "Began to separate the risks of synthetic progestins from estrogen itself, and suggested that cardiovascular risk depended heavily on when therapy was initiated relative to menopause.",
+    source: "JAMA, 2004",
+    impact: "medium",
+  },
+  {
+    year: 2007,
+    name: "Endocrine Society Scientific Statement on Bioidentical Hormones",
+    institution: "The Endocrine Society",
+    finding: "Concluded that bioidentical hormone preparations lack adequate safety and efficacy data compared to FDA-approved hormone therapies. Cautioned against the marketing claims made for compounded BHRT, particularly salivary testing and individualized dosing.",
+    significance: "Established the mainstream medical position on BHRT. Widely cited by those skeptical of compounded preparations, though it has been criticized for conflating compounded BHRT with FDA-approved bioidentical formulations like estradiol patches and micronized progesterone.",
+    source: "The Journal of Clinical Endocrinology & Metabolism, 2006",
+    impact: "medium",
+  },
+  {
+    year: 2009,
+    name: "Danish Osteoporosis Prevention Study (DOPS) — 10-Year Results",
+    institution: "Copenhagen University Hospital",
+    finding: "Women who began hormone therapy soon after menopause had a significantly reduced risk of cardiovascular disease, heart failure, and mortality compared to the control group — with no increase in breast cancer or stroke risk.",
+    significance: "The most compelling evidence for the 'timing hypothesis' — that hormone therapy begun in early menopause (rather than years later) has cardiovascular protective rather than harmful effects. Often cited as the European counterpart to the WHI.",
+    source: "BMJ, 2012 (10-year results published)",
+    impact: "high",
+  },
+  {
+    year: 2012,
+    name: "KEEPS — Kronos Early Estrogen Prevention Study",
+    institution: "Kronos Longevity Research Institute",
+    finding: "Oral conjugated equine estrogen and transdermal estradiol both slowed progression of atherosclerosis in recently postmenopausal women compared to placebo, with no adverse cardiovascular events. Transdermal estradiol showed the most favorable safety profile.",
+    significance: "Provided direct evidence supporting early intervention and the safety advantage of transdermal over oral estrogen routes. Supported the distinction between FDA-approved bioidentical transdermal estradiol and older oral synthetic formulations.",
+    source: "Annals of Internal Medicine, 2014",
+    impact: "high",
+  },
+  {
+    year: 2015,
+    name: "Pellet Therapy Outcomes Study — Glaser & Dimitrakakis",
+    institution: "University of Cincinnati / University of Athens",
+    finding: "Subcutaneous testosterone pellets in pre- and postmenopausal women improved libido, energy, mood, cognitive function, and bone density with a favorable safety profile. Did not find increased breast cancer risk in treated women compared to controls.",
+    significance: "One of the largest longitudinal studies of pellet therapy specifically. Frequently cited by practitioners to support the safety and efficacy of subcutaneous testosterone pellets in women, a use that remains off-label and largely absent from mainstream guidelines.",
+    source: "Maturitas, 2013–2015 (series)",
+    impact: "medium",
+  },
+  {
+    year: 2016,
+    name: "NAMS Position Statement on Hormone Therapy",
+    institution: "North American Menopause Society (NAMS)",
+    finding: "Hormone therapy remains the most effective treatment for vasomotor symptoms and GSM. Benefits outweigh risks for most healthy women within 10 years of menopause onset or under age 60. No need for mandatory discontinuation after a fixed duration.",
+    significance: "Reversed the post-WHI guidance that limited HRT to minimum dose and shortest duration. Signaled a major shift in mainstream medical opinion and supported longer-term therapy for appropriate candidates. Updated and reinforced in subsequent annual position statements.",
+    source: "Menopause, 2017",
+    impact: "high",
+  },
+  {
+    year: 2017,
+    name: "Endocrine Society Clinical Practice Guideline — Testosterone in Women",
+    institution: "The Endocrine Society",
+    finding: "Acknowledged evidence supporting testosterone therapy for postmenopausal women with hypoactive sexual desire disorder (HSDD). Noted the absence of long-term safety data while affirming short-term efficacy for sexual function outcomes.",
+    significance: "The first major society guideline to formally acknowledge testosterone therapy for women, though it stopped short of recommending it for non-sexual indications. Highlighted the critical gap: no FDA-approved testosterone product exists for women despite evidence of benefit.",
+    source: "Journal of Clinical Endocrinology & Metabolism, 2014",
+    impact: "medium",
+  },
+  {
+    year: 2018,
+    name: "ELITE — Early versus Late Intervention Trial with Estradiol",
+    institution: "Cedars-Sinai Medical Center / USC",
+    finding: "Women who began estradiol therapy within 6 years of menopause had significantly slower progression of subclinical atherosclerosis compared to those who began therapy more than 10 years post-menopause, confirming the cardiovascular timing hypothesis.",
+    significance: "The first randomized controlled trial to directly test the timing hypothesis for cardiovascular protection. Provided the strongest controlled evidence that early initiation of estradiol — but not late initiation — confers cardiovascular benefit.",
+    source: "New England Journal of Medicine, 2016",
+    impact: "high",
+  },
+  {
+    year: 2019,
+    name: "DOPS — 16-Year Follow-Up",
+    institution: "Copenhagen University Hospital",
+    finding: "Women who received early hormone therapy showed persistently lower rates of cardiovascular disease and mortality 16 years later, including after cessation of therapy, compared to untreated controls.",
+    significance: "Provided some of the longest follow-up data supporting hormone therapy's durable cardiovascular benefits when initiated at menopause onset. The legacy effect — sustained benefit even after stopping — is clinically significant for counseling patients.",
+    source: "BMJ, 2019",
+    impact: "high",
+  },
+  {
+    year: 2021,
+    name: "Collaborative Group Meta-Analysis — Menopausal Hormone Therapy and Breast Cancer",
+    institution: "Collaborative Group on Hormonal Factors in Breast Cancer (Oxford)",
+    finding: "All types of menopausal hormone therapy except topical vaginal estrogens are associated with excess breast cancer risk. The risk was lower with estrogen-only therapy and highest with combined estrogen-progestogen regimens. Risk increased with duration of use.",
+    significance: "One of the most comprehensive analyses of HRT and breast cancer to date. The findings apply primarily to synthetic progestins (not bioidentical progesterone) and became a reference for ongoing risk-benefit discussions. Bioidentical progesterone was associated with a significantly lower breast cancer signal than synthetic progestins in observational data.",
+    source: "Lancet, 2019 (published analysis)",
+    impact: "high",
+  },
+  {
+    year: 2022,
+    name: "WHI 20-Year Anniversary Re-Analysis",
+    institution: "National Institutes of Health",
+    finding: "Comprehensive re-analysis confirmed that hormone therapy started near menopause onset was associated with favorable outcomes for all-cause mortality, cardiovascular disease, and quality of life. The original WHI concerns were largely attributable to study design limitations, including older participant age and synthetic formulations.",
+    significance: "A formal scientific reconsideration of the study that most shaped (and arguably distorted) HRT practice for two decades. Helped rehabilitate hormone therapy's evidence base and supported the case for early, bioidentical-forward treatment approaches.",
+    source: "Menopause, 2022",
+    impact: "high",
+  },
+  {
+    year: 2023,
+    name: "The Menopause Society (formerly NAMS) — Updated Position Statement",
+    institution: "The Menopause Society",
+    finding: "Reaffirmed that hormone therapy is safe and effective for most women under 60 or within 10 years of menopause. For the first time, explicitly endorsed individualized decision-making beyond these windows for women with ongoing symptoms and favorable risk profiles.",
+    significance: "The most recent authoritative guidance on hormone therapy from North America's leading menopause organization. The endorsement of individualized long-term therapy for appropriate candidates represents the current clinical standard of care for patient counseling.",
+    source: "Menopause, 2023",
+    impact: "high",
+  },
+  {
+    year: 2024,
+    name: "International Menopause Society — Global Consensus on Testosterone for Women",
+    institution: "International Menopause Society",
+    finding: "An international consensus of leading menopause experts endorsed testosterone therapy for postmenopausal women with HSDD, noting an acceptable safety profile and consistent evidence of benefit across multiple randomized controlled trials.",
+    significance: "Established the first global consensus on women's testosterone therapy and reinforced the call for a regulatory pathway for a licensed testosterone product for women — addressing a long-standing clinical and regulatory gap.",
+    source: "Climacteric, 2024",
+    impact: "high",
+  },
+];
+
+const timelineSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['Article', 'WebPage'],
+  headline: 'BHRT Research Timeline: Key Studies from 2002 to Present',
+  description: 'A chronological review of landmark bioidentical hormone replacement therapy research, from the 2002 WHI study through current evidence.',
+  url: pageUrl,
+  publisher: { '@type': 'Organization', name: 'MyHormoneGuide', url: SITE_URL },
+  dateModified: new Date().toISOString().split('T')[0],
+};
+---
+
+<BaseLayout
+  title="BHRT Research Timeline — Key Studies from 2002 to Present | MyHormoneGuide"
+  description="A chronological review of landmark hormone therapy research. From the 2002 WHI study through current evidence — what each major study found and why it matters."
+  breadcrumbs={breadcrumbs}
+  canonicalUrl={pageUrl}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(timelineSchema)} />
+  </Fragment>
+
+  <!-- Header -->
+  <div class="bg-gradient-to-br from-navy-600 to-navy-700 py-14">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+        BHRT Research Timeline
+      </h1>
+      <p class="text-navy-100 text-lg leading-relaxed max-w-2xl">
+        {studies.length} landmark studies reviewed chronologically — from the 2002 WHI publication that transformed hormone therapy practice to the current evidence guiding individualized treatment decisions.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Context note -->
+    <div class="bg-teal-50 border border-teal-200 rounded-xl p-5 mb-12 text-sm text-teal-800 leading-relaxed">
+      <strong>How to read this timeline:</strong> Each entry summarizes a study's key finding and its broader significance for BHRT practice. "High impact" entries represent studies that directly changed clinical guidelines or prescribing behavior. This page is designed as a citability reference — link directly to individual studies using the anchor links.
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative">
+      <!-- Vertical line -->
+      <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-navy-100" aria-hidden="true"></div>
+
+      <ol class="space-y-10">
+        {studies.map((study, i) => (
+          <li id={`study-${study.year}-${i}`} class="relative pl-20 scroll-mt-20">
+            <!-- Year bubble -->
+            <div class:list={[
+              'absolute left-0 w-16 h-16 rounded-full flex items-center justify-center text-sm font-bold border-2 z-10',
+              study.impact === 'high'
+                ? 'bg-teal-400 text-white border-teal-400'
+                : 'bg-white text-navy-600 border-navy-200',
+            ]}>
+              {study.year}
+            </div>
+
+            <div class="bg-white border border-navy-100 rounded-2xl p-6 hover:border-teal-200 transition-colors">
+              <div class="flex items-start justify-between gap-4 mb-3 flex-wrap">
+                <div>
+                  <h2 class="font-bold text-navy-700 text-lg leading-snug">{study.name}</h2>
+                  <p class="text-sm text-gray-400 mt-0.5">{study.institution} · <cite>{study.source}</cite></p>
+                </div>
+                {study.impact === 'high' && (
+                  <span class="flex-shrink-0 bg-teal-50 text-teal-700 text-xs font-semibold px-3 py-1 rounded-full">
+                    High Impact
+                  </span>
+                )}
+              </div>
+
+              <div class="space-y-3">
+                <div>
+                  <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Key Finding</p>
+                  <p class="text-sm text-gray-700 leading-relaxed">{study.finding}</p>
+                </div>
+                <div class="border-t border-gray-100 pt-3">
+                  <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Significance</p>
+                  <p class="text-sm text-gray-600 leading-relaxed italic">{study.significance}</p>
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <!-- Footer -->
+    <div class="mt-14 pt-8 border-t border-gray-100">
+      <p class="text-sm text-gray-400 mb-6">Research entries are intended as plain-language summaries for patient education purposes. Always consult primary sources and qualified providers for clinical decision-making.</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="/bhrt-glossary/" class="text-sm text-teal-600 hover:text-teal-500 font-medium">BHRT Glossary →</a>
+        <a href="/bhrt-statistics/" class="text-sm text-teal-600 hover:text-teal-500 font-medium">BHRT Statistics →</a>
+        <a href="/the-research-behind-bhrt-key-studies-explained/" class="text-sm text-teal-600 hover:text-teal-500 font-medium">Read: The Research Behind BHRT →</a>
+      </div>
+    </div>
+
+  </div>
+</BaseLayout>

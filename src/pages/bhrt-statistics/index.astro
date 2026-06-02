@@ -1,0 +1,249 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const SITE_URL = 'https://www.myhormoneguide.com';
+const pageUrl  = `${SITE_URL}/bhrt-statistics/`;
+
+const breadcrumbs = [{ label: 'BHRT Statistics', href: '/bhrt-statistics/' }];
+
+const sections = [
+  {
+    id: 'prevalence',
+    heading: 'Prevalence & Demographics',
+    stats: [
+      {
+        id: 'menopause-population',
+        figure: '47 million',
+        context: 'women in the United States are currently in perimenopause or menopause, representing approximately 14% of the total US population.',
+        source: 'U.S. Census Bureau / The Menopause Society estimates, 2022',
+      },
+      {
+        id: 'vasomotor-prevalence',
+        figure: '75–85%',
+        context: 'of menopausal women experience vasomotor symptoms (hot flashes and night sweats). Approximately 25–30% describe these symptoms as severe enough to significantly impair daily functioning and sleep.',
+        source: 'North American Menopause Society (NAMS) Position Statement, 2022',
+      },
+      {
+        id: 'hrt-utilization',
+        figure: '~11%',
+        context: 'of menopausal women currently use any form of hormone therapy in the United States — a rate that has not fully recovered from the post-WHI decline despite revised evidence and updated guidelines.',
+        source: 'The Menopause Society / ACOG, 2022',
+      },
+      {
+        id: 'whi-prescribing-decline',
+        figure: '68%',
+        context: 'decline in HRT prescriptions occurred between 2002 and 2004 following publication of the initial WHI study results, representing one of the most abrupt treatment reversals in modern medicine.',
+        source: 'IMS Health prescription data, cited in Menopause, 2007',
+      },
+      {
+        id: 'male-testosterone',
+        figure: '1–2%',
+        context: 'annual decline in testosterone levels in men after age 30, compounding to a 30–40% reduction by age 70. An estimated 2–4 million American men have clinically low testosterone, with far more experiencing suboptimal levels without formal diagnosis.',
+        source: 'Feldman HA et al., Journal of Clinical Endocrinology & Metabolism, 2002',
+      },
+      {
+        id: 'perimenopause-onset',
+        figure: '8–10 years',
+        context: 'is the typical duration of perimenopause — the transitional phase before menopause. Hormone fluctuations and symptoms can begin a full decade before the final menstrual period, often in a woman\'s mid-to-late 40s.',
+        source: 'SWAN (Study of Women\'s Health Across the Nation), ongoing since 1996',
+      },
+      {
+        id: 'average-menopause-age',
+        figure: '51 years',
+        context: 'is the average age of natural menopause in the United States. The range for natural menopause is broadly 45–55; onset before 40 is classified as premature ovarian insufficiency (POI).',
+        source: 'Massachusetts Women\'s Health Study; The Menopause Society',
+      },
+    ],
+  },
+  {
+    id: 'costs',
+    heading: 'Costs & Insurance',
+    stats: [
+      {
+        id: 'pellet-cost-range',
+        figure: '$300–$700',
+        context: 'is the typical cost per pellet therapy insertion cycle, covering 3–6 months of hormone delivery. Annual costs for pellet therapy range from approximately $600–$1,400 depending on provider, location, and hormone combination.',
+        source: 'MyHormoneGuide provider survey and published cost data, 2024',
+      },
+      {
+        id: 'initial-consultation',
+        figure: '$150–$350',
+        context: 'is the typical range for an initial BHRT consultation, which includes a clinical assessment and baseline hormone panel review. Laboratory costs for a comprehensive hormone panel typically add $200–$500 unless covered by insurance.',
+        source: 'MyHormoneGuide provider data, 2024',
+      },
+      {
+        id: 'insurance-coverage',
+        figure: 'Generally not covered',
+        context: 'Compounded BHRT is not covered by most insurance plans. FDA-approved bioidentical hormones (estradiol patches, gels, and micronized progesterone) are frequently covered when prescribed for an approved indication — check your plan\'s formulary for specific coverage.',
+        source: 'NCQA / insurance industry data',
+      },
+      {
+        id: 'global-market-size',
+        figure: '$5.4 billion',
+        context: 'was the estimated global value of the hormone replacement therapy market in 2022, projected to reach $8.8 billion by 2030, driven by aging demographics and growing awareness of HRT\'s health benefits beyond symptom management.',
+        source: 'Grand View Research, Hormone Replacement Therapy Market Report, 2022',
+      },
+      {
+        id: 'compounding-pharmacies',
+        figure: '3,000+',
+        context: 'compounding pharmacies in the United States are estimated to specialize in hormone preparations. Quality varies considerably; PCAB accreditation is the clearest independent quality signal for patients evaluating a pharmacy.',
+        source: 'Professional Compounding Centers of America (PCCA) estimates',
+      },
+    ],
+  },
+  {
+    id: 'outcomes',
+    heading: 'Patient Outcomes',
+    stats: [
+      {
+        id: 'fracture-risk-reduction',
+        figure: '30–35%',
+        context: 'reduction in hip fracture risk associated with hormone therapy use, making HRT one of the most effective interventions for osteoporosis prevention. Effect size is comparable to bisphosphonate medications and sustained only during active use.',
+        source: 'The Menopause Society; Torgerson & Bell-Syer, JAMA, 2001',
+      },
+      {
+        id: 'cardiovascular-timing',
+        figure: '32%',
+        context: 'reduction in cardiovascular events observed in women who initiated hormone therapy within 10 years of menopause onset, compared to women who did not use hormone therapy. The timing hypothesis: earlier initiation confers benefit; late initiation does not.',
+        source: 'Salpeter SR et al., American Journal of Medicine, 2006 (meta-analysis)',
+      },
+      {
+        id: 'vasomotor-efficacy',
+        figure: '75–80%',
+        context: 'reduction in hot flash frequency and severity is typical with hormone therapy in appropriately treated patients, making it significantly more effective than all non-hormonal alternatives including SSRIs, SNRIs, and gabapentin.',
+        source: 'The Menopause Society; Cochrane Review, 2017',
+      },
+      {
+        id: 'pellet-satisfaction',
+        figure: '85%+',
+        context: 'patient satisfaction rate is reported in observational studies of subcutaneous pellet therapy, with patients citing consistency of symptom relief, reduced dosing frequency, and improved quality of life compared to topical formulations.',
+        source: 'Glaser R et al., Maturitas, 2013',
+      },
+      {
+        id: 'cognitive-benefit',
+        figure: 'Emerging evidence',
+        context: 'suggests that early hormone therapy initiation may reduce Alzheimer\'s disease risk by 26–48% in women. The evidence is observational and the effect is timing-dependent — late initiation does not confer the same protection and may increase risk.',
+        source: 'Henderson VW, Neurology, 2009; Cache County Study, ongoing',
+      },
+      {
+        id: 'recurrence-on-stopping',
+        figure: '50%',
+        context: 'of women who discontinue hormone therapy abruptly (rather than tapering) experience recurrence of vasomotor symptoms within weeks, regardless of how long they were on therapy. Gradual tapering is recommended when discontinuing.',
+        source: 'Ockene JK et al., JAMA, 2005',
+      },
+    ],
+  },
+  {
+    id: 'compounded-bhrt',
+    heading: 'Compounded BHRT',
+    stats: [
+      {
+        id: 'compounded-users',
+        figure: '~1–2 million',
+        context: 'Americans are estimated to use compounded bioidentical hormones annually, though precise figures are difficult to obtain given the absence of centralized dispensing data for compounded preparations.',
+        source: 'FDA estimates; Pharmacy Times, 2019',
+      },
+      {
+        id: 'fda-warning-letters',
+        figure: '40+',
+        context: 'warning letters were issued by the FDA to compounding pharmacies making unsubstantiated claims about BHRT products between 2008 and 2020, reflecting ongoing regulatory concerns about marketing claims that exceed available evidence.',
+        source: 'U.S. Food and Drug Administration, 2020 compliance data',
+      },
+      {
+        id: 'potency-variability',
+        figure: 'Up to 68%',
+        context: 'potency variability was documented in a 2012 FDA sampling study of compounded hormone products — meaning actual hormone content can differ substantially from labeled dose. This underscores the importance of using PCAB-accredited pharmacies.',
+        source: 'U.S. FDA, Compounded Drug Products Report, 2012',
+      },
+    ],
+  },
+];
+
+const statsSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['WebPage', 'Article'],
+  headline: 'BHRT Statistics: Prevalence, Costs, Patient Outcomes & Market Data',
+  description: 'Cited statistics about bioidentical hormone replacement therapy — designed for easy reference and citation by patients, journalists, and researchers.',
+  url: pageUrl,
+  publisher: { '@type': 'Organization', name: 'MyHormoneGuide', url: SITE_URL },
+  dateModified: new Date().toISOString().split('T')[0],
+};
+---
+
+<BaseLayout
+  title="BHRT Statistics — Prevalence, Costs & Outcomes Data | MyHormoneGuide"
+  description="Cited statistics about BHRT: how many people use hormone therapy, what it costs, patient outcome data, and market figures. Designed for easy reference and citation."
+  breadcrumbs={breadcrumbs}
+  canonicalUrl={pageUrl}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(statsSchema)} />
+  </Fragment>
+
+  <!-- Header -->
+  <div class="bg-gradient-to-br from-navy-600 to-navy-700 py-14">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+        BHRT Statistics
+      </h1>
+      <p class="text-navy-100 text-lg leading-relaxed max-w-2xl">
+        Cited data points about hormone therapy prevalence, costs, patient outcomes, and market figures — formatted for easy reference and citation. Link to any individual stat using its anchor.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Citation note -->
+    <div class="bg-teal-50 border border-teal-200 rounded-xl p-5 mb-12 text-sm text-teal-800 leading-relaxed">
+      <strong>Citing this page:</strong> Each statistic includes its primary source. When citing, reference the original source rather than this page. Stable anchor links (e.g., <code class="font-mono bg-teal-100 px-1 rounded">/bhrt-statistics/#vasomotor-prevalence</code>) are provided for each data point.
+    </div>
+
+    <!-- Sections -->
+    {sections.map(section => (
+      <section id={section.id} class="mb-16 scroll-mt-20">
+        <h2 class="text-2xl font-bold text-navy-700 mb-6 pb-2 border-b border-navy-100">
+          {section.heading}
+        </h2>
+        <div class="space-y-6">
+          {section.stats.map(stat => (
+            <blockquote
+              id={stat.id}
+              class="group scroll-mt-20 relative bg-white border-l-4 border-teal-400 rounded-r-xl pl-6 pr-6 py-5 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex-1">
+                  <p class="text-3xl font-bold text-teal-600 mb-2">{stat.figure}</p>
+                  <p class="text-gray-700 leading-relaxed mb-3">{stat.context}</p>
+                  <footer class="text-xs text-gray-400">
+                    <cite>Source: {stat.source}</cite>
+                  </footer>
+                </div>
+                <a
+                  href={`#${stat.id}`}
+                  class="opacity-0 group-hover:opacity-100 transition-opacity text-gray-300 hover:text-teal-500 flex-shrink-0 mt-1"
+                  aria-label="Permalink to this statistic"
+                >
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                  </svg>
+                </a>
+              </div>
+            </blockquote>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <!-- Disclaimer and links -->
+    <div class="mt-10 pt-8 border-t border-gray-100">
+      <p class="text-sm text-gray-400 mb-6">Statistics are sourced from peer-reviewed research, regulatory documents, and recognized medical organizations. Market data from third-party research firms should be treated as estimates. All figures were current as of their source publication date.</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="/bhrt-research/" class="text-sm text-teal-600 hover:text-teal-500 font-medium">Research Timeline →</a>
+        <a href="/bhrt-glossary/" class="text-sm text-teal-600 hover:text-teal-500 font-medium">BHRT Glossary →</a>
+        <a href="/about/editorial-standards/" class="text-sm text-teal-600 hover:text-teal-500 font-medium">Our Editorial Standards →</a>
+      </div>
+    </div>
+
+  </div>
+</BaseLayout>
