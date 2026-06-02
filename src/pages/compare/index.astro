@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const comparisons = await getCollection('compare');
+const sorted = [...comparisons].sort((a, b) => {
+  const da = a.data.publishDate instanceof Date ? a.data.publishDate : new Date(a.data.publishDate);
+  const db = b.data.publishDate instanceof Date ? b.data.publishDate : new Date(b.data.publishDate);
+  return db.getTime() - da.getTime();
+});
+
+const breadcrumbs = [{ label: 'Comparisons', href: '/compare/' }];
+---
+
+<BaseLayout
+  title="BHRT Comparisons — Side-by-Side Guides | MyHormoneGuide"
+  description="Side-by-side comparisons of BHRT delivery methods, pellet systems, providers, and treatment approaches. Cut through the confusion with clear, unbiased breakdowns."
+  breadcrumbs={breadcrumbs}
+>
+  <div class="bg-gradient-to-br from-navy-600 to-navy-700 py-14">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">BHRT Comparisons</h1>
+      <p class="text-navy-100 text-lg leading-relaxed max-w-2xl">
+        Side-by-side breakdowns of pellet systems, delivery methods, provider types, and treatment approaches — so you can make an informed decision before your first consultation.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      {sorted.map((c) => (
+        <a
+          href={`/compare/${c.slug}/`}
+          class="group flex flex-col bg-white border border-navy-100 rounded-2xl p-6 hover:border-teal-300 hover:shadow-md transition-all duration-200"
+        >
+          <!-- Subjects pills -->
+          {c.data.subjects && c.data.subjects.length > 0 && (
+            <div class="flex flex-wrap gap-1.5 mb-3">
+              {c.data.subjects.map((s, i) => (
+                <>
+                  <span class="text-xs bg-teal-50 text-teal-700 px-2 py-0.5 rounded-full font-medium border border-teal-200">
+                    {s}
+                  </span>
+                  {i < c.data.subjects.length - 1 && (
+                    <span class="text-xs text-gray-300 self-center">vs.</span>
+                  )}
+                </>
+              ))}
+            </div>
+          )}
+
+          <h2 class="font-semibold text-navy-700 group-hover:text-teal-600 text-base leading-snug mb-2 transition-colors flex-1">
+            {c.data.title}
+          </h2>
+          <p class="text-sm text-gray-500 leading-relaxed line-clamp-2 mb-4">{c.data.description}</p>
+
+          <span class="text-sm font-medium text-teal-600 flex items-center gap-1 mt-auto">
+            Read comparison
+            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
