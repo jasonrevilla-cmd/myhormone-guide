@@ -86,7 +86,7 @@ End every post with this exact paragraph:
 
 ## HOW-TO STEPS
 
-If this post is a procedural guide (title starts with "How to", "How Do", or contains "Step by Step"), include a howToSteps array in frontmatter with 3–7 steps. Each step needs a short `name` (the step label) and a `text` (60–100 word description of what to do). Omit this field entirely for non-procedural posts.
+If this post is a procedural guide (title starts with "How to", "How Do", or contains "Step by Step"), include a howToSteps array in frontmatter with 3–7 steps. Each step needs a short \`name\` (the step label) and a \`text\` (60–100 word description of what to do). Omit this field entirely for non-procedural posts.
 
 ## FEATURED IMAGE
 
