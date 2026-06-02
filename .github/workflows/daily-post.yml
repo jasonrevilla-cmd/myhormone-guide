@@ -22,20 +22,59 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm"
 
+      # ── Debug: print environment state before anything can fail ────────────
+      - name: Debug environment
+        run: |
+          echo "=================================================="
+          echo "  Working directory: $(pwd)"
+          echo "=================================================="
+          echo ""
+          echo "--- Repository root ---"
+          ls -la
+          echo ""
+          echo "--- Runtime versions ---"
+          node --version
+          npm --version
+          echo ""
+          echo "--- Key file check ---"
+          test -f generate-post.js  && echo "✅ generate-post.js"  || echo "❌ generate-post.js  MISSING"
+          test -f topics.json       && echo "✅ topics.json"       || echo "❌ topics.json       MISSING"
+          test -f package.json      && echo "✅ package.json"      || echo "❌ package.json      MISSING"
+          test -f package-lock.json && echo "✅ package-lock.json" || echo "❌ package-lock.json MISSING"
+          echo ""
+          echo "--- Queue status (via python3) ---"
+          python3 - <<'PYEOF'
+          import json
+          with open("topics.json") as f:
+              q = json.load(f)
+          posts   = q["posts"]
+          pending = [p for p in posts if p["status"] == "pending"]
+          done    = len(posts) - len(pending)
+          print(f"Total: {len(posts)}  |  Published: {done}  |  Pending: {len(pending)}")
+          if pending:
+              nxt = pending[0]
+              print(f"Next:  [{nxt['id']}] {nxt['title']}")
+          else:
+              print("Next:  NONE — queue is empty")
+          PYEOF
+
+      # ── Validate secret before spending time on install ────────────────────
       - name: Validate ANTHROPIC_API_KEY secret
         run: |
           if [ -z "$ANTHROPIC_API_KEY" ]; then
-            echo "::error::ANTHROPIC_API_KEY secret is not set. Add it under Settings → Secrets → Actions."
+            echo "::error::ANTHROPIC_API_KEY secret is not set."
+            echo "::error::Add it under Settings → Secrets and variables → Actions → New repository secret."
             exit 1
           fi
-          echo "✅ ANTHROPIC_API_KEY is present (length: ${#ANTHROPIC_API_KEY} chars)"
+          echo "✅ ANTHROPIC_API_KEY present (${#ANTHROPIC_API_KEY} chars)"
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
+      # Use npm install (not npm ci) — tolerates lockfile drift after
+      # dependency changes without failing on an exact-match check.
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps
+        run: npm install --legacy-peer-deps
 
       - name: Generate today's post
         run: node generate-post.js
@@ -65,4 +104,4 @@ jobs:
 
       - name: No changes to commit
         if: steps.check-changes.outputs.has_changes != 'true'
-        run: echo "ℹ️ No new post generated (queue may be empty or QC failed). Check the Generate step logs above."
+        run: echo "ℹ️  No new post generated — check Generate step logs above."
