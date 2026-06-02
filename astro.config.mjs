@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import node from '@astrojs/node';
 
 const SITE_URL = 'https://www.myhormoneguide.com';
 
@@ -16,5 +17,6 @@ export default defineConfig({
       filter: (page) => !page.includes('/tools/provider-finder'),
     }),
   ],
-  output: 'static',
+  output: 'hybrid',
+  adapter: node({ mode: 'standalone' }),
 });
