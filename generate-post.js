@@ -70,6 +70,10 @@ Both audiences are solution-aware but need education to act.
 - Target 1,800–2,400 words per post
 - Include a clear CTA in the final section
 
+## H2 SECTION STRUCTURE (Non-Negotiable)
+
+Format every H2 section to answer its implied question directly in the first 1-2 sentences before expanding. AI search engines extract the first sentence of each section as the answer. Example: If the H2 is "How Long Does Pellet Therapy Last?" the first sentence must directly state the answer: "Pellet therapy typically lasts 3-6 months for women and 4-6 months for men before re-insertion is needed." Never open a section with context-setting, history, or a restatement of the question. Lead with the answer, then expand.
+
 ## INTERNAL LINKING
 
 You will be given 3 related post titles and their URLs. Naturally link to each one within the article body. Links must feel editorial, not forced.
