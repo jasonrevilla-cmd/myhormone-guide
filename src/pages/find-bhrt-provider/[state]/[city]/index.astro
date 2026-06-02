@@ -1,0 +1,361 @@
+---
+import citiesData from '../../../../data/cities.json';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import ProviderClaimModal from '../../../../components/ProviderClaimModal.astro';
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const state of citiesData.states) {
+    for (const city of state.cities) {
+      paths.push({
+        params: { state: state.slug, city: city.slug },
+        props: { state, city },
+      });
+    }
+  }
+  return paths;
+}
+
+interface Props {
+  state: (typeof citiesData.states)[0];
+  city: (typeof citiesData.states)[0]['cities'][0];
+}
+
+const { state, city } = Astro.props;
+
+const SITE_URL = 'https://www.myhormoneguide.com';
+const pageUrl  = `${SITE_URL}/find-bhrt-provider/${state.slug}/${city.slug}/`;
+
+const metaTitle       = `BHRT Providers in ${city.name}, ${state.name} — MyHormoneGuide`;
+const metaDescription = `Find bioidentical hormone replacement therapy providers in ${city.name}, ${state.name}. Verified BHRT clinics, pellet therapy specialists, and hormone optimization doctors near you.`;
+
+const breadcrumbs = [
+  { label: 'Find a Provider', href: '/find-bhrt-provider/' },
+  { label: state.name,        href: `/find-bhrt-provider/${state.slug}/` },
+  { label: city.name,         href: `/find-bhrt-provider/${state.slug}/${city.slug}/` },
+];
+
+// ── Criteria ───────────────────────────────────────────────────────────────
+const criteria = [
+  {
+    title: 'Board-Certified Specialty',
+    desc: `Look for physicians in ${city.name} certified in OB/GYN, internal medicine, family medicine, or endocrinology who have pursued additional hormone-specific training.`,
+  },
+  {
+    title: 'BHRT-Specific Credentials',
+    desc: 'Ask about training through A4M (American Academy of Anti-Aging Medicine), ACAM, or the Institute for Functional Medicine — these signal a deeper focus on hormone optimization beyond standard practice.',
+  },
+  {
+    title: 'Comprehensive Hormone Testing',
+    desc: `A quality ${city.name} provider orders a full hormone panel — estrogen, progesterone, testosterone, DHEA, cortisol, and thyroid — before making any prescribing decisions.`,
+  },
+  {
+    title: 'Structured Follow-Up Protocol',
+    desc: 'Legitimate BHRT practices include re-testing at 6–8 weeks to evaluate your response and adjust dosing. Avoid providers who never revisit your protocol after the initial prescription.',
+  },
+];
+
+// ── FAQs ──────────────────────────────────────────────────────────────────
+const faqs = [
+  {
+    question: `How much does BHRT cost in ${city.name}, ${state.name}?`,
+    answer: `In ${city.name}, BHRT costs vary by delivery method and provider. Pellet therapy — one of the most popular options — typically runs ${state.costRange} per treatment cycle (every 3–5 months for women, 5–6 months for men). Most providers also charge a consultation fee of $150–$350 for the initial hormone assessment. Creams and patches are generally less expensive upfront but require daily application.`,
+  },
+  {
+    question: `How do I find a qualified BHRT doctor in ${city.name}?`,
+    answer: `Look for board-certified physicians in ${city.name} with additional training from A4M, ACAM, or the Institute for Functional Medicine. Ask specifically about their BHRT protocols, how they test hormone levels, and how frequently they re-test after starting treatment. A provider who welcomes detailed questions is a good sign.`,
+  },
+  {
+    question: `Is BHRT covered by insurance in ${state.name}?`,
+    answer: `Most insurance plans in ${state.name} do not cover compounded BHRT. However, FDA-approved bioidentical hormones — such as estradiol patches and micronized progesterone — are often covered when prescribed for an approved indication. Always verify coverage with your insurer before starting treatment, as policies vary significantly.`,
+  },
+  {
+    question: `What's the difference between BHRT and conventional HRT?`,
+    answer: `BHRT uses hormones that are chemically identical to those your body produces naturally. Conventional HRT often uses synthetic hormones or those derived from animal sources with a slightly different molecular structure. Both can be effective — the key is finding a knowledgeable ${city.name} provider who tailors your protocol to your individual lab results and symptoms rather than using a one-size-fits-all approach.`,
+  },
+];
+
+// ── Schemas ───────────────────────────────────────────────────────────────
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: `BHRT Providers in ${city.name}, ${state.abbr}`,
+  description: metaDescription,
+  url: pageUrl,
+  areaServed: {
+    '@type': 'City',
+    name: city.name,
+    containedInPlace: {
+      '@type': 'State',
+      name: state.name,
+    },
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: city.name,
+    addressRegion: state.abbr,
+    addressCountry: 'US',
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home',             item: SITE_URL },
+    { '@type': 'ListItem', position: 2, name: 'Find a Provider',  item: `${SITE_URL}/find-bhrt-provider/` },
+    { '@type': 'ListItem', position: 3, name: state.name,         item: `${SITE_URL}/find-bhrt-provider/${state.slug}/` },
+    { '@type': 'ListItem', position: 4, name: city.name,          item: pageUrl },
+  ],
+};
+---
+
+<BaseLayout
+  title={metaTitle}
+  description={metaDescription}
+  canonicalUrl={pageUrl}
+  breadcrumbs={breadcrumbs}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <!-- Page header -->
+  <div class="bg-gradient-to-br from-navy-600 to-navy-700 py-14">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a
+        href={`/find-bhrt-provider/${state.slug}/`}
+        class="inline-flex items-center gap-1 text-navy-200 hover:text-white text-sm mb-4 transition-colors"
+      >
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        {state.name}
+      </a>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+        BHRT Providers in {city.name}, {state.name}
+      </h1>
+      <div class="inline-flex items-center gap-2 bg-teal-400/20 text-teal-200 text-sm px-3 py-1 rounded-full">
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        {city.name}, {state.abbr}
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- ── Intro ──────────────────────────────────────────────────────── -->
+    <section class="mb-12">
+      {city.tier === 'primary' ? (
+        <>
+          <p class="text-lg text-gray-700 leading-relaxed mb-4">
+            If you're searching for BHRT providers in {city.name}, {state.name}, you're not alone.
+            {city.name} has one of the fastest-growing communities of patients exploring bioidentical
+            hormone replacement therapy — driven by a population increasingly frustrated with
+            conventional medicine's approach to perimenopause, andropause, and age-related
+            hormone decline.
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            The {city.name} metro area is home to a growing number of integrative medicine clinics,
+            functional medicine practitioners, and hormone optimization specialists who offer
+            individualized BHRT protocols. This guide covers what to look for, what questions to
+            ask, and how to evaluate any provider you're considering — so you walk into that first
+            consultation prepared.
+          </p>
+        </>
+      ) : (
+        <p class="text-lg text-gray-700 leading-relaxed">
+          Finding qualified BHRT providers in {city.name}, {state.name} takes research — but the
+          right specialist can make a meaningful difference in how you feel day to day. This guide
+          covers what to look for in a {city.name} BHRT provider, typical treatment costs in
+          {state.name}, and how to evaluate your options with confidence.
+        </p>
+      )}
+    </section>
+
+    <!-- ── What to look for ──────────────────────────────────────────── -->
+    <section aria-labelledby="criteria-heading" class="mb-12">
+      <h2 id="criteria-heading" class="text-2xl font-bold text-navy-700 mb-2 pb-2 border-b border-navy-100">
+        What to Look for in a {city.name} BHRT Provider
+      </h2>
+      <p class="text-gray-500 mb-6">
+        Not all providers who advertise BHRT have meaningful training in it. These four criteria separate specialists from generalists.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {criteria.map((item, i) => (
+          <div class="flex gap-4 p-5 bg-white rounded-xl border border-navy-100">
+            <div class="w-8 h-8 bg-teal-400 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+              {i + 1}
+            </div>
+            <div>
+              <h3 class="font-semibold text-navy-700 mb-1">{item.title}</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ── Regional cost context ─────────────────────────────────────── -->
+    <section aria-labelledby="cost-heading" class="mb-12">
+      <h2 id="cost-heading" class="text-2xl font-bold text-navy-700 mb-2 pb-2 border-b border-navy-100">
+        BHRT Cost Context for {city.name}
+      </h2>
+      <div class="bg-navy-50 rounded-2xl p-6">
+        <p class="text-gray-700 leading-relaxed mb-4">
+          In {state.name}, BHRT costs vary by delivery method and provider. Pellet therapy — one of
+          the most popular options in the {city.name} area — typically runs <strong class="text-navy-700">{state.costRange} per treatment cycle</strong> (every
+          3–5 months for women, every 5–6 months for men). Creams and patches may cost less upfront
+          but require daily application and consistent adherence.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          Most {city.name} providers charge a separate consultation fee of <strong class="text-navy-700">$150–$350</strong> for
+          the initial hormone assessment and lab review. Annual lab work (required for ongoing
+          dosing adjustments) typically runs $200–$500 depending on panel depth and whether
+          your insurance covers any portion.
+        </p>
+        <a href="/how-much-does-bhrt-cost-a-state-by-state-guide/" class="inline-flex items-center gap-1 text-sm font-medium text-teal-600 hover:text-teal-500 mt-4">
+          See our full {state.name} cost guide →
+        </a>
+      </div>
+    </section>
+
+    <!-- ── Provider listings ──────────────────────────────────────────── -->
+    <section aria-labelledby="providers-heading" class="mb-12">
+      <h2 id="providers-heading" class="text-2xl font-bold text-navy-700 mb-2 pb-2 border-b border-navy-100">
+        BHRT Providers in {city.name}
+      </h2>
+      <div class="bg-white border border-dashed border-navy-200 rounded-2xl p-10 text-center">
+        <svg class="w-12 h-12 text-navy-200 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+        </svg>
+        <p class="font-semibold text-navy-600 mb-2">Be the first listed provider in {city.name}</p>
+        <p class="text-sm text-gray-500 max-w-sm mx-auto mb-6">
+          No providers are currently listed for {city.name}. If you're a BHRT specialist in the area
+          — or can recommend a trusted provider — we'd love to feature them here.
+        </p>
+        <a
+          href="#claim"
+          id="scroll-to-claim"
+          class="inline-flex items-center gap-2 bg-navy-600 hover:bg-navy-700 text-white font-semibold px-6 py-2.5 rounded-full text-sm transition-colors"
+        >
+          Submit a Provider
+        </a>
+      </div>
+    </section>
+
+    <!-- ── Provider claim CTA ─────────────────────────────────────────── -->
+    <div id="claim">
+      <ProviderClaimModal cityName={city.name} stateName={state.name} stateAbbr={state.abbr} />
+    </div>
+
+    <!-- ── FAQ ────────────────────────────────────────────────────────── -->
+    <section aria-labelledby="faq-heading" class="mb-12">
+      <h2 id="faq-heading" class="text-2xl font-bold text-navy-700 mb-6 pb-2 border-b border-navy-100">
+        Frequently Asked Questions
+      </h2>
+      <div class="space-y-4">
+        {faqs.map((faq, i) => (
+          <details
+            class="group bg-white border border-navy-100 rounded-xl overflow-hidden"
+            open={i === 0}
+          >
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none font-semibold text-navy-700 hover:text-teal-600 transition-colors">
+              {faq.question}
+              <svg class="w-5 h-5 text-navy-300 flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <div class="px-5 pb-5 text-sm text-gray-600 leading-relaxed border-t border-navy-50 pt-4">
+              {faq.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- ── Related cities ─────────────────────────────────────────────── -->
+    {city.related.length > 0 && (
+      <section aria-labelledby="nearby-heading" class="mb-12">
+        <h2 id="nearby-heading" class="text-xl font-bold text-navy-700 mb-5">
+          Nearby Cities
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {city.related.map((rel) => (
+            <a
+              href={`/find-bhrt-provider/${rel.stateSlug}/${rel.citySlug}/`}
+              class="group block p-5 bg-white border border-navy-100 rounded-2xl hover:border-teal-300 hover:shadow-sm transition-all duration-200"
+            >
+              <p class="font-semibold text-navy-700 group-hover:text-teal-600 text-sm transition-colors">
+                {rel.cityName}
+              </p>
+              <p class="text-xs text-gray-400 mt-0.5">{rel.stateName}</p>
+              <span class="mt-3 flex items-center gap-1 text-xs font-medium text-teal-600">
+                View providers
+                <svg class="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- ── Email capture ──────────────────────────────────────────────── -->
+    <section aria-labelledby="checklist-heading" class="mb-10 bg-gradient-to-r from-navy-600 to-navy-700 rounded-2xl p-8 text-center">
+      <svg class="w-10 h-10 text-teal-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+      </svg>
+      <h2 id="checklist-heading" class="text-2xl font-bold text-white mb-3">
+        Get Our Free BHRT Provider Checklist
+      </h2>
+      <p class="text-navy-200 mb-6 max-w-md mx-auto">
+        10 questions to ask any BHRT provider before your first appointment — delivered instantly to your inbox.
+      </p>
+      <a
+        href="/#newsletter"
+        class="inline-flex items-center gap-2 bg-teal-400 hover:bg-teal-300 text-white font-semibold px-6 py-3 rounded-full transition-colors"
+      >
+        Get the Free Checklist →
+      </a>
+    </section>
+
+    <!-- Back nav -->
+    <nav class="pt-6 border-t border-gray-100 flex items-center justify-between gap-4 flex-wrap">
+      <a href={`/find-bhrt-provider/${state.slug}/`} class="inline-flex items-center gap-2 text-sm text-teal-600 hover:text-teal-500 font-medium">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        All {state.name} cities
+      </a>
+      <a href="/find-bhrt-provider/" class="text-sm text-gray-400 hover:text-teal-600 transition-colors">
+        Browse all states →
+      </a>
+    </nav>
+
+  </div>
+</BaseLayout>
+
+<script>
+  // Smooth scroll from "Submit a Provider" button to the claim section
+  document.getElementById('scroll-to-claim')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('claim')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+</script>

@@ -1,0 +1,680 @@
+{
+  "states": [
+    {
+      "name": "Texas",
+      "abbr": "TX",
+      "slug": "texas",
+      "costRange": "$350–$650",
+      "cities": [
+        {
+          "name": "Dallas",
+          "slug": "dallas",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "houston", "cityName": "Houston" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "fort-worth", "cityName": "Fort Worth" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "plano", "cityName": "Plano" }
+          ]
+        },
+        {
+          "name": "Houston",
+          "slug": "houston",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "dallas", "cityName": "Dallas" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "the-woodlands", "cityName": "The Woodlands" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "austin", "cityName": "Austin" }
+          ]
+        },
+        {
+          "name": "Austin",
+          "slug": "austin",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "san-antonio", "cityName": "San Antonio" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "round-rock", "cityName": "Round Rock" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "dallas", "cityName": "Dallas" }
+          ]
+        },
+        {
+          "name": "San Antonio",
+          "slug": "san-antonio",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "austin", "cityName": "Austin" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "houston", "cityName": "Houston" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "dallas", "cityName": "Dallas" }
+          ]
+        },
+        {
+          "name": "Fort Worth",
+          "slug": "fort-worth",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "dallas", "cityName": "Dallas" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "arlington", "cityName": "Arlington" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "plano", "cityName": "Plano" }
+          ]
+        },
+        {
+          "name": "Plano",
+          "slug": "plano",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "dallas", "cityName": "Dallas" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "frisco", "cityName": "Frisco" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "arlington", "cityName": "Arlington" }
+          ]
+        },
+        {
+          "name": "Frisco",
+          "slug": "frisco",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "plano", "cityName": "Plano" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "dallas", "cityName": "Dallas" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "fort-worth", "cityName": "Fort Worth" }
+          ]
+        },
+        {
+          "name": "The Woodlands",
+          "slug": "the-woodlands",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "houston", "cityName": "Houston" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "dallas", "cityName": "Dallas" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "round-rock", "cityName": "Round Rock" }
+          ]
+        },
+        {
+          "name": "Round Rock",
+          "slug": "round-rock",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "austin", "cityName": "Austin" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "san-antonio", "cityName": "San Antonio" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "dallas", "cityName": "Dallas" }
+          ]
+        },
+        {
+          "name": "Arlington",
+          "slug": "arlington",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "dallas", "cityName": "Dallas" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "fort-worth", "cityName": "Fort Worth" },
+            { "stateSlug": "texas", "stateName": "Texas", "abbr": "TX", "citySlug": "plano", "cityName": "Plano" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Florida",
+      "abbr": "FL",
+      "slug": "florida",
+      "costRange": "$300–$600",
+      "cities": [
+        {
+          "name": "Tampa",
+          "slug": "tampa",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "st-petersburg", "cityName": "St. Petersburg" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "clearwater", "cityName": "Clearwater" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "orlando", "cityName": "Orlando" }
+          ]
+        },
+        {
+          "name": "Orlando",
+          "slug": "orlando",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "tampa", "cityName": "Tampa" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "jacksonville", "cityName": "Jacksonville" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "sarasota", "cityName": "Sarasota" }
+          ]
+        },
+        {
+          "name": "Jacksonville",
+          "slug": "jacksonville",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "orlando", "cityName": "Orlando" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "tampa", "cityName": "Tampa" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "miami", "cityName": "Miami" }
+          ]
+        },
+        {
+          "name": "Miami",
+          "slug": "miami",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "fort-lauderdale", "cityName": "Fort Lauderdale" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "boca-raton", "cityName": "Boca Raton" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "jacksonville", "cityName": "Jacksonville" }
+          ]
+        },
+        {
+          "name": "Fort Lauderdale",
+          "slug": "fort-lauderdale",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "miami", "cityName": "Miami" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "boca-raton", "cityName": "Boca Raton" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "tampa", "cityName": "Tampa" }
+          ]
+        },
+        {
+          "name": "St. Petersburg",
+          "slug": "st-petersburg",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "tampa", "cityName": "Tampa" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "clearwater", "cityName": "Clearwater" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "sarasota", "cityName": "Sarasota" }
+          ]
+        },
+        {
+          "name": "Sarasota",
+          "slug": "sarasota",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "tampa", "cityName": "Tampa" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "st-petersburg", "cityName": "St. Petersburg" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "clearwater", "cityName": "Clearwater" }
+          ]
+        },
+        {
+          "name": "Boca Raton",
+          "slug": "boca-raton",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "miami", "cityName": "Miami" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "fort-lauderdale", "cityName": "Fort Lauderdale" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "sarasota", "cityName": "Sarasota" }
+          ]
+        },
+        {
+          "name": "Clearwater",
+          "slug": "clearwater",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "tampa", "cityName": "Tampa" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "st-petersburg", "cityName": "St. Petersburg" },
+            { "stateSlug": "florida", "stateName": "Florida", "abbr": "FL", "citySlug": "sarasota", "cityName": "Sarasota" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Georgia",
+      "abbr": "GA",
+      "slug": "georgia",
+      "costRange": "$280–$550",
+      "cities": [
+        {
+          "name": "Atlanta",
+          "slug": "atlanta",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "north-carolina", "stateName": "North Carolina", "abbr": "NC", "citySlug": "charlotte", "cityName": "Charlotte" },
+            { "stateSlug": "tennessee", "stateName": "Tennessee", "abbr": "TN", "citySlug": "nashville", "cityName": "Nashville" },
+            { "stateSlug": "alabama", "stateName": "Alabama", "abbr": "AL", "citySlug": "birmingham", "cityName": "Birmingham" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "North Carolina",
+      "abbr": "NC",
+      "slug": "north-carolina",
+      "costRange": "$280–$520",
+      "cities": [
+        {
+          "name": "Charlotte",
+          "slug": "charlotte",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "north-carolina", "stateName": "North Carolina", "abbr": "NC", "citySlug": "raleigh", "cityName": "Raleigh" },
+            { "stateSlug": "georgia", "stateName": "Georgia", "abbr": "GA", "citySlug": "atlanta", "cityName": "Atlanta" },
+            { "stateSlug": "tennessee", "stateName": "Tennessee", "abbr": "TN", "citySlug": "nashville", "cityName": "Nashville" }
+          ]
+        },
+        {
+          "name": "Raleigh",
+          "slug": "raleigh",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "north-carolina", "stateName": "North Carolina", "abbr": "NC", "citySlug": "charlotte", "cityName": "Charlotte" },
+            { "stateSlug": "virginia", "stateName": "Virginia", "abbr": "VA", "citySlug": "virginia-beach", "cityName": "Virginia Beach" },
+            { "stateSlug": "virginia", "stateName": "Virginia", "abbr": "VA", "citySlug": "richmond", "cityName": "Richmond" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tennessee",
+      "abbr": "TN",
+      "slug": "tennessee",
+      "costRange": "$260–$500",
+      "cities": [
+        {
+          "name": "Nashville",
+          "slug": "nashville",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "tennessee", "stateName": "Tennessee", "abbr": "TN", "citySlug": "knoxville", "cityName": "Knoxville" },
+            { "stateSlug": "north-carolina", "stateName": "North Carolina", "abbr": "NC", "citySlug": "charlotte", "cityName": "Charlotte" },
+            { "stateSlug": "georgia", "stateName": "Georgia", "abbr": "GA", "citySlug": "atlanta", "cityName": "Atlanta" }
+          ]
+        },
+        {
+          "name": "Knoxville",
+          "slug": "knoxville",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "tennessee", "stateName": "Tennessee", "abbr": "TN", "citySlug": "nashville", "cityName": "Nashville" },
+            { "stateSlug": "georgia", "stateName": "Georgia", "abbr": "GA", "citySlug": "atlanta", "cityName": "Atlanta" },
+            { "stateSlug": "alabama", "stateName": "Alabama", "abbr": "AL", "citySlug": "birmingham", "cityName": "Birmingham" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Alabama",
+      "abbr": "AL",
+      "slug": "alabama",
+      "costRange": "$250–$480",
+      "cities": [
+        {
+          "name": "Birmingham",
+          "slug": "birmingham",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "georgia", "stateName": "Georgia", "abbr": "GA", "citySlug": "atlanta", "cityName": "Atlanta" },
+            { "stateSlug": "tennessee", "stateName": "Tennessee", "abbr": "TN", "citySlug": "nashville", "cityName": "Nashville" },
+            { "stateSlug": "tennessee", "stateName": "Tennessee", "abbr": "TN", "citySlug": "knoxville", "cityName": "Knoxville" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "South Carolina",
+      "abbr": "SC",
+      "slug": "south-carolina",
+      "costRange": "$270–$510",
+      "cities": [
+        {
+          "name": "Greenville",
+          "slug": "greenville",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "north-carolina", "stateName": "North Carolina", "abbr": "NC", "citySlug": "charlotte", "cityName": "Charlotte" },
+            { "stateSlug": "georgia", "stateName": "Georgia", "abbr": "GA", "citySlug": "atlanta", "cityName": "Atlanta" },
+            { "stateSlug": "north-carolina", "stateName": "North Carolina", "abbr": "NC", "citySlug": "raleigh", "cityName": "Raleigh" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Virginia",
+      "abbr": "VA",
+      "slug": "virginia",
+      "costRange": "$300–$580",
+      "cities": [
+        {
+          "name": "Richmond",
+          "slug": "richmond",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "virginia", "stateName": "Virginia", "abbr": "VA", "citySlug": "virginia-beach", "cityName": "Virginia Beach" },
+            { "stateSlug": "north-carolina", "stateName": "North Carolina", "abbr": "NC", "citySlug": "raleigh", "cityName": "Raleigh" },
+            { "stateSlug": "north-carolina", "stateName": "North Carolina", "abbr": "NC", "citySlug": "charlotte", "cityName": "Charlotte" }
+          ]
+        },
+        {
+          "name": "Virginia Beach",
+          "slug": "virginia-beach",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "virginia", "stateName": "Virginia", "abbr": "VA", "citySlug": "richmond", "cityName": "Richmond" },
+            { "stateSlug": "north-carolina", "stateName": "North Carolina", "abbr": "NC", "citySlug": "raleigh", "cityName": "Raleigh" },
+            { "stateSlug": "north-carolina", "stateName": "North Carolina", "abbr": "NC", "citySlug": "charlotte", "cityName": "Charlotte" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Arizona",
+      "abbr": "AZ",
+      "slug": "arizona",
+      "costRange": "$300–$580",
+      "cities": [
+        {
+          "name": "Phoenix",
+          "slug": "phoenix",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "arizona", "stateName": "Arizona", "abbr": "AZ", "citySlug": "tucson", "cityName": "Tucson" },
+            { "stateSlug": "nevada", "stateName": "Nevada", "abbr": "NV", "citySlug": "las-vegas", "cityName": "Las Vegas" },
+            { "stateSlug": "colorado", "stateName": "Colorado", "abbr": "CO", "citySlug": "denver", "cityName": "Denver" }
+          ]
+        },
+        {
+          "name": "Tucson",
+          "slug": "tucson",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "arizona", "stateName": "Arizona", "abbr": "AZ", "citySlug": "phoenix", "cityName": "Phoenix" },
+            { "stateSlug": "new-mexico", "stateName": "New Mexico", "abbr": "NM", "citySlug": "albuquerque", "cityName": "Albuquerque" },
+            { "stateSlug": "colorado", "stateName": "Colorado", "abbr": "CO", "citySlug": "denver", "cityName": "Denver" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Colorado",
+      "abbr": "CO",
+      "slug": "colorado",
+      "costRange": "$350–$620",
+      "cities": [
+        {
+          "name": "Denver",
+          "slug": "denver",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "colorado", "stateName": "Colorado", "abbr": "CO", "citySlug": "colorado-springs", "cityName": "Colorado Springs" },
+            { "stateSlug": "utah", "stateName": "Utah", "abbr": "UT", "citySlug": "salt-lake-city", "cityName": "Salt Lake City" },
+            { "stateSlug": "arizona", "stateName": "Arizona", "abbr": "AZ", "citySlug": "phoenix", "cityName": "Phoenix" }
+          ]
+        },
+        {
+          "name": "Colorado Springs",
+          "slug": "colorado-springs",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "colorado", "stateName": "Colorado", "abbr": "CO", "citySlug": "denver", "cityName": "Denver" },
+            { "stateSlug": "new-mexico", "stateName": "New Mexico", "abbr": "NM", "citySlug": "albuquerque", "cityName": "Albuquerque" },
+            { "stateSlug": "utah", "stateName": "Utah", "abbr": "UT", "citySlug": "salt-lake-city", "cityName": "Salt Lake City" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nevada",
+      "abbr": "NV",
+      "slug": "nevada",
+      "costRange": "$320–$600",
+      "cities": [
+        {
+          "name": "Las Vegas",
+          "slug": "las-vegas",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "nevada", "stateName": "Nevada", "abbr": "NV", "citySlug": "henderson", "cityName": "Henderson" },
+            { "stateSlug": "arizona", "stateName": "Arizona", "abbr": "AZ", "citySlug": "phoenix", "cityName": "Phoenix" },
+            { "stateSlug": "utah", "stateName": "Utah", "abbr": "UT", "citySlug": "salt-lake-city", "cityName": "Salt Lake City" }
+          ]
+        },
+        {
+          "name": "Henderson",
+          "slug": "henderson",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "nevada", "stateName": "Nevada", "abbr": "NV", "citySlug": "las-vegas", "cityName": "Las Vegas" },
+            { "stateSlug": "arizona", "stateName": "Arizona", "abbr": "AZ", "citySlug": "phoenix", "cityName": "Phoenix" },
+            { "stateSlug": "utah", "stateName": "Utah", "abbr": "UT", "citySlug": "salt-lake-city", "cityName": "Salt Lake City" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Utah",
+      "abbr": "UT",
+      "slug": "utah",
+      "costRange": "$310–$580",
+      "cities": [
+        {
+          "name": "Salt Lake City",
+          "slug": "salt-lake-city",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "idaho", "stateName": "Idaho", "abbr": "ID", "citySlug": "boise", "cityName": "Boise" },
+            { "stateSlug": "colorado", "stateName": "Colorado", "abbr": "CO", "citySlug": "denver", "cityName": "Denver" },
+            { "stateSlug": "nevada", "stateName": "Nevada", "abbr": "NV", "citySlug": "las-vegas", "cityName": "Las Vegas" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Idaho",
+      "abbr": "ID",
+      "slug": "idaho",
+      "costRange": "$280–$530",
+      "cities": [
+        {
+          "name": "Boise",
+          "slug": "boise",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "utah", "stateName": "Utah", "abbr": "UT", "citySlug": "salt-lake-city", "cityName": "Salt Lake City" },
+            { "stateSlug": "washington", "stateName": "Washington", "abbr": "WA", "citySlug": "spokane", "cityName": "Spokane" },
+            { "stateSlug": "oregon", "stateName": "Oregon", "abbr": "OR", "citySlug": "portland", "cityName": "Portland" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New Mexico",
+      "abbr": "NM",
+      "slug": "new-mexico",
+      "costRange": "$270–$520",
+      "cities": [
+        {
+          "name": "Albuquerque",
+          "slug": "albuquerque",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "arizona", "stateName": "Arizona", "abbr": "AZ", "citySlug": "tucson", "cityName": "Tucson" },
+            { "stateSlug": "arizona", "stateName": "Arizona", "abbr": "AZ", "citySlug": "phoenix", "cityName": "Phoenix" },
+            { "stateSlug": "colorado", "stateName": "Colorado", "abbr": "CO", "citySlug": "colorado-springs", "cityName": "Colorado Springs" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "California",
+      "abbr": "CA",
+      "slug": "california",
+      "costRange": "$400–$800",
+      "cities": [
+        {
+          "name": "San Diego",
+          "slug": "san-diego",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "california", "stateName": "California", "abbr": "CA", "citySlug": "sacramento", "cityName": "Sacramento" },
+            { "stateSlug": "california", "stateName": "California", "abbr": "CA", "citySlug": "san-jose", "cityName": "San Jose" },
+            { "stateSlug": "oregon", "stateName": "Oregon", "abbr": "OR", "citySlug": "portland", "cityName": "Portland" }
+          ]
+        },
+        {
+          "name": "Sacramento",
+          "slug": "sacramento",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "california", "stateName": "California", "abbr": "CA", "citySlug": "san-jose", "cityName": "San Jose" },
+            { "stateSlug": "california", "stateName": "California", "abbr": "CA", "citySlug": "san-diego", "cityName": "San Diego" },
+            { "stateSlug": "oregon", "stateName": "Oregon", "abbr": "OR", "citySlug": "portland", "cityName": "Portland" }
+          ]
+        },
+        {
+          "name": "San Jose",
+          "slug": "san-jose",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "california", "stateName": "California", "abbr": "CA", "citySlug": "sacramento", "cityName": "Sacramento" },
+            { "stateSlug": "california", "stateName": "California", "abbr": "CA", "citySlug": "san-diego", "cityName": "San Diego" },
+            { "stateSlug": "oregon", "stateName": "Oregon", "abbr": "OR", "citySlug": "portland", "cityName": "Portland" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Washington",
+      "abbr": "WA",
+      "slug": "washington",
+      "costRange": "$380–$720",
+      "cities": [
+        {
+          "name": "Seattle",
+          "slug": "seattle",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "washington", "stateName": "Washington", "abbr": "WA", "citySlug": "spokane", "cityName": "Spokane" },
+            { "stateSlug": "oregon", "stateName": "Oregon", "abbr": "OR", "citySlug": "portland", "cityName": "Portland" },
+            { "stateSlug": "idaho", "stateName": "Idaho", "abbr": "ID", "citySlug": "boise", "cityName": "Boise" }
+          ]
+        },
+        {
+          "name": "Spokane",
+          "slug": "spokane",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "washington", "stateName": "Washington", "abbr": "WA", "citySlug": "seattle", "cityName": "Seattle" },
+            { "stateSlug": "idaho", "stateName": "Idaho", "abbr": "ID", "citySlug": "boise", "cityName": "Boise" },
+            { "stateSlug": "oregon", "stateName": "Oregon", "abbr": "OR", "citySlug": "portland", "cityName": "Portland" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Oregon",
+      "abbr": "OR",
+      "slug": "oregon",
+      "costRange": "$360–$680",
+      "cities": [
+        {
+          "name": "Portland",
+          "slug": "portland",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "washington", "stateName": "Washington", "abbr": "WA", "citySlug": "seattle", "cityName": "Seattle" },
+            { "stateSlug": "washington", "stateName": "Washington", "abbr": "WA", "citySlug": "spokane", "cityName": "Spokane" },
+            { "stateSlug": "california", "stateName": "California", "abbr": "CA", "citySlug": "sacramento", "cityName": "Sacramento" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Illinois",
+      "abbr": "IL",
+      "slug": "illinois",
+      "costRange": "$350–$650",
+      "cities": [
+        {
+          "name": "Chicago",
+          "slug": "chicago",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "minnesota", "stateName": "Minnesota", "abbr": "MN", "citySlug": "minneapolis", "cityName": "Minneapolis" },
+            { "stateSlug": "ohio", "stateName": "Ohio", "abbr": "OH", "citySlug": "columbus", "cityName": "Columbus" },
+            { "stateSlug": "indiana", "stateName": "Indiana", "abbr": "IN", "citySlug": "indianapolis", "cityName": "Indianapolis" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Minnesota",
+      "abbr": "MN",
+      "slug": "minnesota",
+      "costRange": "$320–$620",
+      "cities": [
+        {
+          "name": "Minneapolis",
+          "slug": "minneapolis",
+          "tier": "primary",
+          "related": [
+            { "stateSlug": "illinois", "stateName": "Illinois", "abbr": "IL", "citySlug": "chicago", "cityName": "Chicago" },
+            { "stateSlug": "ohio", "stateName": "Ohio", "abbr": "OH", "citySlug": "columbus", "cityName": "Columbus" },
+            { "stateSlug": "missouri", "stateName": "Missouri", "abbr": "MO", "citySlug": "kansas-city", "cityName": "Kansas City" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ohio",
+      "abbr": "OH",
+      "slug": "ohio",
+      "costRange": "$290–$560",
+      "cities": [
+        {
+          "name": "Columbus",
+          "slug": "columbus",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "ohio", "stateName": "Ohio", "abbr": "OH", "citySlug": "cincinnati", "cityName": "Cincinnati" },
+            { "stateSlug": "indiana", "stateName": "Indiana", "abbr": "IN", "citySlug": "indianapolis", "cityName": "Indianapolis" },
+            { "stateSlug": "illinois", "stateName": "Illinois", "abbr": "IL", "citySlug": "chicago", "cityName": "Chicago" }
+          ]
+        },
+        {
+          "name": "Cincinnati",
+          "slug": "cincinnati",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "ohio", "stateName": "Ohio", "abbr": "OH", "citySlug": "columbus", "cityName": "Columbus" },
+            { "stateSlug": "indiana", "stateName": "Indiana", "abbr": "IN", "citySlug": "indianapolis", "cityName": "Indianapolis" },
+            { "stateSlug": "missouri", "stateName": "Missouri", "abbr": "MO", "citySlug": "st-louis", "cityName": "St. Louis" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Indiana",
+      "abbr": "IN",
+      "slug": "indiana",
+      "costRange": "$280–$540",
+      "cities": [
+        {
+          "name": "Indianapolis",
+          "slug": "indianapolis",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "ohio", "stateName": "Ohio", "abbr": "OH", "citySlug": "columbus", "cityName": "Columbus" },
+            { "stateSlug": "ohio", "stateName": "Ohio", "abbr": "OH", "citySlug": "cincinnati", "cityName": "Cincinnati" },
+            { "stateSlug": "illinois", "stateName": "Illinois", "abbr": "IL", "citySlug": "chicago", "cityName": "Chicago" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Missouri",
+      "abbr": "MO",
+      "slug": "missouri",
+      "costRange": "$290–$560",
+      "cities": [
+        {
+          "name": "Kansas City",
+          "slug": "kansas-city",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "missouri", "stateName": "Missouri", "abbr": "MO", "citySlug": "st-louis", "cityName": "St. Louis" },
+            { "stateSlug": "minnesota", "stateName": "Minnesota", "abbr": "MN", "citySlug": "minneapolis", "cityName": "Minneapolis" },
+            { "stateSlug": "illinois", "stateName": "Illinois", "abbr": "IL", "citySlug": "chicago", "cityName": "Chicago" }
+          ]
+        },
+        {
+          "name": "St. Louis",
+          "slug": "st-louis",
+          "tier": "secondary",
+          "related": [
+            { "stateSlug": "missouri", "stateName": "Missouri", "abbr": "MO", "citySlug": "kansas-city", "cityName": "Kansas City" },
+            { "stateSlug": "indiana", "stateName": "Indiana", "abbr": "IN", "citySlug": "indianapolis", "cityName": "Indianapolis" },
+            { "stateSlug": "ohio", "stateName": "Ohio", "abbr": "OH", "citySlug": "cincinnati", "cityName": "Cincinnati" }
+          ]
+        }
+      ]
+    }
+  ]
+}

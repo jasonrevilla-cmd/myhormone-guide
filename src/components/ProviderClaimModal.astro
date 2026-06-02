@@ -1,0 +1,214 @@
+---
+interface Props {
+  cityName: string;
+  stateName: string;
+  stateAbbr: string;
+}
+const { cityName, stateName, stateAbbr } = Astro.props;
+---
+
+<!-- Trigger card -->
+<div class="my-10 bg-teal-50 border border-teal-200 rounded-2xl p-8 text-center">
+  <svg class="w-10 h-10 text-teal-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+  </svg>
+  <h3 class="text-xl font-bold text-navy-700 mb-2">Are you a BHRT provider in {cityName}?</h3>
+  <p class="text-gray-600 mb-6 max-w-md mx-auto">
+    Claim your free listing and get in front of patients actively searching for BHRT in {cityName}, {stateAbbr}.
+    No cost, no commitment.
+  </p>
+  <button
+    id="open-claim-modal"
+    class="inline-flex items-center gap-2 bg-teal-400 hover:bg-teal-500 text-white font-semibold px-6 py-3 rounded-full transition-colors"
+  >
+    Claim Your Free Listing →
+  </button>
+</div>
+
+<!-- Modal -->
+<dialog
+  id="provider-claim-modal"
+  class="w-full max-w-lg rounded-2xl shadow-2xl border-0 p-0 backdrop:bg-navy-900/60"
+>
+  <div class="p-8">
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <h2 class="text-xl font-bold text-navy-700">Claim Your Free Listing</h2>
+        <p class="text-sm text-gray-500 mt-0.5">{cityName}, {stateName}</p>
+      </div>
+      <button
+        id="close-claim-modal"
+        class="text-gray-400 hover:text-navy-700 transition-colors p-1 rounded-lg"
+        aria-label="Close modal"
+      >
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <form id="claim-form">
+      <!-- Fields wrapper — hidden after successful submit -->
+      <div id="claim-fields" class="space-y-4">
+        <div>
+          <label for="claim-practice" class="block text-sm font-medium text-navy-700 mb-1">Practice Name <span class="text-red-400">*</span></label>
+          <input
+            id="claim-practice"
+            type="text"
+            name="practice_name"
+            required
+            placeholder="Harmony Hormone Health"
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-400 focus:border-transparent outline-none text-sm"
+          />
+        </div>
+
+        <div>
+          <label for="claim-provider" class="block text-sm font-medium text-navy-700 mb-1">Provider Name <span class="text-red-400">*</span></label>
+          <input
+            id="claim-provider"
+            type="text"
+            name="provider_name"
+            required
+            placeholder="Dr. Jane Smith"
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-400 focus:border-transparent outline-none text-sm"
+          />
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="claim-email" class="block text-sm font-medium text-navy-700 mb-1">Email <span class="text-red-400">*</span></label>
+            <input
+              id="claim-email"
+              type="email"
+              name="email"
+              required
+              placeholder="dr@clinic.com"
+              class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-400 focus:border-transparent outline-none text-sm"
+            />
+          </div>
+          <div>
+            <label for="claim-phone" class="block text-sm font-medium text-navy-700 mb-1">Phone</label>
+            <input
+              id="claim-phone"
+              type="tel"
+              name="phone"
+              placeholder="(555) 555-5555"
+              class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-400 focus:border-transparent outline-none text-sm"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-navy-700 mb-1">City</label>
+            <input
+              type="text"
+              name="city"
+              value={cityName}
+              readonly
+              class="w-full px-4 py-2.5 border border-gray-200 bg-gray-50 rounded-lg text-sm text-gray-500 cursor-not-allowed"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-navy-700 mb-1">State</label>
+            <input
+              type="text"
+              name="state"
+              value={stateName}
+              readonly
+              class="w-full px-4 py-2.5 border border-gray-200 bg-gray-50 rounded-lg text-sm text-gray-500 cursor-not-allowed"
+            />
+          </div>
+        </div>
+
+        <!-- Hidden fields for Formspree routing -->
+        <input type="hidden" name="_subject" value={`Provider Listing Request — ${cityName}, ${stateName}`} />
+        <input type="hidden" name="_replyto" value="hello@myhormoneguide.com" />
+
+        <div id="claim-error" class="hidden text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg px-4 py-3">
+          Something went wrong. Please email <a href="mailto:hello@myhormoneguide.com" class="underline">hello@myhormoneguide.com</a> directly.
+        </div>
+
+        <button
+          id="claim-submit"
+          type="submit"
+          class="w-full bg-teal-400 hover:bg-teal-500 text-white font-semibold py-3 rounded-full transition-colors"
+        >
+          Submit Listing Request
+        </button>
+
+        <p class="text-xs text-gray-400 text-center">Free listing · No credit card required · We'll respond within 48 hours</p>
+      </div>
+
+      <!-- Success state -->
+      <div id="claim-success" class="hidden text-center py-6">
+        <svg class="w-14 h-14 text-teal-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <p class="text-lg font-bold text-navy-700 mb-2">Request received!</p>
+        <p class="text-sm text-gray-500">We'll be in touch within 1–2 business days to get your listing live.</p>
+        <button
+          type="button"
+          id="close-success"
+          class="mt-6 text-sm text-teal-600 hover:text-teal-500 font-medium"
+        >
+          Close
+        </button>
+      </div>
+    </form>
+  </div>
+</dialog>
+
+<script>
+  const dialog  = document.getElementById('provider-claim-modal') as HTMLDialogElement;
+  const openBtn = document.getElementById('open-claim-modal');
+  const closeBtn = document.getElementById('close-claim-modal');
+  const form    = document.getElementById('claim-form') as HTMLFormElement;
+  const fields  = document.getElementById('claim-fields');
+  const success = document.getElementById('claim-success');
+  const errorEl = document.getElementById('claim-error');
+  const submitBtn = document.getElementById('claim-submit') as HTMLButtonElement;
+  const closeSuccess = document.getElementById('close-success');
+
+  openBtn?.addEventListener('click', () => dialog?.showModal());
+  closeBtn?.addEventListener('click', () => dialog?.close());
+  closeSuccess?.addEventListener('click', () => dialog?.close());
+
+  // Close on backdrop click
+  dialog?.addEventListener('click', (e) => {
+    const rect = dialog.getBoundingClientRect();
+    const clickedOutside =
+      e.clientX < rect.left || e.clientX > rect.right ||
+      e.clientY < rect.top  || e.clientY > rect.bottom;
+    if (clickedOutside) dialog.close();
+  });
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorEl?.classList.add('hidden');
+    submitBtn.textContent = 'Sending…';
+    submitBtn.disabled = true;
+
+    try {
+      // SETUP: Create a free form at formspree.io, paste your form ID below.
+      // Replace XXXXXXXX with your Formspree form ID (e.g. xpzgkrpv).
+      const FORMSPREE_ID = 'XXXXXXXX';
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        fields?.classList.add('hidden');
+        success?.classList.remove('hidden');
+      } else {
+        throw new Error('non-ok response');
+      }
+    } catch {
+      errorEl?.classList.remove('hidden');
+      submitBtn.textContent = 'Submit Listing Request';
+      submitBtn.disabled = false;
+    }
+  });
+</script>

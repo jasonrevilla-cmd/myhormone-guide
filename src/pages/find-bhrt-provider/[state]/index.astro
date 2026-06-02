@@ -1,0 +1,125 @@
+---
+import citiesData from '../../../data/cities.json';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return citiesData.states.map((state) => ({
+    params: { state: state.slug },
+    props: { state },
+  }));
+}
+
+interface Props {
+  state: (typeof citiesData.states)[0];
+}
+
+const { state } = Astro.props;
+
+const SITE_URL = 'https://www.myhormoneguide.com';
+
+const breadcrumbs = [
+  { label: 'Find a Provider', href: '/find-bhrt-provider/' },
+  { label: state.name, href: `/find-bhrt-provider/${state.slug}/` },
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+    { '@type': 'ListItem', position: 2, name: 'Find a Provider', item: `${SITE_URL}/find-bhrt-provider/` },
+    { '@type': 'ListItem', position: 3, name: state.name, item: `${SITE_URL}/find-bhrt-provider/${state.slug}/` },
+  ],
+};
+
+const primaryCities = state.cities.filter((c) => c.tier === 'primary');
+const secondaryCities = state.cities.filter((c) => c.tier === 'secondary');
+---
+
+<BaseLayout
+  title={`BHRT Providers in ${state.name} — MyHormoneGuide`}
+  description={`Find bioidentical hormone replacement therapy providers across ${state.name}. Browse cities with verified BHRT clinics, pellet therapy specialists, and hormone optimization doctors.`}
+  breadcrumbs={breadcrumbs}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <!-- Header -->
+  <div class="bg-gradient-to-br from-navy-600 to-navy-700 py-14">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="/find-bhrt-provider/" class="inline-flex items-center gap-1 text-navy-200 hover:text-white text-sm mb-4 transition-colors">
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Find a Provider
+      </a>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+        BHRT Providers in {state.name}
+      </h1>
+      <p class="text-navy-100 text-lg leading-relaxed max-w-2xl">
+        Browse {state.cities.length} {state.cities.length === 1 ? 'city' : 'cities'} across {state.name} with bioidentical hormone replacement therapy providers. Select a city to find local specialists.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Primary cities -->
+    {primaryCities.length > 0 && (
+      <section aria-labelledby="primary-heading" class="mb-12">
+        <h2 id="primary-heading" class="text-xl font-bold text-navy-700 mb-5">Major Cities</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {primaryCities.map((city) => (
+            <a
+              href={`/find-bhrt-provider/${state.slug}/${city.slug}/`}
+              class="group flex items-center justify-between p-5 bg-white border border-navy-100 rounded-2xl hover:border-teal-300 hover:shadow-md transition-all duration-200"
+            >
+              <div>
+                <p class="font-semibold text-navy-700 group-hover:text-teal-600 transition-colors">{city.name}</p>
+                <p class="text-sm text-gray-400 mt-0.5">{state.name}</p>
+              </div>
+              <svg class="w-5 h-5 text-navy-300 group-hover:text-teal-400 group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Secondary cities -->
+    {secondaryCities.length > 0 && (
+      <section aria-labelledby="secondary-heading">
+        <h2 id="secondary-heading" class="text-xl font-bold text-navy-700 mb-5">Additional Cities</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {secondaryCities.map((city) => (
+            <a
+              href={`/find-bhrt-provider/${state.slug}/${city.slug}/`}
+              class="group flex items-center justify-between p-5 bg-white border border-navy-100 rounded-2xl hover:border-teal-300 hover:shadow-sm transition-all duration-200"
+            >
+              <div>
+                <p class="font-semibold text-navy-700 group-hover:text-teal-600 transition-colors">{city.name}</p>
+                <p class="text-sm text-gray-400 mt-0.5">{state.name}</p>
+              </div>
+              <svg class="w-5 h-5 text-navy-300 group-hover:text-teal-400 group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Back link -->
+    <div class="mt-12 pt-8 border-t border-gray-100">
+      <a href="/find-bhrt-provider/" class="inline-flex items-center gap-2 text-sm text-teal-600 hover:text-teal-500 font-medium">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        View all states
+      </a>
+    </div>
+
+  </div>
+</BaseLayout>
