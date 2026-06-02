@@ -216,6 +216,30 @@ faqs:
 
 The content on this site is for educational purposes only and is not intended as medical advice. Always consult a qualified healthcare provider before starting, changing, or stopping any hormone therapy. Individual results vary.
 
+## Common Questions About [Topic — replace with the specific subject of this post, e.g. "Pellet Therapy Costs" or "BHRT for Women"]
+
+[Include 3–5 questions phrased exactly as someone would speak to a voice assistant or AI chatbot — natural, conversational, first-person or direct. Examples of the right phrasing: "How much does pellet therapy cost?", "Is BHRT safe for women over 50?", "What's the difference between BHRT and regular HRT?". Each answer must be 2–3 sentences, self-contained, and give a complete response without requiring the reader to read the rest of the article. Do not reuse questions already covered in the FAQ section above.]
+
+### [Conversational question 1]
+
+[2–3 sentence direct answer]
+
+### [Conversational question 2]
+
+[2–3 sentence direct answer]
+
+### [Conversational question 3]
+
+[2–3 sentence direct answer]
+
+### [Conversational question 4 — optional]
+
+[2–3 sentence direct answer]
+
+### [Conversational question 5 — optional]
+
+[2–3 sentence direct answer]
+
 <div class="references-section">
 
 ## References
