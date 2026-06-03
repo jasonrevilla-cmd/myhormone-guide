@@ -1434,7 +1434,7 @@
     },
     {
       "id": "C2-009",
-      "status": "pending",
+      "status": "published",
       "title": "Why Am I So Tired All the Time? Could It Be Your Hormones?",
       "primaryKeyword": "fatigue and hormone imbalance",
       "secondaryKeywords": [
@@ -1459,7 +1459,9 @@
           "title": "Hormones and Sleep: Why You Can't Sleep Anymore",
           "slug": "hormones-and-sleep-why-you-cant-sleep-anymore"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-03",
+      "outputFile": "src/content/posts/why-am-i-so-tired-all-the-time-could-it-be-your-hormones.mdx"
     },
     {
       "id": "C2-010",
