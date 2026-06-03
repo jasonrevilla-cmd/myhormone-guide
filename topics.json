@@ -1403,7 +1403,7 @@
     },
     {
       "id": "C2-008",
-      "status": "pending",
+      "status": "published",
       "title": "Perimenopause vs. Menopause: What's the Difference?",
       "primaryKeyword": "perimenopause vs menopause",
       "secondaryKeywords": [
@@ -1428,7 +1428,9 @@
           "title": "Hot Flashes Explained: Why They Happen and How to Stop Them",
           "slug": "hot-flashes-explained-why-they-happen-and-how-to-stop-them"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-03",
+      "outputFile": "src/content/posts/perimenopause-vs-menopause-whats-the-difference.mdx"
     },
     {
       "id": "C2-009",
