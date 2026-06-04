@@ -1465,7 +1465,7 @@
     },
     {
       "id": "C2-010",
-      "status": "pending",
+      "status": "published",
       "title": "Hormones and Weight Gain After 40: What's Really Happening",
       "primaryKeyword": "hormones and weight gain after 40",
       "secondaryKeywords": [
@@ -1490,7 +1490,9 @@
           "title": "17 Signs Your Hormones May Be Out of Balance",
           "slug": "17-signs-your-hormones-may-be-out-of-balance"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-04",
+      "outputFile": "src/content/posts/hormones-and-weight-gain-after-40-whats-really-happening.mdx"
     },
     {
       "id": "C2-011",
