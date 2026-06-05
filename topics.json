@@ -1496,7 +1496,7 @@
     },
     {
       "id": "C2-011",
-      "status": "pending",
+      "status": "published",
       "title": "Hormones and Sleep: Why You Can't Sleep Anymore",
       "primaryKeyword": "hormones and sleep problems",
       "secondaryKeywords": [
@@ -1521,7 +1521,9 @@
           "title": "Sleep and Hormones: The Two-Way Relationship",
           "slug": "sleep-and-hormones-the-two-way-relationship"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-05",
+      "outputFile": "src/content/posts/hormones-and-sleep-why-you-cant-sleep-anymore.mdx"
     },
     {
       "id": "C2-012",
