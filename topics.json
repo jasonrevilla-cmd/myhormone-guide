@@ -1527,7 +1527,7 @@
     },
     {
       "id": "C2-012",
-      "status": "pending",
+      "status": "published",
       "title": "Low Libido After 40: Is It Normal or Hormonal?",
       "primaryKeyword": "low libido after 40",
       "secondaryKeywords": [
@@ -1552,7 +1552,9 @@
           "title": "Testosterone Pellet Therapy for Women: Benefits and What to Expect",
           "slug": "testosterone-pellet-therapy-for-women-benefits-and-what-to-expect"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-06",
+      "outputFile": "src/content/posts/low-libido-after-40-is-it-normal-or-hormonal.mdx"
     },
     {
       "id": "C2-013",
