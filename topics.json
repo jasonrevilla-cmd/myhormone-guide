@@ -1558,7 +1558,7 @@
     },
     {
       "id": "C2-013",
-      "status": "pending",
+      "status": "published",
       "title": "Mood Swings, Anxiety, and Depression: The Hormonal Root Cause",
       "primaryKeyword": "hormones and mood swings",
       "secondaryKeywords": [
@@ -1583,7 +1583,9 @@
           "title": "What Is BHRT? A Complete Beginner's Guide",
           "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-07",
+      "outputFile": "src/content/posts/mood-swings-anxiety-and-depression-the-hormonal-root-cause.mdx"
     },
     {
       "id": "C2-014",
