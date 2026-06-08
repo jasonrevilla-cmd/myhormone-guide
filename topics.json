@@ -1589,7 +1589,7 @@
     },
     {
       "id": "C2-014",
-      "status": "pending",
+      "status": "published",
       "title": "Night Sweats and Hormones: What Your Body Is Telling You",
       "primaryKeyword": "night sweats hormones",
       "secondaryKeywords": [
@@ -1614,7 +1614,9 @@
           "title": "What Is BHRT? A Complete Beginner's Guide",
           "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-08",
+      "outputFile": "src/content/posts/night-sweats-and-hormones-what-your-body-is-telling-you.mdx"
     },
     {
       "id": "C2-015",
