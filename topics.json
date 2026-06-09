@@ -1589,7 +1589,7 @@
     },
     {
       "id": "C7-011",
-      "status": "pending",
+      "status": "published",
       "title": "Certified BHRT Provider Near Me — How to Find One You Can Trust",
       "primaryKeyword": "certified bhrt provider",
       "secondaryKeywords": [
@@ -1615,7 +1615,9 @@
           "title": "What Is BHRT? A Complete Beginner's Guide",
           "slug": "what-is-bhrt"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-09",
+      "outputFile": "src/content/posts/certified-bhrt-provider-near-me-how-to-find-one-you-can-trust.mdx"
     },
     {
       "id": "C3-016",
