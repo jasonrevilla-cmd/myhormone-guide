@@ -1621,7 +1621,7 @@
     },
     {
       "id": "C3-016",
-      "status": "pending",
+      "status": "published",
       "title": "EvexiPEL vs BioTE vs SottoPelle — The Complete Pellet System Comparison",
       "primaryKeyword": "evexipel vs biote vs sottopelle",
       "secondaryKeywords": [
@@ -1647,7 +1647,9 @@
           "title": "How Pellet Therapy Works: The Science Behind It",
           "slug": "how-pellet-therapy-works"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-10",
+      "outputFile": "src/content/posts/evexipel-vs-biote-vs-sottopelle-the-complete-pellet-system-comparison.mdx"
     },
     {
       "id": "C7-012",
