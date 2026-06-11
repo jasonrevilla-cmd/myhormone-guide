@@ -1653,7 +1653,7 @@
     },
     {
       "id": "C7-012",
-      "status": "pending",
+      "status": "published",
       "title": "BHRT Providers in Virginia — Finding Certified Hormone Specialists",
       "primaryKeyword": "bhrt clinic virginia",
       "secondaryKeywords": [
@@ -1679,7 +1679,9 @@
           "title": "What to Look for in a BHRT Provider",
           "slug": "what-to-look-for-in-a-bhrt-provider"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-11",
+      "outputFile": "src/content/posts/bhrt-providers-in-virginia-finding-certified-hormone-specialists.mdx"
     },
     {
       "id": "C3-017",
