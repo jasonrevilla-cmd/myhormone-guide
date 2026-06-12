@@ -1685,7 +1685,7 @@
     },
     {
       "id": "C3-017",
-      "status": "pending",
+      "status": "published",
       "title": "Biote Pellet Therapy — How It Works, Costs, and What to Expect",
       "primaryKeyword": "biote pellets",
       "secondaryKeywords": [
@@ -1712,7 +1712,9 @@
           "title": "How Pellet Therapy Works: The Science Behind It",
           "slug": "how-pellet-therapy-works"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-12",
+      "outputFile": "src/content/posts/biote-pellet-therapy-how-it-works-costs-and-what-to-expect.mdx"
     },
     {
       "id": "C3-018",
