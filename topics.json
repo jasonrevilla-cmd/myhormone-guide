@@ -1718,7 +1718,7 @@
     },
     {
       "id": "C3-018",
-      "status": "pending",
+      "status": "published",
       "title": "Testosterone Pellet Therapy for Women — Dosage, Side Effects, and Results",
       "primaryKeyword": "testosterone pellet dosage for females side effects",
       "secondaryKeywords": [
@@ -1744,7 +1744,9 @@
           "title": "Biote Pellet Therapy — How It Works, Costs, and What to Expect",
           "slug": "biote-pellet-therapy-how-it-works-costs-and-what-to-expect"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-13",
+      "outputFile": "src/content/posts/testosterone-pellet-therapy-for-women-dosage-side-effects-and-results.mdx"
     },
     {
       "id": "C2-014",
