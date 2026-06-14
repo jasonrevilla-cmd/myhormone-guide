@@ -1781,7 +1781,7 @@
     },
     {
       "id": "C2-015",
-      "status": "pending",
+      "status": "published",
       "title": "Vaginal Dryness and Hormones: BHRT Solutions That Work",
       "primaryKeyword": "vaginal dryness hormones",
       "secondaryKeywords": [
@@ -1806,7 +1806,9 @@
           "title": "Sex Drive After Menopause: What's Normal and What Helps",
           "slug": "sex-drive-after-menopause-whats-normal-and-what-helps"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-14",
+      "outputFile": "src/content/posts/vaginal-dryness-and-hormones-bhrt-solutions-that-work.mdx"
     },
     {
       "id": "C3-015",
