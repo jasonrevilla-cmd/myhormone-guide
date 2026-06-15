@@ -1812,7 +1812,7 @@
     },
     {
       "id": "C3-015",
-      "status": "pending",
+      "status": "published",
       "title": "Pellet Therapy Reviews: What Real Patients Say",
       "primaryKeyword": "pellet therapy reviews",
       "secondaryKeywords": [
@@ -1837,7 +1837,9 @@
           "title": "How Long Does It Take for Pellet Therapy to Work?",
           "slug": "how-long-does-it-take-for-pellet-therapy-to-work"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-15",
+      "outputFile": "src/content/posts/pellet-therapy-reviews-what-real-patients-say.mdx"
     },
     {
       "id": "C4-003",
