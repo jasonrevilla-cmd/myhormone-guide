@@ -1843,7 +1843,7 @@
     },
     {
       "id": "C4-003",
-      "status": "pending",
+      "status": "published",
       "title": "BHRT Injections: Everything You Need to Know",
       "primaryKeyword": "BHRT injections",
       "secondaryKeywords": [
@@ -1868,7 +1868,9 @@
           "title": "What Is Hormone Pellet Therapy? Everything You Need to Know",
           "slug": "what-is-hormone-pellet-therapy-everything-you-need-to-know"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-17",
+      "outputFile": "src/content/posts/bhrt-injections-everything-you-need-to-know.mdx"
     },
     {
       "id": "C4-004",
