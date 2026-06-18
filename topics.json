@@ -1874,7 +1874,7 @@
     },
     {
       "id": "C4-004",
-      "status": "pending",
+      "status": "published",
       "title": "Transdermal Patches for Hormone Therapy: A Full Guide",
       "primaryKeyword": "hormone therapy patches",
       "secondaryKeywords": [
@@ -1899,7 +1899,9 @@
           "title": "How to Choose the Right BHRT Delivery Method for You",
           "slug": "how-to-choose-the-right-bhrt-delivery-method-for-you"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-18",
+      "outputFile": "src/content/posts/transdermal-patches-for-hormone-therapy-a-full-guide.mdx"
     },
     {
       "id": "C4-005",
