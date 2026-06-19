@@ -1905,7 +1905,7 @@
     },
     {
       "id": "C4-005",
-      "status": "pending",
+      "status": "published",
       "title": "Sublingual BHRT: What It Is and Who It's For",
       "primaryKeyword": "sublingual BHRT",
       "secondaryKeywords": [
@@ -1930,7 +1930,9 @@
           "title": "How to Choose the Right BHRT Delivery Method for You",
           "slug": "how-to-choose-the-right-bhrt-delivery-method-for-you"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-19",
+      "outputFile": "src/content/posts/sublingual-bhrt-what-it-is-and-who-its-for.mdx"
     },
     {
       "id": "C4-006",
