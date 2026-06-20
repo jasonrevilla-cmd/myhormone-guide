@@ -1936,7 +1936,7 @@
     },
     {
       "id": "C4-006",
-      "status": "pending",
+      "status": "published",
       "title": "Why Pellets Deliver More Consistent Hormone Levels",
       "primaryKeyword": "pellet therapy consistent hormone levels",
       "secondaryKeywords": [
@@ -1961,7 +1961,9 @@
           "title": "BHRT Delivery Methods Compared: Pellets, Creams, Injections, Patches",
           "slug": "bhrt-delivery-methods-compared-pellets-creams-injections-patches"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-20",
+      "outputFile": "src/content/posts/why-pellets-deliver-more-consistent-hormone-levels.mdx"
     },
     {
       "id": "C4-007",
