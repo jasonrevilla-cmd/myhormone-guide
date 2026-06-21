@@ -1967,7 +1967,7 @@
     },
     {
       "id": "C4-007",
-      "status": "pending",
+      "status": "published",
       "title": "Oral vs. Topical Hormones: Absorption Differences Explained",
       "primaryKeyword": "oral vs topical hormones",
       "secondaryKeywords": [
@@ -1992,7 +1992,9 @@
           "title": "How to Choose the Right BHRT Delivery Method for You",
           "slug": "how-to-choose-the-right-bhrt-delivery-method-for-you"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-21",
+      "outputFile": "src/content/posts/oral-vs-topical-hormones-absorption-differences-explained.mdx"
     },
     {
       "id": "C4-008",
