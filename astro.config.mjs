@@ -16,4 +16,7 @@ export default defineConfig({
     }),
   ],
   output: 'static',
+  redirects: {
+    '/night-sweats-and-hormones/': '/posts/night-sweats-and-hormones-what-your-body-is-telling-you/',
+  },
 });
