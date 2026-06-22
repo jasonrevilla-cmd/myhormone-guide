@@ -1998,7 +1998,7 @@
     },
     {
       "id": "C4-008",
-      "status": "pending",
+      "status": "published",
       "title": "How to Choose the Right BHRT Delivery Method for You",
       "primaryKeyword": "how to choose BHRT delivery method",
       "secondaryKeywords": [
@@ -2023,7 +2023,9 @@
           "title": "Questions to Ask Before Starting BHRT",
           "slug": "questions-to-ask-before-starting-bhrt"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-22",
+      "outputFile": "src/content/posts/how-to-choose-the-right-bhrt-delivery-method-for-you.mdx"
     },
     {
       "id": "C5-003",
