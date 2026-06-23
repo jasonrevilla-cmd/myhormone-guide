@@ -2029,7 +2029,7 @@
     },
     {
       "id": "C5-003",
-      "status": "pending",
+      "status": "published",
       "title": "Perimenopause Symptoms: The Complete Checklist",
       "primaryKeyword": "perimenopause symptoms",
       "secondaryKeywords": [
@@ -2054,7 +2054,9 @@
           "title": "A Woman's Guide to Hormones: Estrogen, Progesterone, and Testosterone",
           "slug": "a-womans-guide-to-hormones-estrogen-progesterone-and-testosterone"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-23",
+      "outputFile": "src/content/posts/perimenopause-symptoms-the-complete-checklist.mdx"
     },
     {
       "id": "C5-004",
