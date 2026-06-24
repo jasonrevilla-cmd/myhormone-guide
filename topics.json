@@ -2060,7 +2060,7 @@
     },
     {
       "id": "C5-004",
-      "status": "pending",
+      "status": "published",
       "title": "Postmenopause: What to Expect and How BHRT Can Help",
       "primaryKeyword": "postmenopause symptoms BHRT",
       "secondaryKeywords": [
@@ -2085,7 +2085,9 @@
           "title": "What Is BHRT? A Complete Beginner's Guide",
           "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-24",
+      "outputFile": "src/content/posts/postmenopause-what-to-expect-and-how-bhrt-can-help.mdx"
     },
     {
       "id": "C5-005",
