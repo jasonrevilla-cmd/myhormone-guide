@@ -2122,7 +2122,7 @@
     },
     {
       "id": "C5-006",
-      "status": "pending",
+      "status": "published",
       "title": "BHRT After Hysterectomy: What You Need to Know",
       "primaryKeyword": "BHRT after hysterectomy",
       "secondaryKeywords": [
@@ -2147,7 +2147,9 @@
           "title": "Who Is a Good Candidate for BHRT?",
           "slug": "who-is-a-good-candidate-for-bhrt"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-26",
+      "outputFile": "src/content/posts/bhrt-after-hysterectomy-what-you-need-to-know.mdx"
     },
     {
       "id": "C5-007",
