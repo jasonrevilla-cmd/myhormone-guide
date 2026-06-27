@@ -2153,7 +2153,7 @@
     },
     {
       "id": "C5-007",
-      "status": "pending",
+      "status": "published",
       "title": "Thyroid and Hormones: Why They're Connected",
       "primaryKeyword": "thyroid and hormones connection",
       "secondaryKeywords": [
@@ -2178,7 +2178,9 @@
           "title": "Hormone Testing for Women: What Tests to Ask For",
           "slug": "hormone-testing-for-women-what-tests-to-ask-for"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-27",
+      "outputFile": "src/content/posts/thyroid-and-hormones-why-theyre-connected.mdx"
     },
     {
       "id": "C5-008",
