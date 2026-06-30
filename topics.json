@@ -2184,7 +2184,7 @@
     },
     {
       "id": "C5-008",
-      "status": "pending",
+      "status": "published",
       "title": "DHEA and Hormones: What This Overlooked Hormone Does",
       "primaryKeyword": "DHEA hormone women",
       "secondaryKeywords": [
@@ -2209,7 +2209,9 @@
           "title": "What Is BHRT? A Complete Beginner's Guide",
           "slug": "c1-001-what-is-bhrt-a-complete-beginners-guide"
         }
-      ]
+      ],
+      "publishedDate": "2026-06-30",
+      "outputFile": "src/content/posts/dhea-and-hormones-what-this-overlooked-hormone-does.mdx"
     },
     {
       "id": "C5-009",
