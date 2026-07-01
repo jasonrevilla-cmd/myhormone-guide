@@ -2215,7 +2215,7 @@
     },
     {
       "id": "C5-009",
-      "status": "pending",
+      "status": "published",
       "title": "Cortisol and Hormone Balance: The Stress Connection",
       "primaryKeyword": "cortisol and hormone balance",
       "secondaryKeywords": [
@@ -2240,7 +2240,9 @@
           "title": "A Woman's Guide to Hormones: Estrogen, Progesterone, and Testosterone",
           "slug": "a-womans-guide-to-hormones-estrogen-progesterone-and-testosterone"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-01",
+      "outputFile": "src/content/posts/cortisol-and-hormone-balance-the-stress-connection.mdx"
     },
     {
       "id": "C5-010",
