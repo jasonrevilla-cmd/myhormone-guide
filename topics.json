@@ -2246,7 +2246,7 @@
     },
     {
       "id": "C5-010",
-      "status": "pending",
+      "status": "published",
       "title": "Progesterone for Sleep: Can It Really Help?",
       "primaryKeyword": "progesterone for sleep",
       "secondaryKeywords": [
@@ -2271,7 +2271,9 @@
           "title": "Low Progesterone Symptoms in Women Over 40",
           "slug": "low-progesterone-symptoms-in-women-over-40"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-02",
+      "outputFile": "src/content/posts/progesterone-for-sleep-can-it-really-help.mdx"
     },
     {
       "id": "C5-011",
