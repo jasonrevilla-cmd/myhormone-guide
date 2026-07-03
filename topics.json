@@ -2277,7 +2277,7 @@
     },
     {
       "id": "C5-011",
-      "status": "pending",
+      "status": "published",
       "title": "Estrogen and Bone Health: Why Hormones Matter for Osteoporosis",
       "primaryKeyword": "estrogen and bone health",
       "secondaryKeywords": [
@@ -2302,7 +2302,9 @@
           "title": "BHRT Safety: What the Research Actually Shows",
           "slug": "bhrt-safety-what-the-research-actually-shows"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-03",
+      "outputFile": "src/content/posts/estrogen-and-bone-health-why-hormones-matter-for-osteoporosis.mdx"
     },
     {
       "id": "C5-012",
