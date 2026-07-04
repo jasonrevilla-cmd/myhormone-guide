@@ -2308,7 +2308,7 @@
     },
     {
       "id": "C5-012",
-      "status": "pending",
+      "status": "published",
       "title": "Hormones and Heart Health in Women Over 50",
       "primaryKeyword": "hormones and heart health women",
       "secondaryKeywords": [
@@ -2333,7 +2333,9 @@
           "title": "BHRT Safety: What the Research Actually Shows",
           "slug": "bhrt-safety-what-the-research-actually-shows"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-04",
+      "outputFile": "src/content/posts/hormones-and-heart-health-in-women-over-50.mdx"
     },
     {
       "id": "C5-013",
