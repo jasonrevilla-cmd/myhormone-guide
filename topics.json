@@ -2339,7 +2339,7 @@
     },
     {
       "id": "C5-013",
-      "status": "pending",
+      "status": "published",
       "title": "Women's Hormones and Mental Health: The Research",
       "primaryKeyword": "hormones and women's mental health",
       "secondaryKeywords": [
@@ -2364,7 +2364,9 @@
           "title": "A Woman's Guide to Hormones: Estrogen, Progesterone, and Testosterone",
           "slug": "a-womans-guide-to-hormones-estrogen-progesterone-and-testosterone"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-05",
+      "outputFile": "src/content/posts/womens-hormones-and-mental-health-the-research.mdx"
     },
     {
       "id": "C5-014",
