@@ -2370,7 +2370,7 @@
     },
     {
       "id": "C5-014",
-      "status": "pending",
+      "status": "published",
       "title": "Sex Drive After Menopause: What's Normal and What Helps",
       "primaryKeyword": "sex drive after menopause",
       "secondaryKeywords": [
@@ -2395,7 +2395,9 @@
           "title": "Testosterone Pellet Therapy for Women: Benefits and What to Expect",
           "slug": "testosterone-pellet-therapy-for-women-benefits-and-what-to-expect"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-07",
+      "outputFile": "src/content/posts/sex-drive-after-menopause-whats-normal-and-what-helps.mdx"
     },
     {
       "id": "C6-003",
