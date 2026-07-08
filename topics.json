@@ -2401,7 +2401,7 @@
     },
     {
       "id": "C6-003",
-      "status": "pending",
+      "status": "published",
       "title": "TRT vs. BHRT for Men: What's the Difference?",
       "primaryKeyword": "TRT vs BHRT for men",
       "secondaryKeywords": [
@@ -2426,7 +2426,9 @@
           "title": "BHRT for Men: What to Expect in the First 6 Months",
           "slug": "bhrt-for-men-what-to-expect-in-the-first-6-months"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-08",
+      "outputFile": "src/content/posts/trt-vs-bhrt-for-men-whats-the-difference.mdx"
     },
     {
       "id": "C6-004",
