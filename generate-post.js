@@ -98,7 +98,26 @@ Every post must include a featuredImage field in frontmatter. Write a single sen
 - Start immediately with --- (the YAML frontmatter delimiter)
 - The faqs array in frontmatter must be valid YAML with properly indented question/answer pairs
 - All frontmatter strings with colons, quotes, or special characters must be wrapped in double quotes
-- The article body begins immediately after the closing --- of the frontmatter`;
+- The article body begins immediately after the closing --- of the frontmatter
+
+## ADDITIONAL AUDIENCE VOICE (from Reddit VOC)
+
+Pain points to validate in every post:
+- Dose adjustment period is their biggest frustration — normalize it, give timelines
+- Health anxiety before first dose is near-universal — reassure without dismissing
+- They feel forced to become experts just to get basic care — validate this
+- Many have been dismissed or refused by doctors — acknowledge this is real
+
+Desire language that resonates:
+- "MY BRAIN WORKS AGAIN" — cognitive restoration is the #1 desire
+- "Worlds better within 12 hours" — speed of relief is motivating
+- "I got my life back" — transformation framing outperforms symptom relief framing
+- "To be believed, not managed"
+
+Objections to address proactively:
+- "Bioidentical is just a marketing term"
+- Cancer risk from outdated 2002 WHI study
+- Fear of becoming someone different on hormones`;
 
 // ─── Dynamic Post Prompt Builder ─────────────────────────────────────────────
 
