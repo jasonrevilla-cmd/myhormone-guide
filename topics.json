@@ -2432,7 +2432,7 @@
     },
     {
       "id": "C6-004",
-      "status": "pending",
+      "status": "published",
       "title": "Natural Testosterone Boosters vs. BHRT: What Works?",
       "primaryKeyword": "natural testosterone boosters vs BHRT",
       "secondaryKeywords": [
@@ -2457,7 +2457,9 @@
           "title": "Men's Guide to Hormone Decline: What Happens After 40",
           "slug": "mens-guide-to-hormone-decline-what-happens-after-40"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-09",
+      "outputFile": "src/content/posts/natural-testosterone-boosters-vs-bhrt-what-works.mdx"
     },
     {
       "id": "C6-005",
