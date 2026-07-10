@@ -2,7 +2,7 @@
   "posts": [
     {
       "id": "P1-001",
-      "status": "pending",
+      "status": "published",
       "title": "Certified BHRT Provider Near Me — How to Find One You Can Trust",
       "primaryKeyword": "certified bhrt provider",
       "secondaryKeywords": [
@@ -28,7 +28,9 @@
           "title": "Questions to Ask a BHRT Clinic Before You Start",
           "slug": "questions-to-ask-bhrt-clinic"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-10",
+      "outputFile": "src/content/posts/certified-bhrt-provider-near-me-how-to-find-one-you-can-trust.mdx"
     },
     {
       "id": "P1-002",
