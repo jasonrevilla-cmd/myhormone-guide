@@ -34,7 +34,7 @@
     },
     {
       "id": "P1-002",
-      "status": "pending",
+      "status": "published",
       "title": "EvexiPEL vs BioTE vs SottoPelle — The Complete Pellet System Comparison",
       "primaryKeyword": "evexipel vs biote vs sottopelle",
       "secondaryKeywords": [
@@ -60,7 +60,9 @@
           "title": "Pellet Therapy Side Effects: What's Normal and What's Not",
           "slug": "pellet-therapy-side-effects"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-11",
+      "outputFile": "src/content/posts/evexipel-vs-biote-vs-sottopelle-the-complete-pellet-system-comparison.mdx"
     },
     {
       "id": "P1-003",
