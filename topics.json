@@ -98,7 +98,7 @@
     },
     {
       "id": "P1-004",
-      "status": "pending",
+      "status": "published",
       "title": "Biote Pellet Therapy — How It Works, Costs, and What to Expect",
       "primaryKeyword": "biote pellets",
       "secondaryKeywords": [
@@ -124,7 +124,9 @@
           "title": "Pellet Therapy Cost: What to Expect and How to Budget",
           "slug": "pellet-therapy-cost"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-13",
+      "outputFile": "src/content/posts/biote-pellet-therapy-how-it-works-costs-and-what-to-expect.mdx"
     },
     {
       "id": "P1-005",
