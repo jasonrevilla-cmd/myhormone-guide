@@ -130,7 +130,7 @@
     },
     {
       "id": "P1-005",
-      "status": "pending",
+      "status": "published",
       "title": "Testosterone Pellet Therapy for Women — Dosage, Side Effects, and Results",
       "primaryKeyword": "testosterone pellet dosage for females side effects",
       "secondaryKeywords": [
@@ -156,7 +156,9 @@
           "title": "How Long Does It Take for Pellet Therapy to Work?",
           "slug": "how-long-pellet-therapy-work"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-14",
+      "outputFile": "src/content/posts/testosterone-pellet-therapy-for-women-dosage-side-effects-and-results.mdx"
     },
     {
       "id": "C11-001",
