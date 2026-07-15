@@ -162,7 +162,7 @@
     },
     {
       "id": "C11-001",
-      "status": "pending",
+      "status": "published",
       "title": "Considering HRT? Here's Why Many Women Are Choosing Bioidentical Instead",
       "primaryKeyword": "hrt vs bioidentical hormones",
       "secondaryKeywords": [
@@ -188,7 +188,9 @@
           "title": "BHRT vs. Conventional HRT: What's the Difference?",
           "slug": "bhrt-vs-conventional-hrt"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-15",
+      "outputFile": "src/content/posts/considering-hrt-heres-why-many-women-are-choosing-bioidentical-instead.mdx"
     },
     {
       "id": "C11-002",
