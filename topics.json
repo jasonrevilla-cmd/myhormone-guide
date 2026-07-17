@@ -226,7 +226,7 @@
     },
     {
       "id": "C11-003",
-      "status": "pending",
+      "status": "published",
       "title": "The Problem With Synthetic HRT and What Women Are Switching To",
       "primaryKeyword": "synthetic hrt side effects",
       "secondaryKeywords": [
@@ -252,7 +252,9 @@
           "title": "What Is the Difference Between Premarin and Bioidentical Estrogen?",
           "slug": "premarin-vs-bioidentical-estrogen"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-17",
+      "outputFile": "src/content/posts/the-problem-with-synthetic-hrt-and-what-women-are-switching-to.mdx"
     },
     {
       "id": "C7-013",
