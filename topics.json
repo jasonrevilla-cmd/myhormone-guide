@@ -258,7 +258,7 @@
     },
     {
       "id": "C7-013",
-      "status": "pending",
+      "status": "published",
       "title": "How to Find an HRT Doctor Who Also Offers Bioidentical Options",
       "primaryKeyword": "hrt doctor bioidentical",
       "secondaryKeywords": [
@@ -284,7 +284,9 @@
           "title": "Questions to Ask a BHRT Clinic Before You Start",
           "slug": "questions-to-ask-bhrt-clinic"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-18",
+      "outputFile": "src/content/posts/how-to-find-an-hrt-doctor-who-also-offers-bioidentical-options.mdx"
     },
     {
       "id": "C11-004",
