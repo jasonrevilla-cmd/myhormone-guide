@@ -290,7 +290,7 @@
     },
     {
       "id": "C11-004",
-      "status": "pending",
+      "status": "published",
       "title": "Conventional HRT Side Effects vs BHRT: A Patient's Comparison",
       "primaryKeyword": "conventional hrt side effects",
       "secondaryKeywords": [
@@ -316,7 +316,9 @@
           "title": "BHRT Safety: What the Research Actually Shows",
           "slug": "bhrt-safety-research"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-19",
+      "outputFile": "src/content/posts/conventional-hrt-side-effects-vs-bhrt-a-patients-comparison.mdx"
     },
     {
       "id": "C11-005",
