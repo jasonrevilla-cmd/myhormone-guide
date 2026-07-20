@@ -322,7 +322,7 @@
     },
     {
       "id": "C11-005",
-      "status": "pending",
+      "status": "published",
       "title": "Why Women Over 40 Are Moving Away From Synthetic Hormones",
       "primaryKeyword": "switching from hrt to bhrt",
       "secondaryKeywords": [
@@ -348,7 +348,9 @@
           "title": "Considering HRT? Here's Why Many Women Are Choosing Bioidentical Instead",
           "slug": "considering-hrt-why-women-choose-bioidentical"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-20",
+      "outputFile": "src/content/posts/why-women-over-40-are-moving-away-from-synthetic-hormones.mdx"
     },
     {
       "id": "C11-006",
