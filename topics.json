@@ -354,7 +354,7 @@
     },
     {
       "id": "C11-006",
-      "status": "pending",
+      "status": "published",
       "title": "What Is the Difference Between Premarin and Bioidentical Estrogen?",
       "primaryKeyword": "premarin vs bioidentical estrogen",
       "secondaryKeywords": [
@@ -380,7 +380,9 @@
           "title": "The Problem With Synthetic HRT and What Women Are Switching To",
           "slug": "the-problem-with-synthetic-hrt"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-21",
+      "outputFile": "src/content/posts/what-is-the-difference-between-premarin-and-bioidentical-estrogen.mdx"
     },
     {
       "id": "C11-007",
