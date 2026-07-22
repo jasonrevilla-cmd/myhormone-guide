@@ -386,7 +386,7 @@
     },
     {
       "id": "C11-007",
-      "status": "pending",
+      "status": "published",
       "title": "HRT After Hysterectomy: Conventional vs Bioidentical Options Explained",
       "primaryKeyword": "hrt after hysterectomy bioidentical",
       "secondaryKeywords": [
@@ -412,7 +412,9 @@
           "title": "A Woman's Guide to Hormones: Estrogen, Progesterone, and Testosterone",
           "slug": "womens-guide-to-hormones"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-22",
+      "outputFile": "src/content/posts/hrt-after-hysterectomy-conventional-vs-bioidentical-options-explained.mdx"
     },
     {
       "id": "C11-008",
