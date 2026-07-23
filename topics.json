@@ -418,7 +418,7 @@
     },
     {
       "id": "C11-008",
-      "status": "pending",
+      "status": "published",
       "title": "Questions to Ask Your Doctor About Switching From HRT to BHRT",
       "primaryKeyword": "switching from hrt to bhrt questions",
       "secondaryKeywords": [
@@ -444,7 +444,9 @@
           "title": "Questions to Ask Before Starting BHRT",
           "slug": "questions-to-ask-before-starting-bhrt"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-23",
+      "outputFile": "src/content/posts/questions-to-ask-your-doctor-about-switching-from-hrt-to-bhrt.mdx"
     },
     {
       "id": "C7-014",
