@@ -450,7 +450,7 @@
     },
     {
       "id": "C7-014",
-      "status": "pending",
+      "status": "published",
       "title": "How to Find a Menopause Specialist Who Offers Bioidentical Options",
       "primaryKeyword": "menopause specialist bioidentical",
       "secondaryKeywords": [
@@ -476,7 +476,9 @@
           "title": "What to Look for in a BHRT Provider",
           "slug": "what-to-look-for-bhrt-provider"
         }
-      ]
+      ],
+      "publishedDate": "2026-07-24",
+      "outputFile": "src/content/posts/how-to-find-a-menopause-specialist-who-offers-bioidentical-options.mdx"
     },
     {
       "id": "C1-011",
