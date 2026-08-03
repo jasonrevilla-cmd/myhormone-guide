@@ -514,7 +514,7 @@
     },
     {
       "id": "C1-012",
-      "status": "pending",
+      "status": "published",
       "title": "BHRT Dose Adjustment — How Long It Takes and What's Normal",
       "primaryKeyword": "bhrt dose adjustment",
       "secondaryKeywords": [
@@ -540,7 +540,9 @@
           "title": "Pellet Therapy Side Effects: What's Normal and What's Not",
           "slug": "pellet-therapy-side-effects"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-03",
+      "outputFile": "src/content/posts/bhrt-dose-adjustment-how-long-it-takes-and-whats-normal.mdx"
     },
     {
       "id": "C9-012",
