@@ -482,7 +482,7 @@
     },
     {
       "id": "C1-011",
-      "status": "pending",
+      "status": "published",
       "title": "What to Expect Your First Week on BHRT — A Day-by-Day Guide",
       "primaryKeyword": "starting bhrt what to expect",
       "secondaryKeywords": [
@@ -508,7 +508,9 @@
           "title": "What Happens at Your First BHRT Consultation?",
           "slug": "what-happens-first-bhrt-consultation"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-03",
+      "outputFile": "src/content/posts/what-to-expect-your-first-week-on-bhrt-a-day-by-day-guide.mdx"
     },
     {
       "id": "C1-012",
