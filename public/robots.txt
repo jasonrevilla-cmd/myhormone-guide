@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Auto-generated sitemap
-Sitemap: https://bhrtresource.com/sitemap-index.xml
+Sitemap: https://www.myhormoneguide.com/sitemap-index.xml
