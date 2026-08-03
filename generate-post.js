@@ -275,10 +275,60 @@ The content on this site is for educational purposes only and is not intended as
 // ─── Quality Control Check ────────────────────────────────────────────────────
 
 /**
+ * Extracts the first Markdown H1 ("# ...") line from the post body.
+ */
+function extractH1(mdx) {
+  const match = mdx.match(/^#\s+(.+)$/m);
+  return match ? match[1].trim() : '';
+}
+
+/**
+ * Returns the first `count` words of the post body (frontmatter stripped,
+ * heading markers stripped) as a single string.
+ */
+function extractFirstWords(mdx, count) {
+  const body = mdx.replace(/^---[\s\S]*?---/, '');
+  const plainText = body.replace(/^#+\s+/gm, '');
+  const words = plainText.trim().split(/\s+/).filter(Boolean);
+  return words.slice(0, count).join(' ');
+}
+
+/**
+ * Fuzzy keyword match: every individual word of `keyword` must appear
+ * somewhere in `text` (case insensitive). Avoids false failures when the
+ * exact phrase is reworded, e.g. keyword "starting bhrt what to expect"
+ * matching H1 "Starting BHRT: What to Expect in Your First Week".
+ */
+function keywordWordsMissing(keyword, text) {
+  const words = keyword.toLowerCase().split(/\s+/).filter(Boolean);
+  const lowerText = text.toLowerCase();
+  return words.filter((word) => !lowerText.includes(word));
+}
+
+/**
  * Second API call: automated editor pass before saving.
  * Returns { pass: boolean, issues: string[] }
  */
 async function runQualityCheck(client, post, mdx) {
+  const issues = [];
+
+  // ── Deterministic fuzzy keyword checks (not delegated to the LLM) ────────
+  const h1 = extractH1(mdx);
+  const h1Missing = keywordWordsMissing(post.primaryKeyword, h1);
+  if (h1Missing.length > 0) {
+    issues.push(
+      `Primary keyword "${post.primaryKeyword}" not found in H1 (missing word(s): ${h1Missing.join(', ')}). H1 was: "${h1}"`
+    );
+  }
+
+  const first100Words = extractFirstWords(mdx, 100);
+  const first100Missing = keywordWordsMissing(post.primaryKeyword, first100Words);
+  if (first100Missing.length > 0) {
+    issues.push(
+      `Primary keyword "${post.primaryKeyword}" not found in first 100 words (missing word(s): ${first100Missing.join(', ')})`
+    );
+  }
+
   const qcPrompt = `Review this BHRT blog post against the following checklist.
 
 Return ONLY a raw JSON object — no markdown, no backticks, no explanation.
@@ -286,18 +336,16 @@ Format: {"pass": true, "issues": []} where issues is an array of plain strings.
 Each issue must be a plain string like "Missing medical disclaimer" — NOT an object.
 
 CHECKLIST:
-1. Primary keyword "${post.primaryKeyword}" appears in H1
-2. Primary keyword appears in first 100 words
-3. Word count is at least 1500 words
-4. FAQ section present with 4 or more questions (### headings under ## Frequently Asked Questions)
-5. Medical disclaimer paragraph present at the end
-6. At least 2 internal links present (markdown links with href starting with /)
-7. No absolute medical claims (no phrases like "BHRT will cure" or "BHRT eliminates")
-8. A CTA section present near the end
-9. Output starts with --- (YAML frontmatter delimiter)
-10. A References section is present near the end inside a div with class "references-section", containing at least 3 numbered citations with author/org, title, publication, year, and a URL from pubmed.ncbi.nlm.nih.gov, endocrine.org, menopause.org, mayoclinic.org, or fda.gov
+1. Word count is at least 1500 words
+2. FAQ section present with 4 or more questions (### headings under ## Frequently Asked Questions)
+3. Medical disclaimer paragraph present at the end
+4. At least 2 internal links present (markdown links with href starting with /)
+5. No absolute medical claims (no phrases like "BHRT will cure" or "BHRT eliminates")
+6. A CTA section present near the end
+7. Output starts with --- (YAML frontmatter delimiter)
+8. A References section is present near the end inside a div with class "references-section", containing at least 3 numbered citations with author/org, title, publication, year, and a URL from pubmed.ncbi.nlm.nih.gov, endocrine.org, menopause.org, mayoclinic.org, or fda.gov
 
-Set pass to true only if ALL 10 checks pass. List each failing check as a plain string in issues.
+Set pass to true only if ALL 8 checks pass. List each failing check as a plain string in issues.
 
 POST CONTENT:
 ${mdx}`;
@@ -314,20 +362,23 @@ ${mdx}`;
     const jsonMatch = rawText.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
       console.error('   QC raw response:', rawText.slice(0, 300));
-      return { pass: false, issues: ['QC response did not contain valid JSON'] };
+      issues.push('QC response did not contain valid JSON');
+      return { pass: false, issues };
     }
 
     const parsed = JSON.parse(jsonMatch[0]);
 
     // Normalize issues — handle both string[] and object[] responses from Claude
-    const issues = (parsed.issues ?? []).map((item) =>
+    const llmIssues = (parsed.issues ?? []).map((item) =>
       typeof item === 'string' ? item : JSON.stringify(item)
     );
+    issues.push(...llmIssues);
 
     return { pass: parsed.pass === true && issues.length === 0, issues };
   } catch (err) {
     console.error('   QC raw response:', rawText.slice(0, 300));
-    return { pass: false, issues: [`QC parse error: ${err.message}`] };
+    issues.push(`QC parse error: ${err.message}`);
+    return { pass: false, issues };
   }
 }
 
