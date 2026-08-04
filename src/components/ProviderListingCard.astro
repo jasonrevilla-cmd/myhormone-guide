@@ -1,5 +1,8 @@
 ---
+import { maskPhone } from '../lib/providerMasking';
+
 interface Props {
+  slug: string;
   practiceName: string;
   city: string;
   stateAbbr: string;
@@ -7,18 +10,8 @@ interface Props {
   status: string;
 }
 
-const { practiceName, city, stateAbbr, phone, status } = Astro.props;
+const { slug, practiceName, city, stateAbbr, phone, status } = Astro.props;
 const isUnclaimed = status === 'unclaimed';
-
-// Mask everything but the area code server-side — an unclaimed listing must never
-// ship the real number in the HTML, otherwise "unlock to reveal" is trivially
-// bypassed via view-source.
-function maskPhone(raw: string) {
-  const match = raw.match(/^(\(\d{3}\))\s*(.*)$/);
-  if (!match) return raw.replace(/\d/g, '•');
-  const [, areaCode, rest] = match;
-  return `${areaCode} ${rest.replace(/\d/g, '•')}`;
-}
 
 const displayPhone = isUnclaimed ? maskPhone(phone) : phone;
 ---
@@ -26,7 +19,9 @@ const displayPhone = isUnclaimed ? maskPhone(phone) : phone;
 <div class="bg-white border border-navy-100 rounded-2xl p-6 hover:border-teal-300 hover:shadow-sm transition-all duration-200">
   <div class="flex items-start justify-between gap-3 flex-wrap mb-3">
     <div>
-      <h3 class="font-semibold text-navy-700">{practiceName}</h3>
+      <h3 class="font-semibold text-navy-700">
+        <a href={`/provider/${slug}/`} class="hover:text-teal-600 transition-colors">{practiceName}</a>
+      </h3>
       <p class="text-sm text-gray-400 mt-0.5">{city}, {stateAbbr}</p>
     </div>
     {isUnclaimed && (

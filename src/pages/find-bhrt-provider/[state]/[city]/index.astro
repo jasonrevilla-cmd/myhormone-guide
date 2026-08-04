@@ -297,6 +297,7 @@ const breadcrumbSchema = {
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {cityProviders.map((provider) => (
             <ProviderListingCard
+              slug={provider.slug}
               practiceName={provider.practiceName}
               city={provider.city}
               stateAbbr={provider.stateCode}
