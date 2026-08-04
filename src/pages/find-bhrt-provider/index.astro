@@ -7,6 +7,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const sortedStates = [...citiesData.states].sort((a, b) => a.name.localeCompare(b.name));
 const totalProviders = providersData.length;
 
+// Same "curated cities + provider-derived cities" count used on the state hub
+// page (find-bhrt-provider/[state]/index.astro) — computed from providers.json,
+// not state.cities.length alone, so this card can't drift from what the state
+// hub actually shows.
+const stateCityCounts: Record<string, number> = {};
+for (const state of sortedStates) {
+  const curatedKeys = new Set(state.cities.map((c) => c.name.trim().toLowerCase()));
+  const additionalKeys = new Set<string>();
+  for (const provider of providersData) {
+    if (provider.stateCode !== state.abbr) continue;
+    const key = provider.city.trim().toLowerCase();
+    if (!key || curatedKeys.has(key)) continue;
+    additionalKeys.add(key);
+  }
+  stateCityCounts[state.abbr] = state.cities.length + additionalKeys.size;
+}
+
 const allPosts = await getCollection('posts');
 const providerPosts = allPosts
   .filter((p) => p.data.cluster === 'finding-providers')
@@ -83,7 +100,7 @@ const questions = [
             <div>
               <p class="font-semibold text-navy-700 group-hover:text-teal-600 transition-colors">{state.name}</p>
               <p class="text-sm text-gray-400 mt-0.5">
-                {state.cities.length} {state.cities.length === 1 ? 'city' : 'cities'}
+                {stateCityCounts[state.abbr]} {stateCityCounts[state.abbr] === 1 ? 'city' : 'cities'}
               </p>
             </div>
             <svg class="w-5 h-5 text-navy-300 group-hover:text-teal-400 group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
