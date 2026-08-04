@@ -1,6 +1,5 @@
 ---
 import citiesData from '../../../data/cities.json';
-import providersData from '../../../../providers.json';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 export function getStaticPaths() {
@@ -15,8 +14,6 @@ interface Props {
 }
 
 const { state } = Astro.props;
-
-const stateProviderCount = providersData.filter((p) => p.stateCode === state.abbr).length;
 
 const SITE_URL = 'https://www.myhormoneguide.com';
 
@@ -63,14 +60,6 @@ const secondaryCities = state.cities.filter((c) => c.tier === 'secondary');
       <p class="text-navy-100 text-lg leading-relaxed max-w-2xl">
         Browse {state.cities.length} {state.cities.length === 1 ? 'city' : 'cities'} across {state.name} with bioidentical hormone replacement therapy providers. Select a city to find local specialists.
       </p>
-      {stateProviderCount > 0 && (
-        <div class="inline-flex items-center gap-2 bg-teal-400/20 text-teal-200 text-sm px-3 py-1 rounded-full mt-4">
-          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-1.13a4 4 0 100-8 4 4 0 000 8zm6 3c0-1.657-3.134-3-7-3s-7 1.343-7 3v2h14v-2z"/>
-          </svg>
-          {stateProviderCount} BHRT {stateProviderCount === 1 ? 'provider' : 'providers'} listed in {state.name}
-        </div>
-      )}
     </div>
   </div>
 
