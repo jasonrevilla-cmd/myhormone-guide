@@ -3,5 +3,9 @@
   "outputDirectory": "dist",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
-  "framework": "astro"
+  "framework": "astro",
+  "redirects": [
+    { "source": "/tools/provider-finder", "destination": "/find-bhrt-provider/", "permanent": true },
+    { "source": "/tools/provider-finder/", "destination": "/find-bhrt-provider/", "permanent": true }
+  ]
 }

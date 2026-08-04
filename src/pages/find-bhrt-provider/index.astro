@@ -1,6 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
+import citiesData from '../../data/cities.json';
+import providersData from '../../../providers.json';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const sortedStates = [...citiesData.states].sort((a, b) => a.name.localeCompare(b.name));
+const totalProviders = providersData.length;
 
 const allPosts = await getCollection('posts');
 const providerPosts = allPosts
@@ -61,19 +66,33 @@ const questions = [
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-    <!-- Provider directory CTA -->
-    <div class="bg-teal-50 border border-teal-200 rounded-2xl p-8 mb-12 text-center">
-      <svg class="w-10 h-10 text-teal-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
-      </svg>
-      <h2 class="text-2xl font-bold text-navy-700 mb-3">Provider Directory</h2>
-      <p class="text-gray-600 mb-6 max-w-lg mx-auto">
-        Our curated directory of BHRT-specialized clinics is coming soon. In the meantime, use the guidance below to evaluate any provider in your area.
+    <!-- Browse by state -->
+    <section aria-labelledby="states-heading" class="mb-14">
+      <h2 id="states-heading" class="text-2xl font-bold text-navy-600 mb-2 pb-2 border-b border-navy-100">
+        Browse Providers by State
+      </h2>
+      <p class="text-gray-500 mb-6">
+        {totalProviders.toLocaleString()} BHRT providers listed across {sortedStates.length} states. Select a state to find providers near you.
       </p>
-      <a href="/tools/provider-finder/" class="inline-flex items-center gap-2 bg-teal-400 hover:bg-teal-500 text-white font-semibold px-6 py-3 rounded-full transition-colors">
-        Explore Provider Finder Tool →
-      </a>
-    </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {sortedStates.map((state) => (
+          <a
+            href={`/find-bhrt-provider/${state.slug}/`}
+            class="group flex items-center justify-between p-5 bg-white border border-navy-100 rounded-2xl hover:border-teal-300 hover:shadow-sm transition-all duration-200"
+          >
+            <div>
+              <p class="font-semibold text-navy-700 group-hover:text-teal-600 transition-colors">{state.name}</p>
+              <p class="text-sm text-gray-400 mt-0.5">
+                {state.cities.length} {state.cities.length === 1 ? 'city' : 'cities'}
+              </p>
+            </div>
+            <svg class="w-5 h-5 text-navy-300 group-hover:text-teal-400 group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        ))}
+      </div>
+    </section>
 
     <!-- What credentials to look for -->
     <section aria-labelledby="credentials-heading" class="mb-14">
