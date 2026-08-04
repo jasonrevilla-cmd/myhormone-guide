@@ -546,7 +546,7 @@
     },
     {
       "id": "C9-012",
-      "status": "pending",
+      "status": "published",
       "title": "Is Bioidentical Just a Marketing Term? What the Science Actually Says",
       "primaryKeyword": "bioidentical marketing term",
       "secondaryKeywords": [
@@ -572,7 +572,9 @@
           "title": "BHRT and Breast Cancer Risk: The Real Research",
           "slug": "bhrt-and-breast-cancer-risk"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-04",
+      "outputFile": "src/content/posts/is-bioidentical-just-a-marketing-term-what-the-science-actually-says.mdx"
     },
     {
       "id": "C9-013",
