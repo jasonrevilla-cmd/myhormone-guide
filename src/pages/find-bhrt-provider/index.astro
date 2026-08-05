@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import citiesData from '../../data/cities.json';
 import providersData from '../../../providers.json';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ZipSearch from '../../components/ZipSearch.astro';
+import ProviderClaimModal from '../../components/ProviderClaimModal.astro';
 
 const sortedStates = [...citiesData.states].sort((a, b) => a.name.localeCompare(b.name));
 const totalProviders = providersData.length;
@@ -82,6 +84,8 @@ const questions = [
   </div>
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <ZipSearch />
 
     <!-- Browse by state -->
     <section aria-labelledby="states-heading" class="mb-14">
@@ -235,6 +239,11 @@ const questions = [
           <p class="text-xs text-gray-400">Take our free symptom assessment quiz</p>
         </a>
       </div>
+    </div>
+
+    <!-- Claim modal — target for "Unlock This Profile" buttons in zip search results -->
+    <div id="claim">
+      <ProviderClaimModal cityName="your area" stateName="the United States" stateAbbr="US" />
     </div>
   </div>
 </BaseLayout>
