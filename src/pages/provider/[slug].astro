@@ -145,7 +145,7 @@ const breadcrumbSchema = {
           )}
           <span class:list={["text-navy-700", { "blur-[3px] select-none": isUnclaimed }]}>{displayPhone}</span>
         </div>
-        {(provider.evexipelProfileUrl || provider.googleBusinessUrl) && (
+        {!isUnclaimed && (provider.evexipelProfileUrl || provider.googleBusinessUrl) && (
           <div class="flex items-center gap-4 flex-wrap pt-2">
             {provider.evexipelProfileUrl && (
               <a href={provider.evexipelProfileUrl} target="_blank" rel="noopener noreferrer nofollow" class="inline-flex items-center gap-1.5 text-sm font-medium text-teal-600 hover:text-teal-500">

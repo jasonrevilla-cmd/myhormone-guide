@@ -4,11 +4,12 @@ import providersData from '../../../../../providers.json';
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import ProviderClaimModal from '../../../../components/ProviderClaimModal.astro';
 import ProviderListingCard from '../../../../components/ProviderListingCard.astro';
+import { getCityPageEntries, type CityDirectoryEntry } from '../../../../lib/cityDirectory';
 
 export function getStaticPaths() {
   const paths = [];
   for (const state of citiesData.states) {
-    for (const city of state.cities) {
+    for (const city of getCityPageEntries(state, providersData)) {
       paths.push({
         params: { state: state.slug, city: city.slug },
         props: { state, city },
@@ -20,7 +21,7 @@ export function getStaticPaths() {
 
 interface Props {
   state: (typeof citiesData.states)[0];
-  city: (typeof citiesData.states)[0]['cities'][0];
+  city: CityDirectoryEntry;
 }
 
 const { state, city } = Astro.props;
@@ -165,6 +166,47 @@ const breadcrumbSchema = {
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
+    <!-- ── Provider listings ──────────────────────────────────────────── -->
+    <section aria-labelledby="providers-heading" class="mb-12">
+      <h2 id="providers-heading" class="text-2xl font-bold text-navy-700 mb-2 pb-2 border-b border-navy-100">
+        {cityProviders.length > 0
+          ? `${cityProviders.length} BHRT ${cityProviders.length === 1 ? 'Provider' : 'Providers'} in ${city.name}`
+          : `BHRT Providers in ${city.name}`}
+      </h2>
+      {cityProviders.length > 0 ? (
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {cityProviders.map((provider) => (
+            <ProviderListingCard
+              slug={provider.slug}
+              practiceName={provider.practiceName}
+              city={provider.city}
+              stateAbbr={provider.stateCode}
+              phone={provider.phone}
+              status={provider.status}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="bg-white border border-dashed border-navy-200 rounded-2xl p-10 text-center">
+          <svg class="w-12 h-12 text-navy-200 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+          </svg>
+          <p class="font-semibold text-navy-600 mb-2">Be the first listed provider in {city.name}</p>
+          <p class="text-sm text-gray-500 max-w-sm mx-auto mb-6">
+            No providers are currently listed for {city.name}. If you're a BHRT specialist in the area
+            — or can recommend a trusted provider — we'd love to feature them here.
+          </p>
+          <a
+            href="#claim"
+            id="scroll-to-claim"
+            class="inline-flex items-center gap-2 bg-navy-600 hover:bg-navy-700 text-white font-semibold px-6 py-2.5 rounded-full text-sm transition-colors"
+          >
+            Submit a Provider
+          </a>
+        </div>
+      )}
+    </section>
+
     <!-- ── Intro ──────────────────────────────────────────────────────── -->
     <section class="mb-12">
       {city.tier === 'primary' ? (
@@ -284,47 +326,6 @@ const breadcrumbSchema = {
           See our full {state.name} cost guide →
         </a>
       </div>
-    </section>
-
-    <!-- ── Provider listings ──────────────────────────────────────────── -->
-    <section aria-labelledby="providers-heading" class="mb-12">
-      <h2 id="providers-heading" class="text-2xl font-bold text-navy-700 mb-2 pb-2 border-b border-navy-100">
-        {cityProviders.length > 0
-          ? `${cityProviders.length} BHRT ${cityProviders.length === 1 ? 'Provider' : 'Providers'} in ${city.name}`
-          : `BHRT Providers in ${city.name}`}
-      </h2>
-      {cityProviders.length > 0 ? (
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {cityProviders.map((provider) => (
-            <ProviderListingCard
-              slug={provider.slug}
-              practiceName={provider.practiceName}
-              city={provider.city}
-              stateAbbr={provider.stateCode}
-              phone={provider.phone}
-              status={provider.status}
-            />
-          ))}
-        </div>
-      ) : (
-        <div class="bg-white border border-dashed border-navy-200 rounded-2xl p-10 text-center">
-          <svg class="w-12 h-12 text-navy-200 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-          </svg>
-          <p class="font-semibold text-navy-600 mb-2">Be the first listed provider in {city.name}</p>
-          <p class="text-sm text-gray-500 max-w-sm mx-auto mb-6">
-            No providers are currently listed for {city.name}. If you're a BHRT specialist in the area
-            — or can recommend a trusted provider — we'd love to feature them here.
-          </p>
-          <a
-            href="#claim"
-            id="scroll-to-claim"
-            class="inline-flex items-center gap-2 bg-navy-600 hover:bg-navy-700 text-white font-semibold px-6 py-2.5 rounded-full text-sm transition-colors"
-          >
-            Submit a Provider
-          </a>
-        </div>
-      )}
     </section>
 
     <!-- ── Provider claim CTA ─────────────────────────────────────────── -->
