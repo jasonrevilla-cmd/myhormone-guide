@@ -578,7 +578,7 @@
     },
     {
       "id": "C9-013",
-      "status": "pending",
+      "status": "published",
       "title": "The 2002 Study That Scared Women Away From Hormone Therapy — And Why the Science Has Changed",
       "primaryKeyword": "hrt cancer risk study 2002",
       "secondaryKeywords": [
@@ -604,7 +604,9 @@
           "title": "Is Bioidentical Just a Marketing Term? What the Science Actually Says",
           "slug": "is-bioidentical-just-a-marketing-term"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-05",
+      "outputFile": "src/content/posts/the-2002-study-that-scared-women-away-from-hormone-therapy-and-why-the-science-has-changed.mdx"
     },
     {
       "id": "C2-016",
