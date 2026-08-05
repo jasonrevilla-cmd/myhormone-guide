@@ -57,11 +57,17 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const errors: string[] = [];
+  let githubSucceeded = false;
+  let emailSucceeded = false;
 
   // ── 1. Append to submissions.json via GitHub Contents API ────────────
   if (GITHUB_TOKEN) {
     const ghError = await writeToGitHub(submission);
-    if (ghError) errors.push(`GitHub write: ${ghError}`);
+    if (ghError) {
+      errors.push(`GitHub write: ${ghError}`);
+    } else {
+      githubSucceeded = true;
+    }
   } else {
     console.warn('[claim] GITHUB_TOKEN not set — skipping submissions.json write');
   }
@@ -69,16 +75,41 @@ export const POST: APIRoute = async ({ request }) => {
   // ── 2. Email notification via Resend ─────────────────────────────────
   if (RESEND_API_KEY) {
     const emailError = await sendEmail(submission);
-    if (emailError) errors.push(`Email: ${emailError}`);
+    if (emailError) {
+      errors.push(`Email: ${emailError}`);
+    } else {
+      emailSucceeded = true;
+    }
   } else {
     console.warn('[claim] RESEND_API_KEY not set — skipping email notification');
   }
 
-  if (errors.length > 0) {
-    console.error('[claim] Partial failure:', errors);
+  // The submission is only actually captured somewhere if at least one
+  // channel succeeded. If neither did — both failed, both are unconfigured,
+  // or one of each — nothing exists anywhere to follow up on, so the caller
+  // must see a real error instead of a false "Request received!".
+  const captured = githubSucceeded || emailSucceeded;
+
+  if (!captured) {
+    console.error('[claim] Submission NOT captured anywhere — both channels failed or unconfigured', {
+      submissionId: submission.id,
+      githubConfigured: Boolean(GITHUB_TOKEN),
+      resendConfigured: Boolean(RESEND_API_KEY),
+      errors,
+    });
+    return new Response(JSON.stringify({ error: 'Unable to process your request right now. Please try again shortly.' }), { status: 502, headers: json });
   }
 
-  // Always return success to the user — failures are logged server-side
+  if (errors.length > 0) {
+    // Partial failure — the submission was captured by one channel, but the
+    // other silently failed and needs follow-up (e.g. email notification
+    // never went out even though the submission is safely in submissions.json).
+    console.error('[claim] Partial failure (submission still captured by the other channel):', {
+      submissionId: submission.id,
+      errors,
+    });
+  }
+
   return new Response(JSON.stringify({ ok: true }), { status: 200, headers: json });
 };
 
