@@ -3,16 +3,17 @@ import citiesData from '../../../data/cities.json';
 import providersData from '../../../../providers.json';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getStateCityDirectory } from '../../../lib/cityDirectory';
+import { getAllStates, type StateEntry } from '../../../lib/stateDirectory';
 
 export function getStaticPaths() {
-  return citiesData.states.map((state) => ({
+  return getAllStates(citiesData, providersData).map((state) => ({
     params: { state: state.slug },
     props: { state },
   }));
 }
 
 interface Props {
-  state: (typeof citiesData.states)[0];
+  state: StateEntry;
 }
 
 const { state } = Astro.props;

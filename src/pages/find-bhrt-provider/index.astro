@@ -5,8 +5,12 @@ import providersData from '../../../providers.json';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ZipSearch from '../../components/ZipSearch.astro';
 import ProviderClaimModal from '../../components/ProviderClaimModal.astro';
+import { getAllStates } from '../../lib/stateDirectory';
 
-const sortedStates = [...citiesData.states].sort((a, b) => a.name.localeCompare(b.name));
+// Every state with a curated cities.json entry, unioned with every state that
+// has at least one providers.json entry — states with real provider coverage
+// but no curated cities (e.g. Maine, Massachusetts) still get a card here.
+const sortedStates = getAllStates(citiesData, providersData);
 const totalProviders = providersData.length;
 
 // Same "curated cities + provider-derived cities" count used on the state hub

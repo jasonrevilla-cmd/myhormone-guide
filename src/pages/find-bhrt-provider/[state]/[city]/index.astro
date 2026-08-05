@@ -5,10 +5,11 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import ProviderClaimModal from '../../../../components/ProviderClaimModal.astro';
 import ProviderListingCard from '../../../../components/ProviderListingCard.astro';
 import { getCityPageEntries, type CityDirectoryEntry } from '../../../../lib/cityDirectory';
+import { getAllStates, type StateEntry } from '../../../../lib/stateDirectory';
 
 export function getStaticPaths() {
   const paths = [];
-  for (const state of citiesData.states) {
+  for (const state of getAllStates(citiesData, providersData)) {
     for (const city of getCityPageEntries(state, providersData)) {
       paths.push({
         params: { state: state.slug, city: city.slug },
@@ -20,7 +21,7 @@ export function getStaticPaths() {
 }
 
 interface Props {
-  state: (typeof citiesData.states)[0];
+  state: StateEntry;
   city: CityDirectoryEntry;
 }
 
@@ -66,7 +67,9 @@ const criteria = [
 const faqs = [
   {
     question: `How much does BHRT cost in ${city.name}, ${state.name}?`,
-    answer: `In ${city.name}, BHRT costs vary by delivery method and provider. Pellet therapy — one of the most popular options — typically runs ${state.costRange} per treatment cycle (every 3–5 months for women, 5–6 months for men). Most providers also charge a consultation fee of $150–$350 for the initial hormone assessment. Creams and patches are generally less expensive upfront but require daily application.`,
+    answer: state.isCostEstimated
+      ? `We don't yet have ${state.name}-specific pricing data, so this reflects the national average: BHRT costs vary by delivery method and provider, and pellet therapy — one of the most popular options — typically runs ${state.costRange} per treatment cycle nationally (every 3–5 months for women, 5–6 months for men). Most providers also charge a consultation fee of $150–$350 for the initial hormone assessment. Creams and patches are generally less expensive upfront but require daily application.`
+      : `In ${city.name}, BHRT costs vary by delivery method and provider. Pellet therapy — one of the most popular options — typically runs ${state.costRange} per treatment cycle (every 3–5 months for women, 5–6 months for men). Most providers also charge a consultation fee of $150–$350 for the initial hormone assessment. Creams and patches are generally less expensive upfront but require daily application.`,
   },
   {
     question: `How do I find a qualified BHRT doctor in ${city.name}?`,
@@ -310,12 +313,22 @@ const breadcrumbSchema = {
         BHRT Cost Context for {city.name}
       </h2>
       <div class="bg-navy-50 rounded-2xl p-6">
-        <p class="text-gray-700 leading-relaxed mb-4">
-          In {state.name}, BHRT costs vary by delivery method and provider. Pellet therapy — one of
-          the most popular options in the {city.name} area — typically runs <strong class="text-navy-700">{state.costRange} per treatment cycle</strong> (every
-          3–5 months for women, every 5–6 months for men). Creams and patches may cost less upfront
-          but require daily application and consistent adherence.
-        </p>
+        {state.isCostEstimated ? (
+          <p class="text-gray-700 leading-relaxed mb-4">
+            We don't yet have {state.name}-specific pricing data, so this reflects the national average:
+            BHRT costs vary by delivery method and provider, and pellet therapy — one of the most
+            popular options — typically runs <strong class="text-navy-700">{state.costRange} per treatment cycle</strong> nationally
+            (every 3–5 months for women, every 5–6 months for men). Creams and patches may cost less
+            upfront but require daily application and consistent adherence.
+          </p>
+        ) : (
+          <p class="text-gray-700 leading-relaxed mb-4">
+            In {state.name}, BHRT costs vary by delivery method and provider. Pellet therapy — one of
+            the most popular options in the {city.name} area — typically runs <strong class="text-navy-700">{state.costRange} per treatment cycle</strong> (every
+            3–5 months for women, every 5–6 months for men). Creams and patches may cost less upfront
+            but require daily application and consistent adherence.
+          </p>
+        )}
         <p class="text-gray-700 leading-relaxed">
           Most {city.name} providers charge a separate consultation fee of <strong class="text-navy-700">$150–$350</strong> for
           the initial hormone assessment and lab review. Annual lab work (required for ongoing

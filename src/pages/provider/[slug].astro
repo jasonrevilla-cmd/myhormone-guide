@@ -4,6 +4,8 @@ import providersData from '../../../providers.json';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProviderClaimModal from '../../components/ProviderClaimModal.astro';
 import { maskPhone, maskStreet } from '../../lib/providerMasking';
+import { getAllStates } from '../../lib/stateDirectory';
+import { getCityPageEntries } from '../../lib/cityDirectory';
 
 export function getStaticPaths() {
   return providersData.map((provider) => ({
@@ -25,13 +27,18 @@ const pageUrl = `${SITE_URL}/provider/${provider.slug}/`;
 const displayPhone = isUnclaimed ? maskPhone(provider.phone) : provider.phone;
 const displayStreet = isUnclaimed ? maskStreet(provider.street) : provider.street;
 
-// Only link into the curated city/state tree if this provider's city is
-// actually one of the curated pages — otherwise the breadcrumb would point
-// to a page that exists but doesn't list this provider, or worse, nowhere.
-const matchedState = citiesData.states.find((s) => s.abbr === provider.stateCode);
-const matchedCity = matchedState?.cities.find(
-  (c) => c.name.trim().toLowerCase() === provider.city.trim().toLowerCase()
-);
+// Only link into the state/city tree if a real page exists for it — a state
+// page now exists for every state with providers.json coverage (not just
+// curated cities.json states), and a city page only exists if that city is
+// curated or has 2+ providers (see getCityPageEntries). Otherwise the
+// breadcrumb would point to a page that doesn't list this provider, or
+// doesn't exist at all.
+const matchedState = getAllStates(citiesData, providersData).find((s) => s.abbr === provider.stateCode);
+const matchedCity = matchedState
+  ? getCityPageEntries(matchedState, providersData).find(
+      (c) => c.name.trim().toLowerCase() === provider.city.trim().toLowerCase()
+    )
+  : undefined;
 
 const providerHref = `/provider/${provider.slug}/`;
 
