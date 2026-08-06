@@ -22,6 +22,7 @@ const providers = JSON.parse(fs.readFileSync(providersPath, 'utf8'));
 // zips) get a manual city-level fallback instead of being silently dropped.
 const FALLBACK_COORDS = {
   'evx-0218': { latitude: 33.3952, longitude: -111.9297 }, // Tempe, AZ 85288 — averaged from known Tempe AZ ZCTAs
+  'biote-0895': { latitude: 33.2362, longitude: -96.7954 }, // Prosper, TX 75072 — no ZCTA centroid in the zipcodes package; coords borrowed from Prosper's other real zip 75078
 };
 
 let geocoded = 0;
@@ -63,6 +64,7 @@ const providersGeo = providers.map((p) => ({
   stateCode: p.stateCode,
   phone: p.phone,
   status: p.status,
+  certifications: p.certifications,
   lat: p.lat,
   lng: p.lng,
 }));
