@@ -6,11 +6,12 @@ interface Props {
 }
 const { cityName, stateName, stateAbbr } = Astro.props;
 
-// The error-state fallback below points to jason@chiroconnective.com, the
-// address /api/claim.ts actually notifies (NOTIFICATION_EMAIL) — not
-// hello@myhormoneguide.com, which per project notes isn't set up to receive
-// mail yet. Update this once that inbox is live and jason@chiroconnective.com
-// should retire as the public fallback.
+// Retired: this component's trigger card now links straight to
+// /claim-your-listing/ instead of opening the dialog below, since the
+// backend it posted to (src/pages/api/claim.ts) was removed in favor of
+// GHL. The dialog/form markup and its /api/claim fetch call are left in
+// place, unreachable, in case they get repurposed once the GHL form
+// exists — not currently live anywhere.
 ---
 
 <!-- Trigger card -->
@@ -23,12 +24,12 @@ const { cityName, stateName, stateAbbr } = Astro.props;
     Claim your free listing and get in front of patients actively searching for BHRT in {cityName}, {stateAbbr}.
     No cost, no commitment.
   </p>
-  <button
-    id="open-claim-modal"
+  <a
+    href="/claim-your-listing/"
     class="inline-flex items-center gap-2 bg-teal-400 hover:bg-teal-500 text-white font-semibold px-6 py-3 rounded-full transition-colors"
   >
     Claim Your Free Listing →
-  </button>
+  </a>
 </div>
 
 <!-- Modal -->
@@ -165,8 +166,12 @@ const { cityName, stateName, stateAbbr } = Astro.props;
 </dialog>
 
 <script>
+  // NOTE: nothing currently opens this dialog. The trigger card above is now
+  // a plain link to /claim-your-listing/ (the API-backed submit flow below
+  // was retired in favor of GHL) — this markup/script is kept in place
+  // rather than deleted in case it gets reused once a new backend exists,
+  // but as of this change it's unreachable from the UI.
   const dialog  = document.getElementById('provider-claim-modal') as HTMLDialogElement;
-  const openBtn = document.getElementById('open-claim-modal');
   const closeBtn = document.getElementById('close-claim-modal');
   const form    = document.getElementById('claim-form') as HTMLFormElement;
   const fields  = document.getElementById('claim-fields');
@@ -175,7 +180,6 @@ const { cityName, stateName, stateAbbr } = Astro.props;
   const submitBtn = document.getElementById('claim-submit') as HTMLButtonElement;
   const closeSuccess = document.getElementById('close-success');
 
-  openBtn?.addEventListener('click', () => dialog?.showModal());
   closeBtn?.addEventListener('click', () => dialog?.close());
   closeSuccess?.addEventListener('click', () => dialog?.close());
 

@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const breadcrumbs = [
+  { label: 'Find a Provider', href: '/find-bhrt-provider/' },
+  { label: 'Claim Your Listing', href: '/claim-your-listing/' },
+];
+
+interface Tier {
+  name: string;
+  price: string;
+  tagline: string;
+  features: string[];
+  highlighted?: boolean;
+}
+
+const tiers: Tier[] = [
+  {
+    name: 'Free',
+    price: '$0',
+    tagline: 'Every provider starts here — no signup required.',
+    features: [
+      'Practice name, city, and services pre-populated',
+      'Phone, website, and address shown blurred',
+      'Listed in city and state directories',
+    ],
+  },
+  {
+    name: 'Claimed',
+    price: '$9.99',
+    tagline: 'Unlock your contact info so patients can actually reach you.',
+    features: [
+      'Everything in Free, plus:',
+      'Phone number unlocked',
+      'Website link unlocked',
+      'Full address unlocked',
+      'Patient contact form',
+      'Practice logo',
+      'Google rating displayed',
+    ],
+    highlighted: true,
+  },
+  {
+    name: 'Featured',
+    price: '$49',
+    tagline: 'Stand out with more visibility and monthly insight into demand.',
+    features: [
+      'Everything in Claimed, plus:',
+      'Practitioner photo and bio',
+      'Certification badges',
+      'Top placement in city and state listings',
+      'Monthly lead report',
+    ],
+  },
+  {
+    name: 'Verified Provider',
+    price: '$147',
+    tagline: 'The highest trust signal we offer patients.',
+    features: [
+      'Everything in Featured, plus:',
+      'Independent license verification',
+      'Video embed on your profile',
+      'Homepage spotlight',
+      'Verified checkmark badge',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Claim Your Listing — Provider Plans & Pricing | MyHormoneGuide"
+  description="Compare MyHormoneGuide provider listing tiers — from a free unclaimed profile to a fully verified, featured listing with top placement."
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Header -->
+  <div class="bg-gradient-to-br from-navy-600 to-navy-700 py-14">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+        Claim Your Listing
+      </h1>
+      <p class="text-navy-100 text-lg leading-relaxed max-w-2xl">
+        Every BHRT provider on MyHormoneGuide starts with a free listing. Claim it to unlock
+        your contact info, or upgrade for more visibility with patients actively searching
+        for a provider near them.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Pricing grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+      {tiers.map((tier) => (
+        <div class:list={[
+          'relative bg-white rounded-2xl p-6 flex flex-col h-full',
+          tier.highlighted
+            ? 'border-2 border-teal-400 shadow-lg lg:-mt-3 lg:pt-8'
+            : 'border border-navy-100',
+        ]}>
+          {tier.highlighted && (
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-400 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
+              Most Popular
+            </span>
+          )}
+
+          <h2 class="text-lg font-bold text-navy-700 mb-1">{tier.name}</h2>
+          <p class="text-3xl font-bold text-navy-700 mb-1">
+            {tier.price}<span class="text-sm font-medium text-gray-400">/mo</span>
+          </p>
+          <p class="text-sm text-gray-500 mb-5 leading-relaxed">{tier.tagline}</p>
+
+          <ul class="space-y-2.5 mb-6 flex-1">
+            {tier.features.map((feature) => (
+              feature.startsWith('Everything in') ? (
+                <li class="text-xs font-semibold text-navy-500 uppercase tracking-wide pt-1 pb-0.5">
+                  {feature}
+                </li>
+              ) : (
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                  <svg class="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <span>{feature}</span>
+                </li>
+              )
+            ))}
+          </ul>
+
+          {tier.name === 'Free' ? (
+            <div class="text-center text-xs text-gray-400 font-medium py-3 border-t border-navy-50">
+              Included automatically — no signup needed
+            </div>
+          ) : (
+            <button
+              type="button"
+              disabled
+              class="w-full bg-navy-100 text-navy-400 font-semibold py-3 rounded-full cursor-not-allowed"
+            >
+              Coming Soon
+            </button>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <!-- FAQ-style note -->
+    <div class="mt-14 bg-navy-50 rounded-2xl p-8">
+      <h2 class="text-xl font-bold text-navy-700 mb-3">How claiming works</h2>
+      <p class="text-gray-600 leading-relaxed max-w-2xl">
+        Signups for Claimed, Featured, and Verified Provider listings aren't open yet — this
+        page shows what's coming. Every provider currently listed on MyHormoneGuide already has
+        a free profile at no cost. In the meantime, providers can still reach out about updating
+        their information or getting notified when paid tiers launch.
+      </p>
+    </div>
+
+  </div>
+</BaseLayout>

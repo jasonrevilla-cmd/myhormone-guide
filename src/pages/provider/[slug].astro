@@ -215,12 +215,12 @@ const breadcrumbSchema = {
         <p class="text-gray-600 mb-6 max-w-md mx-auto">
           Full contact details are hidden until this practice claims and unlocks its profile.
         </p>
-        <button
-          type="button"
-          class="unlock-profile-btn inline-flex items-center gap-2 bg-navy-600 hover:bg-navy-700 text-white font-semibold px-6 py-3 rounded-full transition-colors"
+        <a
+          href="/claim-your-listing/"
+          class="inline-flex items-center gap-2 bg-navy-600 hover:bg-navy-700 text-white font-semibold px-6 py-3 rounded-full transition-colors"
         >
           Claim This Listing
-        </button>
+        </a>
       </section>
     )}
 
@@ -231,16 +231,3 @@ const breadcrumbSchema = {
 
   </div>
 </BaseLayout>
-
-<script>
-  document.querySelectorAll('.unlock-profile-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const openBtn = document.getElementById('open-claim-modal');
-      if (openBtn) {
-        (openBtn as HTMLElement).click();
-      } else {
-        document.getElementById('claim')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-</script>
