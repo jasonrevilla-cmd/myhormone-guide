@@ -14,6 +14,18 @@ function toSlug(s: string): string {
     .replace(/^-|-$/g, '');
 }
 
+// Groups city-name spelling variants together (e.g. "Winston Salem" vs.
+// "Winston-Salem") that would otherwise slugify to the same URL and collide
+// in getStaticPaths, silently dropping one variant's providers from the
+// built page. Treats hyphens and whitespace as interchangeable separators
+// so both spellings resolve to one discovered-city group.
+export function normalizeCityKey(s: string): string {
+  return s
+    .trim()
+    .toLowerCase()
+    .replace(/[-\s]+/g, ' ');
+}
+
 interface CuratedCity {
   name: string;
   slug: string;
@@ -54,12 +66,12 @@ export interface CityDirectoryEntry {
  * alphabetically, with 0-provider cities pushed to the end.
  */
 export function getStateCityDirectory(state: CuratedState, providersData: Provider[]): CityDirectoryEntry[] {
-  const curatedByKey = new Map(state.cities.map((c) => [c.name.trim().toLowerCase(), c]));
+  const curatedByKey = new Map(state.cities.map((c) => [normalizeCityKey(c.name), c]));
 
   const discovered = new Map<string, { name: string; providers: Provider[] }>();
   for (const provider of providersData) {
     if (provider.stateCode !== state.abbr) continue;
-    const key = provider.city.trim().toLowerCase();
+    const key = normalizeCityKey(provider.city);
     if (!key) continue;
     if (!discovered.has(key)) discovered.set(key, { name: provider.city.trim(), providers: [] });
     discovered.get(key)!.providers.push(provider);

@@ -5,7 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProviderClaimModal from '../../components/ProviderClaimModal.astro';
 import { maskPhone, maskStreet } from '../../lib/providerMasking';
 import { getAllStates } from '../../lib/stateDirectory';
-import { getCityPageEntries } from '../../lib/cityDirectory';
+import { getCityPageEntries, normalizeCityKey } from '../../lib/cityDirectory';
 
 export function getStaticPaths() {
   return providersData.map((provider) => ({
@@ -36,7 +36,7 @@ const displayStreet = isUnclaimed ? maskStreet(provider.street) : provider.stree
 const matchedState = getAllStates(citiesData, providersData).find((s) => s.abbr === provider.stateCode);
 const matchedCity = matchedState
   ? getCityPageEntries(matchedState, providersData).find(
-      (c) => c.name.trim().toLowerCase() === provider.city.trim().toLowerCase()
+      (c) => normalizeCityKey(c.name) === normalizeCityKey(provider.city)
     )
   : undefined;
 

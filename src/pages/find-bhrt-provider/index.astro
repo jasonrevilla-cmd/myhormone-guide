@@ -6,6 +6,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ZipSearch from '../../components/ZipSearch.astro';
 import ProviderClaimModal from '../../components/ProviderClaimModal.astro';
 import { getAllStates } from '../../lib/stateDirectory';
+import { normalizeCityKey } from '../../lib/cityDirectory';
 
 // Every state with a curated cities.json entry, unioned with every state that
 // has at least one providers.json entry — states with real provider coverage
@@ -19,11 +20,11 @@ const totalProviders = providersData.length;
 // hub actually shows.
 const stateCityCounts: Record<string, number> = {};
 for (const state of sortedStates) {
-  const curatedKeys = new Set(state.cities.map((c) => c.name.trim().toLowerCase()));
+  const curatedKeys = new Set(state.cities.map((c) => normalizeCityKey(c.name)));
   const additionalKeys = new Set<string>();
   for (const provider of providersData) {
     if (provider.stateCode !== state.abbr) continue;
-    const key = provider.city.trim().toLowerCase();
+    const key = normalizeCityKey(provider.city);
     if (!key || curatedKeys.has(key)) continue;
     additionalKeys.add(key);
   }

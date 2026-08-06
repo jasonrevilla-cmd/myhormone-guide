@@ -4,7 +4,7 @@ import providersData from '../../../../../providers.json';
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import ProviderClaimModal from '../../../../components/ProviderClaimModal.astro';
 import ProviderListingCard from '../../../../components/ProviderListingCard.astro';
-import { getCityPageEntries, type CityDirectoryEntry } from '../../../../lib/cityDirectory';
+import { getCityPageEntries, normalizeCityKey, type CityDirectoryEntry } from '../../../../lib/cityDirectory';
 import { getAllStates, type StateEntry } from '../../../../lib/stateDirectory';
 
 export function getStaticPaths() {
@@ -28,7 +28,7 @@ interface Props {
 const { state, city } = Astro.props;
 
 const cityProviders = providersData.filter(
-  (p) => p.stateCode === state.abbr && p.city.trim().toLowerCase() === city.name.trim().toLowerCase()
+  (p) => p.stateCode === state.abbr && normalizeCityKey(p.city) === normalizeCityKey(city.name)
 );
 
 const SITE_URL = 'https://www.myhormoneguide.com';
