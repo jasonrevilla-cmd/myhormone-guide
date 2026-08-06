@@ -1,5 +1,17 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { maskPhone } from '../../lib/providerMasking';
+
+// Obviously-fake sample data for the "what a listing looks like" mockups
+// below each tier — never real provider data.
+const SAMPLE_NAME = 'Sample Wellness Clinic';
+const SAMPLE_CITY = 'Anytown';
+const SAMPLE_STATE = 'ST';
+const SAMPLE_STREET = '123 Main St';
+const SAMPLE_ZIP = '00000';
+const SAMPLE_PHONE = '(555) 123-4567';
+const SAMPLE_WEBSITE = 'www.samplewellnessclinic.com';
+const SAMPLE_BIO = 'Dr. Jane Smith, board-certified in family medicine with 12+ years of BHRT experience.';
 
 const breadcrumbs = [
   { label: 'Find a Provider', href: '/find-bhrt-provider/' },
@@ -38,7 +50,6 @@ const tiers: Tier[] = [
       'Practice logo',
       'Google rating displayed',
     ],
-    highlighted: true,
   },
   {
     name: 'Featured',
@@ -51,6 +62,7 @@ const tiers: Tier[] = [
       'Top placement in city and state listings',
       'Monthly lead report',
     ],
+    highlighted: true,
   },
   {
     name: 'Verified Provider',
@@ -91,54 +103,207 @@ const tiers: Tier[] = [
     <!-- Pricing grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
       {tiers.map((tier) => (
-        <div class:list={[
-          'relative bg-white rounded-2xl p-6 flex flex-col h-full',
-          tier.highlighted
-            ? 'border-2 border-teal-400 shadow-lg lg:-mt-3 lg:pt-8'
-            : 'border border-navy-100',
-        ]}>
-          {tier.highlighted && (
-            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-400 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
-              Most Popular
-            </span>
-          )}
+        <div class="flex flex-col gap-4">
+          <div class:list={[
+            'relative bg-white rounded-2xl p-6 flex flex-col h-full',
+            tier.highlighted
+              ? 'border-2 border-teal-400 shadow-lg lg:-mt-3 lg:pt-8'
+              : 'border border-navy-100',
+          ]}>
+            {tier.highlighted && (
+              <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-400 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
+                Most Popular
+              </span>
+            )}
 
-          <h2 class="text-lg font-bold text-navy-700 mb-1">{tier.name}</h2>
-          <p class="text-3xl font-bold text-navy-700 mb-1">
-            {tier.price}<span class="text-sm font-medium text-gray-400">/mo</span>
-          </p>
-          <p class="text-sm text-gray-500 mb-5 leading-relaxed">{tier.tagline}</p>
+            <h2 class="text-lg font-bold text-navy-700 mb-1">{tier.name}</h2>
+            <p class="text-3xl font-bold text-navy-700 mb-1">
+              {tier.price}<span class="text-sm font-medium text-gray-400">/mo</span>
+            </p>
+            <p class="text-sm text-gray-500 mb-5 leading-relaxed">{tier.tagline}</p>
 
-          <ul class="space-y-2.5 mb-6 flex-1">
-            {tier.features.map((feature) => (
-              feature.startsWith('Everything in') ? (
-                <li class="text-xs font-semibold text-navy-500 uppercase tracking-wide pt-1 pb-0.5">
-                  {feature}
-                </li>
-              ) : (
-                <li class="flex items-start gap-2 text-sm text-gray-700">
-                  <svg class="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <ul class="space-y-2.5 mb-6 flex-1">
+              {tier.features.map((feature) => (
+                feature.startsWith('Everything in') ? (
+                  <li class="text-xs font-semibold text-navy-500 uppercase tracking-wide pt-1 pb-0.5">
+                    {feature}
+                  </li>
+                ) : (
+                  <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <svg class="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                )
+              ))}
+            </ul>
+
+            {tier.name === 'Free' ? (
+              <button
+                type="button"
+                disabled
+                class="w-full bg-navy-100 text-navy-400 font-semibold text-sm py-3 rounded-full cursor-not-allowed"
+              >
+                Don't see yours listed? Submit it here
+              </button>
+            ) : (
+              <button
+                type="button"
+                disabled
+                class="w-full bg-navy-100 text-navy-400 font-semibold py-3 rounded-full cursor-not-allowed"
+              >
+                Coming Soon
+              </button>
+            )}
+          </div>
+
+          <!-- Sample listing mockup — illustrative only, never real provider data -->
+          <div>
+            <p class="text-[11px] font-semibold text-gray-400 uppercase tracking-wide mb-2 text-center">
+              What this looks like
+            </p>
+
+            {tier.name === 'Free' && (
+              <div class="relative bg-white border border-navy-100 rounded-2xl p-5">
+                <span class="absolute top-3 right-3 bg-gray-100 text-gray-400 text-[9px] font-bold px-2 py-0.5 rounded-full tracking-wide">SAMPLE</span>
+                <div class="flex items-start justify-between gap-2 flex-wrap mb-2 pr-12">
+                  <div>
+                    <p class="font-semibold text-navy-700 text-sm">{SAMPLE_NAME}</p>
+                    <p class="text-xs text-gray-400 mt-0.5">{SAMPLE_CITY}, {SAMPLE_STATE}</p>
+                  </div>
+                </div>
+                <span class="inline-flex items-center bg-amber-50 text-amber-700 text-[10px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap mb-2">
+                  Unclaimed listing
+                </span>
+                <div>
+                  <span class="inline-flex items-center gap-1 bg-teal-50 text-teal-700 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-3">
+                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    EvexiPEL certified
+                  </span>
+                </div>
+                <div class="flex items-center gap-1.5 text-xs text-gray-400 pt-3 border-t border-navy-50">
+                  <svg class="w-3.5 h-3.5 text-navy-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                  </svg>
+                  <span class="blur-[3px] select-none">{maskPhone(SAMPLE_PHONE)}</span>
+                </div>
+              </div>
+            )}
+
+            {tier.name === 'Claimed' && (
+              <div class="relative bg-white border border-navy-100 rounded-2xl p-5">
+                <span class="absolute top-3 right-3 bg-gray-100 text-gray-400 text-[9px] font-bold px-2 py-0.5 rounded-full tracking-wide">SAMPLE</span>
+                <div class="flex items-start gap-3 mb-3 pr-12">
+                  <div class="w-9 h-9 rounded-full bg-navy-100 text-navy-500 flex items-center justify-center font-bold text-xs flex-shrink-0">SW</div>
+                  <div>
+                    <p class="font-semibold text-navy-700 text-sm">{SAMPLE_NAME}</p>
+                    <p class="text-xs text-gray-400 mt-0.5">{SAMPLE_STREET}, {SAMPLE_CITY}, {SAMPLE_STATE} {SAMPLE_ZIP}</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1 mb-3">
+                  {[...Array(5)].map(() => (
+                    <svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.958a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.363 1.118l1.287 3.958c.3.922-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.196-1.539-1.118l1.286-3.958a1 1 0 00-.363-1.118l-3.37-2.448c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.285-3.958z" />
+                    </svg>
+                  ))}
+                  <span class="text-xs text-gray-500 ml-1">4.8 (127 reviews)</span>
+                </div>
+                <span class="inline-flex items-center gap-1 bg-teal-50 text-teal-700 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-3">
+                  <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
-                  <span>{feature}</span>
-                </li>
-              )
-            ))}
-          </ul>
+                  EvexiPEL certified
+                </span>
+                <div class="flex flex-col gap-1 text-xs text-navy-600 pt-3 border-t border-navy-50">
+                  <span>{SAMPLE_PHONE}</span>
+                  <span class="text-teal-600">{SAMPLE_WEBSITE}</span>
+                </div>
+              </div>
+            )}
 
-          {tier.name === 'Free' ? (
-            <div class="text-center text-xs text-gray-400 font-medium py-3 border-t border-navy-50">
-              Included automatically — no signup needed
-            </div>
-          ) : (
-            <button
-              type="button"
-              disabled
-              class="w-full bg-navy-100 text-navy-400 font-semibold py-3 rounded-full cursor-not-allowed"
-            >
-              Coming Soon
-            </button>
-          )}
+            {tier.name === 'Featured' && (
+              <div class="relative bg-white border-2 border-teal-300 rounded-2xl p-5 pt-6 shadow-sm">
+                <span class="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-teal-400 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap">
+                  TOP PLACEMENT
+                </span>
+                <span class="absolute top-3 right-3 bg-gray-100 text-gray-400 text-[9px] font-bold px-2 py-0.5 rounded-full tracking-wide">SAMPLE</span>
+                <div class="flex items-start gap-3 mb-3 pr-12">
+                  <div class="w-10 h-10 rounded-full bg-navy-100 text-navy-400 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-navy-700 text-sm">{SAMPLE_NAME}</p>
+                    <p class="text-xs text-gray-400 mt-0.5">{SAMPLE_CITY}, {SAMPLE_STATE}</p>
+                  </div>
+                </div>
+                <p class="text-xs text-gray-600 mb-3 leading-relaxed">{SAMPLE_BIO}</p>
+                <div class="flex flex-wrap gap-1.5 mb-3">
+                  <span class="inline-flex items-center gap-1 bg-teal-50 text-teal-700 text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    EvexiPEL certified
+                  </span>
+                  <span class="inline-flex items-center bg-navy-50 text-navy-600 text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                    A4M certified
+                  </span>
+                </div>
+                <div class="flex flex-col gap-1 text-xs text-navy-600 pt-3 border-t border-navy-50">
+                  <span>{SAMPLE_PHONE}</span>
+                  <span class="text-teal-600">{SAMPLE_WEBSITE}</span>
+                </div>
+              </div>
+            )}
+
+            {tier.name === 'Verified Provider' && (
+              <div class="relative bg-gradient-to-br from-navy-50 to-teal-50 border-2 border-navy-300 rounded-2xl p-5 pt-6 shadow-md">
+                <span class="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-navy-600 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap">
+                  HOMEPAGE SPOTLIGHT
+                </span>
+                <span class="absolute top-3 right-3 bg-white/70 text-gray-400 text-[9px] font-bold px-2 py-0.5 rounded-full tracking-wide">SAMPLE</span>
+                <div class="flex items-start gap-3 mb-3 pr-12">
+                  <div class="w-10 h-10 rounded-full bg-navy-100 text-navy-400 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                    </svg>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <p class="font-semibold text-navy-700 text-sm">{SAMPLE_NAME}</p>
+                    <svg class="w-4 h-4 text-teal-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="bg-white/60 border border-dashed border-navy-200 rounded-lg h-16 flex items-center justify-center gap-1.5 mb-3">
+                  <svg class="w-4 h-4 text-navy-300" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-xs text-gray-400">Video preview</span>
+                </div>
+                <p class="text-xs text-gray-600 mb-3 leading-relaxed">{SAMPLE_BIO}</p>
+                <div class="flex flex-wrap gap-1.5 mb-3">
+                  <span class="inline-flex items-center gap-1 bg-teal-50 text-teal-700 text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    EvexiPEL certified
+                  </span>
+                  <span class="inline-flex items-center bg-navy-100 text-navy-600 text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                    Independently verified
+                  </span>
+                </div>
+                <div class="flex flex-col gap-1 text-xs text-navy-600 pt-3 border-t border-navy-100">
+                  <span>{SAMPLE_PHONE}</span>
+                  <span class="text-teal-600">{SAMPLE_WEBSITE}</span>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       ))}
     </div>
