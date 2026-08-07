@@ -119,6 +119,65 @@ Objections to address proactively:
 - Cancer risk from outdated 2002 WHI study
 - Fear of becoming someone different on hormones`;
 
+// ─── Related-post link resolution ────────────────────────────────────────────
+//
+// topics.json's relatedPosts[].slug is assigned at topic-planning time, before
+// the target post exists, and is frequently a short guess (e.g. "what-is-bhrt")
+// rather than the real filename-derived slug the post eventually publishes
+// under (e.g. "c1-001-what-is-bhrt-a-complete-beginners-guide"). Trusting that
+// slug verbatim is what produced ~180 dead internal links across the site.
+// Instead, resolve each relatedPosts entry against the real, currently-published
+// content collection by TITLE (which topics.json does get right) at generation
+// time, and drop any entry whose target hasn't been published yet rather than
+// emit a link that will 404.
+
+function normalizeTitle(t) {
+  return t
+    .toLowerCase()
+    .replace(/[‒–—―-]/g, ' ')
+    .replace(/[‘’']/g, '')
+    .replace(/[?.,:;!"]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function loadPublishedTitleMap() {
+  const map = new Map();
+  const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith('.mdx') && !f.startsWith('_debug-'));
+  for (const file of files) {
+    const raw = fs.readFileSync(path.join(POSTS_DIR, file), 'utf8');
+    const frontmatter = raw.split('---', 3)[1] ?? '';
+    const match =
+      frontmatter.match(/^title:\s*"(.*)"\s*$/m) ??
+      frontmatter.match(/^title:\s*'(.*)'\s*$/m) ??
+      frontmatter.match(/^title:\s*(.+)$/m);
+    if (match) {
+      map.set(normalizeTitle(match[1]), file.replace(/\.mdx$/, ''));
+    }
+  }
+  return map;
+}
+
+/**
+ * Resolves topics.json's relatedPosts entries against real published slugs.
+ * Entries whose title doesn't match any published post are dropped (with a
+ * warning) rather than linked with a guessed slug that would 404.
+ */
+function resolveRelatedPosts(related) {
+  const titleMap = loadPublishedTitleMap();
+  const resolved = [];
+  for (const rp of related) {
+    if (!rp?.title) continue;
+    const realSlug = titleMap.get(normalizeTitle(rp.title));
+    if (realSlug) {
+      resolved.push({ title: rp.title, slug: realSlug });
+    } else {
+      console.warn(`⚠️  Related post "${rp.title}" has no matching published post yet — omitting this internal link instead of guessing.`);
+    }
+  }
+  return resolved;
+}
+
 // ─── Dynamic Post Prompt Builder ─────────────────────────────────────────────
 
 /**
@@ -127,11 +186,16 @@ Objections to address proactively:
  */
 function buildPostPrompt(post) {
   const today = new Date().toISOString().split('T')[0];
-  const related = post.relatedPosts ?? [];
+  const related = resolveRelatedPosts(post.relatedPosts ?? []);
 
   const ctaByStage = {
     awareness: 'Invite them to download the free Hormone Symptom Checklist at /tools/hormone-symptom-checker/ and subscribe to the free weekly newsletter at /#newsletter.',
-    'solution-aware': 'Invite them to read the free 5-day BHRT overview series starting with /what-is-bhrt/ and to check their symptoms at /tools/hormone-symptom-checker/.',
+    // Real slug for "What Is BHRT? A Complete Beginner's Guide" -- was hardcoded
+    // as the guessed /what-is-bhrt/ for months, 404ing in every solution-aware
+    // post's CTA. Resolved via resolveRelatedPosts()'s title-matching approach;
+    // hardcoded here (rather than looked up) since this one is CTA copy, not a
+    // relatedPosts entry.
+    'solution-aware': 'Invite them to read the free 5-day BHRT overview series starting with /c1-001-what-is-bhrt-a-complete-beginners-guide/ and to check their symptoms at /tools/hormone-symptom-checker/.',
     'product-aware': 'Invite them to explore the provider guide at /find-bhrt-provider/ and to use the free BHRT Cost Estimator at /tools/cost-estimator/ to understand what to budget.',
     decision: 'Invite them directly to find a qualified BHRT provider near them at /find-bhrt-provider/. This is a high-intent reader who is ready to take action.',
   };
@@ -151,9 +215,9 @@ Funnel Stage: ${post.funnelStage}
 
 ## INTERNAL LINKS TO INCLUDE
 
-Link 1: ${related[0]?.title ?? 'Related Post 1'} → /${related[0]?.slug ?? '#'}
-Link 2: ${related[1]?.title ?? 'Related Post 2'} → /${related[1]?.slug ?? '#'}
-Link 3: ${related[2]?.title ?? 'Related Post 3'} → /${related[2]?.slug ?? '#'}
+${related.length > 0
+  ? related.map((r, i) => `Link ${i + 1}: ${r.title} → /${r.slug}/`).join('\n')
+  : 'No related posts have been published yet for this topic. Do not fabricate internal links to other blog posts — only use the CTA links described below.'}
 
 ## REQUIRED OUTPUT FORMAT
 
