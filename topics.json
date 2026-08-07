@@ -610,7 +610,7 @@
     },
     {
       "id": "C2-016",
-      "status": "pending",
+      "status": "published",
       "title": "Brain Fog So Bad I Had to Stop Working — And What Finally Fixed It",
       "primaryKeyword": "perimenopause brain fog work",
       "secondaryKeywords": [
@@ -636,7 +636,9 @@
           "title": "Perimenopause Symptoms: The Complete Checklist",
           "slug": "perimenopause-symptoms-the-complete-checklist"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-07",
+      "outputFile": "src/content/posts/brain-fog-so-bad-i-had-to-stop-working-and-what-finally-fixed-it.mdx"
     },
     {
       "id": "C1-013",
