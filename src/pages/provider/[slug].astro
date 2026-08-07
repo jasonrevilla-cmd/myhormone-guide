@@ -52,7 +52,14 @@ const breadcrumbs = [
 ];
 
 const metaTitle = `${provider.practiceName} — BHRT Provider in ${provider.city}, ${provider.stateCode}`;
-const metaDescription = `${provider.practiceName} is an EvexiPEL-certified BHRT provider in ${provider.city}, ${provider.stateCode}. View services, certifications, and contact information.`;
+
+// e.g. ["EvexiPEL"] -> "EvexiPEL-certified", ["EvexiPEL","BioTE"] -> "EvexiPEL- and BioTE-certified"
+const certDescription =
+  provider.certifications.length > 1
+    ? `${provider.certifications.slice(0, -1).join('-, ')}- and ${provider.certifications[provider.certifications.length - 1]}-certified`
+    : `${provider.certifications[0]}-certified`;
+const certArticle = /^[aeiou]/i.test(provider.certifications[0]) ? 'an' : 'a';
+const metaDescription = `${provider.practiceName} is ${certArticle} ${certDescription} BHRT provider in ${provider.city}, ${provider.stateCode}. View services, certifications, and contact information.`;
 
 // LocalBusiness schema omits telephone/streetAddress for unclaimed listings —
 // structured data is machine-readable, so masking it visually but not here
@@ -100,12 +107,14 @@ const breadcrumbSchema = {
   <div class="bg-gradient-to-br from-navy-600 to-navy-700 py-14">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-2 flex-wrap mb-4">
-        <span class="inline-flex items-center gap-1.5 bg-teal-400/20 text-teal-200 text-sm px-3 py-1 rounded-full">
-          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-          EvexiPEL certified
-        </span>
+        {provider.certifications.map((cert) => (
+          <span class="inline-flex items-center gap-1.5 bg-teal-400/20 text-teal-200 text-sm px-3 py-1 rounded-full">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            {cert} certified
+          </span>
+        ))}
         {isUnclaimed && (
           <span class="inline-flex items-center bg-amber-400/20 text-amber-200 text-sm font-semibold px-3 py-1 rounded-full">
             Unclaimed listing

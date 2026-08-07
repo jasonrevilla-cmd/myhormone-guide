@@ -14,7 +14,7 @@
 <section id="zip-search" aria-labelledby="zip-search-heading" class="mb-14 bg-navy-50 border border-navy-100 rounded-2xl p-6 sm:p-8">
   <h2 id="zip-search-heading" class="text-xl font-bold text-navy-700 mb-2">Find Providers Near You</h2>
   <p class="text-sm text-gray-500 mb-5">
-    Enter your ZIP code to see the closest EvexiPEL-certified BHRT providers, nearest first.
+    Enter your ZIP code to see the closest BHRT providers, nearest first.
   </p>
 
   <form id="zip-search-form" class="flex flex-col sm:flex-row gap-3">
@@ -29,6 +29,15 @@
       required
       class="flex-1 border-2 border-navy-100 rounded-full px-4 py-3 text-sm focus:border-teal-400 focus:outline-none"
     />
+    <select
+      id="cert-filter"
+      name="certification"
+      class="border-2 border-navy-100 rounded-full px-4 py-3 text-sm focus:border-teal-400 focus:outline-none bg-white"
+    >
+      <option value="">All certifications</option>
+      <option value="EvexiPEL">EvexiPEL</option>
+      <option value="BioTE">BioTE</option>
+    </select>
     <button
       type="submit"
       id="zip-search-btn"
@@ -62,12 +71,14 @@
 
   const form = document.getElementById('zip-search-form') as HTMLFormElement;
   const input = document.getElementById('zip-input') as HTMLInputElement;
+  const certFilter = document.getElementById('cert-filter') as HTMLSelectElement;
   const errorEl = document.getElementById('zip-search-error') as HTMLElement;
   const resultsEl = document.getElementById('zip-search-results') as HTMLElement;
   const btn = document.getElementById('zip-search-btn') as HTMLButtonElement;
 
   let zipCoords: Record<string, [number, number]> | null = null;
   let providers: ProviderGeo[] | null = null;
+  let lastSearchedZip: string | null = null;
 
   function haversineMiles(lat1: number, lon1: number, lat2: number, lon2: number): number {
     const R = 3958.8; // Earth radius in miles
@@ -144,15 +155,8 @@
     resultsEl.innerHTML = '';
   }
 
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  async function runSearch(zip: string) {
     errorEl.classList.add('hidden');
-
-    const zip = input.value.trim();
-    if (!/^\d{5}$/.test(zip)) {
-      showError('Please enter a valid 5-digit ZIP code.');
-      return;
-    }
 
     btn.disabled = true;
     const originalLabel = btn.textContent;
@@ -171,11 +175,21 @@
         return;
       }
 
+      const cert = certFilter.value;
+      const eligible = cert ? providers.filter((p) => p.certifications.includes(cert)) : providers;
+
       const [lat, lng] = coords;
-      const nearest = providers
+      const nearest = eligible
         .map((provider) => ({ provider, distance: haversineMiles(lat, lng, provider.lat, provider.lng) }))
         .sort((a, b) => a.distance - b.distance)
         .slice(0, RESULT_COUNT);
+
+      lastSearchedZip = zip;
+
+      if (nearest.length === 0) {
+        resultsEl.innerHTML = `<p class="text-sm text-gray-500">No ${cert ? cert + '-certified ' : ''}providers found near ${zip}. Try a different certification filter.</p>`;
+        return;
+      }
 
       resultsEl.innerHTML = `
         <p class="text-sm text-gray-500 mb-4">Showing the ${nearest.length} closest providers to ${zip}:</p>
@@ -188,6 +202,24 @@
     } finally {
       btn.disabled = false;
       btn.textContent = originalLabel;
+    }
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const zip = input.value.trim();
+    if (!/^\d{5}$/.test(zip)) {
+      showError('Please enter a valid 5-digit ZIP code.');
+      return;
+    }
+
+    await runSearch(zip);
+  });
+
+  certFilter?.addEventListener('change', async () => {
+    if (lastSearchedZip) {
+      await runSearch(lastSearchedZip);
     }
   });
 </script>
