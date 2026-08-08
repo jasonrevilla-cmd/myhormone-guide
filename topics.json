@@ -642,7 +642,7 @@
     },
     {
       "id": "C1-013",
-      "status": "pending",
+      "status": "published",
       "title": "Progesterone Side Effects — Hunger, Dizziness, and What to Do About Them",
       "primaryKeyword": "progesterone side effects",
       "secondaryKeywords": [
@@ -668,7 +668,9 @@
           "title": "BHRT Safety: What the Research Actually Shows",
           "slug": "bhrt-safety-what-the-research-actually-shows"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-08",
+      "outputFile": "src/content/posts/progesterone-side-effects-hunger-dizziness-and-what-to-do-about-them.mdx"
     },
     {
       "id": "C1-014",
