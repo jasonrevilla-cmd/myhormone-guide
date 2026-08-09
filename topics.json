@@ -674,7 +674,7 @@
     },
     {
       "id": "C1-014",
-      "status": "pending",
+      "status": "published",
       "title": "Scared to Take Your First Dose of BHRT? Here's What Actually Happens",
       "primaryKeyword": "scared to start bhrt",
       "secondaryKeywords": [
@@ -700,7 +700,9 @@
           "title": "BHRT Safety: What the Research Actually Shows",
           "slug": "bhrt-safety-what-the-research-actually-shows"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-09",
+      "outputFile": "src/content/posts/scared-to-take-your-first-dose-of-bhrt-heres-what-actually-happens.mdx"
     },
     {
       "id": "C7-015",
