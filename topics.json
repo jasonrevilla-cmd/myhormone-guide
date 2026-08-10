@@ -706,7 +706,7 @@
     },
     {
       "id": "C7-015",
-      "status": "pending",
+      "status": "published",
       "title": "Your Doctor Said No to BHRT — Here's What to Do Next",
       "primaryKeyword": "doctor refused bhrt",
       "secondaryKeywords": [
@@ -732,7 +732,9 @@
           "title": "Telehealth BHRT: Can You Get Hormones Prescribed Online?",
           "slug": "telehealth-bhrt-online-prescriptions"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-10",
+      "outputFile": "src/content/posts/your-doctor-said-no-to-bhrt-heres-what-to-do-next.mdx"
     },
     {
       "id": "C1-001",
