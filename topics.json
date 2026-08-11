@@ -3199,7 +3199,7 @@
     },
     {
       "id": "C6-005",
-      "status": "pending",
+      "status": "published",
       "title": "Testosterone and Men's Mental Health",
       "primaryKeyword": "testosterone men's mental health",
       "secondaryKeywords": [
@@ -3224,7 +3224,9 @@
           "title": "BHRT for Men: What to Expect in the First 6 Months",
           "slug": "bhrt-for-men-what-to-expect-in-the-first-6-months"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-11",
+      "outputFile": "src/content/posts/testosterone-and-mens-mental-health.mdx"
     },
     {
       "id": "C6-006",
