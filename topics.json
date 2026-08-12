@@ -3230,7 +3230,7 @@
     },
     {
       "id": "C6-006",
-      "status": "pending",
+      "status": "published",
       "title": "Testosterone and Muscle Loss After 50",
       "primaryKeyword": "testosterone muscle loss after 50",
       "secondaryKeywords": [
@@ -3255,7 +3255,9 @@
           "title": "BHRT for Men: What to Expect in the First 6 Months",
           "slug": "bhrt-for-men-what-to-expect-in-the-first-6-months"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-12",
+      "outputFile": "src/content/posts/testosterone-and-muscle-loss-after-50.mdx"
     },
     {
       "id": "C6-007",
