@@ -3261,7 +3261,7 @@
     },
     {
       "id": "C6-007",
-      "status": "pending",
+      "status": "published",
       "title": "Erectile Dysfunction and Hormones: The BHRT Connection",
       "primaryKeyword": "erectile dysfunction hormones BHRT",
       "secondaryKeywords": [
@@ -3286,7 +3286,9 @@
           "title": "Testosterone Pellets for Men: A Complete Guide",
           "slug": "testosterone-pellets-for-men-a-complete-guide"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-13",
+      "outputFile": "src/content/posts/erectile-dysfunction-and-hormones-the-bhrt-connection.mdx"
     },
     {
       "id": "C6-008",
