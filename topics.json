@@ -3292,7 +3292,7 @@
     },
     {
       "id": "C6-008",
-      "status": "pending",
+      "status": "published",
       "title": "Men's Hormone Testing: What to Ask Your Doctor",
       "primaryKeyword": "men's hormone testing",
       "secondaryKeywords": [
@@ -3317,7 +3317,9 @@
           "title": "TRT vs. BHRT for Men: What's the Difference?",
           "slug": "trt-vs-bhrt-for-men-whats-the-difference"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-14",
+      "outputFile": "src/content/posts/mens-hormone-testing-what-to-ask-your-doctor.mdx"
     },
     {
       "id": "C6-009",
