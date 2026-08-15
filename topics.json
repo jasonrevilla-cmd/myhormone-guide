@@ -3323,7 +3323,7 @@
     },
     {
       "id": "C6-009",
-      "status": "pending",
+      "status": "published",
       "title": "Andropause: The Male Menopause Explained",
       "primaryKeyword": "andropause male menopause",
       "secondaryKeywords": [
@@ -3348,7 +3348,9 @@
           "title": "TRT vs. BHRT for Men: What's the Difference?",
           "slug": "trt-vs-bhrt-for-men-whats-the-difference"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-15",
+      "outputFile": "src/content/posts/andropause-the-male-menopause-explained.mdx"
     },
     {
       "id": "C6-010",
