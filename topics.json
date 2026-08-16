@@ -3354,7 +3354,7 @@
     },
     {
       "id": "C6-010",
-      "status": "pending",
+      "status": "published",
       "title": "BHRT for Men: What to Expect in the First 6 Months",
       "primaryKeyword": "BHRT for men results",
       "secondaryKeywords": [
@@ -3379,7 +3379,9 @@
           "title": "Men's Hormone Testing: What to Ask Your Doctor",
           "slug": "mens-hormone-testing-what-to-ask-your-doctor"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-16",
+      "outputFile": "src/content/posts/bhrt-for-men-what-to-expect-in-the-first-6-months.mdx"
     },
     {
       "id": "C7-003",
