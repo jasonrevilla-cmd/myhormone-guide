@@ -3385,7 +3385,7 @@
     },
     {
       "id": "C7-003",
-      "status": "pending",
+      "status": "published",
       "title": "Questions to Ask a BHRT Clinic Before You Start",
       "primaryKeyword": "questions to ask BHRT clinic",
       "secondaryKeywords": [
@@ -3410,7 +3410,9 @@
           "title": "What Happens at Your First BHRT Consultation?",
           "slug": "what-happens-at-your-first-bhrt-consultation"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-17",
+      "outputFile": "src/content/posts/questions-to-ask-a-bhrt-clinic-before-you-start.mdx"
     },
     {
       "id": "C7-004",
