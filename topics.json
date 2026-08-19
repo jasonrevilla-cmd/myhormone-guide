@@ -3416,7 +3416,7 @@
     },
     {
       "id": "C7-004",
-      "status": "pending",
+      "status": "published",
       "title": "BHRT Clinics vs. Primary Care: Who Should Prescribe Your Hormones?",
       "primaryKeyword": "BHRT clinic vs primary care",
       "secondaryKeywords": [
@@ -3441,7 +3441,9 @@
           "title": "Functional Medicine and BHRT: What's the Connection?",
           "slug": "functional-medicine-and-bhrt-whats-the-connection"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-19",
+      "outputFile": "src/content/posts/bhrt-clinics-vs-primary-care-who-should-prescribe-your-hormones.mdx"
     },
     {
       "id": "C7-005",
