@@ -25,23 +25,43 @@ const formSrc = `${GHL_FORM_BASE_URL}?${new URLSearchParams({
 
 <section aria-labelledby="inquiry-heading" class="mb-10 bg-white border border-navy-100 rounded-2xl p-6">
   <h2 id="inquiry-heading" class="text-lg font-bold text-navy-700 mb-4">Message This Provider</h2>
-  <iframe
-    src={formSrc}
-    style="width:100%;height:1340px;border:none;border-radius:8px"
-    id={`inline-${GHL_FORM_ID}`}
-    data-layout="{'id':'INLINE'}"
-    data-trigger-type="alwaysShow"
-    data-trigger-value=""
-    data-activation-type="alwaysActivated"
-    data-activation-value=""
-    data-deactivation-type="neverDeactivate"
-    data-deactivation-value=""
-    data-form-name="Form 0"
-    data-height="1340"
-    data-layout-iframe-id={`inline-${GHL_FORM_ID}`}
-    data-form-id={GHL_FORM_ID}
-    title={`Message ${name}`}
-  ></iframe>
+  <div class="relative" style="min-height:1340px">
+    <div id="inquiry-form-skeleton" class="absolute inset-0 space-y-4 animate-pulse" aria-hidden="true">
+      <div class="h-11 bg-navy-50 rounded-lg"></div>
+      <div class="h-11 bg-navy-50 rounded-lg"></div>
+      <div class="h-11 bg-navy-50 rounded-lg"></div>
+      <div class="h-11 bg-navy-50 rounded-lg"></div>
+      <div class="h-28 bg-navy-50 rounded-lg"></div>
+      <div class="h-11 w-40 bg-navy-100 rounded-full"></div>
+    </div>
+    <iframe
+      src={formSrc}
+      style="width:100%;height:1340px;border:none;border-radius:8px"
+      class="relative opacity-0 transition-opacity duration-300"
+      id={`inline-${GHL_FORM_ID}`}
+      data-layout="{'id':'INLINE'}"
+      data-trigger-type="alwaysShow"
+      data-trigger-value=""
+      data-activation-type="alwaysActivated"
+      data-activation-value=""
+      data-deactivation-type="neverDeactivate"
+      data-deactivation-value=""
+      data-form-name="Form 0"
+      data-height="1340"
+      data-layout-iframe-id={`inline-${GHL_FORM_ID}`}
+      data-form-id={GHL_FORM_ID}
+      title={`Message ${name}`}
+    ></iframe>
+  </div>
 </section>
 
 <script src="https://link.msgsndr.com/js/form_embed.js" is:inline></script>
+<script define:vars={{ iframeId: `inline-${GHL_FORM_ID}` }} is:inline>
+  // The iframe's cross-origin `load` fires once GHL's document has loaded —
+  // close enough to "form visible" to swap out the skeleton without needing
+  // to read into the frame (which we can't, cross-origin).
+  document.getElementById(iframeId)?.addEventListener('load', function () {
+    this.classList.remove('opacity-0');
+    document.getElementById('inquiry-form-skeleton')?.remove();
+  });
+</script>
