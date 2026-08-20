@@ -3447,7 +3447,7 @@
     },
     {
       "id": "C7-005",
-      "status": "pending",
+      "status": "published",
       "title": "Red Flags to Watch for in BHRT Providers",
       "primaryKeyword": "red flags BHRT providers",
       "secondaryKeywords": [
@@ -3472,7 +3472,9 @@
           "title": "How to Find a BHRT Doctor Near You",
           "slug": "how-to-find-a-bhrt-doctor-near-you"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-20",
+      "outputFile": "src/content/posts/red-flags-to-watch-for-in-bhrt-providers.mdx"
     },
     {
       "id": "C7-006",
