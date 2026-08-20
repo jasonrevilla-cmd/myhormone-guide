@@ -610,7 +610,7 @@
     },
     {
       "id": "C2-016",
-      "status": "pending",
+      "status": "published",
       "title": "Brain Fog So Bad I Had to Stop Working — And What Finally Fixed It",
       "primaryKeyword": "perimenopause brain fog work",
       "secondaryKeywords": [
@@ -636,11 +636,13 @@
           "title": "Perimenopause Symptoms: The Complete Checklist",
           "slug": "perimenopause-symptoms-the-complete-checklist"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-07",
+      "outputFile": "src/content/posts/brain-fog-so-bad-i-had-to-stop-working-and-what-finally-fixed-it.mdx"
     },
     {
       "id": "C1-013",
-      "status": "pending",
+      "status": "published",
       "title": "Progesterone Side Effects — Hunger, Dizziness, and What to Do About Them",
       "primaryKeyword": "progesterone side effects",
       "secondaryKeywords": [
@@ -666,11 +668,13 @@
           "title": "BHRT Safety: What the Research Actually Shows",
           "slug": "bhrt-safety-what-the-research-actually-shows"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-08",
+      "outputFile": "src/content/posts/progesterone-side-effects-hunger-dizziness-and-what-to-do-about-them.mdx"
     },
     {
       "id": "C1-014",
-      "status": "pending",
+      "status": "published",
       "title": "Scared to Take Your First Dose of BHRT? Here's What Actually Happens",
       "primaryKeyword": "scared to start bhrt",
       "secondaryKeywords": [
@@ -696,11 +700,13 @@
           "title": "BHRT Safety: What the Research Actually Shows",
           "slug": "bhrt-safety-what-the-research-actually-shows"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-09",
+      "outputFile": "src/content/posts/scared-to-take-your-first-dose-of-bhrt-heres-what-actually-happens.mdx"
     },
     {
       "id": "C7-015",
-      "status": "pending",
+      "status": "published",
       "title": "Your Doctor Said No to BHRT — Here's What to Do Next",
       "primaryKeyword": "doctor refused bhrt",
       "secondaryKeywords": [
@@ -726,7 +732,9 @@
           "title": "Telehealth BHRT: Can You Get Hormones Prescribed Online?",
           "slug": "telehealth-bhrt-online-prescriptions"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-10",
+      "outputFile": "src/content/posts/your-doctor-said-no-to-bhrt-heres-what-to-do-next.mdx"
     },
     {
       "id": "C1-001",
@@ -3191,7 +3199,7 @@
     },
     {
       "id": "C6-005",
-      "status": "pending",
+      "status": "published",
       "title": "Testosterone and Men's Mental Health",
       "primaryKeyword": "testosterone men's mental health",
       "secondaryKeywords": [
@@ -3216,11 +3224,13 @@
           "title": "BHRT for Men: What to Expect in the First 6 Months",
           "slug": "bhrt-for-men-what-to-expect-in-the-first-6-months"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-11",
+      "outputFile": "src/content/posts/testosterone-and-mens-mental-health.mdx"
     },
     {
       "id": "C6-006",
-      "status": "pending",
+      "status": "published",
       "title": "Testosterone and Muscle Loss After 50",
       "primaryKeyword": "testosterone muscle loss after 50",
       "secondaryKeywords": [
@@ -3245,11 +3255,13 @@
           "title": "BHRT for Men: What to Expect in the First 6 Months",
           "slug": "bhrt-for-men-what-to-expect-in-the-first-6-months"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-12",
+      "outputFile": "src/content/posts/testosterone-and-muscle-loss-after-50.mdx"
     },
     {
       "id": "C6-007",
-      "status": "pending",
+      "status": "published",
       "title": "Erectile Dysfunction and Hormones: The BHRT Connection",
       "primaryKeyword": "erectile dysfunction hormones BHRT",
       "secondaryKeywords": [
@@ -3274,11 +3286,13 @@
           "title": "Testosterone Pellets for Men: A Complete Guide",
           "slug": "testosterone-pellets-for-men-a-complete-guide"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-13",
+      "outputFile": "src/content/posts/erectile-dysfunction-and-hormones-the-bhrt-connection.mdx"
     },
     {
       "id": "C6-008",
-      "status": "pending",
+      "status": "published",
       "title": "Men's Hormone Testing: What to Ask Your Doctor",
       "primaryKeyword": "men's hormone testing",
       "secondaryKeywords": [
@@ -3303,11 +3317,13 @@
           "title": "TRT vs. BHRT for Men: What's the Difference?",
           "slug": "trt-vs-bhrt-for-men-whats-the-difference"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-14",
+      "outputFile": "src/content/posts/mens-hormone-testing-what-to-ask-your-doctor.mdx"
     },
     {
       "id": "C6-009",
-      "status": "pending",
+      "status": "published",
       "title": "Andropause: The Male Menopause Explained",
       "primaryKeyword": "andropause male menopause",
       "secondaryKeywords": [
@@ -3332,11 +3348,13 @@
           "title": "TRT vs. BHRT for Men: What's the Difference?",
           "slug": "trt-vs-bhrt-for-men-whats-the-difference"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-15",
+      "outputFile": "src/content/posts/andropause-the-male-menopause-explained.mdx"
     },
     {
       "id": "C6-010",
-      "status": "pending",
+      "status": "published",
       "title": "BHRT for Men: What to Expect in the First 6 Months",
       "primaryKeyword": "BHRT for men results",
       "secondaryKeywords": [
@@ -3361,11 +3379,13 @@
           "title": "Men's Hormone Testing: What to Ask Your Doctor",
           "slug": "mens-hormone-testing-what-to-ask-your-doctor"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-16",
+      "outputFile": "src/content/posts/bhrt-for-men-what-to-expect-in-the-first-6-months.mdx"
     },
     {
       "id": "C7-003",
-      "status": "pending",
+      "status": "published",
       "title": "Questions to Ask a BHRT Clinic Before You Start",
       "primaryKeyword": "questions to ask BHRT clinic",
       "secondaryKeywords": [
@@ -3390,11 +3410,13 @@
           "title": "What Happens at Your First BHRT Consultation?",
           "slug": "what-happens-at-your-first-bhrt-consultation"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-17",
+      "outputFile": "src/content/posts/questions-to-ask-a-bhrt-clinic-before-you-start.mdx"
     },
     {
       "id": "C7-004",
-      "status": "pending",
+      "status": "published",
       "title": "BHRT Clinics vs. Primary Care: Who Should Prescribe Your Hormones?",
       "primaryKeyword": "BHRT clinic vs primary care",
       "secondaryKeywords": [
@@ -3419,11 +3441,13 @@
           "title": "Functional Medicine and BHRT: What's the Connection?",
           "slug": "functional-medicine-and-bhrt-whats-the-connection"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-19",
+      "outputFile": "src/content/posts/bhrt-clinics-vs-primary-care-who-should-prescribe-your-hormones.mdx"
     },
     {
       "id": "C7-005",
-      "status": "pending",
+      "status": "published",
       "title": "Red Flags to Watch for in BHRT Providers",
       "primaryKeyword": "red flags BHRT providers",
       "secondaryKeywords": [
@@ -3448,7 +3472,9 @@
           "title": "How to Find a BHRT Doctor Near You",
           "slug": "how-to-find-a-bhrt-doctor-near-you"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-20",
+      "outputFile": "src/content/posts/red-flags-to-watch-for-in-bhrt-providers.mdx"
     },
     {
       "id": "C7-006",
