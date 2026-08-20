@@ -3,6 +3,7 @@ import citiesData from '../../data/cities.json';
 import providersData from '../../../providers.json';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProviderClaimModal from '../../components/ProviderClaimModal.astro';
+import ProviderInquiryForm from '../../components/ProviderInquiryForm.astro';
 import { maskPhone, maskStreet } from '../../lib/providerMasking';
 import { getAllStates } from '../../lib/stateDirectory';
 import { getCityPageEntries, normalizeCityKey } from '../../lib/cityDirectory';
@@ -183,6 +184,14 @@ const breadcrumbSchema = {
         )}
       </div>
     </section>
+
+    <!-- Message this provider -->
+    <ProviderInquiryForm
+      slug={provider.slug}
+      name={provider.practiceName}
+      city={provider.city}
+      stateCode={provider.stateCode}
+    />
 
     <!-- Certifications & services -->
     <section aria-labelledby="services-heading" class="mb-10 grid grid-cols-1 sm:grid-cols-2 gap-4">

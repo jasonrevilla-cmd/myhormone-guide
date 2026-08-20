@@ -1,0 +1,47 @@
+---
+// Renders the GHL "Message This Provider" form. The iframe src must be built
+// per-page — GHL's form sandboxing means a static src can't receive the
+// provider context, so we pass it via query params on hidden form fields
+// (provider_slug/provider_state/provider_city/provider_name) instead.
+interface Props {
+  slug: string;
+  name: string;
+  city: string;
+  stateCode: string;
+}
+
+const { slug, name, city, stateCode } = Astro.props;
+
+const GHL_FORM_ID = 'vJPuQETjr9qGdIMzBbJL';
+const GHL_FORM_BASE_URL = `https://api.leadconnectorhq.com/widget/form/${GHL_FORM_ID}`;
+
+const formSrc = `${GHL_FORM_BASE_URL}?${new URLSearchParams({
+  provider_slug: slug,
+  provider_state: stateCode,
+  provider_city: city,
+  provider_name: name,
+})}`;
+---
+
+<section aria-labelledby="inquiry-heading" class="mb-10 bg-white border border-navy-100 rounded-2xl p-6">
+  <h2 id="inquiry-heading" class="text-lg font-bold text-navy-700 mb-4">Message This Provider</h2>
+  <iframe
+    src={formSrc}
+    style="width:100%;height:1340px;border:none;border-radius:8px"
+    id={`inline-${GHL_FORM_ID}`}
+    data-layout="{'id':'INLINE'}"
+    data-trigger-type="alwaysShow"
+    data-trigger-value=""
+    data-activation-type="alwaysActivated"
+    data-activation-value=""
+    data-deactivation-type="neverDeactivate"
+    data-deactivation-value=""
+    data-form-name="Form 0"
+    data-height="1340"
+    data-layout-iframe-id={`inline-${GHL_FORM_ID}`}
+    data-form-id={GHL_FORM_ID}
+    title={`Message ${name}`}
+  ></iframe>
+</section>
+
+<script src="https://link.msgsndr.com/js/form_embed.js" is:inline></script>
