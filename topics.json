@@ -3478,7 +3478,7 @@
     },
     {
       "id": "C7-006",
-      "status": "pending",
+      "status": "published",
       "title": "What Is a Hormone Specialist? Credentials to Look For",
       "primaryKeyword": "hormone specialist credentials",
       "secondaryKeywords": [
@@ -3503,7 +3503,9 @@
           "title": "What to Look for in a BHRT Provider",
           "slug": "what-to-look-for-in-a-bhrt-provider"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-21",
+      "outputFile": "src/content/posts/what-is-a-hormone-specialist-credentials-to-look-for.mdx"
     },
     {
       "id": "C7-007",
