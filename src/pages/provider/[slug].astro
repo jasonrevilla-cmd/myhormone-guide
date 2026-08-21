@@ -27,6 +27,17 @@ const pageUrl = `${SITE_URL}/provider/${provider.slug}/`;
 
 const displayPhone = isUnclaimed ? maskPhone(provider.phone) : provider.phone;
 const displayStreet = isUnclaimed ? maskStreet(provider.street) : provider.street;
+const telHref = `tel:${provider.phone.replace(/\D/g, '')}`;
+
+// Header card avatar placeholder — first letter of up to the first two words
+// of the practice name (e.g. "Youngblood Aesthetics" -> "YA").
+const initials = provider.practiceName
+  .split(/\s+/)
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((word) => word[0])
+  .join('')
+  .toUpperCase();
 
 // Only link into the state/city tree if a real page exists for it — a state
 // page now exists for every state with providers.json coverage (not just
@@ -104,143 +115,201 @@ const breadcrumbSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
 
-  <!-- Header -->
-  <div class="bg-gradient-to-br from-navy-600 to-navy-700 py-14">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-2 flex-wrap mb-4">
-        {provider.certifications.map((cert) => (
-          <span class="inline-flex items-center gap-1.5 bg-teal-400/20 text-teal-200 text-sm px-3 py-1 rounded-full">
-            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+    <div class="grid md:grid-cols-[1fr_380px] gap-8 items-start">
+
+      <!-- Left column: business info -->
+      <div class="min-w-0">
+
+        <!-- Header card -->
+        <section class="bg-white border border-navy-100 rounded-2xl p-6 mb-6">
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 rounded-full bg-navy-100 text-navy-500 flex items-center justify-center font-bold text-lg flex-shrink-0" aria-hidden="true">
+              {initials}
+            </div>
+            <div class="min-w-0">
+              <h1 class="text-2xl sm:text-3xl font-bold text-navy-700 mb-1 break-words">
+                {provider.practiceName}
+              </h1>
+              <p class="text-gray-500 mb-2">{provider.city}, {provider.stateCode}</p>
+              <div class="flex items-center gap-1 mb-2">
+                {[...Array(5)].map(() => (
+                  <svg class="w-4 h-4 text-gray-200" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.958a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.363 1.118l1.287 3.958c.3.922-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.196-1.539-1.118l1.286-3.958a1 1 0 00-.363-1.118l-3.37-2.448c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.285-3.958z" />
+                  </svg>
+                ))}
+                <span class="text-sm text-gray-400 ml-1">No reviews yet</span>
+              </div>
+              {!isUnclaimed && (
+                <span class="inline-flex items-center gap-1.5 bg-teal-50 text-teal-700 text-sm font-semibold px-3 py-1 rounded-full">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  Claimed listing
+                </span>
+              )}
+            </div>
+          </div>
+        </section>
+
+        <!-- Action row -->
+        <div class="flex flex-wrap gap-3 mb-8">
+          {!isUnclaimed && provider.phone && (
+            <a
+              href={telHref}
+              class="inline-flex items-center gap-2 bg-navy-600 hover:bg-navy-700 text-white font-semibold px-5 py-2.5 rounded-full transition-colors"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+              Call
+            </a>
+          )}
+          {!isUnclaimed && provider.website && (
+            <a
+              href={provider.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-white border border-navy-200 hover:border-navy-300 text-navy-700 font-semibold px-5 py-2.5 rounded-full transition-colors"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+              Visit website
+            </a>
+          )}
+          <a
+            href="#inquiry-form"
+            class="inline-flex items-center gap-2 bg-teal-400 hover:bg-teal-500 text-white font-semibold px-5 py-2.5 rounded-full transition-colors"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
             </svg>
-            {cert} certified
-          </span>
-        ))}
-        {isUnclaimed && (
-          <span class="inline-flex items-center bg-amber-400/20 text-amber-200 text-sm font-semibold px-3 py-1 rounded-full">
-            Unclaimed listing
-          </span>
-        )}
+            Message This Provider
+          </a>
+        </div>
+
+        <!-- Contact info -->
+        <section aria-labelledby="contact-heading" class="mb-6 bg-white border border-navy-100 rounded-2xl p-6">
+          <h2 id="contact-heading" class="text-lg font-bold text-navy-700 mb-4">Contact Information</h2>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-navy-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <div>
+                {isUnclaimed && (
+                  <svg class="w-3.5 h-3.5 text-navy-300 inline mr-1.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                  </svg>
+                )}
+                <span class:list={["text-navy-700", { "blur-[3px] select-none": isUnclaimed }]}>
+                  {displayStreet && `${displayStreet}, `}{provider.city}, {provider.stateCode} {provider.zip}
+                </span>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-navy-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+              {isUnclaimed && (
+                <svg class="w-3.5 h-3.5 text-navy-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+              )}
+              <span class:list={["text-navy-700", { "blur-[3px] select-none": isUnclaimed }]}>{displayPhone}</span>
+            </div>
+            {!isUnclaimed && (provider.evexipelProfileUrl || provider.googleBusinessUrl) && (
+              <div class="flex items-center gap-4 flex-wrap pt-2">
+                {provider.evexipelProfileUrl && (
+                  <a href={provider.evexipelProfileUrl} target="_blank" rel="noopener noreferrer nofollow" class="inline-flex items-center gap-1.5 text-sm font-medium text-teal-600 hover:text-teal-500">
+                    View EvexiPEL Profile
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                  </a>
+                )}
+                {provider.googleBusinessUrl && (
+                  <a href={provider.googleBusinessUrl} target="_blank" rel="noopener noreferrer nofollow" class="inline-flex items-center gap-1.5 text-sm font-medium text-teal-600 hover:text-teal-500">
+                    View on Google
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        </section>
+
+        <!-- Certifications & services -->
+        <section aria-labelledby="services-heading" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-white border border-navy-100 rounded-2xl p-6">
+            <h2 class="text-sm font-semibold text-navy-500 uppercase tracking-wide mb-3">Certifications</h2>
+            <ul class="space-y-2">
+              {provider.certifications.map((cert) => (
+                <li class="flex items-center gap-2 text-sm text-navy-700">
+                  <svg class="w-4 h-4 text-teal-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  {cert}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="bg-white border border-navy-100 rounded-2xl p-6">
+            <h2 id="services-heading" class="text-sm font-semibold text-navy-500 uppercase tracking-wide mb-3">Services</h2>
+            <ul class="space-y-2">
+              {provider.services.map((service) => (
+                <li class="flex items-center gap-2 text-sm text-navy-700">
+                  <svg class="w-4 h-4 text-teal-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  {service}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
       </div>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">
-        {provider.practiceName}
-      </h1>
-      <p class="text-navy-100 text-lg">{provider.city}, {provider.stateCode}</p>
-    </div>
-  </div>
 
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Right column: inquiry form (sticky on desktop) -->
+      <div>
+        <div id="inquiry-form" class="md:sticky md:top-20 scroll-mt-20">
+          <ProviderInquiryForm
+            slug={provider.slug}
+            name={provider.practiceName}
+            city={provider.city}
+            stateCode={provider.stateCode}
+          />
+        </div>
 
-    <!-- Contact info -->
-    <section aria-labelledby="contact-heading" class="mb-10 bg-white border border-navy-100 rounded-2xl p-6">
-      <h2 id="contact-heading" class="text-lg font-bold text-navy-700 mb-4">Contact Information</h2>
-      <div class="space-y-4">
-        <div class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-navy-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-          </svg>
-          <div>
-            {isUnclaimed && (
-              <svg class="w-3.5 h-3.5 text-navy-300 inline mr-1.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        {isUnclaimed && (
+          <div class="mt-6 bg-amber-50 border border-amber-100 rounded-2xl p-6">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
               </svg>
-            )}
-            <span class:list={["text-navy-700", { "blur-[3px] select-none": isUnclaimed }]}>
-              {displayStreet && `${displayStreet}, `}{provider.city}, {provider.stateCode} {provider.zip}
-            </span>
-          </div>
-        </div>
-        <div class="flex items-center gap-3">
-          <svg class="w-5 h-5 text-navy-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-          </svg>
-          {isUnclaimed && (
-            <svg class="w-3.5 h-3.5 text-navy-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-            </svg>
-          )}
-          <span class:list={["text-navy-700", { "blur-[3px] select-none": isUnclaimed }]}>{displayPhone}</span>
-        </div>
-        {!isUnclaimed && (provider.evexipelProfileUrl || provider.googleBusinessUrl) && (
-          <div class="flex items-center gap-4 flex-wrap pt-2">
-            {provider.evexipelProfileUrl && (
-              <a href={provider.evexipelProfileUrl} target="_blank" rel="noopener noreferrer nofollow" class="inline-flex items-center gap-1.5 text-sm font-medium text-teal-600 hover:text-teal-500">
-                View EvexiPEL Profile
-                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                </svg>
-              </a>
-            )}
-            {provider.googleBusinessUrl && (
-              <a href={provider.googleBusinessUrl} target="_blank" rel="noopener noreferrer nofollow" class="inline-flex items-center gap-1.5 text-sm font-medium text-teal-600 hover:text-teal-500">
-                View on Google
-                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                </svg>
-              </a>
-            )}
+              <div>
+                <p class="text-sm font-semibold text-navy-700 mb-1">This listing is unclaimed</p>
+                <p class="text-sm text-gray-600 mb-4">
+                  Register interest below, but messages aren't routed to the provider until they claim this listing.
+                </p>
+                <a
+                  href="/claim-your-listing/"
+                  class="inline-flex items-center gap-2 bg-navy-600 hover:bg-navy-700 text-white font-semibold text-sm px-4 py-2 rounded-full transition-colors"
+                >
+                  Is this your practice?
+                </a>
+              </div>
+            </div>
           </div>
         )}
       </div>
-    </section>
 
-    <!-- Message this provider -->
-    <ProviderInquiryForm
-      slug={provider.slug}
-      name={provider.practiceName}
-      city={provider.city}
-      stateCode={provider.stateCode}
-    />
-
-    <!-- Certifications & services -->
-    <section aria-labelledby="services-heading" class="mb-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <div class="bg-white border border-navy-100 rounded-2xl p-6">
-        <h2 class="text-sm font-semibold text-navy-500 uppercase tracking-wide mb-3">Certifications</h2>
-        <ul class="space-y-2">
-          {provider.certifications.map((cert) => (
-            <li class="flex items-center gap-2 text-sm text-navy-700">
-              <svg class="w-4 h-4 text-teal-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              {cert}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div class="bg-white border border-navy-100 rounded-2xl p-6">
-        <h2 id="services-heading" class="text-sm font-semibold text-navy-500 uppercase tracking-wide mb-3">Services</h2>
-        <ul class="space-y-2">
-          {provider.services.map((service) => (
-            <li class="flex items-center gap-2 text-sm text-navy-700">
-              <svg class="w-4 h-4 text-teal-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              {service}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-
-    <!-- Unlock CTA -->
-    {isUnclaimed && (
-      <section class="mb-10 bg-navy-50 border border-navy-100 rounded-2xl p-8 text-center">
-        <svg class="w-10 h-10 text-navy-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-        </svg>
-        <h2 class="text-xl font-bold text-navy-700 mb-2">This is an unclaimed listing</h2>
-        <p class="text-gray-600 mb-6 max-w-md mx-auto">
-          Full contact details are hidden until this practice claims and unlocks its profile.
-        </p>
-        <a
-          href="/claim-your-listing/"
-          class="inline-flex items-center gap-2 bg-navy-600 hover:bg-navy-700 text-white font-semibold px-6 py-3 rounded-full transition-colors"
-        >
-          Claim This Listing
-        </a>
-      </section>
-    )}
+    </div>
 
     <!-- Claim modal -->
     <div id="claim">
