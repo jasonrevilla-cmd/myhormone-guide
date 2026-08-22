@@ -3509,7 +3509,7 @@
     },
     {
       "id": "C7-007",
-      "status": "pending",
+      "status": "published",
       "title": "Functional Medicine and BHRT: What's the Connection?",
       "primaryKeyword": "functional medicine BHRT",
       "secondaryKeywords": [
@@ -3534,7 +3534,9 @@
           "title": "How to Find a BHRT Doctor Near You",
           "slug": "how-to-find-a-bhrt-doctor-near-you"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-22",
+      "outputFile": "src/content/posts/functional-medicine-and-bhrt-whats-the-connection.mdx"
     },
     {
       "id": "C7-008",
