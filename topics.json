@@ -3540,7 +3540,7 @@
     },
     {
       "id": "C7-008",
-      "status": "pending",
+      "status": "published",
       "title": "Telehealth BHRT: Can You Get Hormones Prescribed Online?",
       "primaryKeyword": "telehealth BHRT online prescription",
       "secondaryKeywords": [
@@ -3565,7 +3565,9 @@
           "title": "What Happens at Your First BHRT Consultation?",
           "slug": "what-happens-at-your-first-bhrt-consultation"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-26",
+      "outputFile": "src/content/posts/telehealth-bhrt-can-you-get-hormones-prescribed-online.mdx"
     },
     {
       "id": "C7-009",
