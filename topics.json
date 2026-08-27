@@ -3571,7 +3571,7 @@
     },
     {
       "id": "C7-009",
-      "status": "pending",
+      "status": "published",
       "title": "What Happens at Your First BHRT Consultation?",
       "primaryKeyword": "first BHRT consultation",
       "secondaryKeywords": [
@@ -3596,7 +3596,9 @@
           "title": "Hormone Testing for Women: What Tests to Ask For",
           "slug": "hormone-testing-for-women-what-tests-to-ask-for"
         }
-      ]
+      ],
+      "publishedDate": "2026-08-27",
+      "outputFile": "src/content/posts/what-happens-at-your-first-bhrt-consultation.mdx"
     },
     {
       "id": "C7-010",
